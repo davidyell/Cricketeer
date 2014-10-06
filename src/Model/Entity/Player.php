@@ -15,6 +15,7 @@ class Player extends Entity {
  */
 	protected $_accessible = [
 		'first_name' => true,
+		'initials' => true,
 		'last_name' => true,
 		'slug' => true,
 		'photo' => true,
