@@ -46,5 +46,13 @@ class AppController extends Controller {
 			'loginRedirect' => ['controller' => 'clubs', 'action' => 'index', 'admin' => true]
 		]
 	];
+	
+	public function beforeFilter(\Cake\Event\Event $event) {
+		parent::beforeFilter($event);
+		
+		if ($this->request->params['prefix'] === 'admin') {
+			$this->layout = 'admin';
+		}
+	}
 
 }
