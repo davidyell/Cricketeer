@@ -22,13 +22,13 @@ class WicketsTable extends Table {
 		$this->primaryKey('id');
 		$this->addBehavior('Timestamp');
 
-		$this->belongsTo('LostWicketPlayers', [
+		$this->belongsTo('Players', [
 			'foreignKey' => 'lost_wicket_player_id',
 		]);
-		$this->belongsTo('TookWicketPlayers', [
+		$this->belongsTo('Players', [
 			'foreignKey' => 'took_wicket_player_id',
 		]);
-		$this->belongsTo('BowlerPlayers', [
+		$this->belongsTo('Players', [
 			'foreignKey' => 'bowler_player_id',
 		]);
 		$this->belongsTo('Dismissals', [

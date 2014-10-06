@@ -40,6 +40,15 @@ class PlayersTable extends Table {
 		$this->hasMany('Squads', [
 			'foreignKey' => 'player_id',
 		]);
+		$this->hasMany('Wickets', [
+			'foreignKey' => 'lost_wicket_player_id'
+		]);
+		$this->hasMany('Wickets', [
+			'foreignKey' => 'took_wicket_player_id'
+		]);
+		$this->hasMany('Wickets', [
+			'foreignKey' => 'bowler_player_id'
+		]);
 	}
 
 /**
