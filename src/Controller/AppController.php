@@ -50,7 +50,7 @@ class AppController extends Controller {
 	public function beforeFilter(\Cake\Event\Event $event) {
 		parent::beforeFilter($event);
 		
-		if ($this->request->params['prefix'] === 'admin') {
+		if (isset($this->request->params['prefix']) && $this->request->params['prefix'] === 'admin') {
 			$this->layout = 'admin';
 		}
 	}
