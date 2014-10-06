@@ -17,7 +17,18 @@ class BatsmenControllerTest extends IntegrationTestCase {
 	public $fixtures = [
 		'app.batsmen',
 		'app.players',
-		'app.innings'
+		'app.player_specialisations',
+		'app.clubs',
+		'app.leagues',
+		'app.teams',
+		'app.matches',
+		'app.venues',
+		'app.formats',
+		'app.innings',
+		'app.wickets',
+		'app.dismissals',
+		'app.bowlers',
+		'app.squads'
 	];
 
 /**

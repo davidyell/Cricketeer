@@ -34,5 +34,17 @@ class AppController extends Controller {
  *
  * @var array
  */
-	public $components = ['Flash'];
+	public $components = [
+		'Flash',
+		'Auth' => [
+			'authenticate' => [
+				'Form' => [
+					'fields' => ['username' => 'email']
+				]
+			],
+			'authError' => 'You do not have permission to view that.',
+			'loginRedirect' => ['controller' => 'clubs', 'action' => 'index', 'admin' => true]
+		]
+	];
+
 }

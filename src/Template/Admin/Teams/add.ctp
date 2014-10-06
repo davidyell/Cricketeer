@@ -1,7 +1,6 @@
 <div class="actions columns large-2 medium-3">
 	<h3><?= __('Actions') ?></h3>
 	<ul class="side-nav">
-		<li><?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $team->id], ['confirm' => __('Are you sure you want to delete # %s?', $team->id)]) ?></li>
 		<li><?= $this->Html->link(__('List Teams'), ['action' => 'index']) ?></li>
 		<li><?= $this->Html->link(__('List Clubs'), ['controller' => 'Clubs', 'action' => 'index']) ?> </li>
 		<li><?= $this->Html->link(__('New Club'), ['controller' => 'Clubs', 'action' => 'add']) ?> </li>
@@ -16,11 +15,10 @@
 <div class="teams form large-10 medium-9 columns">
 <?= $this->Form->create($team) ?>
 	<fieldset>
-		<legend><?= __('Edit Team'); ?></legend>
+		<legend><?= __('Add Team'); ?></legend>
 	<?php
 		echo $this->Form->input('club_id', ['options' => $clubs]);
 		echo $this->Form->input('match_id', ['options' => $matches]);
-		echo $this->Form->input('captain');
 	?>
 	</fieldset>
 <?= $this->Form->button(__('Submit')) ?>

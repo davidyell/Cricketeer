@@ -38,8 +38,8 @@ class BatsmenFixture extends TestFixture {
 		],
 		'_constraints' => [
 			'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-			'fk_batsmen_player_id' => ['type' => 'foreign', 'columns' => ['player_id'], 'references' => ['players', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
 			'fk_batsmen_innings_id' => ['type' => 'foreign', 'columns' => ['innings_id'], 'references' => ['innings', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+			'fk_batsmen_player_id' => ['type' => 'foreign', 'columns' => ['player_id'], 'references' => ['players', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
 		],
 		'_options' => [
 'engine' => 'InnoDB', 'collation' => 'utf8_general_ci'
@@ -61,8 +61,8 @@ class BatsmenFixture extends TestFixture {
 			'strike_rate' => 1,
 			'fours' => 1,
 			'sixes' => 1,
-			'created' => '2014-10-06 11:36:55',
-			'modified' => '2014-10-06 11:36:55'
+			'created' => '2014-10-06 14:04:33',
+			'modified' => '2014-10-06 14:04:33'
 		],
 	];
 

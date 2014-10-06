@@ -21,6 +21,11 @@
 use Cake\Core\Plugin;
 use Cake\Routing\Router;
 
+Router::prefix('admin', function($routes) {
+	$routes->connect('/:controller', ['action' => 'index']);
+	$routes->connect('/:controller/:action/*');
+});
+
 Router::scope('/', function($routes) {
 /**
  * Here, we are connecting '/' (base path) to a controller called 'Pages',
