@@ -22,6 +22,7 @@
 		<legend><?= __('Add Player'); ?></legend>
 	<?php
 		echo $this->Form->input('first_name');
+		echo $this->Form->input('initials');
 		echo $this->Form->input('last_name');
 		echo $this->Form->input('slug');
 		echo $this->Form->input('photo');
