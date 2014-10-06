@@ -18,7 +18,7 @@ class PlayersTable extends Table {
  */
 	public function initialize(array $config) {
 		$this->table('players');
-		$this->displayField('id');
+		$this->displayField('FullName');
 		$this->primaryKey('id');
 		$this->addBehavior('Timestamp');
 
