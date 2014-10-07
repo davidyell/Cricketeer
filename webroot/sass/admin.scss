@@ -4,7 +4,7 @@ $highlightText: #fff;
 
 $bodyBg: #ccc;
 
-
+/** Structure **/
 html {}
 body {
 	background-color: $bodyBg;
@@ -26,4 +26,14 @@ footer {
 	background-color: $highlight;
 	color: $highlightText;
 	text-align: center;
+}
+
+/** Specific views **/
+div.view {
+	h6.subheader {
+		font-size: 14px;
+	}
+	p {
+		margin-left: 10px;
+	}
 }
