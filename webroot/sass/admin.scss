@@ -23,7 +23,7 @@ nav.navbar {
 }
 footer {
 	padding: 10px;
-	background-color: darken($highlight, 5%);
+	background-color: $highlight;
 	color: $highlightText;
 	text-align: center;
 }
