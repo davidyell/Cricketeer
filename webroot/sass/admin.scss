@@ -1,0 +1,29 @@
+/** Palette **/
+$highlight: #005580;
+$highlightText: #fff;
+
+$bodyBg: #ccc;
+
+
+html {}
+body {
+	background-color: $bodyBg;
+}
+
+header {
+	background-color: $highlight;
+	color: $highlightText;
+}
+nav.navbar {
+	margin: 10px 0;
+}
+#content {
+	background-color: #fff;
+	padding: 10px 0;
+}
+footer {
+	padding: 10px;
+	background-color: darken($highlight, 5%);
+	color: $highlightText;
+	text-align: center;
+}
