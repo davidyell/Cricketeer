@@ -43,8 +43,8 @@ class AppController extends Controller {
 				]
 			],
 			'authError' => 'You do not have permission to view that.',
-			'loginRedirect' => ['controller' => 'clubs', 'action' => 'index', 'admin' => true],
-			'loginAction' => ['controller' => 'users', 'action' => 'login', 'admin' => false]
+			'loginRedirect' => ['controller' => 'leagues', 'action' => 'index', 'prefix' => 'admin'],
+			'loginAction' => ['controller' => 'users', 'action' => 'login', 'prefix' => false]
 		]
 	];
 	
