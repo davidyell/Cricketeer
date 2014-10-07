@@ -36,7 +36,7 @@
 		</div>
 	</div>
 </div>
-<div class="related row">
+<div class="related">
 	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Matches') ?></h4>
 	<?php if (!empty($venue->matches)): ?>

@@ -38,7 +38,7 @@
 		</div>
 	</div>
 </div>
-<div class="related row">
+<div class="related">
 	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Players') ?></h4>
 	<?php if (!empty($club->players)): ?>
@@ -87,7 +87,7 @@
 	<?php endif; ?>
 	</div>
 </div>
-<div class="related row">
+<div class="related">
 	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Teams') ?></h4>
 	<?php if (!empty($club->teams)): ?>

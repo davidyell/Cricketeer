@@ -58,7 +58,7 @@
 		</div>
 	</div>
 </div>
-<div class="related row">
+<div class="related">
 	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Batsmen') ?></h4>
 	<?php if (!empty($player->batsmen)): ?>
@@ -99,7 +99,7 @@
 	<?php endif; ?>
 	</div>
 </div>
-<div class="related row">
+<div class="related">
 	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Bowlers') ?></h4>
 	<?php if (!empty($player->bowlers)): ?>
@@ -140,7 +140,7 @@
 	<?php endif; ?>
 	</div>
 </div>
-<div class="related row">
+<div class="related">
 	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Innings') ?></h4>
 	<?php if (!empty($player->innings)): ?>
@@ -187,7 +187,7 @@
 	<?php endif; ?>
 	</div>
 </div>
-<div class="related row">
+<div class="related">
 	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Squads') ?></h4>
 	<?php if (!empty($player->squads)): ?>

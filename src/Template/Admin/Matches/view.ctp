@@ -46,7 +46,7 @@
 		</div>
 	</div>
 </div>
-<div class="related row">
+<div class="related">
 	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Innings') ?></h4>
 	<?php if (!empty($match->innings)): ?>
@@ -93,7 +93,7 @@
 	<?php endif; ?>
 	</div>
 </div>
-<div class="related row">
+<div class="related">
 	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Teams') ?></h4>
 	<?php if (!empty($match->teams)): ?>
