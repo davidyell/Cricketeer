@@ -9,7 +9,7 @@
 	<?= $this->Html->css([
 		'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', 
 		'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css',
-		'admin'
+		'common'
 	]) ?>
 
 	<?= $this->fetch('meta') ?>
@@ -19,11 +19,11 @@
 	<div class="container-fluid">
 		<header class="row">
 			<div class="col-md-12">
-				<h1>Cricketeer: <?= $this->fetch('title') ?></h1>
+				<h1>Cricketeer</h1>
 			</div>
 		</header>
 		
-		<?php echo $this->element('admin/navigation');?>
+		<?php echo $this->element('navigation');?>
 		
 		<div id="content" class="row">
 			<div class="col-md-12">
