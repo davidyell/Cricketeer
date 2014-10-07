@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-md-2">
 	<h3><?= __('Actions') ?></h3>
 	<ul class="side-nav">
 		<li><?= $this->Html->link(__('List Teams'), ['action' => 'index']) ?></li>
@@ -12,7 +12,7 @@
 		<li><?= $this->Html->link(__('New Squad'), ['controller' => 'Squads', 'action' => 'add']) ?> </li>
 	</ul>
 </div>
-<div class="teams form large-10 medium-9 columns">
+<div class="teams form col-md-10">
 <?= $this->Form->create($team) ?>
 	<fieldset>
 		<legend><?= __('Add Team'); ?></legend>

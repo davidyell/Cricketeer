@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-md-2">
 	<h3><?= __('Actions') ?></h3>
 	<ul class="side-nav">
 		<li><?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $bowler->id], ['confirm' => __('Are you sure you want to delete # %s?', $bowler->id)]) ?></li>
@@ -9,7 +9,7 @@
 		<li><?= $this->Html->link(__('New Innings'), ['controller' => 'Innings', 'action' => 'add']) ?> </li>
 	</ul>
 </div>
-<div class="bowlers form large-10 medium-9 columns">
+<div class="bowlers form col-md-10">
 <?= $this->Form->create($bowler) ?>
 	<fieldset>
 		<legend><?= __('Edit Bowler'); ?></legend>

@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-md-2">
 	<h3><?= __('Actions') ?></h3>
 	<ul class="side-nav">
 		<li><?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $squad->player_id], ['confirm' => __('Are you sure you want to delete # %s?', $squad->player_id)]) ?></li>
@@ -9,7 +9,7 @@
 		<li><?= $this->Html->link(__('New Team'), ['controller' => 'Teams', 'action' => 'add']) ?> </li>
 	</ul>
 </div>
-<div class="squads form large-10 medium-9 columns">
+<div class="squads form col-md-10">
 <?= $this->Form->create($squad) ?>
 	<fieldset>
 		<legend><?= __('Edit Squad'); ?></legend>

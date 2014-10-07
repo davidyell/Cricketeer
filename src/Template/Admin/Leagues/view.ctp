@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-md-2">
 	<h3><?= __('Actions'); ?></h3>
 	<ul class="side-nav">
 		<li><?= $this->Html->link(__('Edit League'), ['action' => 'edit', $league->id]) ?> </li>
@@ -9,7 +9,7 @@
 		<li><?= $this->Html->link(__('New Club'), ['controller' => 'Clubs', 'action' => 'add']) ?> </li>
 	</ul>
 </div>
-<div class="leagues view large-10 medium-9 columns">
+<div class="leagues view col-md-10">
 	<h2><?= h($league->name) ?></h2>
 	<div class="row">
 		<div class="large-5 columns strings">
@@ -37,7 +37,7 @@
 	</div>
 </div>
 <div class="related row">
-	<div class="column large-12">
+	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Clubs') ?></h4>
 	<?php if (!empty($league->clubs)): ?>
 	<table cellpadding="0" cellspacing="0">

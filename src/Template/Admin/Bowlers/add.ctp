@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-md-2">
 	<h3><?= __('Actions') ?></h3>
 	<ul class="side-nav">
 		<li><?= $this->Html->link(__('List Bowlers'), ['action' => 'index']) ?></li>
@@ -8,7 +8,7 @@
 		<li><?= $this->Html->link(__('New Innings'), ['controller' => 'Innings', 'action' => 'add']) ?> </li>
 	</ul>
 </div>
-<div class="bowlers form large-10 medium-9 columns">
+<div class="bowlers form col-md-10">
 <?= $this->Form->create($bowler) ?>
 	<fieldset>
 		<legend><?= __('Add Bowler'); ?></legend>

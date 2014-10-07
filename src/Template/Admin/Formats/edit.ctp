@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-md-2">
 	<h3><?= __('Actions') ?></h3>
 	<ul class="side-nav">
 		<li><?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $format->id], ['confirm' => __('Are you sure you want to delete # %s?', $format->id)]) ?></li>
@@ -7,7 +7,7 @@
 		<li><?= $this->Html->link(__('New Match'), ['controller' => 'Matches', 'action' => 'add']) ?> </li>
 	</ul>
 </div>
-<div class="formats form large-10 medium-9 columns">
+<div class="formats form col-md-10">
 <?= $this->Form->create($format) ?>
 	<fieldset>
 		<legend><?= __('Edit Format'); ?></legend>

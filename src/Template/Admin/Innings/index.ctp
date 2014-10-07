@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-md-2">
 	<h3><?= __('Actions') ?></h3>
 	<ul class="side-nav">
 		<li><?= $this->Html->link(__('New Innings'), ['action' => 'add']) ?></li>
@@ -16,7 +16,7 @@
 		<li><?= $this->Html->link(__('New Bowler'), ['controller' => 'Bowlers', 'action' => 'add']) ?> </li>
 	</ul>
 </div>
-<div class="innings index large-10 medium-9 columns">
+<div class="innings index col-md-10">
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 		<tr>

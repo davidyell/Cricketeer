@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-md-2">
 	<h3><?= __('Actions') ?></h3>
 	<ul class="side-nav">
 		<li><?= $this->Html->link(__('New Team'), ['action' => 'add']) ?></li>
@@ -12,7 +12,7 @@
 		<li><?= $this->Html->link(__('New Squad'), ['controller' => 'Squads', 'action' => 'add']) ?> </li>
 	</ul>
 </div>
-<div class="teams index large-10 medium-9 columns">
+<div class="teams index col-md-10">
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 		<tr>

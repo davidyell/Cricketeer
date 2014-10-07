@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-md-2">
 	<h3><?= __('Actions'); ?></h3>
 	<ul class="side-nav">
 		<li><?= $this->Html->link(__('Edit Player'), ['action' => 'edit', $player->id]) ?> </li>
@@ -19,7 +19,7 @@
 		<li><?= $this->Html->link(__('New Squad'), ['controller' => 'Squads', 'action' => 'add']) ?> </li>
 	</ul>
 </div>
-<div class="players view large-10 medium-9 columns">
+<div class="players view col-md-10">
 	<h2><?= h($player->id) ?></h2>
 	<div class="row">
 		<div class="large-5 columns strings">
@@ -59,7 +59,7 @@
 	</div>
 </div>
 <div class="related row">
-	<div class="column large-12">
+	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Batsmen') ?></h4>
 	<?php if (!empty($player->batsmen)): ?>
 	<table cellpadding="0" cellspacing="0">
@@ -100,7 +100,7 @@
 	</div>
 </div>
 <div class="related row">
-	<div class="column large-12">
+	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Bowlers') ?></h4>
 	<?php if (!empty($player->bowlers)): ?>
 	<table cellpadding="0" cellspacing="0">
@@ -141,7 +141,7 @@
 	</div>
 </div>
 <div class="related row">
-	<div class="column large-12">
+	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Innings') ?></h4>
 	<?php if (!empty($player->innings)): ?>
 	<table cellpadding="0" cellspacing="0">
@@ -188,7 +188,7 @@
 	</div>
 </div>
 <div class="related row">
-	<div class="column large-12">
+	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Squads') ?></h4>
 	<?php if (!empty($player->squads)): ?>
 	<table cellpadding="0" cellspacing="0">

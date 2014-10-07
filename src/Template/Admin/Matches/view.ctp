@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-md-2">
 	<h3><?= __('Actions'); ?></h3>
 	<ul class="side-nav">
 		<li><?= $this->Html->link(__('Edit Match'), ['action' => 'edit', $match->id]) ?> </li>
@@ -15,7 +15,7 @@
 		<li><?= $this->Html->link(__('New Team'), ['controller' => 'Teams', 'action' => 'add']) ?> </li>
 	</ul>
 </div>
-<div class="matches view large-10 medium-9 columns">
+<div class="matches view col-md-10">
 	<h2><?= h($match->id) ?></h2>
 	<div class="row">
 		<div class="large-5 columns strings">
@@ -47,7 +47,7 @@
 	</div>
 </div>
 <div class="related row">
-	<div class="column large-12">
+	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Innings') ?></h4>
 	<?php if (!empty($match->innings)): ?>
 	<table cellpadding="0" cellspacing="0">
@@ -94,7 +94,7 @@
 	</div>
 </div>
 <div class="related row">
-	<div class="column large-12">
+	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Teams') ?></h4>
 	<?php if (!empty($match->teams)): ?>
 	<table cellpadding="0" cellspacing="0">

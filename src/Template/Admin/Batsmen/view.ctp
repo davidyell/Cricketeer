@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-md-2">
 	<h3><?= __('Actions'); ?></h3>
 	<ul class="side-nav">
 		<li><?= $this->Html->link(__('Edit Batsman'), ['action' => 'edit', $batsman->id]) ?> </li>
@@ -11,7 +11,7 @@
 		<li><?= $this->Html->link(__('New Innings'), ['controller' => 'Innings', 'action' => 'add']) ?> </li>
 	</ul>
 </div>
-<div class="batsmen view large-10 medium-9 columns">
+<div class="batsmen view col-md-10">
 	<h2><?= h($batsman->id) ?></h2>
 	<div class="row">
 		<div class="large-5 columns strings">
