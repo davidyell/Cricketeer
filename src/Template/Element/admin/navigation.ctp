@@ -48,6 +48,7 @@
 			</ul>
 		</li>
 		
+		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-off"></span> Logout', ['controller' => 'users', 'action' => 'logout', 'prefix' => false], ['escape' => false]);?></li>
 	  </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
