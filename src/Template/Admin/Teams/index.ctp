@@ -19,7 +19,6 @@
 			<th><?= $this->Paginator->sort('id') ?></th>
 			<th><?= $this->Paginator->sort('club_id') ?></th>
 			<th><?= $this->Paginator->sort('match_id') ?></th>
-			<th><?= $this->Paginator->sort('captain') ?></th>
 			<th><?= $this->Paginator->sort('created') ?></th>
 			<th><?= $this->Paginator->sort('modified') ?></th>
 			<th class="actions"><?= __('Actions') ?></th>
@@ -35,7 +34,6 @@
 			<td>
 				<?= $team->has('match') ? $this->Html->link($team->match->id, ['controller' => 'Matches', 'action' => 'view', $team->match->id]) : '' ?>
 			</td>
-			<td><?= $this->Number->format($team->captain) ?></td>
 			<td><?= h($team->created) ?></td>
 			<td><?= h($team->modified) ?></td>
 			<td class="actions">

@@ -18,10 +18,15 @@
 	<fieldset>
 		<legend><?= __('Edit Team'); ?></legend>
 	<?php
-		echo $this->Form->input('club_id', ['options' => $clubs]);
-		echo $this->Form->input('match_id', ['options' => $matches]);
+		echo $this->Form->input('club_id', ['options' => $clubs, 'disabled' => true]);
+		echo $this->Form->input('match_id', ['options' => $matches, 'disabled' => true]);
+		
+		for ($i = 1; $i <= 11; $i++) {
+			echo $this->Form->input("squads.$i.player_id", ['type' => 'select', 'options' => $players, 'label' => "Player $i", 'empty' => 'Pick player']);
+			echo $this->Form->checkbox("squads.$i.captain") . ' Captain?';
+		}
 	?>
 	</fieldset>
-<?= $this->Form->button(__('Submit')) ?>
+<?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
 <?= $this->Form->end() ?>
 </div>

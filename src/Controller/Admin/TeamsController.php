@@ -65,11 +65,12 @@ class TeamsController extends AppController {
  */
 	public function edit($id = null) {
 		$team = $this->Teams->get($id, [
-			'contain' => []
+			'contain' => 'Squads'
 		]);
 		if ($this->request->is(['patch', 'post', 'put'])) {
-			$team = $this->Teams->patchEntity($team, $this->request->data);
-			if ($this->Teams->save($team)) {
+			$team->accessible('squads.id');
+			$team = $this->Teams->patchEntity($team, $this->request->data(), ['associated' => 'Squads']);
+			if ($this->Teams->save($team, ['associated' => ['Squads']])) {
 				$this->Flash->success('The team has been saved.');
 				return $this->redirect(['action' => 'index']);
 			} else {
@@ -78,6 +79,14 @@ class TeamsController extends AppController {
 		}
 		$clubs = $this->Teams->Clubs->find('list');
 		$matches = $this->Teams->Matches->find('list');
+		
+		$players = $this->Teams->Squads->Players->find('PlayerListByTeam');
+		
+		foreach ($players as $player) {
+			$playerList[$player['club']['name']][$player['id']] = $player['first_name'] . ' ' . $player['last_name'] . ' (' . $player['player_specialisation']['name'] . ')';
+		}
+		$this->set('players', $playerList);
+		
 		$this->set(compact('team', 'clubs', 'matches'));
 	}
 

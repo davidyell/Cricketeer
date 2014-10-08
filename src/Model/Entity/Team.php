@@ -16,7 +16,6 @@ class Team extends Entity {
 	protected $_accessible = [
 		'club_id' => true,
 		'match_id' => true,
-		'captain' => true,
 		'club' => true,
 		'match' => true,
 		'innings' => true,

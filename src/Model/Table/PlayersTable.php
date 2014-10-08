@@ -1,7 +1,7 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
+use Cake\Database\Query;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
@@ -54,8 +54,8 @@ class PlayersTable extends Table {
 /**
  * Default validation rules.
  *
- * @param \Cake\Validation\Validator $validator
- * @return \Cake\Validation\Validator
+ * @param Validator $validator
+ * @return Validator
  */
 	public function validationDefault(Validator $validator) {
 		$validator
@@ -84,4 +84,19 @@ class PlayersTable extends Table {
 		return $validator;
 	}
 
+/**
+ * Find a list of players along with their associated club
+ * 
+ * @param Query $query
+ * @return Query
+ */
+	public function findPlayerListByTeam(Query $query) {
+		return $query
+			->contain(['Clubs', 'PlayerSpecialisations'])
+			->select([
+				'Players.id', 'Players.first_name', 'Players.initials', 'Players.last_name', 
+				'Clubs.id', 'Clubs.name',
+				'PlayerSpecialisations.name'
+			]);
+	}
 }
