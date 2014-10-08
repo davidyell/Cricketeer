@@ -1,7 +1,6 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
@@ -42,8 +41,8 @@ class WicketsTable extends Table {
 /**
  * Default validation rules.
  *
- * @param \Cake\Validation\Validator $validator
- * @return \Cake\Validation\Validator
+ * @param Validator $validator
+ * @return Validator
  */
 	public function validationDefault(Validator $validator) {
 		$validator
