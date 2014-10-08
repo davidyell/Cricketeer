@@ -21,7 +21,7 @@
 		echo $this->Form->input('club_id', ['options' => $clubs, 'disabled' => true]);
 		echo $this->Form->input('match_id', ['options' => $matches, 'disabled' => true]);
 		
-		for ($i = 1; $i <= 11; $i++) {
+		for ($i = 0; $i < 11; $i++) {
 			echo $this->Form->input("squads.$i.id", ['type' => 'hidden', 'value' => \Cake\Utility\String::uuid()]);
 			echo $this->Form->input("squads.$i.player_id", ['type' => 'select', 'options' => $players, 'label' => "Player $i", 'empty' => 'Pick player']);
 			echo $this->Form->checkbox("squads.$i.captain") . ' Captain?';

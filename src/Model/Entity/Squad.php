@@ -13,12 +13,12 @@ class Squad extends Entity {
  *
  * @var array
  */
-	protected $_accessible = [
-		'player_id' => true,
-		'team_id' => true,
-		'player' => true,
-		'team' => true,
-		'captain' => true
-	];
+//	protected $_accessible = [
+//		'player_id' => true,
+//		'team_id' => true,
+//		'player' => true,
+//		'team' => true,
+//		'captain' => true
+//	];
 
 }
