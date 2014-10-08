@@ -17,7 +17,7 @@ class WicketsController extends AppController {
  */
 	public function index() {
 		$this->paginate = [
-			'contain' => ['LostWicketPlayers', 'TookWicketPlayers', 'BowlerPlayers', 'Dismissals']
+			'contain' => ['Players', 'Dismissals']
 		];
 		$this->set('wickets', $this->paginate($this->Wickets));
 	}
@@ -31,7 +31,7 @@ class WicketsController extends AppController {
  */
 	public function view($id = null) {
 		$wicket = $this->Wickets->get($id, [
-			'contain' => ['LostWicketPlayers', 'TookWicketPlayers', 'BowlerPlayers', 'Dismissals', 'Innings']
+			'contain' => ['Players', 'Dismissals', 'Innings']
 		]);
 		$this->set('wicket', $wicket);
 	}
@@ -51,11 +51,9 @@ class WicketsController extends AppController {
 				$this->Flash->error('The wicket could not be saved. Please, try again.');
 			}
 		}
-		$lostWicketPlayers = $this->Wickets->LostWicketPlayers->find('list');
-		$tookWicketPlayers = $this->Wickets->TookWicketPlayers->find('list');
-		$bowlerPlayers = $this->Wickets->BowlerPlayers->find('list');
+		$players = $this->Wickets->Players->find('list');
 		$dismissals = $this->Wickets->Dismissals->find('list');
-		$this->set(compact('wicket', 'lostWicketPlayers', 'tookWicketPlayers', 'bowlerPlayers', 'dismissals'));
+		$this->set(compact('wicket', 'players', 'dismissals'));
 	}
 
 /**
@@ -78,11 +76,9 @@ class WicketsController extends AppController {
 				$this->Flash->error('The wicket could not be saved. Please, try again.');
 			}
 		}
-		$lostWicketPlayers = $this->Wickets->LostWicketPlayers->find('list');
-		$tookWicketPlayers = $this->Wickets->TookWicketPlayers->find('list');
-		$bowlerPlayers = $this->Wickets->BowlerPlayers->find('list');
+		$players = $this->Wickets->Players->find('list');
 		$dismissals = $this->Wickets->Dismissals->find('list');
-		$this->set(compact('wicket', 'lostWicketPlayers', 'tookWicketPlayers', 'bowlerPlayers', 'dismissals'));
+		$this->set(compact('wicket', 'players', 'dismissals'));
 	}
 
 /**
