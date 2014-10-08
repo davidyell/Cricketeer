@@ -102,7 +102,6 @@
 			<th><?= __('Id') ?></th>
 			<th><?= __('Club Id') ?></th>
 			<th><?= __('Match Id') ?></th>
-			<th><?= __('Captain') ?></th>
 			<th><?= __('Created') ?></th>
 			<th><?= __('Modified') ?></th>
 			<th class="actions"><?= __('Actions') ?></th>
@@ -112,7 +111,6 @@
 			<td><?= h($teams->id) ?></td>
 			<td><?= h($teams->club_id) ?></td>
 			<td><?= h($teams->match_id) ?></td>
-			<td><?= h($teams->captain) ?></td>
 			<td><?= h($teams->created) ?></td>
 			<td><?= h($teams->modified) ?></td>
 			<td class="actions">
