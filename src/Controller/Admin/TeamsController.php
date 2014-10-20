@@ -51,6 +51,8 @@ class TeamsController extends AppController {
 				$this->Flash->error('The team could not be saved. Please, try again.');
 			}
 		}
+
+		$this->set('players', $this->playerList());
 		$clubs = $this->Teams->Clubs->find('list');
 		$matches = $this->Teams->Matches->find('list');
 		$this->set(compact('team', 'clubs', 'matches'));
@@ -78,13 +80,7 @@ class TeamsController extends AppController {
 		}
 		$clubs = $this->Teams->Clubs->find('list');
 		$matches = $this->Teams->Matches->find('list');
-		
-		$players = $this->Teams->Squads->Players->find('PlayerListByTeam');
-		
-		foreach ($players as $player) {
-			$playerList[$player['club']['name']][$player['id']] = $player['first_name'] . ' ' . $player['last_name'] . ' (' . $player['player_specialisation']['name'] . ')';
-		}
-		$this->set('players', $playerList);
+		$this->set('players', $this->playerList());
 		
 		$this->set(compact('team', 'clubs', 'matches'));
 	}
@@ -105,5 +101,15 @@ class TeamsController extends AppController {
 			$this->Flash->error('The team could not be deleted. Please, try again.');
 		}
 		return $this->redirect(['action' => 'index']);
+	}
+
+	public function playerList() {
+		$players = $this->Teams->Squads->Players->find('PlayerListByTeam');
+
+		foreach ($players as $player) {
+			$playerList[$player['club']['name']][$player['id']] = $player['first_name'] . ' ' . $player['last_name'] . ' (' . $player['player_specialisation']['name'] . ')';
+		}
+
+		return $playerList;
 	}
 }
