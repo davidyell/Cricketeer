@@ -20,7 +20,9 @@ class PlayersTable extends Table {
 		$this->table('players');
 		$this->displayField('FullName');
 		$this->primaryKey('id');
+		
 		$this->addBehavior('Timestamp');
+		$this->addBehavior('Sluggable', ['field' => 'FullName']);
 
 		$this->belongsTo('PlayerSpecialisations', [
 			'foreignKey' => 'player_specialisation_id',

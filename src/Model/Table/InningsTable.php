@@ -31,13 +31,13 @@ class InningsTable extends Table {
 		$this->belongsTo('Teams', [
 			'foreignKey' => 'team_id',
 		]);
-		$this->belongsTo('Wickets', [
-			'foreignKey' => 'wicket_id',
-		]);
 		$this->hasMany('Batsmen', [
 			'foreignKey' => 'innings_id',
 		]);
 		$this->hasMany('Bowlers', [
+			'foreignKey' => 'innings_id',
+		]);
+		$this->hasMany('Wickets', [
 			'foreignKey' => 'innings_id',
 		]);
 	}
@@ -60,28 +60,7 @@ class InningsTable extends Table {
 			->notEmpty('player_id')
 			->add('team_id', 'valid', ['rule' => 'uuid'])
 			->validatePresence('team_id', 'create')
-			->notEmpty('team_id')
-			->add('wicket_id', 'valid', ['rule' => 'uuid'])
-			->validatePresence('wicket_id', 'create')
-			->notEmpty('wicket_id')
-			->add('declared', 'valid', ['rule' => 'numeric'])
-			->validatePresence('declared', 'create')
-			->notEmpty('declared')
-			->add('no_ball', 'valid', ['rule' => 'numeric'])
-			->validatePresence('no_ball', 'create')
-			->notEmpty('no_ball')
-			->add('wide', 'valid', ['rule' => 'numeric'])
-			->validatePresence('wide', 'create')
-			->notEmpty('wide')
-			->add('bye', 'valid', ['rule' => 'numeric'])
-			->validatePresence('bye', 'create')
-			->notEmpty('bye')
-			->add('leg_bye', 'valid', ['rule' => 'numeric'])
-			->validatePresence('leg_bye', 'create')
-			->notEmpty('leg_bye')
-			->add('penalty_runs', 'valid', ['rule' => 'numeric'])
-			->validatePresence('penalty_runs', 'create')
-			->notEmpty('penalty_runs');
+			->notEmpty('team_id');
 
 		return $validator;
 	}

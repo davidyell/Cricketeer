@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\ORM\Query;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
@@ -21,28 +22,28 @@ class WicketsTable extends Table {
 		$this->primaryKey('id');
 		$this->addBehavior('Timestamp');
 
-		$this->belongsTo('Players', [
+		$this->belongsTo('LostWicketPlayers', [
 			'foreignKey' => 'lost_wicket_player_id',
 		]);
-		$this->belongsTo('Players', [
+		$this->belongsTo('TookWicketPlayers', [
 			'foreignKey' => 'took_wicket_player_id',
 		]);
-		$this->belongsTo('Players', [
+		$this->belongsTo('BowlerPlayers', [
 			'foreignKey' => 'bowler_player_id',
 		]);
 		$this->belongsTo('Dismissals', [
 			'foreignKey' => 'dismissal_id',
 		]);
-		$this->hasMany('Innings', [
-			'foreignKey' => 'wicket_id',
+		$this->belongsTo('Innings', [
+			'foreignKey' => 'innings_id',
 		]);
 	}
 
 /**
  * Default validation rules.
  *
- * @param Validator $validator
- * @return Validator
+ * @param \Cake\Validation\Validator $validator
+ * @return \Cake\Validation\Validator
  */
 	public function validationDefault(Validator $validator) {
 		$validator
@@ -61,7 +62,10 @@ class WicketsTable extends Table {
 			->validatePresence('dismissal_id', 'create')
 			->notEmpty('dismissal_id')
 			->validatePresence('fall_of_wicket', 'create')
-			->notEmpty('fall_of_wicket');
+			->notEmpty('fall_of_wicket')
+			->add('innings_id', 'valid', ['rule' => 'uuid'])
+			->validatePresence('innings_id', 'create')
+			->notEmpty('innings_id');
 
 		return $validator;
 	}
