@@ -21,7 +21,6 @@
 			<th><?= $this->Paginator->sort('id') ?></th>
 			<th><?= $this->Paginator->sort('first_name') ?></th>
 			<th><?= $this->Paginator->sort('last_name') ?></th>
-			<th><?= $this->Paginator->sort('slug') ?></th>
 			<th><?= $this->Paginator->sort('photo') ?></th>
 			<th><?= $this->Paginator->sort('photo_dir') ?></th>
 			<th><?= $this->Paginator->sort('number') ?></th>
@@ -34,7 +33,6 @@
 			<td><?= h($player->id) ?></td>
 			<td><?= h($player->first_name) ?></td>
 			<td><?= h($player->last_name) ?></td>
-			<td><?= h($player->slug) ?></td>
 			<td><?= h($player->photo) ?></td>
 			<td><?= h($player->photo_dir) ?></td>
 			<td><?= $this->Number->format($player->number) ?></td>
