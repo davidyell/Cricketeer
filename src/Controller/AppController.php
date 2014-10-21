@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Event\Event;
 
 /**
  * Application Controller
@@ -47,8 +48,19 @@ class AppController extends Controller {
 			'loginAction' => ['controller' => 'users', 'action' => 'login', 'prefix' => false]
 		]
 	];
-	
-	public function beforeFilter(\Cake\Event\Event $event) {
+
+/**
+ * Load the helpers
+ *
+ * @var array
+ */
+	public $helpers = [
+		'Form' => [
+			'templates' => 'twbs3.php'
+		]
+	];
+
+	public function beforeFilter(Event $event) {
 		parent::beforeFilter($event);
 		
 		if (isset($this->request->params['prefix']) && $this->request->params['prefix'] === 'admin') {

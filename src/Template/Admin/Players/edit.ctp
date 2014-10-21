@@ -16,15 +16,15 @@
 	</ul>
 </div>
 <div class="players form col-md-10">
-<?= $this->Form->create($player) ?>
+<?= $this->Form->create($player, ['type' => 'file']) ?>
 	<fieldset>
 		<legend><?= __('Edit Player'); ?></legend>
 	<?php
 		echo $this->Form->input('first_name');
 		echo $this->Form->input('initials');
 		echo $this->Form->input('last_name');
-		echo $this->Form->input('photo');
-		echo $this->Form->input('photo_dir');
+		echo $this->Form->input('photo', ['type' => 'file']);
+		echo $this->Form->input('photo_dir', ['type' => 'hidden']);
 		echo $this->Form->input('number');
 		echo $this->Form->input('nationality');
 		echo $this->Form->input('bats');
