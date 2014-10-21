@@ -37,3 +37,29 @@ div.view {
 		margin-left: 10px;
 	}
 }
+
+/** Flash messages **/
+$errorBg: #ff9090;
+$successBg: #86da66;
+
+div.message {
+  border-radius: 4px;
+  margin: 10px;
+  padding: 5px 10px;
+  border-width: 1px;
+  border-style: solid;
+  &.error {
+	background-color: $errorBg;
+	border-color: darken($errorBg, 10%);
+  }
+  &.success {
+	background-color: $successBg;
+	border-color: darken($successBg, 10%);
+  }
+}
+
+div.input.error {
+  background-color: $errorBg;
+  border: 1px solid darken($errorBg, 10%);
+  margin: 0;
+}
