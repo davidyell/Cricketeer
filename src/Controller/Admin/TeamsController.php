@@ -70,7 +70,7 @@ class TeamsController extends AppController {
 			'contain' => 'Squads'
 		]);
 		if ($this->request->is(['patch', 'post', 'put'])) {
-			$team = $this->Teams->patchEntity($team, $this->request->data());
+			$team = $this->Teams->patchEntity($team, $this->request->data);
 			if ($this->Teams->save($team)) {
 				$this->Flash->success('The team has been saved.');
 				return $this->redirect(['action' => 'index']);

@@ -40,7 +40,7 @@
 		</div>
 	</div>
 </div>
-<div class="related row">
+<div class="related">
 	<div class="column large-12">
 	<h4 class="subheader"><?= __('Related Batsmen') ?></h4>
 	<?php if (!empty($innings->batsmen)): ?>
@@ -81,7 +81,7 @@
 	<?php endif; ?>
 	</div>
 </div>
-<div class="related row">
+<div class="related">
 	<div class="column large-12">
 	<h4 class="subheader"><?= __('Related Bowlers') ?></h4>
 	<?php if (!empty($innings->bowlers)): ?>
@@ -122,7 +122,7 @@
 	<?php endif; ?>
 	</div>
 </div>
-<div class="related row">
+<div class="related">
 	<div class="column large-12">
 	<h4 class="subheader"><?= __('Related Wickets') ?></h4>
 	<?php if (!empty($innings->wickets)): ?>

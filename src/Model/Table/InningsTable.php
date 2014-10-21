@@ -1,9 +1,12 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
+use ArrayObject;
+use Cake\Event\Event;
+use Cake\ORM\Entity;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+
 
 /**
  * Innings Model
@@ -43,26 +46,68 @@ class InningsTable extends Table {
 	}
 
 /**
+ * beforeSave method
+ * Executed before the entity is persisted
+ *
+ * @param Event $event
+ * @param Entity $entity
+ * @param ArrayObject $options
+ */
+	public function beforeSave(Event $event, Entity $entity, ArrayObject $options) {
+		$entity->batsmen[0]->set('strike_rate', $this->strikeRate($entity->batsmen[0]->get('runs'), $entity->batsmen[0]->get('balls')));
+		$entity->batsmen[0]->set('player_id', $entity->player_id);
+
+		$entity->bowlers[0]->set('economy', $this->economy($entity->bowlers[0]->get('runs'), $entity->bowlers[0]->get('overs')));
+		$entity->bowlers[0]->set('player_id', $entity->player_id);
+	}
+
+/**
  * Default validation rules.
  *
  * @param \Cake\Validation\Validator $validator
  * @return \Cake\Validation\Validator
  */
-	public function validationDefault(Validator $validator) {
-		$validator
-			->add('id', 'valid', ['rule' => 'uuid'])
-			->allowEmpty('id', 'create')
-			->add('match_id', 'valid', ['rule' => 'uuid'])
-			->validatePresence('match_id', 'create')
-			->notEmpty('match_id')
-			->add('player_id', 'valid', ['rule' => 'uuid'])
-			->validatePresence('player_id', 'create')
-			->notEmpty('player_id')
-			->add('team_id', 'valid', ['rule' => 'uuid'])
-			->validatePresence('team_id', 'create')
-			->notEmpty('team_id');
+//	public function validationDefault(Validator $validator) {
+//		$validator
+//			->add('id', 'valid', ['rule' => 'uuid'])
+//			->allowEmpty('id', 'create')
+//			->add('match_id', 'valid', ['rule' => 'uuid'])
+//			->validatePresence('match_id', 'create')
+//			->notEmpty('match_id')
+//			->add('player_id', 'valid', ['rule' => 'uuid'])
+//			->validatePresence('player_id', 'create')
+//			->notEmpty('player_id')
+//			->add('team_id', 'valid', ['rule' => 'uuid'])
+//			->validatePresence('team_id', 'create')
+//			->notEmpty('team_id');
+//
+//		return $validator;
+//	}
 
-		return $validator;
+/**
+ * Work out the batsmen strike rate
+ *
+ * @param $runs Number of runs scored
+ * @param $balls Number of balls faced
+ * @return float
+ */
+	public function strikeRate($runs, $balls) {
+		if ($balls > 0) {
+			return (float)number_format(($runs / $balls) * 100, 2);
+		}
+	}
+
+/**
+ * Work out a bowlers economy
+ *
+ * @param $runs Number of runs scored off the bowler
+ * @param $overs Number of over bowled
+ * @return float
+ */
+	public function economy($runs, $overs) {
+		if ($overs > 0) {
+			return (float)number_format($runs / $overs, 2);
+		}
 	}
 
 }

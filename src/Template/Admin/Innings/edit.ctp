@@ -25,6 +25,20 @@
 		echo $this->Form->input('match_id', ['options' => $matches]);
 		echo $this->Form->input('player_id', ['options' => $players]);
 		echo $this->Form->input('team_id', ['options' => $teams]);
+
+		echo "<h3>" . __('Batting') . "</h3>";
+		echo $this->Form->input('batsmen.0.id');
+		echo $this->Form->input('batsmen.0.runs');
+		echo $this->Form->input('batsmen.0.balls');
+		echo $this->Form->input('batsmen.0.fours');
+		echo $this->Form->input('batsmen.0.sixes');
+
+		echo "<h3>" . __('Bowling') . "</h3>";
+		echo $this->Form->input('bowlers.0.id');
+		echo $this->Form->input('bowlers.0.overs');
+		echo $this->Form->input('bowlers.0.runs');
+		echo $this->Form->input('bowlers.0.wickets', ['type' => 'number']);
+		echo $this->Form->input('bowlers.0.maidens');
 	?>
 	</fieldset>
 <?= $this->Form->button(__('Submit')) ?>

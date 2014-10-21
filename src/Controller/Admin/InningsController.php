@@ -44,8 +44,8 @@ class InningsController extends AppController {
 	public function add() {
 		$innings = $this->Innings->newEntity($this->request->data);
 		if ($this->request->is('post')) {
-//			var_dump($this->request->data);exit;
 			if ($this->Innings->save($innings)) {
+
 				$this->Flash->success('The innings has been saved.');
 				return $this->redirect(['action' => 'index']);
 			} else {
@@ -68,7 +68,10 @@ class InningsController extends AppController {
  */
 	public function edit($id = null) {
 		$innings = $this->Innings->get($id, [
-			'contain' => []
+			'contain' => [
+				'Batsmen',
+				'Bowlers'
+			]
 		]);
 		if ($this->request->is(['patch', 'post', 'put'])) {
 			$innings = $this->Innings->patchEntity($innings, $this->request->data);
