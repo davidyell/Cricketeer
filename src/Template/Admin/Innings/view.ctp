@@ -42,13 +42,11 @@
 </div>
 <div class="related">
 	<div class="column large-12">
-	<h4 class="subheader"><?= __('Related Batsmen') ?></h4>
+	<h4 class="subheader"><?= __('Batting') ?></h4>
 	<?php if (!empty($innings->batsmen)): ?>
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th><?= __('Id') ?></th>
-			<th><?= __('Player Id') ?></th>
-			<th><?= __('Innings Id') ?></th>
 			<th><?= __('Runs') ?></th>
 			<th><?= __('Balls') ?></th>
 			<th><?= __('Strike Rate') ?></th>
@@ -61,8 +59,6 @@
 		<?php foreach ($innings->batsmen as $batsmen): ?>
 		<tr>
 			<td><?= h($batsmen->id) ?></td>
-			<td><?= h($batsmen->player_id) ?></td>
-			<td><?= h($batsmen->innings_id) ?></td>
 			<td><?= h($batsmen->runs) ?></td>
 			<td><?= h($batsmen->balls) ?></td>
 			<td><?= h($batsmen->strike_rate) ?></td>
@@ -83,13 +79,11 @@
 </div>
 <div class="related">
 	<div class="column large-12">
-	<h4 class="subheader"><?= __('Related Bowlers') ?></h4>
+	<h4 class="subheader"><?= __('Bowling') ?></h4>
 	<?php if (!empty($innings->bowlers)): ?>
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th><?= __('Id') ?></th>
-			<th><?= __('Player Id') ?></th>
-			<th><?= __('Innings Id') ?></th>
 			<th><?= __('Overs') ?></th>
 			<th><?= __('Runs') ?></th>
 			<th><?= __('Wickets') ?></th>
@@ -102,8 +96,6 @@
 		<?php foreach ($innings->bowlers as $bowlers): ?>
 		<tr>
 			<td><?= h($bowlers->id) ?></td>
-			<td><?= h($bowlers->player_id) ?></td>
-			<td><?= h($bowlers->innings_id) ?></td>
 			<td><?= h($bowlers->overs) ?></td>
 			<td><?= h($bowlers->runs) ?></td>
 			<td><?= h($bowlers->wickets) ?></td>

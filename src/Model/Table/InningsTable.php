@@ -57,8 +57,12 @@ class InningsTable extends Table {
 		$entity->batsmen[0]->set('strike_rate', $this->strikeRate($entity->batsmen[0]->get('runs'), $entity->batsmen[0]->get('balls')));
 		$entity->batsmen[0]->set('player_id', $entity->player_id);
 
-		$entity->bowlers[0]->set('economy', $this->economy($entity->bowlers[0]->get('runs'), $entity->bowlers[0]->get('overs')));
-		$entity->bowlers[0]->set('player_id', $entity->player_id);
+		if (isset($entity->bowlers)) {
+			$entity->bowlers[0]->set('economy', $this->economy($entity->bowlers[0]->get('runs'), $entity->bowlers[0]->get('overs')));
+			$entity->bowlers[0]->set('player_id', $entity->player_id);
+		}
+
+		$entity->wickets[0]->set('lost_wicket_player_id', $entity->player_id);
 	}
 
 /**
@@ -95,6 +99,8 @@ class InningsTable extends Table {
 		if ($balls > 0) {
 			return (float)number_format(($runs / $balls) * 100, 2);
 		}
+
+		return (float)0.0;
 	}
 
 /**
@@ -108,6 +114,8 @@ class InningsTable extends Table {
 		if ($overs > 0) {
 			return (float)number_format($runs / $overs, 2);
 		}
+
+		return (float)0.0;
 	}
 
 }

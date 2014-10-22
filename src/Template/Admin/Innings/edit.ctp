@@ -33,12 +33,20 @@
 		echo $this->Form->input('batsmen.0.fours');
 		echo $this->Form->input('batsmen.0.sixes');
 
+		echo "<h3>" . __('Lost wicket') . "</h3>";
+		echo $this->Form->input('wickets.0.id');
+		echo $this->Form->input('wickets.0.took_wicket_player_id', ['options' => $wicketPlayers, 'label' => 'Player who took the wicket']);
+		echo $this->Form->input('wickets.0.bowler_player_id', ['options' => $wicketPlayers, 'label' => 'Bowler']);
+		echo $this->Form->input('wickets.0.dismissal_id', ['options' => $dismissals]);
+		echo $this->Form->input('wickets.0.fall_of_wicket', ['label' => 'Score when the wicket fell']);
+
 		echo "<h3>" . __('Bowling') . "</h3>";
 		echo $this->Form->input('bowlers.0.id');
 		echo $this->Form->input('bowlers.0.overs');
 		echo $this->Form->input('bowlers.0.runs');
 		echo $this->Form->input('bowlers.0.wickets', ['type' => 'number']);
 		echo $this->Form->input('bowlers.0.maidens');
+
 	?>
 	</fieldset>
 <?= $this->Form->button(__('Submit')) ?>

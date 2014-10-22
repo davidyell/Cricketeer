@@ -44,6 +44,12 @@ class InningsController extends AppController {
 	public function add() {
 		$innings = $this->Innings->newEntity($this->request->data);
 		if ($this->request->is('post')) {
+
+			// Clear up empty fields
+			if (empty($innings->bowlers[0]['overs'])) {
+				$innings->__unset('bowlers');
+			}
+
 			if ($this->Innings->save($innings)) {
 
 				$this->Flash->success('The innings has been saved.');
@@ -52,11 +58,14 @@ class InningsController extends AppController {
 				$this->Flash->error('The innings could not be saved. Please, try again.');
 			}
 		}
+
 		$matches = $this->Innings->Matches->find('list');
-		$players = $this->Innings->Players->find('list');
+		$players = $this->Innings->Players->find('PlayerListByTeam');
+		$wicketPlayers = $this->Innings->Players->find('PlayerListByTeam');
 		$teams = $this->Innings->Teams->find('list');
 		$wickets = $this->Innings->Wickets->find('list');
-		$this->set(compact('innings', 'matches', 'players', 'teams', 'wickets'));
+		$dismissals = $this->Innings->Wickets->Dismissals->find('list');
+		$this->set(compact('innings', 'matches', 'players', 'wicketPlayers', 'teams', 'wickets', 'dismissals'));
 	}
 
 /**
@@ -70,9 +79,11 @@ class InningsController extends AppController {
 		$innings = $this->Innings->get($id, [
 			'contain' => [
 				'Batsmen',
-				'Bowlers'
+				'Bowlers',
+				'Wickets'
 			]
 		]);
+
 		if ($this->request->is(['patch', 'post', 'put'])) {
 			$innings = $this->Innings->patchEntity($innings, $this->request->data);
 			if ($this->Innings->save($innings)) {
@@ -82,11 +93,14 @@ class InningsController extends AppController {
 				$this->Flash->error('The innings could not be saved. Please, try again.');
 			}
 		}
+
 		$matches = $this->Innings->Matches->find('list');
-		$players = $this->Innings->Players->find('list');
+		$players = $this->Innings->Players->find('PlayerListByTeam');
+		$wicketPlayers = $this->Innings->Players->find('PlayerListByTeam');
 		$teams = $this->Innings->Teams->find('list');
 		$wickets = $this->Innings->Wickets->find('list');
-		$this->set(compact('innings', 'matches', 'players', 'teams', 'wickets'));
+		$dismissals = $this->Innings->Wickets->Dismissals->find('list');
+		$this->set(compact('innings', 'matches', 'players', 'wicketPlayers', 'teams', 'wickets', 'dismissals'));
 	}
 
 /**
