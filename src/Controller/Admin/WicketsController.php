@@ -31,7 +31,13 @@ class WicketsController extends AppController {
  */
 	public function view($id = null) {
 		$wicket = $this->Wickets->get($id, [
-			'contain' => ['Players', 'Dismissals', 'Innings']
+			'contain' => [
+				'PlayerLostWicket',
+				'PlayerTookWicket',
+				'PlayerBowledWicket',
+				'Dismissals',
+				'Innings'
+			]
 		]);
 		$this->set('wicket', $wicket);
 	}
