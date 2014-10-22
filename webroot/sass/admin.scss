@@ -38,6 +38,14 @@ div.view {
 	}
 }
 
+/** Forms **/
+form .datetime {
+  select {
+	width: 200px;
+	float: left;
+  }
+}
+
 /** Flash messages **/
 $errorBg: #ff9090;
 $successBg: #86da66;
