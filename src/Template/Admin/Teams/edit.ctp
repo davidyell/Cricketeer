@@ -30,6 +30,6 @@
 		}
 	?>
 	</fieldset>
-<?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+<?= $this->Form->button(__('Submit')) ?>
 <?= $this->Form->end() ?>
 </div>
