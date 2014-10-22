@@ -2,6 +2,7 @@
 namespace App\Model\Table;
 
 use Cake\Database\Query;
+use Cake\Datasource\ResultSetInterface;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
@@ -87,18 +88,29 @@ class PlayersTable extends Table {
 	}
 
 /**
- * Find a list of players along with their associated club
+ * Find a list of players along with their associated club and specialisation
  * 
  * @param Query $query
  * @return Query
  */
 	public function findPlayerListByTeam(Query $query) {
-		return $query
-			->contain(['Clubs', 'PlayerSpecialisations'])
+		$query->contain(['Clubs', 'PlayerSpecialisations'])
 			->select([
-				'Players.id', 'Players.first_name', 'Players.initials', 'Players.last_name', 
+				'Players.id', 'Players.first_name', 'Players.initials', 'Players.last_name',
 				'Clubs.id', 'Clubs.name',
 				'PlayerSpecialisations.name'
 			]);
+
+		// Function to concatenate the value field for the combine()
+		$player = function($entity) {
+			return $entity->first_name . ' ' . $entity->initials . ' ' . $entity->last_name . ' (' . $entity->player_specialisation->name . ')';
+		};
+
+		// Use a result formatter to run combine on the results to build a list
+		$query->formatResults(function(ResultSetInterface $results, Query $query) use ($player) {
+			return $results->combine('id', $player, 'club.name');
+		});
+
+		return $query;
 	}
 }
