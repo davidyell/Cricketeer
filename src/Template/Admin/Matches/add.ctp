@@ -17,6 +17,7 @@
 	<fieldset>
 		<legend><?= __('Add Match'); ?></legend>
 	<?php
+		echo $this->Form->input('name');
 		echo $this->Form->input('when_played');
 		echo $this->Form->input('venue_id', ['options' => $venues]);
 		echo $this->Form->input('format_id', ['options' => $formats]);

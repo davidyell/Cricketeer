@@ -17,6 +17,7 @@
 	<thead>
 		<tr>
 			<th><?= $this->Paginator->sort('id') ?></th>
+			<th><?= $this->Paginator->sort('name') ?></th>
 			<th><?= $this->Paginator->sort('when_played') ?></th>
 			<th><?= $this->Paginator->sort('venue_id') ?></th>
 			<th><?= $this->Paginator->sort('format_id') ?></th>
@@ -30,6 +31,7 @@
 	<?php foreach ($matches as $match): ?>
 		<tr>
 			<td><?= h($match->id) ?></td>
+			<td><?= h($match->name) ?></td>
 			<td><?= h($match->when_played) ?></td>
 			<td>
 				<?= $match->has('venue') ? $this->Html->link($match->venue->name, ['controller' => 'Venues', 'action' => 'view', $match->venue->id]) : '' ?>

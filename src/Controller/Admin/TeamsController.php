@@ -80,9 +80,9 @@ class TeamsController extends AppController {
 		}
 		$clubs = $this->Teams->Clubs->find('list');
 		$matches = $this->Teams->Matches->find('list');
-		$this->set('players', $this->playerList());
+		$players = $this->Teams->Clubs->Players->find('PlayerListByTeam');
 		
-		$this->set(compact('team', 'clubs', 'matches'));
+		$this->set(compact('team', 'clubs', 'matches', 'players'));
 	}
 
 /**
@@ -101,15 +101,5 @@ class TeamsController extends AppController {
 			$this->Flash->error('The team could not be deleted. Please, try again.');
 		}
 		return $this->redirect(['action' => 'index']);
-	}
-
-	public function playerList() {
-		$players = $this->Teams->Squads->Players->find('PlayerListByTeam');
-
-		foreach ($players as $player) {
-			$playerList[$player['club']['name']][$player['id']] = $player['first_name'] . ' ' . $player['last_name'] . ' (' . $player['player_specialisation']['name'] . ')';
-		}
-
-		return $playerList;
 	}
 }

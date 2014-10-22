@@ -26,7 +26,7 @@
 			}
 			echo $this->Form->input("squads.$i.id", $idOptions);
 			echo $this->Form->input("squads.$i.player_id", ['type' => 'select', 'options' => $players, 'label' => "Player $i", 'empty' => 'Pick player']);
-			echo $this->Form->checkbox("squads.$i.captain") . ' Captain?';
+			echo $this->Form->input("squads.$i.captain", ['type' => 'checkbox', 'label' => 'Is captain?']);
 		}
 	?>
 	</fieldset>

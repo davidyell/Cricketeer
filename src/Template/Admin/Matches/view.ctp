@@ -21,6 +21,8 @@
 		<div class="large-5 columns strings">
 			<h6 class="subheader"><?= __('Id') ?></h6>
 			<p><?= h($match->id) ?></p>
+			<h6 class="subheader"><?= __('Name') ?></h6>
+			<p><?= h($match->name) ?></p>
 			<h6 class="subheader"><?= __('Venue') ?></h6>
 			<p><?= $match->has('venue') ? $this->Html->link($match->venue->name, ['controller' => 'Venues', 'action' => 'view', $match->venue->id]) : '' ?></p>
 			<h6 class="subheader"><?= __('Format') ?></h6>

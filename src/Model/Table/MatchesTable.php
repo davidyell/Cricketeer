@@ -18,7 +18,7 @@ class MatchesTable extends Table {
  */
 	public function initialize(array $config) {
 		$this->table('matches');
-		$this->displayField('id');
+		$this->displayField('name');
 		$this->primaryKey('id');
 		$this->addBehavior('Timestamp');
 

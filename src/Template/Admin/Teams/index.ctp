@@ -30,7 +30,7 @@
 				<?= $team->has('club') ? $this->Html->link($team->club->name, ['controller' => 'Clubs', 'action' => 'view', $team->club->id]) : '' ?>
 			</td>
 			<td>
-				<?= $team->has('match') ? $this->Html->link($team->match->id, ['controller' => 'Matches', 'action' => 'view', $team->match->id]) : '' ?>
+				<?= $team->has('match') ? $this->Html->link($team->match->name, ['controller' => 'Matches', 'action' => 'view', $team->match->id]) : '' ?>
 			</td>
 			<td><?= h($team->created) ?></td>
 			<td><?= h($team->modified) ?></td>
