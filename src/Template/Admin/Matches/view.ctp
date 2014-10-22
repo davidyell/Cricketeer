@@ -55,16 +55,9 @@
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th><?= __('Id') ?></th>
-			<th><?= __('Match Id') ?></th>
-			<th><?= __('Player Id') ?></th>
+			<th><?= __('Match') ?></th>
+			<th><?= __('Player') ?></th>
 			<th><?= __('Team Id') ?></th>
-			<th><?= __('Wicket Id') ?></th>
-			<th><?= __('Declared') ?></th>
-			<th><?= __('No Ball') ?></th>
-			<th><?= __('Wide') ?></th>
-			<th><?= __('Bye') ?></th>
-			<th><?= __('Leg Bye') ?></th>
-			<th><?= __('Penalty Runs') ?></th>
 			<th><?= __('Created') ?></th>
 			<th><?= __('Modified') ?></th>
 			<th class="actions"><?= __('Actions') ?></th>
@@ -72,16 +65,9 @@
 		<?php foreach ($match->innings as $innings): ?>
 		<tr>
 			<td><?= h($innings->id) ?></td>
-			<td><?= h($innings->match_id) ?></td>
-			<td><?= h($innings->player_id) ?></td>
-			<td><?= h($innings->team_id) ?></td>
-			<td><?= h($innings->wicket_id) ?></td>
-			<td><?= h($innings->declared) ?></td>
-			<td><?= h($innings->no_ball) ?></td>
-			<td><?= h($innings->wide) ?></td>
-			<td><?= h($innings->bye) ?></td>
-			<td><?= h($innings->leg_bye) ?></td>
-			<td><?= h($innings->penalty_runs) ?></td>
+			<td><?= h($match->name) ?></td>
+			<td><?= h($innings->player->FullName) ?></td>
+			<td><?= h($innings->team->name) ?></td>
 			<td><?= h($innings->created) ?></td>
 			<td><?= h($innings->modified) ?></td>
 			<td class="actions">
@@ -102,6 +88,7 @@
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th><?= __('Id') ?></th>
+			<th><?= __('Name') ?></th>
 			<th><?= __('Club Id') ?></th>
 			<th><?= __('Match Id') ?></th>
 			<th><?= __('Created') ?></th>
@@ -111,6 +98,7 @@
 		<?php foreach ($match->teams as $teams): ?>
 		<tr>
 			<td><?= h($teams->id) ?></td>
+			<td><?= h($teams->name) ?></td>
 			<td><?= h($teams->club_id) ?></td>
 			<td><?= h($teams->match_id) ?></td>
 			<td><?= h($teams->created) ?></td>

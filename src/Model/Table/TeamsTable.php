@@ -18,7 +18,7 @@ class TeamsTable extends Table {
  */
 	public function initialize(array $config) {
 		$this->table('teams');
-		$this->displayField('id');
+		$this->displayField('name');
 		$this->primaryKey('id');
 		$this->addBehavior('Timestamp');
 

@@ -19,6 +19,8 @@
 		<div class="large-5 columns strings">
 			<h6 class="subheader"><?= __('Id') ?></h6>
 			<p><?= h($team->id) ?></p>
+			<h6 class="subheader"><?= __('Name') ?></h6>
+			<p><?= h($team->name) ?></p>
 			<h6 class="subheader"><?= __('Club') ?></h6>
 			<p><?= $team->has('club') ? $this->Html->link($team->club->name, ['controller' => 'Clubs', 'action' => 'view', $team->club->id]) : '' ?></p>
 			<h6 class="subheader"><?= __('Match') ?></h6>

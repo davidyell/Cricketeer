@@ -26,11 +26,11 @@
 			<h6 class="subheader"><?= __('Id') ?></h6>
 			<p><?= h($innings->id) ?></p>
 			<h6 class="subheader"><?= __('Match') ?></h6>
-			<p><?= $innings->has('match') ? $this->Html->link($innings->match->id, ['controller' => 'Matches', 'action' => 'view', $innings->match->id]) : '' ?></p>
+			<p><?= $innings->has('match') ? $this->Html->link($innings->match->name, ['controller' => 'Matches', 'action' => 'view', $innings->match->id]) : '' ?></p>
 			<h6 class="subheader"><?= __('Player') ?></h6>
 			<p><?= $innings->has('player') ? $this->Html->link($innings->player->FullName, ['controller' => 'Players', 'action' => 'view', $innings->player->id]) : '' ?></p>
 			<h6 class="subheader"><?= __('Team') ?></h6>
-			<p><?= $innings->has('team') ? $this->Html->link($innings->team->id, ['controller' => 'Teams', 'action' => 'view', $innings->team->id]) : '' ?></p>
+			<p><?= $innings->has('team') ? $this->Html->link($innings->team->name, ['controller' => 'Teams', 'action' => 'view', $innings->team->id]) : '' ?></p>
 		</div>
 		<div class="large-2 columns dates end">
 			<h6 class="subheader"><?= __('Created') ?></h6>

@@ -15,6 +15,7 @@
 	<thead>
 		<tr>
 			<th><?= $this->Paginator->sort('id') ?></th>
+			<th><?= $this->Paginator->sort('name') ?></th>
 			<th><?= $this->Paginator->sort('club_id') ?></th>
 			<th><?= $this->Paginator->sort('match_id') ?></th>
 			<th><?= $this->Paginator->sort('created') ?></th>
@@ -26,6 +27,7 @@
 	<?php foreach ($teams as $team): ?>
 		<tr>
 			<td><?= h($team->id) ?></td>
+			<td><?= h($team->name) ?></td>
 			<td>
 				<?= $team->has('club') ? $this->Html->link($team->club->name, ['controller' => 'Clubs', 'action' => 'view', $team->club->id]) : '' ?>
 			</td>

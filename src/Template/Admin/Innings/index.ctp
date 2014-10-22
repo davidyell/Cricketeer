@@ -34,13 +34,13 @@
 		<tr>
 			<td><?= h($innings->id) ?></td>
 			<td>
-				<?= $innings->has('match') ? $this->Html->link($innings->match->id, ['controller' => 'Matches', 'action' => 'view', $innings->match->id]) : '' ?>
+				<?= $innings->has('match') ? $this->Html->link($innings->match->name, ['controller' => 'Matches', 'action' => 'view', $innings->match->id]) : '' ?>
 			</td>
 			<td>
 				<?= $innings->has('player') ? $this->Html->link($innings->player->FullName, ['controller' => 'Players', 'action' => 'view', $innings->player->id]) : '' ?>
 			</td>
 			<td>
-				<?= $innings->has('team') ? $this->Html->link($innings->team->id, ['controller' => 'Teams', 'action' => 'view', $innings->team->id]) : '' ?>
+				<?= $innings->has('team') ? $this->Html->link($innings->team->name, ['controller' => 'Teams', 'action' => 'view', $innings->team->id]) : '' ?>
 			</td>
 			<td><?= h($innings->created) ?></td>
 			<td><?= h($innings->modified) ?></td>

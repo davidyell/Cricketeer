@@ -31,7 +31,14 @@ class MatchesController extends AppController {
  */
 	public function view($id = null) {
 		$match = $this->Matches->get($id, [
-			'contain' => ['Venues', 'Formats', 'Innings', 'Teams']
+			'contain' => [
+				'Venues',
+				'Formats',
+				'Innings' => [
+					'Players',
+					'Teams'
+				],
+			]
 		]);
 		$this->set('match', $match);
 	}

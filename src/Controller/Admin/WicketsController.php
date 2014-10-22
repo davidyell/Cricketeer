@@ -17,7 +17,13 @@ class WicketsController extends AppController {
  */
 	public function index() {
 		$this->paginate = [
-			'contain' => ['Players', 'Dismissals', 'Innings']
+			'contain' => [
+				'PlayerLostWicket',
+				'PlayerTookWicket',
+				'PlayerBowledWicket',
+				'Dismissals',
+				'Innings'
+			]
 		];
 		$this->set('wickets', $this->paginate($this->Wickets));
 	}
