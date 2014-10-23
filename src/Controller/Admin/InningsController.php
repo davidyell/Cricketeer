@@ -31,7 +31,19 @@ class InningsController extends AppController {
  */
 	public function view($id = null) {
 		$innings = $this->Innings->get($id, [
-			'contain' => ['Matches', 'Players', 'Teams', 'Wickets', 'Batsmen', 'Bowlers']
+			'contain' => [
+				'Matches',
+				'Players',
+				'Teams',
+				'Wickets' => [
+					'PlayerLostWicket',
+					'PlayerTookWicket',
+					'PlayerBowledWicket',
+					'Dismissals'
+				],
+				'Batsmen',
+				'Bowlers'
+			]
 		]);
 		$this->set('innings', $innings);
 	}

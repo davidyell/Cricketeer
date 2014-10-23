@@ -28,9 +28,9 @@
 	<?php foreach ($wickets as $wicket): ?>
 		<tr>
 			<td><?= h($wicket->id) ?></td>
-			<td><?= h($wicket->player_lost_wicket->FullName) ?></td>
-			<td><?= h($wicket->player_took_wicket->FullName) ?></td>
-			<td><?= h($wicket->player_bowled_wicket->FullName) ?></td>
+			<td><?= $this->Html->link(h($wicket->player_lost_wicket->FullName), ['controller' => 'players', 'action' => 'view', $wicket->player_lost_wicket->id]) ?></td>
+			<td><?= $this->Html->link(h($wicket->player_took_wicket->FullName), ['controller' => 'players', 'action' => 'view', $wicket->player_took_wicket->id]) ?></td>
+			<td><?= $this->Html->link(h($wicket->player_bowled_wicket->FullName), ['controller' => 'players', 'action' => 'view', $wicket->player_bowled_wicket->id]) ?></td>
 			<td>
 				<?= $wicket->has('dismissal') ? $this->Html->link($wicket->dismissal->name, ['controller' => 'Dismissals', 'action' => 'view', $wicket->dismissal->id]) : '' ?>
 			</td>

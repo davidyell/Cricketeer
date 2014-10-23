@@ -111,7 +111,9 @@
 		</tr>
 		<?php endforeach; ?>
 	</table>
-	<?php endif; ?>
+	<?php else: ?>
+		<p>No bowling figures.</p>
+	<?php endif;?>
 	</div>
 </div>
 <div class="related">
@@ -121,10 +123,10 @@
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th><?= __('Id') ?></th>
-			<th><?= __('Lost Wicket Player Id') ?></th>
-			<th><?= __('Took Wicket Player Id') ?></th>
-			<th><?= __('Bowler Player Id') ?></th>
-			<th><?= __('Dismissal Id') ?></th>
+			<th><?= __('Lost Wicket Player') ?></th>
+			<th><?= __('Took Wicket Player') ?></th>
+			<th><?= __('Bowler Player') ?></th>
+			<th><?= __('Dismissal') ?></th>
 			<th><?= __('Fall Of Wicket') ?></th>
 			<th><?= __('Innings Id') ?></th>
 			<th><?= __('Created') ?></th>
@@ -134,10 +136,10 @@
 		<?php foreach ($innings->wickets as $wickets): ?>
 		<tr>
 			<td><?= h($wickets->id) ?></td>
-			<td><?= h($wickets->lost_wicket_player_id) ?></td>
-			<td><?= h($wickets->took_wicket_player_id) ?></td>
-			<td><?= h($wickets->bowler_player_id) ?></td>
-			<td><?= h($wickets->dismissal_id) ?></td>
+			<td><?= $this->Html->link(h($wickets->player_lost_wicket->FullName), ['controller' => 'players', 'action' => 'view', $wickets->player_lost_wicket->id]) ?></td>
+			<td><?= $this->Html->link(h($wickets->player_took_wicket->FullName), ['controller' => 'players', 'action' => 'view', $wickets->player_took_wicket->id]) ?></td>
+			<td><?= $this->Html->link(h($wickets->player_bowled_wicket->FullName), ['controller' => 'players', 'action' => 'view', $wickets->player_bowled_wicket->id]) ?></td>
+			<td><?= h($wickets->dismissal->name) ?></td>
 			<td><?= h($wickets->fall_of_wicket) ?></td>
 			<td><?= h($wickets->innings_id) ?></td>
 			<td><?= h($wickets->created) ?></td>
