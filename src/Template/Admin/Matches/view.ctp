@@ -57,7 +57,7 @@
 			<th><?= __('Id') ?></th>
 			<th><?= __('Match') ?></th>
 			<th><?= __('Player') ?></th>
-			<th><?= __('Team Id') ?></th>
+			<th><?= __('Team') ?></th>
 			<th><?= __('Created') ?></th>
 			<th><?= __('Modified') ?></th>
 			<th class="actions"><?= __('Actions') ?></th>

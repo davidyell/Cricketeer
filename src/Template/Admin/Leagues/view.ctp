@@ -19,8 +19,6 @@
 			<p><?= h($league->name) ?></p>
 			<h6 class="subheader"><?= __('Image') ?></h6>
 			<p><?= h($league->image) ?></p>
-			<h6 class="subheader"><?= __('Image Dir') ?></h6>
-			<p><?= h($league->image_dir) ?></p>
 		</div>
 		<div class="large-2 columns dates end">
 			<h6 class="subheader"><?= __('Created') ?></h6>
@@ -46,7 +44,6 @@
 			<th><?= __('Name') ?></th>
 			<th><?= __('Alt Name') ?></th>
 			<th><?= __('Image') ?></th>
-			<th><?= __('Image Dir') ?></th>
 			<th><?= __('League Id') ?></th>
 			<th><?= __('Created') ?></th>
 			<th><?= __('Modified') ?></th>
@@ -58,7 +55,6 @@
 			<td><?= h($clubs->name) ?></td>
 			<td><?= h($clubs->alt_name) ?></td>
 			<td><?= h($clubs->image) ?></td>
-			<td><?= h($clubs->image_dir) ?></td>
 			<td><?= h($clubs->league_id) ?></td>
 			<td><?= h($clubs->created) ?></td>
 			<td><?= h($clubs->modified) ?></td>

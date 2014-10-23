@@ -13,7 +13,6 @@
 			<th><?= $this->Paginator->sort('id') ?></th>
 			<th><?= $this->Paginator->sort('name') ?></th>
 			<th><?= $this->Paginator->sort('image') ?></th>
-			<th><?= $this->Paginator->sort('image_dir') ?></th>
 			<th><?= $this->Paginator->sort('created') ?></th>
 			<th><?= $this->Paginator->sort('modified') ?></th>
 			<th class="actions"><?= __('Actions') ?></th>
@@ -25,7 +24,6 @@
 			<td><?= h($league->id) ?></td>
 			<td><?= h($league->name) ?></td>
 			<td><?= h($league->image) ?></td>
-			<td><?= h($league->image_dir) ?></td>
 			<td><?= h($league->created) ?></td>
 			<td><?= h($league->modified) ?></td>
 			<td class="actions">
