@@ -65,4 +65,16 @@ class BowlersTable extends Table {
 //		return $validator;
 //	}
 
+	public function findTopBowlers(Query $query, array $options) {
+		return $query->contain([
+				'Players',
+				'Innings' => [
+					'Matches' => [
+						'Formats',
+						'Venues'
+					]
+				]
+			])
+			->order(['wickets' => 'DESC', 'economy' => 'DESC']);
+	}
 }

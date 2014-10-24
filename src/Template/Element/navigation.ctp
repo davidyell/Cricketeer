@@ -1,5 +1,6 @@
 <nav class="navbar">
-	<ul>
-		<li><?php echo $this->Html->link('Home', '/');?></li>
+	<ul class="nav nav-pills" role="tablist">
+		<li class="<?php echo ($this->request->here === '/')? 'active' : '';?>"><?php echo $this->Html->link('Home', '/');?></li>
+		<li class="<?php echo ($this->request->params['controller'] === 'Matches')? 'active' : '';?>"><?php echo $this->Html->link('Matches', ['controller' => 'matches', 'action' => 'index']);?></li>
 	</ul>
 </nav>

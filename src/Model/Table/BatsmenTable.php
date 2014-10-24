@@ -72,4 +72,17 @@ class BatsmenTable extends Table {
 //		return $validator;
 //	}
 
+	public function findTopBatters(Query $query, array $options) {
+		return $query->contain([
+				'Players',
+				'Innings' => [
+					'Matches' => [
+						'Formats',
+						'Venues'
+					]
+				]
+			])
+			->order(['runs' => 'DESC', 'strike_rate' => 'DESC']);
+	}
+
 }

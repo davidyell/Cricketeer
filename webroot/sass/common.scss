@@ -2,3 +2,35 @@
     Created on : 07-Oct-2014, 16:21:46
     Author     : David Yell <neon1024@gmail.com>
 */
+@import "flash";
+
+header {
+  height: 100px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #333;
+
+  background: rgb(206,220,231); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(206,220,231,1) 0%, rgba(89,106,114,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(206,220,231,1)), color-stop(100%,rgba(89,106,114,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(206,220,231,1) 0%,rgba(89,106,114,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(206,220,231,1) 0%,rgba(89,106,114,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(206,220,231,1) 0%,rgba(89,106,114,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(206,220,231,1) 0%,rgba(89,106,114,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7', endColorstr='#596a72',GradientType=0 ); /* IE6-9 */
+
+  h1 {
+	font-size: 45px;
+	margin-top: 23px;
+  }
+}
+
+nav.navbar {
+  margin-top: 20px;
+}
+
+footer {
+  height: 40px;
+  padding: 10px;
+  background-color: #ccc;
+  text-align: center;
+}

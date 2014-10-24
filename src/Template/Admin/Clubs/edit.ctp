@@ -17,9 +17,9 @@
 		<legend><?= __('Edit Club'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
-		echo $this->Form->input('alt_name');
-		echo $this->Form->input('image');
-		echo $this->Form->input('image_dir');
+		echo $this->Form->input('alt_name', ['label' => 'Club nickname']);
+		echo $this->Form->input('image', ['type' => 'file']);
+		echo $this->Form->input('image_dir', ['type' => 'hidden']);
 		echo $this->Form->input('league_id', ['options' => $leagues]);
 	?>
 	</fieldset>

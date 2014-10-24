@@ -7,14 +7,14 @@
 	</ul>
 </div>
 <div class="leagues form col-md-10">
-<?= $this->Form->create($league) ?>
+<?= $this->Form->create($league, ['type' => 'file']) ?>
 	<fieldset>
 		<legend><?= __('Add League'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
-		echo $this->Form->input('image');
-		echo $this->Form->input('image_dir');
+		echo $this->Form->input('image', ['type' => 'file']);
+		echo $this->Form->input('image_dir', ['type' => 'hidden']);
 	?>
 	</fieldset>
 <?= $this->Form->button(__('Submit')) ?>

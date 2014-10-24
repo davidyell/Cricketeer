@@ -28,9 +28,7 @@
 		<div id="content" class="row">
 			<div class="col-md-12">
 				<?= $this->Flash->render() ?>
-				<div class="row">
-					<?= $this->fetch('content') ?>
-				</div>
+				<?= $this->fetch('content') ?>
 			</div>
 		</div>
 		
@@ -41,13 +39,13 @@
 		</footer>
 	</div>
 	
-<?php
-echo $this->Html->script([
-	'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', 
-	'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js', 
-	'common'
-]);
-$this->fetch('script');
-?>
+	<?php
+	echo $this->Html->script([
+		'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
+		'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js',
+		'common'
+	]);
+	$this->fetch('script');
+	?>
 </body>
 </html>

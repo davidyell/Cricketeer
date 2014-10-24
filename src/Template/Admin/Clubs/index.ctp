@@ -18,7 +18,6 @@
 			<th><?= $this->Paginator->sort('name') ?></th>
 			<th><?= $this->Paginator->sort('alt_name') ?></th>
 			<th><?= $this->Paginator->sort('image') ?></th>
-			<th><?= $this->Paginator->sort('image_dir') ?></th>
 			<th><?= $this->Paginator->sort('league_id') ?></th>
 			<th><?= $this->Paginator->sort('created') ?></th>
 			<th class="actions"><?= __('Actions') ?></th>
@@ -31,7 +30,6 @@
 			<td><?= h($club->name) ?></td>
 			<td><?= h($club->alt_name) ?></td>
 			<td><?= h($club->image) ?></td>
-			<td><?= h($club->image_dir) ?></td>
 			<td>
 				<?= $club->has('league') ? $this->Html->link($club->league->name, ['controller' => 'Leagues', 'action' => 'view', $club->league->id]) : '' ?>
 			</td>

@@ -1,7 +1,6 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
@@ -37,10 +36,33 @@ class LeaguesTable extends Table {
 		$validator
 			->add('id', 'valid', ['rule' => 'uuid'])
 			->allowEmpty('id', 'create')
+
 			->validatePresence('name', 'create')
-			->notEmpty('name')
+			->notEmpty('name', 'Must name the league.')
+
 			->allowEmpty('description')
+
+			->add('image', 'extension', ['rule' => ['extension', ['gif', 'jpeg', 'png', 'jpg']], 'message' => 'Please only upload images, gif, png, jpg'])
+			->add('image', 'noErrors', ['rule' => 'uploadError', 'message' => 'Something went wrong with the upload.'])
+			->add('image', 'isUploaded', ['rule' => ['uploadedFile', ['types' => ['image/gif', 'image/jpeg', 'image/png'], 'maxSize' => '2000000']], 'message' => 'File is not correct MIME type.'])
+
+			->add('image', [
+				'extension' => [
+					'rule' => ['extension', ['gif', 'jpeg', 'png', 'jpg']],
+					'message' => 'Please only upload images, gif, png, jpg'
+				],
+				'noErrors' => [
+					'rule' => 'uploadError',
+					'message' => 'Something went wrong with the upload.'
+				],
+				'isUploaded' => [
+					'rule' => ['uploadedFile', ['types' => ['image/gif', 'image/jpeg', 'image/png'], 'maxSize' => '2000000']],
+					'message' => 'File is not correct MIME type.'
+				]
+			])
+
 			->allowEmpty('image')
+
 			->allowEmpty('image_dir');
 
 		return $validator;

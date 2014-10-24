@@ -43,6 +43,9 @@ class AppController extends Controller {
 					'fields' => ['username' => 'email']
 				]
 			],
+			'authorize' => [
+				'Controller'
+			],
 			'authError' => 'You do not have permission to view that.',
 			'loginRedirect' => ['controller' => 'leagues', 'action' => 'index', 'prefix' => 'admin'],
 			'loginAction' => ['controller' => 'users', 'action' => 'login', 'prefix' => false]
@@ -60,12 +63,32 @@ class AppController extends Controller {
 		]
 	];
 
+/**
+ * beforeFilter method
+ *
+ * @param Event $event
+ * @return void
+ */
 	public function beforeFilter(Event $event) {
 		parent::beforeFilter($event);
 		
 		if (isset($this->request->params['prefix']) && $this->request->params['prefix'] === 'admin') {
 			$this->layout = 'admin';
 		}
+
+		$this->setupAuth();
 	}
 
+/**
+ * Configure the AuthComponent
+ *
+ * @return void
+ */
+	protected function setupAuth() {
+		$this->Auth->allow([
+			'index',
+			'view',
+			'home'
+		]);
+	}
 }

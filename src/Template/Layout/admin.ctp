@@ -9,7 +9,7 @@
 	<?= $this->Html->css([
 		'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', 
 		'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css',
-		'admin'
+		'Admin'
 	]) ?>
 
 	<?= $this->fetch('meta') ?>
@@ -23,7 +23,7 @@
 			</div>
 		</header>
 		
-		<?php echo $this->element('admin/navigation');?>
+		<?php echo $this->element('Admin/navigation');?>
 		
 		<div id="content" class="row">
 			<div class="col-md-12">
