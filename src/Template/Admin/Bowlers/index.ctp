@@ -17,8 +17,8 @@
 			<th><?= $this->Paginator->sort('innings_id') ?></th>
 			<th><?= $this->Paginator->sort('overs') ?></th>
 			<th><?= $this->Paginator->sort('runs') ?></th>
-			<th><?= $this->Paginator->sort('wickets') ?></th>
 			<th><?= $this->Paginator->sort('economy') ?></th>
+			<th><?= $this->Paginator->sort('wickets') ?></th>
 			<th class="actions"><?= __('Actions') ?></th>
 		</tr>
 	</thead>
@@ -34,8 +34,8 @@
 			</td>
 			<td><?= $this->Number->format($bowler->overs) ?></td>
 			<td><?= $this->Number->format($bowler->runs) ?></td>
-			<td><?= $this->Number->format($bowler->wickets) ?></td>
 			<td><?= $this->Number->format($bowler->economy) ?></td>
+			<td><?php echo $this->Number->format(count($bowler->innings->wickets)); ?></td>
 			<td class="actions">
 				<?= $this->Html->link(__('View'), ['action' => 'view', $bowler->id]) ?>
 				<?= $this->Html->link(__('Edit'), ['action' => 'edit', $bowler->id]) ?>

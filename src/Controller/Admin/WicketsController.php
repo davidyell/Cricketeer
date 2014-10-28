@@ -63,7 +63,7 @@ class WicketsController extends AppController {
 				$this->Flash->error('The wicket could not be saved. Please, try again.');
 			}
 		}
-		$players = $this->Wickets->Players->find('list');
+		$players = $this->Wickets->Players->find('PlayerListByTeam');
 		$dismissals = $this->Wickets->Dismissals->find('list');
 		$innings = $this->Wickets->Innings->find('list');
 		$this->set(compact('wicket', 'players', 'dismissals', 'innings'));
@@ -89,7 +89,7 @@ class WicketsController extends AppController {
 				$this->Flash->error('The wicket could not be saved. Please, try again.');
 			}
 		}
-		$players = $this->Wickets->Players->find('list');
+		$players = $this->Wickets->Players->find('PlayerListByTeam');
 		$dismissals = $this->Wickets->Dismissals->find('list');
 		$innings = $this->Wickets->Innings->find('list');
 		$this->set(compact('wicket', 'players', 'dismissals', 'innings'));

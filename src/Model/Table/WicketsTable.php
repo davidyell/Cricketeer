@@ -34,6 +34,7 @@ class WicketsTable extends Table {
 			'foreignKey' => 'bowler_player_id',
 			'className' => 'App\Model\Table\PlayersTable'
 		]);
+		$this->belongsTo('Players');
 		$this->belongsTo('Dismissals', [
 			'foreignKey' => 'dismissal_id',
 		]);

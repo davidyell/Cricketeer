@@ -17,9 +17,15 @@ class BowlersController extends AppController {
  */
 	public function index() {
 		$this->paginate = [
-			'contain' => ['Players', 'Innings']
+			'contain' => [
+				'Players',
+				'Innings' => [
+					'Wickets'
+				]
+			]
 		];
-		$this->set('bowlers', $this->paginate($this->Bowlers));
+		$bowlers = $this->paginate($this->Bowlers);
+		$this->set('bowlers', $bowlers);
 	}
 
 /**
@@ -51,7 +57,7 @@ class BowlersController extends AppController {
 				$this->Flash->error('The bowler could not be saved. Please, try again.');
 			}
 		}
-		$players = $this->Bowlers->Players->find('list');
+		$players = $this->Bowlers->Players->find('PlayerListByTeam');
 		$innings = $this->Bowlers->Innings->find('list');
 		$this->set(compact('bowler', 'players', 'innings'));
 	}
@@ -76,7 +82,7 @@ class BowlersController extends AppController {
 				$this->Flash->error('The bowler could not be saved. Please, try again.');
 			}
 		}
-		$players = $this->Bowlers->Players->find('list');
+		$players = $this->Bowlers->Players->find('PlayerListByTeam');
 		$innings = $this->Bowlers->Innings->find('list');
 		$this->set(compact('bowler', 'players', 'innings'));
 	}

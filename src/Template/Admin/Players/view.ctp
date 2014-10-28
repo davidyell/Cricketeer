@@ -108,7 +108,6 @@
 			<th><?= __('Innings Id') ?></th>
 			<th><?= __('Overs') ?></th>
 			<th><?= __('Runs') ?></th>
-			<th><?= __('Wickets') ?></th>
 			<th><?= __('Economy') ?></th>
 			<th><?= __('Maidens') ?></th>
 			<th><?= __('Created') ?></th>
@@ -122,7 +121,6 @@
 			<td><?= h($bowlers->innings_id) ?></td>
 			<td><?= h($bowlers->overs) ?></td>
 			<td><?= h($bowlers->runs) ?></td>
-			<td><?= h($bowlers->wickets) ?></td>
 			<td><?= h($bowlers->economy) ?></td>
 			<td><?= h($bowlers->maidens) ?></td>
 			<td><?= h($bowlers->created) ?></td>

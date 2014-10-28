@@ -27,8 +27,6 @@
 			<p><?= $this->Number->format($bowler->overs) ?></p>
 			<h6 class="subheader"><?= __('Runs') ?></h6>
 			<p><?= $this->Number->format($bowler->runs) ?></p>
-			<h6 class="subheader"><?= __('Wickets') ?></h6>
-			<p><?= $this->Number->format($bowler->wickets) ?></p>
 			<h6 class="subheader"><?= __('Economy') ?></h6>
 			<p><?= $this->Number->format($bowler->economy) ?></p>
 			<h6 class="subheader"><?= __('Maidens') ?></h6>
