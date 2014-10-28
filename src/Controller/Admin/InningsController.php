@@ -17,7 +17,11 @@ class InningsController extends AppController {
  */
 	public function index() {
 		$this->paginate = [
-			'contain' => ['Matches', 'Players', 'Teams', 'Wickets']
+			'contain' => [
+				'Matches',
+				'Teams',
+				'InningsTypes'
+			]
 		];
 		$this->set('innings', $this->paginate($this->Innings));
 	}
@@ -33,7 +37,6 @@ class InningsController extends AppController {
 		$innings = $this->Innings->get($id, [
 			'contain' => [
 				'Matches',
-				'Players',
 				'Teams',
 				'Wickets' => [
 					'PlayerLostWicket',
@@ -41,8 +44,13 @@ class InningsController extends AppController {
 					'PlayerBowledWicket',
 					'Dismissals'
 				],
-				'Batsmen',
-				'Bowlers'
+				'Batsmen' => [
+					'Players'
+				],
+				'Bowlers' => [
+					'Players'
+				],
+				'InningsTypes'
 			]
 		]);
 		$this->set('innings', $innings);
@@ -63,7 +71,6 @@ class InningsController extends AppController {
 			}
 
 			if ($this->Innings->save($innings)) {
-
 				$this->Flash->success('The innings has been saved.');
 				return $this->redirect(['action' => 'index']);
 			} else {
@@ -72,12 +79,11 @@ class InningsController extends AppController {
 		}
 
 		$matches = $this->Innings->Matches->find('list');
-		$players = $this->Innings->Players->find('PlayerListByTeam');
-		$wicketPlayers = $this->Innings->Players->find('PlayerListByTeam');
 		$teams = $this->Innings->Teams->find('list');
 		$wickets = $this->Innings->Wickets->find('list');
 		$dismissals = $this->Innings->Wickets->Dismissals->find('list');
-		$this->set(compact('innings', 'matches', 'players', 'wicketPlayers', 'teams', 'wickets', 'dismissals'));
+		$inningsTypes = $this->Innings->InningsTypes->find('list');
+		$this->set(compact('innings', 'matches', 'teams', 'wickets', 'dismissals', 'inningsTypes'));
 	}
 
 /**
@@ -107,12 +113,11 @@ class InningsController extends AppController {
 		}
 
 		$matches = $this->Innings->Matches->find('list');
-		$players = $this->Innings->Players->find('PlayerListByTeam');
-		$wicketPlayers = $this->Innings->Players->find('PlayerListByTeam');
 		$teams = $this->Innings->Teams->find('list');
 		$wickets = $this->Innings->Wickets->find('list');
 		$dismissals = $this->Innings->Wickets->Dismissals->find('list');
-		$this->set(compact('innings', 'matches', 'players', 'wicketPlayers', 'teams', 'wickets', 'dismissals'));
+		$inningsTypes = $this->Innings->InningsTypes->find('list');
+		$this->set(compact('innings', 'matches', 'teams', 'wickets', 'dismissals', 'inningsTypes'));
 	}
 
 /**
@@ -122,7 +127,8 @@ class InningsController extends AppController {
  * @return void
  * @throws \Cake\Network\Exception\NotFoundException
  */
-	public function delete($id = null) {
+	public function delete($id = null)
+	{
 		$innings = $this->Innings->get($id);
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Innings->delete($innings)) {

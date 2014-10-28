@@ -28,41 +28,25 @@ class InningsTable extends Table {
 		$this->belongsTo('Matches', [
 			'foreignKey' => 'match_id',
 		]);
-		$this->belongsTo('Players', [
-			'foreignKey' => 'player_id',
-		]);
 		$this->belongsTo('Teams', [
 			'foreignKey' => 'team_id',
 		]);
 		$this->hasMany('Batsmen', [
 			'foreignKey' => 'innings_id',
+			'dependent' => true,
+			'cascadeCallbacks' => false
 		]);
 		$this->hasMany('Bowlers', [
 			'foreignKey' => 'innings_id',
+			'dependent' => true,
+			'cascadeCallbacks' => false
 		]);
 		$this->hasMany('Wickets', [
 			'foreignKey' => 'innings_id',
+			'dependent' => true,
+			'cascadeCallbacks' => false
 		]);
-	}
-
-/**
- * beforeSave method
- * Executed before the entity is persisted
- *
- * @param Event $event
- * @param Entity $entity
- * @param ArrayObject $options
- */
-	public function beforeSave(Event $event, Entity $entity, ArrayObject $options) {
-		$entity->batsmen[0]->set('strike_rate', $this->strikeRate($entity->batsmen[0]->get('runs'), $entity->batsmen[0]->get('balls')));
-		$entity->batsmen[0]->set('player_id', $entity->player_id);
-
-		if (isset($entity->bowlers)) {
-			$entity->bowlers[0]->set('economy', $this->economy($entity->bowlers[0]->get('runs'), $entity->bowlers[0]->get('overs')));
-			$entity->bowlers[0]->set('player_id', $entity->player_id);
-		}
-
-		$entity->wickets[0]->set('lost_wicket_player_id', $entity->player_id);
+		$this->belongsTo('InningsTypes');
 	}
 
 /**
@@ -87,35 +71,5 @@ class InningsTable extends Table {
 //
 //		return $validator;
 //	}
-
-/**
- * Work out the batsmen strike rate
- *
- * @param $runs Number of runs scored
- * @param $balls Number of balls faced
- * @return float
- */
-	public function strikeRate($runs, $balls) {
-		if ($balls > 0) {
-			return (float)number_format(($runs / $balls) * 100, 2);
-		}
-
-		return (float)0.0;
-	}
-
-/**
- * Work out a bowlers economy
- *
- * @param $runs Number of runs scored off the bowler
- * @param $overs Number of over bowled
- * @return float
- */
-	public function economy($runs, $overs) {
-		if ($overs > 0) {
-			return (float)number_format($runs / $overs, 2);
-		}
-
-		return (float)0.0;
-	}
 
 }

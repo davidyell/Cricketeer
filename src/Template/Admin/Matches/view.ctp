@@ -56,7 +56,6 @@
 		<tr>
 			<th><?= __('Id') ?></th>
 			<th><?= __('Match') ?></th>
-			<th><?= __('Player') ?></th>
 			<th><?= __('Team') ?></th>
 			<th><?= __('Created') ?></th>
 			<th><?= __('Modified') ?></th>
@@ -66,7 +65,6 @@
 		<tr>
 			<td><?= h($innings->id) ?></td>
 			<td><?= h($match->name) ?></td>
-			<td><?= h($innings->player->FullName) ?></td>
 			<td><?= h($innings->team->name) ?></td>
 			<td><?= h($innings->created) ?></td>
 			<td><?= h($innings->modified) ?></td>

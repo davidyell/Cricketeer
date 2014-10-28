@@ -35,7 +35,6 @@ class MatchesController extends AppController {
 				'Venues',
 				'Formats',
 				'Innings' => [
-					'Players',
 					'Teams'
 				],
 			]

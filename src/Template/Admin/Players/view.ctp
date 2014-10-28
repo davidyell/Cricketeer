@@ -58,7 +58,7 @@
 </div>
 <div class="related">
 	<div class="column col-md-12">
-	<h4 class="subheader"><?= __('Related Batsmen') ?></h4>
+	<h4 class="subheader"><?= __('Related Batting') ?></h4>
 	<?php if (!empty($player->batsmen)): ?>
 	<table cellpadding="0" cellspacing="0">
 		<tr>
@@ -99,7 +99,7 @@
 </div>
 <div class="related">
 	<div class="column col-md-12">
-	<h4 class="subheader"><?= __('Related Bowlers') ?></h4>
+	<h4 class="subheader"><?= __('Related Bowling') ?></h4>
 	<?php if (!empty($player->bowlers)): ?>
 	<table cellpadding="0" cellspacing="0">
 		<tr>
@@ -138,53 +138,7 @@
 	<?php endif; ?>
 	</div>
 </div>
-<div class="related">
-	<div class="column col-md-12">
-	<h4 class="subheader"><?= __('Related Innings') ?></h4>
-	<?php if (!empty($player->innings)): ?>
-	<table cellpadding="0" cellspacing="0">
-		<tr>
-			<th><?= __('Id') ?></th>
-			<th><?= __('Match Id') ?></th>
-			<th><?= __('Player Id') ?></th>
-			<th><?= __('Team Id') ?></th>
-			<th><?= __('Wicket Id') ?></th>
-			<th><?= __('Declared') ?></th>
-			<th><?= __('No Ball') ?></th>
-			<th><?= __('Wide') ?></th>
-			<th><?= __('Bye') ?></th>
-			<th><?= __('Leg Bye') ?></th>
-			<th><?= __('Penalty Runs') ?></th>
-			<th><?= __('Created') ?></th>
-			<th><?= __('Modified') ?></th>
-			<th class="actions"><?= __('Actions') ?></th>
-		</tr>
-		<?php foreach ($player->innings as $innings): ?>
-		<tr>
-			<td><?= h($innings->id) ?></td>
-			<td><?= h($innings->match_id) ?></td>
-			<td><?= h($innings->player_id) ?></td>
-			<td><?= h($innings->team_id) ?></td>
-			<td><?= h($innings->wicket_id) ?></td>
-			<td><?= h($innings->declared) ?></td>
-			<td><?= h($innings->no_ball) ?></td>
-			<td><?= h($innings->wide) ?></td>
-			<td><?= h($innings->bye) ?></td>
-			<td><?= h($innings->leg_bye) ?></td>
-			<td><?= h($innings->penalty_runs) ?></td>
-			<td><?= h($innings->created) ?></td>
-			<td><?= h($innings->modified) ?></td>
-			<td class="actions">
-				<?= $this->Html->link(__('View'), ['controller' => 'Innings', 'action' => 'view', $innings->id]) ?>
-				<?= $this->Html->link(__('Edit'), ['controller' => 'Innings', 'action' => 'edit', $innings->id]) ?>
-				<?= $this->Form->postLink(__('Delete'), ['controller' => 'Innings', 'action' => 'delete', $innings->id], ['confirm' => __('Are you sure you want to delete # %s?', $innings->id)]) ?>
-			</td>
-		</tr>
-		<?php endforeach; ?>
-	</table>
-	<?php endif; ?>
-	</div>
-</div>
+
 <div class="related">
 	<div class="column col-md-12">
 	<h4 class="subheader"><?= __('Related Squads') ?></h4>

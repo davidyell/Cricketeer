@@ -4,10 +4,10 @@
 		<li><?= $this->Html->link(__('List Innings'), ['action' => 'index']) ?></li>
 		<li><?= $this->Html->link(__('List Matches'), ['controller' => 'Matches', 'action' => 'index']) ?> </li>
 		<li><?= $this->Html->link(__('New Match'), ['controller' => 'Matches', 'action' => 'add']) ?> </li>
-		<li><?= $this->Html->link(__('List Players'), ['controller' => 'Players', 'action' => 'index']) ?> </li>
-		<li><?= $this->Html->link(__('New Player'), ['controller' => 'Players', 'action' => 'add']) ?> </li>
 		<li><?= $this->Html->link(__('List Teams'), ['controller' => 'Teams', 'action' => 'index']) ?> </li>
 		<li><?= $this->Html->link(__('New Team'), ['controller' => 'Teams', 'action' => 'add']) ?> </li>
+		<li><?= $this->Html->link(__('List InningsTypes'), ['controller' => 'InningsTypes', 'action' => 'index']) ?> </li>
+		<li><?= $this->Html->link(__('New Innings Type'), ['controller' => 'InningsTypes', 'action' => 'add']) ?> </li>
 		<li><?= $this->Html->link(__('List Batsmen'), ['controller' => 'Batsmen', 'action' => 'index']) ?> </li>
 		<li><?= $this->Html->link(__('New Batsman'), ['controller' => 'Batsmen', 'action' => 'add']) ?> </li>
 		<li><?= $this->Html->link(__('List Bowlers'), ['controller' => 'Bowlers', 'action' => 'index']) ?> </li>
@@ -19,34 +19,18 @@
 <div class="innings form col-md-10">
 <?= $this->Form->create($innings) ?>
 	<fieldset>
-		<legend><?= __('Add Innings'); ?></legend>
+		<legend><?= __('Add Innings') ?></legend>
 	<?php
+		echo $this->Form->input('innings_type_id', ['options' => $inningsTypes]);
 		echo $this->Form->input('match_id', ['options' => $matches]);
-		echo $this->Form->input('player_id', ['options' => $players]);
 		echo $this->Form->input('team_id', ['options' => $teams]);
-
-		echo "<h3>" . __('Batting') . "</h3>";
-		echo $this->Form->input('batsmen.0.id', ['value' => \Cake\Utility\String::uuid()]);
-		echo $this->Form->input('batsmen.0.runs');
-		echo $this->Form->input('batsmen.0.balls');
-		echo $this->Form->input('batsmen.0.fours');
-		echo $this->Form->input('batsmen.0.sixes');
-
-		echo "<h3>" . __('Lost wicket') . "</h3>";
-		echo $this->Form->input('wickets.0.id', ['value' => \Cake\Utility\String::uuid()]);
-		echo $this->Form->input('wickets.0.took_wicket_player_id', ['options' => $wicketPlayers, 'label' => 'Player who took the wicket']);
-		echo $this->Form->input('wickets.0.bowler_player_id', ['options' => $wicketPlayers, 'label' => 'Bowler']);
-		echo $this->Form->input('wickets.0.dismissal_id', ['options' => $dismissals]);
-		echo $this->Form->input('wickets.0.fall_of_wicket', ['label' => 'Score when the wicket fell']);
-
-		echo "<h3>" . __('Bowling') . "</h3>";
-		echo $this->Form->input('bowlers.0.id', ['value' => \Cake\Utility\String::uuid()]);
-		echo $this->Form->input('bowlers.0.overs');
-		echo $this->Form->input('bowlers.0.runs');
-		echo $this->Form->input('bowlers.0.wickets', ['type' => 'number']);
-		echo $this->Form->input('bowlers.0.maidens');
+		echo $this->Form->input('wides');
+		echo $this->Form->input('byes');
+		echo $this->Form->input('leg_byes');
+		echo $this->Form->input('no_balls');
+		echo $this->Form->input('declared');
 	?>
 	</fieldset>
-<?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+<?= $this->Form->button(__('Submit')) ?>
 <?= $this->Form->end() ?>
 </div>

@@ -85,4 +85,19 @@ class BatsmenTable extends Table {
 			->order(['runs' => 'DESC', 'strike_rate' => 'DESC']);
 	}
 
+	/**
+	 * Work out the batsmen strike rate
+	 *
+	 * @param $runs Number of runs scored
+	 * @param $balls Number of balls faced
+	 * @return float
+	 */
+	public function strikeRate($runs, $balls) {
+		if ($balls > 0) {
+			return (float)number_format(($runs / $balls) * 100, 2);
+		}
+
+		return (float)0.0;
+	}
+
 }

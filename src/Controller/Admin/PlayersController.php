@@ -31,7 +31,7 @@ class PlayersController extends AppController {
  */
 	public function view($id = null) {
 		$player = $this->Players->get($id, [
-			'contain' => ['PlayerSpecialisations', 'Clubs', 'Batsmen', 'Bowlers', 'Innings', 'Squads']
+			'contain' => ['PlayerSpecialisations', 'Clubs', 'Batsmen', 'Bowlers', 'Squads']
 		]);
 		$this->set('player', $player);
 	}

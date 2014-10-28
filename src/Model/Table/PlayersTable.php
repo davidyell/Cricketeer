@@ -37,9 +37,6 @@ class PlayersTable extends Table {
 		$this->hasMany('Bowlers', [
 			'foreignKey' => 'player_id',
 		]);
-		$this->hasMany('Innings', [
-			'foreignKey' => 'player_id',
-		]);
 		$this->hasMany('Squads', [
 			'foreignKey' => 'player_id',
 		]);

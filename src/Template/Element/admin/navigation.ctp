@@ -38,6 +38,8 @@
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Scores <span class="caret"></span></a>
 			<ul class="dropdown-menu" role="menu">
 				<li <?php echo ($this->request->controller === 'innings')? 'class="active"' : '';?>><?php echo $this->Html->link('Innings', ['controller' => 'innings', 'action' => 'index']);?></li>
+				<li <?php echo ($this->request->controller === 'batsmen')? 'class="active"' : '';?>><?php echo $this->Html->link('Batting', ['controller' => 'batsmen', 'action' => 'index']);?></li>
+				<li <?php echo ($this->request->controller === 'bowlers')? 'class="active"' : '';?>><?php echo $this->Html->link('Bowling', ['controller' => 'bowlers', 'action' => 'index']);?></li>
 				<li <?php echo ($this->request->controller === 'wickets')? 'class="active"' : '';?>><?php echo $this->Html->link('Wickets', ['controller' => 'wickets', 'action' => 'index']);?></li>
 			</ul>
 		</li>

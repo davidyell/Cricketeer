@@ -77,4 +77,19 @@ class BowlersTable extends Table {
 			])
 			->order(['wickets' => 'DESC', 'economy' => 'DESC']);
 	}
+
+	/**
+	 * Work out a bowlers economy
+	 *
+	 * @param $runs Number of runs scored off the bowler
+	 * @param $overs Number of over bowled
+	 * @return float
+	 */
+	public function economy($runs, $overs) {
+		if ($overs > 0) {
+			return (float)number_format($runs / $overs, 2);
+		}
+
+		return (float)0.0;
+	}
 }
