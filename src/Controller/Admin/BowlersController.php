@@ -70,9 +70,7 @@ class BowlersController extends AppController {
  * @throws \Cake\Network\Exception\NotFoundException
  */
 	public function edit($id = null) {
-		$bowler = $this->Bowlers->get($id, [
-			'contain' => []
-		]);
+		$bowler = $this->Bowlers->get($id);
 		if ($this->request->is(['patch', 'post', 'put'])) {
 			$bowler = $this->Bowlers->patchEntity($bowler, $this->request->data);
 			if ($this->Bowlers->save($bowler)) {

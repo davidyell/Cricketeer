@@ -17,7 +17,6 @@
 		echo $this->Form->input('innings_id', ['options' => $innings]);
 		echo $this->Form->input('overs');
 		echo $this->Form->input('runs');
-		echo $this->Form->input('economy');
 		echo $this->Form->input('maidens');
 	?>
 	</fieldset>
