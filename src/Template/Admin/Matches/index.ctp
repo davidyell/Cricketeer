@@ -21,9 +21,6 @@
 			<th><?= $this->Paginator->sort('when_played') ?></th>
 			<th><?= $this->Paginator->sort('venue_id') ?></th>
 			<th><?= $this->Paginator->sort('format_id') ?></th>
-			<th><?= $this->Paginator->sort('wides') ?></th>
-			<th><?= $this->Paginator->sort('byes') ?></th>
-			<th><?= $this->Paginator->sort('leg_byes') ?></th>
 			<th class="actions"><?= __('Actions') ?></th>
 		</tr>
 	</thead>
@@ -39,9 +36,6 @@
 			<td>
 				<?= $match->has('format') ? $this->Html->link($match->format->name, ['controller' => 'Formats', 'action' => 'view', $match->format->id]) : '' ?>
 			</td>
-			<td><?= $this->Number->format($match->wides) ?></td>
-			<td><?= $this->Number->format($match->byes) ?></td>
-			<td><?= $this->Number->format($match->leg_byes) ?></td>
 			<td class="actions">
 				<?= $this->Html->link(__('View'), ['action' => 'view', $match->id]) ?>
 				<?= $this->Html->link(__('Edit'), ['action' => 'edit', $match->id]) ?>

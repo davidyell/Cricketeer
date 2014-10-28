@@ -57,23 +57,7 @@ class MatchesTable extends Table {
 
 			->add('format_id', 'valid', ['rule' => 'uuid'])
 			->validatePresence('format_id', 'create')
-			->notEmpty('format_id')
-
-			->add('wides', 'valid', ['rule' => 'numeric'])
-			->validatePresence('wides', 'create')
-			->notEmpty('wides')
-
-			->add('byes', 'valid', ['rule' => 'numeric'])
-			->validatePresence('byes', 'create')
-			->notEmpty('byes')
-
-			->add('leg_byes', 'valid', ['rule' => 'numeric'])
-			->validatePresence('leg_byes', 'create')
-			->notEmpty('leg_byes')
-
-			->add('no_balls', 'valid', ['rule' => 'numeric'])
-			->validatePresence('no_balls', 'create')
-			->notEmpty('no_balls');
+			->notEmpty('format_id');
 
 		return $validator;
 	}

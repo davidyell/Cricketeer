@@ -28,16 +28,6 @@
 			<h6 class="subheader"><?= __('Format') ?></h6>
 			<p><?= $match->has('format') ? $this->Html->link($match->format->name, ['controller' => 'Formats', 'action' => 'view', $match->format->id]) : '' ?></p>
 		</div>
-		<div class="large-2 larege-offset-1 columns numbers end">
-			<h6 class="subheader"><?= __('Wides') ?></h6>
-			<p><?= $this->Number->format($match->wides) ?></p>
-			<h6 class="subheader"><?= __('Byes') ?></h6>
-			<p><?= $this->Number->format($match->byes) ?></p>
-			<h6 class="subheader"><?= __('Leg Byes') ?></h6>
-			<p><?= $this->Number->format($match->leg_byes) ?></p>
-			<h6 class="subheader"><?= __('No Balls') ?></h6>
-			<p><?= $this->Number->format($match->no_balls) ?></p>
-		</div>
 		<div class="large-2 columns dates end">
 			<h6 class="subheader"><?= __('When Played') ?></h6>
 			<p><?= h($match->when_played) ?></p>

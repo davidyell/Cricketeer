@@ -22,10 +22,6 @@
 		echo $this->Form->input('when_played');
 		echo $this->Form->input('venue_id', ['options' => $venues]);
 		echo $this->Form->input('format_id', ['options' => $formats]);
-		echo $this->Form->input('wides');
-		echo $this->Form->input('byes');
-		echo $this->Form->input('leg_byes');
-		echo $this->Form->input('no_balls');
 	?>
 	</fieldset>
 <?= $this->Form->button(__('Submit')) ?>
