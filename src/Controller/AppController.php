@@ -85,10 +85,31 @@ class AppController extends Controller {
  * @return void
  */
 	protected function setupAuth() {
-		$this->Auth->allow([
-			'index',
-			'view',
-			'home'
-		]);
+		if (@$this->request->params['prefix'] !== 'admin') {
+			$this->Auth->allow([
+				'index',
+				'view',
+				'home',
+				'logout'
+			]);
+		}
+	}
+
+/**
+ * Check if a user is allowed to access resources
+ *
+ * @param null $user
+ * @return bool
+ */
+	public function isAuthorized($user = null) {
+		if (empty($this->request->params['prefix'])) {
+			return true;
+		}
+
+		if ($this->request->params['prefix'] === 'admin') {
+			return (bool)($user['role'] === 'admin');
+		}
+
+		return false;
 	}
 }
