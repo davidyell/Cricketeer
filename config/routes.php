@@ -33,6 +33,7 @@ Router::scope('/', function($routes) {
  * to use (in this case, src/Template/Pages/home.ctp)...
  */
 	$routes->connect('/', ['controller' => 'contents', 'action' => 'home']);
+	$routes->redirect('/login', ['controller' => 'users', 'action' => 'login']);
 
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
