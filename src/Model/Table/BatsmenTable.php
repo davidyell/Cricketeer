@@ -1,6 +1,8 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\Event\Event;
+use Cake\ORM\Entity;
 use Cake\ORM\Query;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -71,6 +73,17 @@ class BatsmenTable extends Table {
 //
 //		return $validator;
 //	}
+
+/**
+ * @param Event $event
+ * @param Entity $entity
+ * @param \ArrayObject $options
+ * @return boolean
+ */
+	public function beforeSave(Event $event, Entity $entity, \ArrayObject $options) {
+		$entity->set('strike_rate', $this->strikeRate($entity->runs, $entity->balls));
+		return true;
+	}
 
 	public function findTopBatters(Query $query, array $options) {
 		return $query->contain([

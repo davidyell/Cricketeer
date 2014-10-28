@@ -1,6 +1,8 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\Event\Event;
+use Cake\ORM\Entity;
 use Cake\ORM\Query;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -64,6 +66,19 @@ class BowlersTable extends Table {
 //
 //		return $validator;
 //	}
+
+/**
+ * @param Event $event
+ * @param Entity $entity
+ * @param \ArrayObject $options
+ * @return bool
+ */
+
+
+	public function beforeSave(Event $event, Entity $entity, \ArrayObject $options) {
+		$entity->set('economy', $this->economy($entity->runs, $entity->overs));
+		return true;
+	}
 
 	public function findTopBowlers(Query $query, array $options) {
 		return $query->contain([
