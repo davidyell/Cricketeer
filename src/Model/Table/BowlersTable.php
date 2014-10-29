@@ -80,6 +80,13 @@ class BowlersTable extends Table {
 		return true;
 	}
 
+/**
+ * Find a list of top bowlers
+ *
+ * @param Query $query
+ * @param array $options
+ * @return $this
+ */
 	public function findTopBowlers(Query $query, array $options) {
 		return $query->contain([
 				'Players',
@@ -87,10 +94,16 @@ class BowlersTable extends Table {
 					'Matches' => [
 						'Formats',
 						'Venues'
-					]
+					],
 				]
 			])
-			->order(['wickets' => 'DESC', 'economy' => 'DESC']);
+			// Use a sub-query to calculate the number of wickets taken in this innings
+			->select(['wickets_taken' => $this->Innings->Wickets->find()->select($query->func()->count('*'))->where(['Wickets.innings_id = Innings.id'])])
+			->order([
+				'wickets_taken' => 'DESC',
+				'economy' => 'DESC'
+			])
+			->autoFields(true);
 	}
 
 	/**

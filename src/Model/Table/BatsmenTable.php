@@ -85,6 +85,13 @@ class BatsmenTable extends Table {
 		return true;
 	}
 
+/**
+ * Find a list of the Top batsmen
+ *
+ * @param Query $query
+ * @param array $options
+ * @return $this
+*/
 	public function findTopBatters(Query $query, array $options) {
 		return $query->contain([
 				'Players',
