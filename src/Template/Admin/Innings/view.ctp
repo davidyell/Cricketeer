@@ -41,6 +41,8 @@
 			<p><?= $this->Number->format($innings->leg_byes) ?></p>
 			<h6 class="subheader"><?= __('No Balls') ?></h6>
 			<p><?= $this->Number->format($innings->no_balls) ?></p>
+			<h6 class="subheader"><?= __('Penalty Runs') ?></h6>
+			<p><?= $this->Number->format($innings->penalty_runs) ?></p>
 		</div>
 		<div class="large-2 columns dates end">
 			<h6 class="subheader"><?= __('Created') ?></h6>
@@ -116,7 +118,7 @@
 			<td><?= $this->Html->link(h($bowlers->player->FullName), ['controller' => 'players', 'action' => 'view', $bowlers->player->id]) ?></td>
 			<td><?= h($bowlers->overs) ?></td>
 			<td><?= h($bowlers->runs) ?></td>
-			<td><?= h($bowlers->wickets) ?></td>
+			<td><?= h($bowlers->WicketCount); ?></td>
 			<td><?= h($bowlers->economy) ?></td>
 			<td><?= h($bowlers->maidens) ?></td>
 			<td><?= h($bowlers->created) ?></td>

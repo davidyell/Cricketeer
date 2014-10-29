@@ -14,7 +14,7 @@ class Bowler extends Entity {
 			return count($this->_properties['innings']['wickets']);
 		}
 
-		throw new BadMethodCallException('You must select Innings => Wickets tables.');
+		throw new BadMethodCallException('Your data must include Innings => Wickets tables.');
 	}
 
 }

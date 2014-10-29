@@ -27,6 +27,7 @@
 			<th><?= $this->Paginator->sort('wides') ?></th>
 			<th><?= $this->Paginator->sort('byes') ?></th>
 			<th><?= $this->Paginator->sort('leg_byes') ?></th>
+			<th><?= $this->Paginator->sort('penalty_runs') ?></th>
 			<th><?= $this->Paginator->sort('declared') ?></th>
 			<th class="actions"><?= __('Actions') ?></th>
 		</tr>
@@ -47,6 +48,7 @@
 			<td><?= $this->Number->format($innings->wides) ?></td>
 			<td><?= $this->Number->format($innings->byes) ?></td>
 			<td><?= $this->Number->format($innings->leg_byes) ?></td>
+			<td><?= $this->Number->format($innings->penalty_runs) ?></td>
 			<td><?= $innings->declared ? __('Yes') : __('No') ?></td>
 			<td class="actions">
 				<?= $this->Html->link(__('View'), ['action' => 'view', $innings->id]) ?>

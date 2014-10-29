@@ -48,7 +48,13 @@ class InningsController extends AppController {
 					'Players'
 				],
 				'Bowlers' => [
-					'Players'
+					'Players',
+					'Innings' => [
+						'fields' => ['id'],
+						'Wickets' => [
+							'fields' => ['id', 'innings_id']
+						]
+					]
 				],
 				'InningsTypes'
 			]
