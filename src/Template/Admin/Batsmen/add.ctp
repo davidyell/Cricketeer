@@ -17,7 +17,6 @@
 		echo $this->Form->input('innings_id', ['options' => $innings]);
 		echo $this->Form->input('runs');
 		echo $this->Form->input('balls');
-		echo $this->Form->input('strike_rate');
 		echo $this->Form->input('fours');
 		echo $this->Form->input('sixes');
 	?>
