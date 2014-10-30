@@ -10,6 +10,12 @@ use App\Controller\AppController;
  */
 class MatchesController extends AppController {
 
+	public $helpers = [
+		'NumbersToWords.NumbersToWords' => [
+			'locale' => 'en_US'
+		]
+	];
+
 /**
  * Index method
  *
@@ -103,5 +109,28 @@ class MatchesController extends AppController {
 			$this->Flash->error('The match could not be deleted. Please, try again.');
 		}
 		return $this->redirect(['action' => 'index']);
+	}
+
+	public function score_card($id) {
+		$match = $this->Matches->get($id, [
+			'contain' => [
+				'Venues',
+				'Formats',
+				'Teams' => [
+					'Squads'
+				]
+			]
+		]);
+
+		if ($this->request->is(['patch', 'post', 'put'])) {
+			$match = $this->Matches->patchEntity($match, $this->request->data);
+			var_dump($match);exit;
+		}
+
+		$venues = $this->Matches->Venues->find('list');
+		$formats = $this->Matches->Formats->find('list');
+		$players = $this->Matches->Teams->Clubs->Players->find('PlayerListByTeam');
+		$dismissals = $this->Matches->Innings->Wickets->Dismissals->find('list');
+		$this->set(compact('match', 'venues', 'formats', 'players', 'dismissals'));
 	}
 }

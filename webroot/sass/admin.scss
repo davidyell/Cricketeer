@@ -54,3 +54,34 @@ div.required:before{
 div.error-message {
   color: darken($errorBg, 20%);
 }
+
+/** Scorecard **/
+form fieldset {
+  margin-bottom: 15px;
+}
+form div.batsman, form div.bowler, form div.wicket, form div.extra {
+  clear: both;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  &:nth-child(odd) {
+	background-color: darken(#fff, 5%);
+  }
+  &:nth-child(even) {
+	background-color: darken(#fff, 10%);
+  }
+  .form-group {
+	float: left;
+	margin-right: 10px;
+	&.number {
+	  width: 100px;
+	}
+	&.select {
+	  width: 350px;
+	}
+  }
+}
+form div.wicket {
+  .form-group:nth-child(4) {
+	clear: left;
+  }
+}
