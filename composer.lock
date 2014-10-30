@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2dc6b52277986349d0823f4888c942fe",
+    "hash": "8faa02a91ae2b56c4266b729f8cad511",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "4dab0c116caab1c76aa8623c25866d04d5d20ec4"
+                "reference": "a00f109984f2eec6d97b8202573a07e447832063"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/4dab0c116caab1c76aa8623c25866d04d5d20ec4",
-                "reference": "4dab0c116caab1c76aa8623c25866d04d5d20ec4",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/a00f109984f2eec6d97b8202573a07e447832063",
+                "reference": "a00f109984f2eec6d97b8202573a07e447832063",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-10-28 06:31:10"
+            "time": "2014-10-30 09:07:18"
         },
         {
             "name": "cakephp/debug_kit",
@@ -285,6 +285,54 @@
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
             "time": "2014-08-29 19:01:27"
+        },
+        {
+            "name": "davidyell/numbers_to_words",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davidyell/CakePHP3-NumbersToWords.git",
+                "reference": "f91aa173118378eefe0fed72a62ce22f902eec2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davidyell/CakePHP3-NumbersToWords/zipball/f91aa173118378eefe0fed72a62ce22f902eec2a",
+                "reference": "f91aa173118378eefe0fed72a62ce22f902eec2a",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "3.0.*-dev",
+                "cakephp/plugin-installer": "*"
+            },
+            "type": "cakephp-plugin",
+            "extra": {
+                "installer-name": "NumbersToWords"
+            },
+            "autoload": {
+                "psr-4": {
+                    "NumbersToWords\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Yell",
+                    "email": "neon1024@gmail.com"
+                }
+            ],
+            "description": "A helper for converting numbers into words",
+            "homepage": "https://github.com/davidyell/CakePHP3-NumbersToWords",
+            "keywords": [
+                "cakephp",
+                "conversion",
+                "helper",
+                "numbers",
+                "words"
+            ],
+            "time": "2014-10-30 12:33:22"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -502,7 +550,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "cakephp/cakephp": 20,
-        "cakephp/debug_kit": 20
+        "cakephp/debug_kit": 20,
+        "davidyell/numbers_to_words": 20
     },
     "prefer-stable": true,
     "platform": {
