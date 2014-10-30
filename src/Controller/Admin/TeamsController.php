@@ -52,10 +52,10 @@ class TeamsController extends AppController {
 			}
 		}
 
-		$this->set('players', $this->playerList());
+		$players = $this->Teams->Squads->Players->find('PlayerListByTeam');
 		$clubs = $this->Teams->Clubs->find('list');
 		$matches = $this->Teams->Matches->find('list');
-		$this->set(compact('team', 'clubs', 'matches'));
+		$this->set(compact('team', 'clubs', 'matches', 'players'));
 	}
 
 /**
