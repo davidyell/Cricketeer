@@ -47,7 +47,7 @@ echo $this->Html->script([
 	'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js', 
 	'common'
 ]);
-$this->fetch('script');
+echo $this->fetch('script');
 ?>
 </body>
 </html>
