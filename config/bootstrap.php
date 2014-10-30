@@ -166,6 +166,7 @@ Request::addDetector('tablet', function($request) {
  */
 
 Plugin::load('DebugKit', ['bootstrap' => true]);
+Plugin::load('NumbersToWords');
 
 /**
  * Connect middleware/dispatcher filters.
