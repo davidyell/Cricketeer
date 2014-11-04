@@ -17,7 +17,6 @@
 			echo "</div>";
 			$num++;
 		}
-		echo $this->Form->checkbox("innings.0.declared") . ' Declared?';
 	echo "</fieldset>";
 
 	$i++;
@@ -57,6 +56,9 @@
 			echo $this->Form->input("innings.$i.leg_byes");
 			echo $this->Form->input("innings.$i.no_balls");
 			echo $this->Form->input("innings.$i.penalty_runs");
+			echo "<div class='clearfix'><!-- blank --></div>";
+			echo $this->Form->checkbox("innings.$i.declared") . ' Declared?';
+			echo $this->Form->input("innings.$i.innings_type_id", ['type' => 'hidden', 'value' => $inningsTypes->toArray()[$innings - 1]['id']]);
 			echo "<div class='clearfix'><!-- blank --></div>";
 		echo "</div>";
 	echo "</fieldset>";

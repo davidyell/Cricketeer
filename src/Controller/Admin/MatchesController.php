@@ -111,6 +111,12 @@ class MatchesController extends AppController {
 		return $this->redirect(['action' => 'index']);
 	}
 
+/**
+ * Input all the scores for a whole match
+ *
+ * @param $id string The match id
+ * @return void
+ */
 	public function score_card($id) {
 		$match = $this->Matches->get($id, [
 			'contain' => [
@@ -123,14 +129,27 @@ class MatchesController extends AppController {
 		]);
 
 		if ($this->request->is(['patch', 'post', 'put'])) {
-			$match = $this->Matches->patchEntity($match, $this->request->data);
-			var_dump($match);exit;
+			$match = $this->Matches->patchEntity($match, $this->request->data(), ['associated' => [
+				'Innings' => [
+					'Bowlers',
+					'Batsmen',
+					'Wickets'
+				]
+			]]);
+			var_dump($match);
+			exit;
+			if ($this->Matches->save($match)) {
+				var_dump('Saved okay');
+			} else {
+				var_dump('Save failed');
+			}
 		}
 
 		$venues = $this->Matches->Venues->find('list');
 		$formats = $this->Matches->Formats->find('list');
 		$players = $this->Matches->Teams->Clubs->Players->find('PlayerListByTeam');
 		$dismissals = $this->Matches->Innings->Wickets->Dismissals->find('list');
-		$this->set(compact('match', 'venues', 'formats', 'players', 'dismissals'));
+		$inningsTypes = $this->Matches->Innings->InningsTypes->find();
+		$this->set(compact('match', 'venues', 'formats', 'players', 'dismissals', 'inningsTypes'));
 	}
 }
