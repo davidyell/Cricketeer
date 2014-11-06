@@ -123,7 +123,16 @@ class MatchesController extends AppController {
 				'Venues',
 				'Formats',
 				'Teams' => [
-					'Squads'
+					'fields' => ['id', 'name', 'match_id']
+				],
+				'Innings' => [
+					'Bowlers',
+					'Batsmen',
+					'Wickets',
+					'InningsTypes',
+					'Teams' => [
+						'Squads'
+					]
 				]
 			]
 		]);
@@ -131,9 +140,11 @@ class MatchesController extends AppController {
 		if ($this->request->is(['patch', 'post', 'put'])) {
 			$match = $this->Matches->patchEntity($match, $this->request->data(), ['associated' => [
 				'Innings' => [
-					'Bowlers',
-					'Batsmen',
-					'Wickets'
+					'associated' => [
+						'Bowlers',
+						'Batsmen',
+						'Wickets'
+					]
 				]
 			]]);
 			var_dump($match);

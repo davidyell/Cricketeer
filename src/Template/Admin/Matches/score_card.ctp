@@ -1,3 +1,7 @@
+<?php
+use Cake\Collection\Collection;
+?>
+
 <div class="actions columns col-md-2">
 	<h3><?= __('Actions') ?></h3>
 	<ul class="side-nav">
@@ -27,14 +31,21 @@
 
 	echo $this->Form->create($match);
 
+
+
 	if ($match->format->name === 'One Day' || $match->format->name === 'T20') {
-		echo $this->element('Admin/innings', ['innings' => 1, 'team' => $match->teams[0], 'count' => 0]);
-		echo $this->element('Admin/innings', ['innings' => 1, 'team' => $match->teams[1], 'count' => 15]);
+		$col = new Collection($match->innings);
+		$teamsInnings = $col->match(['team_id' => $match->teams[0]['id']]);
+		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings->toArray()[0], 'inningNum' => 1]);
+
+//		$col = new Collection($match->innings);
+//		$teamsInnings = $col->match(['team_id' => $match->teams[1]['id']]);
+//		echo $this->element('Admin/innings', ['innings' => 1, 'team' => $match->teams[1], 'count' => 15, 'teamsInnings' => $teamsInnings->toArray()[0]]);
 	} elseif ($match->format->name === 'Test Match') {
-		echo $this->element('Admin/innings', ['innings' => 1, 'team' => $match->teams[0], 'count' => 0]);
-		echo $this->element('Admin/innings', ['innings' => 1, 'team' => $match->teams[1], 'count' => 15]);
-		echo $this->element('Admin/innings', ['innings' => 2, 'team' => $match->teams[0], 'count' => 30]);
-		echo $this->element('Admin/innings', ['innings' => 2, 'team' => $match->teams[1], 'count' => 45]);
+		echo $this->element('Admin/innings', ['innings' => 1, 'team' => $match->teams[0], 'inningNum' => 1]);
+		echo $this->element('Admin/innings', ['innings' => 1, 'team' => $match->teams[1], 'inningNum' => 2]);
+		echo $this->element('Admin/innings', ['innings' => 2, 'team' => $match->teams[0], 'inningNum' => 3]);
+		echo $this->element('Admin/innings', ['innings' => 2, 'team' => $match->teams[1], 'inningNum' => 4]);
 	}
 
 	echo $this->Form->button(__('Submit'), ['class' => 'btn btn-success']);
