@@ -1,6 +1,9 @@
 <?php
 namespace App\Model\Table;
 
+use ArrayObject;
+use Cake\Event\Event;
+use Cake\ORM\Entity;
 use Cake\ORM\Query;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -62,6 +65,13 @@ class MatchesTable extends Table {
 		return $validator;
 	}
 
+/**
+ * Custom finder to find the latest matches played
+ *
+ * @param Query $query
+ * @param array $options
+ * @return $this
+ */
 	public function findLatestMatches(Query $query, array $options) {
 		return $query->contain([
 				'Venues',
@@ -71,4 +81,26 @@ class MatchesTable extends Table {
 			->order(['when_played' => 'DESC']);
 	}
 
+/**
+ * @param Event $event
+ * @param Entity $entity
+ * @param ArrayObject $options
+ * @return bool
+ */
+	public function beforeSave(Event $event, Entity &$entity, ArrayObject $options) {
+
+		// Clear out any related Innings->Batsmen who have not faced any balls and not made any runs
+		if ($entity->has('innings') && is_array($entity->innings)) {
+			foreach ($entity->innings as $k => $inning) {
+				foreach($inning->batsmen as $j => $batsman) {
+					/* @var \App\Model\Entity\Batsman $batsman */
+					if ($batsman->runs === null && $batsman->balls === null) {
+						unset($entity->innings[$k]['batsmen'][$j]);
+					}
+				}
+			}
+		}
+
+		return true;
+	}
 }

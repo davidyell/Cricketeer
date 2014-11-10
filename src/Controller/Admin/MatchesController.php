@@ -147,12 +147,11 @@ class MatchesController extends AppController {
 					]
 				]
 			]]);
-			var_dump($match);
-			exit;
+
 			if ($this->Matches->save($match)) {
-				var_dump('Saved okay');
+				$this->Flash->success('Match score card has been updated');
 			} else {
-				var_dump('Save failed');
+				$this->Flash->error('Match score card could not be updated');
 			}
 		}
 
