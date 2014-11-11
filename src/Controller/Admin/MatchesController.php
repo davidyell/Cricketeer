@@ -16,6 +16,10 @@ class MatchesController extends AppController {
 		]
 	];
 
+	public $components = [
+		'Prg'
+	];
+
 /**
  * Index method
  *

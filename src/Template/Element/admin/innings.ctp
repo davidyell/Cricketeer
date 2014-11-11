@@ -4,9 +4,7 @@
 	<?php
 	echo "<fieldset class='extras'><legend>Extras</legend>";
 		echo "<div class='extra'>";
-			if (isset($teamsInnings->id)) {
-				echo $this->Form->input("innings.$inningNum.id");
-			}
+			echo $this->Form->input("innings.$inningNum.id", ['value' => $teamsInnings->id]);
 			echo $this->Form->input("innings.$inningNum.team_id", ['type' => 'hidden', 'value' => $teamsInnings->team->id]);
 			echo $this->Form->input("innings.$inningNum.wides", ['value' => $teamsInnings->wides]);
 			echo $this->Form->input("innings.$inningNum.byes", ['value' => $teamsInnings->byes]);
@@ -21,22 +19,23 @@
 	echo "</fieldset>";
 
 	echo "<fieldset class='batting'><legend>Batting</legend>";
-		$num = 0;
-		for ($i = 0; $i < 11; $i++) {
-			$playerNum = $num + 1;
+		foreach ($teamsInnings->team->squads as $i => $player) {
 
+			// Find the correct batsman data for this player
+			$batting = collection($teamsInnings->batsmen)->match(['player_id' => $player->player_id])->toArray();
+
+			$playerNum = $i + 1;
 			echo "<div class='batsman'>";
-				if (isset($teamsInnings['batsmen'][$i]['id'])) {
-					echo $this->Form->input("innings.$inningNum.batsmen.$i.id", ['value' => $teamsInnings['batsmen'][$i]['id']]);
+				if (isset($batting[key($batting)]->id)) {
+					echo $this->Form->input("innings.$inningNum.batsmen.$i.id", ['value' => $batting[key($batting)]->id]);
 				}
-				echo $this->Form->input("innings.$inningNum.batsmen.$i.player_id", ['type' => 'select', 'options' => $players, 'label' => 'Player ' . $playerNum, 'default' => $teamsInnings['team']['squads'][$i]['player_id']]);
-				echo $this->Form->input("innings.$inningNum.batsmen.$i.runs", ['type' => 'number']);
-				echo $this->Form->input("innings.$inningNum.batsmen.$i.balls", ['type' => 'number']);
-				echo $this->Form->input("innings.$inningNum.batsmen.$i.fours", ['type' => 'number']);
-				echo $this->Form->input("innings.$inningNum.batsmen.$i.sixes", ['type' => 'number']);
+				echo $this->Form->input("innings.$inningNum.batsmen.$i.player_id", ['type' => 'select', 'options' => $players, 'label' => 'Number ' . $playerNum, 'value' => $player->player_id]);
+				echo $this->Form->input("innings.$inningNum.batsmen.$i.runs", ['type' => 'number', 'value' => (isset($batting[key($batting)]->runs)) ? $batting[key($batting)]->runs : null]);
+				echo $this->Form->input("innings.$inningNum.batsmen.$i.balls", ['type' => 'number', 'value' => (isset($batting[key($batting)]->balls)) ? $batting[key($batting)]->balls : null]);
+				echo $this->Form->input("innings.$inningNum.batsmen.$i.fours", ['type' => 'number', 'value' => (isset($batting[key($batting)]->fours)) ? $batting[key($batting)]->fours : null]);
+				echo $this->Form->input("innings.$inningNum.batsmen.$i.sixes", ['type' => 'number', 'value' => (isset($batting[key($batting)]->sixes)) ? $batting[key($batting)]->sixes : null]);
 				echo "<div class='clearfix'><!-- blank --></div>";
 			echo "</div>";
-			$num++;
 		}
 	echo "</fieldset>";
 

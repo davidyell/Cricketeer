@@ -1,7 +1,3 @@
-<?php
-use Cake\Collection\Collection;
-?>
-
 <div class="actions columns col-md-2">
 	<h3><?= __('Actions') ?></h3>
 	<ul class="side-nav">
@@ -34,9 +30,8 @@ use Cake\Collection\Collection;
 
 
 	if ($match->format->name === 'One Day' || $match->format->name === 'T20') {
-		$col = new Collection($match->innings);
-		$teamsInnings = $col->match(['team_id' => $match->teams[0]['id']]);
-		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings->toArray()[0], 'inningNum' => 1]);
+		$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[0]['id']])->toArray()[0];
+		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => 1]);
 
 //		$col = new Collection($match->innings);
 //		$teamsInnings = $col->match(['team_id' => $match->teams[1]['id']]);
@@ -52,14 +47,3 @@ use Cake\Collection\Collection;
 	echo $this->Form->end();
 	?>
 </div>
-
-<?php $this->append('script');?>
-<script>
-	$('a.add').each(function (i, e) {
-		$(e).click(function (e) {
-			e.preventDefault();
-			alert($(this).data('action') + ' ' + $(this).data('innings'));
-		});
-	});
-</script>
-<?php $this->end();?>

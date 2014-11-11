@@ -28,7 +28,7 @@
 		echo $this->Form->input('byes');
 		echo $this->Form->input('leg_byes');
 		echo $this->Form->input('no_balls');
-		echo $this->Form->input('declared');
+		echo $this->Form->checkbox('declared') . ' Did the team declare?';
 	?>
 	</fieldset>
 <?= $this->Form->button(__('Submit')) ?>
