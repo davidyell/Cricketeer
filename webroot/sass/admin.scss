@@ -79,6 +79,9 @@ form div.batsman, form div.bowler, form div.wicket, form div.extra {
 	  width: 350px;
 	}
   }
+  span.glyphicon.glyphicon-trash {
+	margin-top: 29px;
+  }
 }
 form div.wicket {
   .form-group:nth-child(4) {

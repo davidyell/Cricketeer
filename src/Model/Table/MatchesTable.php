@@ -89,13 +89,23 @@ class MatchesTable extends Table {
  */
 	public function beforeSave(Event $event, Entity &$entity, ArrayObject $options) {
 
-		// Clear out any related Innings->Batsmen who have not faced any balls and not made any runs
 		if ($entity->has('innings') && is_array($entity->innings)) {
 			foreach ($entity->innings as $k => $inning) {
+				/* @var \App\Model\Entity\Innings $inning */
+
+				// Clear out any related Innings->Batsmen who have not faced any balls and not made any runs
 				foreach($inning->batsmen as $j => $batsman) {
 					/* @var \App\Model\Entity\Batsman $batsman */
 					if ($batsman->runs === null && $batsman->balls === null) {
 						unset($entity->innings[$k]['batsmen'][$j]);
+					}
+				}
+
+				// Clear out any related Innings->Bowlers who have not bowled any overs
+				foreach ($inning->bowlers as $j => $bowler) {
+					/* @var \App\Model\Entity\Bowler $bowler */
+					if ($bowler->overs === null) {
+						unset($entity->innings[$k]['bowlers'][$j]);
 					}
 				}
 			}
