@@ -108,6 +108,14 @@ class MatchesTable extends Table {
 						unset($entity->innings[$k]['bowlers'][$j]);
 					}
 				}
+
+				// Clear out any related Innings->Wickets which have not been set
+				foreach ($inning->wickets as $j => $wicket) {
+					/* @var \App\Model\Entity\Wicket $wicket */
+					if ($wicket->lost_wicket_player_id === null) {
+						unset($entity->innings[$k]['wickets'][$j]);
+					}
+				}
 			}
 		}
 

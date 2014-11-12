@@ -27,20 +27,24 @@
 
 	echo $this->Form->create($match);
 
-
-
 	if ($match->format->name === 'One Day' || $match->format->name === 'T20') {
 		$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[0]['id']])->toArray()[0];
 		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => 1]);
 
-//		$col = new Collection($match->innings);
-//		$teamsInnings = $col->match(['team_id' => $match->teams[1]['id']]);
-//		echo $this->element('Admin/innings', ['innings' => 1, 'team' => $match->teams[1], 'count' => 15, 'teamsInnings' => $teamsInnings->toArray()[0]]);
+		$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[1]['id']])->toArray()[1];
+		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => 2]);
 	} elseif ($match->format->name === 'Test Match') {
-		echo $this->element('Admin/innings', ['innings' => 1, 'team' => $match->teams[0], 'inningNum' => 1]);
-		echo $this->element('Admin/innings', ['innings' => 1, 'team' => $match->teams[1], 'inningNum' => 2]);
-		echo $this->element('Admin/innings', ['innings' => 2, 'team' => $match->teams[0], 'inningNum' => 3]);
-		echo $this->element('Admin/innings', ['innings' => 2, 'team' => $match->teams[1], 'inningNum' => 4]);
+		$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[0]['id']])->toArray()[0];
+		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => 1]);
+
+		$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[1]['id']])->toArray()[1];
+		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => 2]);
+
+		$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[0]['id']])->toArray()[0];
+		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => 3]);
+
+		$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[1]['id']])->toArray()[1];
+		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => 4]);
 	}
 
 	echo $this->Form->button(__('Submit'), ['class' => 'btn btn-success']);
