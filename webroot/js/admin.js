@@ -6,11 +6,8 @@ $(function () {
 // Add another buttons on the score card
     $('a.add[data-action=add-bowler], a.add[data-action=add-wicket]').click(function (f) {
         f.preventDefault();
-        if ($(this).data('action') == 'add-bowler') {
-            var div = $('fieldset.bowling div.bowler').last().clone();
-        } else {
-            var div = $('fieldset.wickets div.wicket').last().clone();
-        }
+
+        var div = $(this).siblings('div').last().clone();
 
         $(div).find('input[type=hidden]').remove();
         $(div).find('select option:selected').removeAttr('selected');
@@ -20,7 +17,7 @@ $(function () {
         }
 
         $(div).find('div.form-group').each(function (i, e) {
-            $(e).find('input').removeAttr('value');
+            $(e).find('input').removeAttr('value').val(null);
 
             var num = $(e).html().match(/innings-[0-9]+-[a-z]+-([0-9]+)/)[1],
                 cnt = parseInt(num) + 1,
