@@ -37,6 +37,7 @@
 				<?= $match->has('format') ? $this->Html->link($match->format->name, ['controller' => 'Formats', 'action' => 'view', $match->format->id]) : '' ?>
 			</td>
 			<td class="actions">
+				<?php echo $this->Html->link(__('Score card'), ['action' => 'score_card', $match->id]);?>
 				<?= $this->Html->link(__('View'), ['action' => 'view', $match->id]) ?>
 				<?= $this->Html->link(__('Edit'), ['action' => 'edit', $match->id]) ?>
 				<?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $match->id], ['confirm' => __('Are you sure you want to delete # {0}?', $match->id)]) ?>

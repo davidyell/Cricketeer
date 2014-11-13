@@ -133,7 +133,8 @@ class MatchesController extends AppController {
 					'Bowlers',
 					'Batsmen',
 					'Wickets' => function ($q) {
-						return $q->order(['REVERSE(fall_of_wicket)' => 'ASC']);
+						// Order the Wickets by the fall of wicket, so they are in the correct order
+						return $q->order(["LENGTH(SUBSTRING_INDEX(fall_of_wicket, '-', -1))", "SUBSTRING_INDEX(fall_of_wicket, '-', -1)"]);
 					},
 					'InningsTypes',
 					'Teams' => [
