@@ -132,7 +132,9 @@ class MatchesController extends AppController {
 				'Innings' => [
 					'Bowlers',
 					'Batsmen',
-					'Wickets',
+					'Wickets' => function ($q) {
+						return $q->order(['REVERSE(fall_of_wicket)' => 'ASC']);
+					},
 					'InningsTypes',
 					'Teams' => [
 						'Squads'
