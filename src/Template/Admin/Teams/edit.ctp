@@ -18,7 +18,7 @@
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('club_id', ['options' => $clubs, 'disabled' => true]);
-		echo $this->Form->input('match_id', ['options' => $matches, 'disabled' => true]);
+		echo $this->Form->input('match_id', ['options' => $matches]);
 		
 		for ($i = 0; $i < 11; $i++) {
 			$playerNum = $i + 1;

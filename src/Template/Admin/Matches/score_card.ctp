@@ -28,11 +28,21 @@
 	echo $this->Form->create($match);
 
 	if ($match->format->name === 'One Day' || $match->format->name === 'T20') {
-		$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[0]['id']])->toArray()[0];
-		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => 1]);
+		$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[0]['id']])->toArray();
+		if (is_array($teamsInnings) && !empty($teamsInnings)) {
+			$teamsInnings = $teamsInnings[0];
+		} else {
+			$teamsInnings = [];
+		}
+		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => 1, 'team' => $match->teams[0]]);
 
-		$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[1]['id']])->toArray()[1];
-		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => 2]);
+		$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[1]['id']])->toArray();
+		if (is_array($teamsInnings) && !empty($teamsInnings)) {
+			$teamsInnings = $teamsInnings[1];
+		} else {
+			$teamsInnings = [];
+		}
+		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => 2, 'team' => $match->teams[1]]);
 	} elseif ($match->format->name === 'Test Match') {
 		$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[0]['id']])->toArray()[0];
 		echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => 1]);

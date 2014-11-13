@@ -46,9 +46,7 @@
 		<tr>
 			<th><?= __('Id') ?></th>
 			<th><?= __('Match Id') ?></th>
-			<th><?= __('Player Id') ?></th>
 			<th><?= __('Team Id') ?></th>
-			<th><?= __('Wicket Id') ?></th>
 			<th><?= __('Declared') ?></th>
 			<th><?= __('No Ball') ?></th>
 			<th><?= __('Wide') ?></th>
@@ -63,14 +61,12 @@
 		<tr>
 			<td><?= h($innings->id) ?></td>
 			<td><?= h($innings->match_id) ?></td>
-			<td><?= h($innings->player_id) ?></td>
 			<td><?= h($innings->team_id) ?></td>
-			<td><?= h($innings->wicket_id) ?></td>
-			<td><?= h($innings->declared) ?></td>
-			<td><?= h($innings->no_ball) ?></td>
-			<td><?= h($innings->wide) ?></td>
-			<td><?= h($innings->bye) ?></td>
-			<td><?= h($innings->leg_bye) ?></td>
+			<td><?= ($innings->declared)? 'Yes' : 'No'; ?></td>
+			<td><?= h($innings->no_balls) ?></td>
+			<td><?= h($innings->wides) ?></td>
+			<td><?= h($innings->byes) ?></td>
+			<td><?= h($innings->leg_byes) ?></td>
 			<td><?= h($innings->penalty_runs) ?></td>
 			<td><?= h($innings->created) ?></td>
 			<td><?= h($innings->modified) ?></td>

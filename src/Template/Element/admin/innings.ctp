@@ -1,18 +1,20 @@
 <div class="innings <?php echo $this->NumbersToWords->spell($innings);?>">
-	<h3><?php echo $this->NumbersToWords->ordinal($innings);?> Innings | <?php echo $teamsInnings->team->name;?></h3>
+	<h3><?php echo $this->NumbersToWords->ordinal($innings);?> Innings | <?php echo $team->name;?></h3>
 
 	<?php
 	echo "<fieldset class='extras'><legend>Extras</legend>";
 		echo "<div class='extra'>";
-			echo $this->Form->input("innings.$inningNum.id", ['value' => $teamsInnings->id]);
-			echo $this->Form->input("innings.$inningNum.team_id", ['type' => 'hidden', 'value' => $teamsInnings->team->id]);
-			echo $this->Form->input("innings.$inningNum.wides", ['value' => $teamsInnings->wides]);
-			echo $this->Form->input("innings.$inningNum.byes", ['value' => $teamsInnings->byes]);
-			echo $this->Form->input("innings.$inningNum.leg_byes", ['value' => $teamsInnings->leg_byes]);
-			echo $this->Form->input("innings.$inningNum.no_balls", ['value' => $teamsInnings->no_balls]);
-			echo $this->Form->input("innings.$inningNum.penalty_runs", ['value' => $teamsInnings->penalty_runs]);
+			if (isset($teamsInnings->id)) {
+				echo $this->Form->input("innings.$inningNum.id", ['value' => $teamsInnings->id]);
+			}
+			echo $this->Form->input("innings.$inningNum.team_id", ['type' => 'hidden', 'value' => $team->id]);
+			echo $this->Form->input("innings.$inningNum.wides", ['value' => (isset($teamsInnings->wides))? $teamsInnings->wides : null]);
+			echo $this->Form->input("innings.$inningNum.byes", ['value' => (isset($teamsInnings->byes))? $teamsInnings->byes : null]);
+			echo $this->Form->input("innings.$inningNum.leg_byes", ['value' => (isset($teamsInnings->leg_byes))? $teamsInnings->leg_byes : null]);
+			echo $this->Form->input("innings.$inningNum.no_balls", ['value' => (isset($teamsInnings->no_balls))? $teamsInnings->no_balls : null]);
+			echo $this->Form->input("innings.$inningNum.penalty_runs", ['value' => (isset($teamsInnings->penalty_runs))? $teamsInnings->penalty_runs : null]);
 			echo "<div class='clearfix'><!-- blank --></div>";
-			echo $this->Form->checkbox("innings.$inningNum.declared", ['checked' => $teamsInnings->declared]) . ' Did the team declare?';
+			echo $this->Form->checkbox("innings.$inningNum.declared", ['checked' => (isset($teamsInnings->declared))? $teamsInnings->declared : false]) . ' Did the team declare?';
 			echo $this->Form->input("innings.$inningNum.innings_type_id", ['type' => 'hidden', 'value' => $inningsTypes->toArray()[$innings - 1]['id']]);
 			echo "<div class='clearfix'><!-- blank --></div>";
 		echo "</div>";

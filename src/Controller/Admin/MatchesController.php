@@ -47,6 +47,7 @@ class MatchesController extends AppController {
 				'Innings' => [
 					'Teams'
 				],
+				'Teams'
 			]
 		]);
 		$this->set('match', $match);
@@ -81,7 +82,9 @@ class MatchesController extends AppController {
  */
 	public function edit($id = null) {
 		$match = $this->Matches->get($id, [
-			'contain' => []
+			'contain' => [
+				'Teams'
+			]
 		]);
 		if ($this->request->is(['patch', 'post', 'put'])) {
 			$match = $this->Matches->patchEntity($match, $this->request->data);
@@ -94,7 +97,8 @@ class MatchesController extends AppController {
 		}
 		$venues = $this->Matches->Venues->find('list');
 		$formats = $this->Matches->Formats->find('list');
-		$this->set(compact('match', 'venues', 'formats'));
+		$teams = $this->Matches->Teams->find('list');
+		$this->set(compact('match', 'venues', 'formats', 'teams'));
 	}
 
 /**
@@ -143,6 +147,13 @@ class MatchesController extends AppController {
 				]
 			]
 		]);
+
+		if (empty($match->teams)) {
+			throw new \BadMethodCallException('No team sheet has been created for this match.');
+		}
+//		if (empty($match->innings)) {
+//			throw new \BadMethodCallException('No innings created for this match.');
+//		}
 
 		if ($this->request->is(['patch', 'post', 'put'])) {
 			$match = $this->Matches->patchEntity($match, $this->request->data(), ['associated' => [
