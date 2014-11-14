@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "a00f109984f2eec6d97b8202573a07e447832063"
+                "reference": "08fcce2d78cc0054bac72584d9d0b01c5f2b53d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/a00f109984f2eec6d97b8202573a07e447832063",
-                "reference": "a00f109984f2eec6d97b8202573a07e447832063",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/08fcce2d78cc0054bac72584d9d0b01c5f2b53d4",
+                "reference": "08fcce2d78cc0054bac72584d9d0b01c5f2b53d4",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-10-30 09:07:18"
+            "time": "2014-11-14 02:02:23"
         },
         {
             "name": "cakephp/debug_kit",
@@ -292,12 +292,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidyell/CakePHP3-NumbersToWords.git",
-                "reference": "f91aa173118378eefe0fed72a62ce22f902eec2a"
+                "reference": "a65c37d6db14839cdbb23d5fea70f7f75b10fb09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidyell/CakePHP3-NumbersToWords/zipball/f91aa173118378eefe0fed72a62ce22f902eec2a",
-                "reference": "f91aa173118378eefe0fed72a62ce22f902eec2a",
+                "url": "https://api.github.com/repos/davidyell/CakePHP3-NumbersToWords/zipball/a65c37d6db14839cdbb23d5fea70f7f75b10fb09",
+                "reference": "a65c37d6db14839cdbb23d5fea70f7f75b10fb09",
                 "shasum": ""
             },
             "require": {
@@ -332,7 +332,7 @@
                 "numbers",
                 "words"
             ],
-            "time": "2014-10-30 12:33:22"
+            "time": "2014-10-30 12:36:33"
         },
         {
             "name": "ircmaxell/password-compat",
