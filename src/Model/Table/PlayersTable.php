@@ -61,22 +61,29 @@ class PlayersTable extends Table {
 		$validator
 			->add('id', 'valid', ['rule' => 'uuid'])
 			->allowEmpty('id', 'create')
+
 			->validatePresence('first_name', 'create')
 			->notEmpty('first_name')
+
 			->validatePresence('last_name', 'create')
 			->notEmpty('last_name')
-			->validatePresence('slug', 'create')
-			->notEmpty('slug')
+
 			->allowEmpty('photo')
 			->allowEmpty('photo_dir')
+
 			->add('number', 'valid', ['rule' => 'numeric'])
 			->allowEmpty('number')
+
 			->allowEmpty('nationality')
+
 			->allowEmpty('bats')
+
 			->allowEmpty('bowls')
+
 			->add('player_specialisation_id', 'valid', ['rule' => 'uuid'])
 			->validatePresence('player_specialisation_id', 'create')
 			->notEmpty('player_specialisation_id')
+
 			->add('club_id', 'valid', ['rule' => 'uuid'])
 			->validatePresence('club_id', 'create')
 			->notEmpty('club_id');
