@@ -50,7 +50,7 @@ class ClubsTable extends Table {
 			->allowEmpty('alt_name')
 
 			->allowEmpty('image')
-			->add('image', ['rule' => ['extension', ['gif', 'jpeg', 'png', 'jpg']]])
+//			->add('image', ['rule' => ['extension', ['gif', 'jpeg', 'png', 'jpg']]])
 
 			->allowEmpty('image_dir')
 
