@@ -131,7 +131,8 @@ class MatchesController extends AppController {
 				'Venues',
 				'Formats',
 				'Teams' => [
-					'fields' => ['id', 'name', 'match_id']
+					'fields' => ['id', 'name', 'match_id'],
+					'Squads'
 				],
 				'Innings' => [
 					'Bowlers',
