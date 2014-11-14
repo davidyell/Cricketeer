@@ -21,10 +21,13 @@
 	echo "</fieldset>";
 
 	echo "<fieldset class='batting'><legend>Batting</legend>";
-		foreach ($teamsInnings->team->squads as $i => $player) {
+		foreach ($team->squads as $i => $player) {
 
 			// Find the correct batsman data for this player
-			$batting = collection($teamsInnings->batsmen)->match(['player_id' => $player->player_id])->toArray();
+			$batting = [];
+			if (!empty($teamsInnings->batsmen)) {
+				$batting = collection($teamsInnings->batsmen)->match(['player_id' => $player->player_id])->toArray();
+			}
 
 			$playerNum = $i + 1;
 			echo "<div class='batsman'>";
