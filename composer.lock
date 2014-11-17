@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "08fcce2d78cc0054bac72584d9d0b01c5f2b53d4"
+                "reference": "efa270a1bb4337b67a0dd769d82d913fd7a286ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/08fcce2d78cc0054bac72584d9d0b01c5f2b53d4",
-                "reference": "08fcce2d78cc0054bac72584d9d0b01c5f2b53d4",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/efa270a1bb4337b67a0dd769d82d913fd7a286ea",
+                "reference": "efa270a1bb4337b67a0dd769d82d913fd7a286ea",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-11-14 02:02:23"
+            "time": "2014-11-17 08:59:30"
         },
         {
             "name": "cakephp/debug_kit",
@@ -196,12 +196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "6541f3430b09d92845fe054cf44b1ee155db59e0"
+                "reference": "30717420982d57cb85309735fe1fd21a374afb5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/6541f3430b09d92845fe054cf44b1ee155db59e0",
-                "reference": "6541f3430b09d92845fe054cf44b1ee155db59e0",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/30717420982d57cb85309735fe1fd21a374afb5d",
+                "reference": "30717420982d57cb85309735fe1fd21a374afb5d",
                 "shasum": ""
             },
             "require": {
@@ -245,7 +245,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2014-10-21 01:48:31"
+            "time": "2014-11-16 01:24:33"
         },
         {
             "name": "cakephp/plugin-installer",
