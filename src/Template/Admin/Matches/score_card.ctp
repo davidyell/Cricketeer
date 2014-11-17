@@ -28,7 +28,7 @@
 	echo $this->Form->create($match);
 
 	if ($match->format->name === 'One Day' || $match->format->name === 'T20') {
-		for ($i = 0; $i < 1; $i++) {
+		for ($i = 0; $i < 2; $i++) {
 			$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[$i]['id']])->toArray();
 			if (is_array($teamsInnings) && !empty($teamsInnings)) {
 				$teamsInnings = $teamsInnings[key($teamsInnings)];
@@ -38,7 +38,21 @@
 			echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => $i + 1, 'team' => $match->teams[$i]]);
 		}
 	} elseif ($match->format->name === 'Test Match') {
+		for ($i = 0; $i < 4; $i++) {
+			if ($i % 2 == 0) {
+				$innings = 1;
+			} else {
+				$innings = 2;
+			}
 
+			$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[$i]['id']])->toArray();
+			if (is_array($teamsInnings) && !empty($teamsInnings)) {
+				$teamsInnings = $teamsInnings[key($teamsInnings)];
+			} else {
+				$teamsInnings = [];
+			}
+			echo $this->element('Admin/innings', ['innings' => $innings, 'teamsInnings' => $teamsInnings, 'inningNum' => $i + 1, 'team' => $match->teams[$i % 2]]);
+		}
 	}
 
 	echo $this->Form->button(__('Submit'), ['class' => 'btn btn-success']);
