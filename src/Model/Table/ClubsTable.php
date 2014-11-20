@@ -44,7 +44,7 @@ class ClubsTable extends Table {
 			->add('id', 'valid', ['rule' => 'uuid'])
 			->allowEmpty('id', 'create')
 
-			->validatePresence('name', 'create')
+			->requirePresence('name', 'create')
 			->notEmpty('name', 'Please name this club')
 
 			->allowEmpty('alt_name')
@@ -55,7 +55,7 @@ class ClubsTable extends Table {
 			->allowEmpty('image_dir')
 
 			->add('league_id', 'valid', ['rule' => 'uuid'])
-			->validatePresence('league_id', 'create')
+			->requirePresence('league_id', 'create')
 			->notEmpty('league_id');
 
 		return $validator;

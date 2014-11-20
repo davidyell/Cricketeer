@@ -37,7 +37,7 @@ class LeaguesTable extends Table {
 			->add('id', 'valid', ['rule' => 'uuid'])
 			->allowEmpty('id', 'create')
 
-			->validatePresence('name', 'create')
+			->requirePresence('name', 'create')
 			->notEmpty('name', 'Must name the league.')
 
 			->allowEmpty('description')

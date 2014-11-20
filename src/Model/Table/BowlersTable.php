@@ -43,26 +43,26 @@ class BowlersTable extends Table {
 //			->add('id', 'valid', ['rule' => 'uuid'])
 //			->allowEmpty('id', 'create')
 //			->add('player_id', 'valid', ['rule' => 'uuid'])
-//			->validatePresence('player_id', 'create')
+//			->requirePresence('player_id', 'create')
 //			->notEmpty('player_id')
 //			->add('innings_id', 'valid', ['rule' => 'uuid'])
-//			->validatePresence('innings_id', 'create')
+//			->requirePresence('innings_id', 'create')
 //			->notEmpty('innings_id')
 //			->add('overs', 'valid', ['rule' => 'numeric'])
-//			->validatePresence('overs', 'create')
+//			->requirePresence('overs', 'create')
 //			->notEmpty('overs')
 //			->add('runs', 'valid', ['rule' => 'numeric'])
-//			->validatePresence('runs', 'create')
+//			->requirePresence('runs', 'create')
 //			->notEmpty('runs')
 //			->add('wickets', 'valid', ['rule' => 'numeric'])
-//			->validatePresence('wickets', 'create')
+//			->requirePresence('wickets', 'create')
 //			->notEmpty('wickets')
 //			->add('economy', 'valid', ['rule' => 'numeric'])
-//			->validatePresence('economy', 'create')
+//			->requirePresence('economy', 'create')
 //			->notEmpty('economy')
 //
 //			->add('maidens', 'valid', ['rule' => 'numeric'])
-//			->validatePresence('maidens', 'create');
+//			->requirePresence('maidens', 'create');
 //
 //		return $validator;
 //	}

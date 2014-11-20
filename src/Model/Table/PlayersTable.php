@@ -24,6 +24,16 @@ class PlayersTable extends Table {
 		
 		$this->addBehavior('Timestamp');
 		$this->addBehavior('Sluggable', ['field' => 'FullName']);
+		$this->addBehavior('Proffer.Proffer', [
+			'photo' => [
+				'dir' => 'photo_dir',
+				'thumbnailSizes' => [
+					'square' => ['w' => 200, 'h' => 200],
+					'portrait' => ['w' => 100, 'h' => 300],
+				],
+				'thumbnailMethod' => 'imagick'
+			]
+		]);
 
 		$this->belongsTo('PlayerSpecialisations', [
 			'foreignKey' => 'player_specialisation_id',
@@ -62,10 +72,8 @@ class PlayersTable extends Table {
 			->add('id', 'valid', ['rule' => 'uuid'])
 			->allowEmpty('id', 'create')
 
-			->validatePresence('first_name', 'create')
 			->notEmpty('first_name')
 
-			->validatePresence('last_name', 'create')
 			->notEmpty('last_name')
 
 			->allowEmpty('photo')
@@ -81,11 +89,9 @@ class PlayersTable extends Table {
 			->allowEmpty('bowls')
 
 			->add('player_specialisation_id', 'valid', ['rule' => 'uuid'])
-			->validatePresence('player_specialisation_id', 'create')
 			->notEmpty('player_specialisation_id')
 
 			->add('club_id', 'valid', ['rule' => 'uuid'])
-			->validatePresence('club_id', 'create')
 			->notEmpty('club_id');
 
 		return $validator;

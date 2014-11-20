@@ -37,7 +37,7 @@ class InningsTypesTable extends Table {
 		$validator
 			->add('id', 'valid', ['rule' => 'uuid'])
 			->allowEmpty('id', 'create')
-			->validatePresence('name', 'create')
+			->requirePresence('name', 'create')
 			->notEmpty('name');
 
 		return $validator;

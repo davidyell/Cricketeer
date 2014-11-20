@@ -47,10 +47,10 @@ class TeamsTable extends Table {
 			->add('id', 'valid', ['rule' => 'uuid'])
 			->allowEmpty('id', 'create')
 			->add('club_id', 'valid', ['rule' => 'uuid'])
-			->validatePresence('club_id', 'create')
+			->requirePresence('club_id', 'create')
 			->notEmpty('club_id')
 			->add('match_id', 'valid', ['rule' => 'uuid'])
-			->validatePresence('match_id', 'create')
+			->requirePresence('match_id', 'create')
 			->notEmpty('match_id');
 
 		return $validator;

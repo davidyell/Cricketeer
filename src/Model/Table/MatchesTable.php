@@ -51,15 +51,15 @@ class MatchesTable extends Table {
 			->allowEmpty('id', 'create')
 
 			->add('when_played', 'valid', ['rule' => 'datetime'])
-			->validatePresence('when_played', 'create')
+			->requirePresence('when_played', 'create')
 			->notEmpty('when_played')
 
 			->add('venue_id', 'valid', ['rule' => 'uuid'])
-			->validatePresence('venue_id', 'create')
+			->requirePresence('venue_id', 'create')
 			->notEmpty('venue_id')
 
 			->add('format_id', 'valid', ['rule' => 'uuid'])
-			->validatePresence('format_id', 'create')
+			->requirePresence('format_id', 'create')
 			->notEmpty('format_id');
 
 		return $validator;

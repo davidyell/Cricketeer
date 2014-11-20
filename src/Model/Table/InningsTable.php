@@ -60,13 +60,13 @@ class InningsTable extends Table {
 //			->add('id', 'valid', ['rule' => 'uuid'])
 //			->allowEmpty('id', 'create')
 //			->add('match_id', 'valid', ['rule' => 'uuid'])
-//			->validatePresence('match_id', 'create')
+//			->requirePresence('match_id', 'create')
 //			->notEmpty('match_id')
 //			->add('player_id', 'valid', ['rule' => 'uuid'])
-//			->validatePresence('player_id', 'create')
+//			->requirePresence('player_id', 'create')
 //			->notEmpty('player_id')
 //			->add('team_id', 'valid', ['rule' => 'uuid'])
-//			->validatePresence('team_id', 'create')
+//			->requirePresence('team_id', 'create')
 //			->notEmpty('team_id');
 //
 //		return $validator;

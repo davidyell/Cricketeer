@@ -44,31 +44,31 @@ class BatsmenTable extends Table {
 //			->allowEmpty('id', 'create')
 //
 //			->add('player_id', 'valid', ['rule' => 'uuid'])
-//			->validatePresence('player_id', 'create')
+//			->requirePresence('player_id', 'create')
 //			->notEmpty('player_id')
 //
 //			->add('innings_id', 'valid', ['rule' => 'uuid'])
-//			->validatePresence('innings_id', 'create')
+//			->requirePresence('innings_id', 'create')
 //			->notEmpty('innings_id')
 //
 //			->add('runs', 'valid', ['rule' => 'numeric'])
-//			->validatePresence('runs', 'create')
+//			->requirePresence('runs', 'create')
 //			->notEmpty('runs')
 //
 //			->add('balls', 'valid', ['rule' => 'numeric'])
-//			->validatePresence('balls', 'create')
+//			->requirePresence('balls', 'create')
 //			->notEmpty('balls')
 //
 //			->add('strike_rate', 'valid', ['rule' => 'numeric'])
-//			->validatePresence('strike_rate', 'create')
+//			->requirePresence('strike_rate', 'create')
 //			->notEmpty('strike_rate')
 //
 //			->add('fours', 'valid', ['rule' => 'numeric'])
-//			->validatePresence('fours', 'create')
+//			->requirePresence('fours', 'create')
 //			->notEmpty('fours')
 //
 //			->add('sixes', 'valid', ['rule' => 'numeric'])
-//			->validatePresence('sixes', 'create')
+//			->requirePresence('sixes', 'create')
 //			->notEmpty('sixes');
 //
 //		return $validator;

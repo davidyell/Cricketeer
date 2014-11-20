@@ -37,9 +37,9 @@ class VenuesTable extends Table {
 		$validator
 			->add('id', 'valid', ['rule' => 'uuid'])
 			->allowEmpty('id', 'create')
-			->validatePresence('name', 'create')
+			->requirePresence('name', 'create')
 			->notEmpty('name')
-			->validatePresence('location', 'create')
+			->requirePresence('location', 'create')
 			->notEmpty('location')
 			->add('capacity', 'valid', ['rule' => 'numeric'])
 			->allowEmpty('capacity')
