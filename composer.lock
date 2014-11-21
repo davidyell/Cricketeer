@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8faa02a91ae2b56c4266b729f8cad511",
+    "hash": "abd9a4ab6b9ceaca16f12ce2a635590e",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "efa270a1bb4337b67a0dd769d82d913fd7a286ea"
+                "reference": "a512eb2b4932745657dc1bfdf462b28c766a70e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/efa270a1bb4337b67a0dd769d82d913fd7a286ea",
-                "reference": "efa270a1bb4337b67a0dd769d82d913fd7a286ea",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/a512eb2b4932745657dc1bfdf462b28c766a70e9",
+                "reference": "a512eb2b4932745657dc1bfdf462b28c766a70e9",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-11-17 08:59:30"
+            "time": "2014-11-17 13:07:52"
         },
         {
             "name": "cakephp/debug_kit",
@@ -333,6 +333,110 @@
                 "words"
             ],
             "time": "2014-10-30 12:36:33"
+        },
+        {
+            "name": "davidyell/proffer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davidyell/CakePHP3-Proffer.git",
+                "reference": "5f6ea9d621b3c8207e60ee89be161087fe4a67f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davidyell/CakePHP3-Proffer/zipball/5f6ea9d621b3c8207e60ee89be161087fe4a67f3",
+                "reference": "5f6ea9d621b3c8207e60ee89be161087fe4a67f3",
+                "shasum": ""
+            },
+            "require": {
+                "imagine/imagine": "0.6.2"
+            },
+            "type": "cakephp-plugin",
+            "extra": {
+                "installer-name": "Proffer"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Proffer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Yell",
+                    "email": "neon1024@gmail.com"
+                }
+            ],
+            "description": "An upload plugin for CakePHP 3",
+            "homepage": "https://github.com/davidyell/CakePHP3-Proffer",
+            "keywords": [
+                "cakephp",
+                "cakephp3",
+                "file",
+                "image",
+                "upload"
+            ],
+            "time": "2014-11-17 16:46:26"
+        },
+        {
+            "name": "imagine/imagine",
+            "version": "0.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avalanche123/Imagine.git",
+                "reference": "83ca8babede0e54f935ec09d55a726bf4b0a3f7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/83ca8babede0e54f935ec09d55a726bf4b0a3f7c",
+                "reference": "83ca8babede0e54f935ec09d55a726bf4b0a3f7c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "sami/sami": "dev-master"
+            },
+            "suggest": {
+                "ext-gd": "to use the GD implementation",
+                "ext-gmagick": "to use the Gmagick implementation",
+                "ext-imagick": "to use the Imagick implementation"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Imagine": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image processing for PHP 5.3",
+            "homepage": "http://imagine.readthedocs.org/",
+            "keywords": [
+                "drawing",
+                "graphics",
+                "image manipulation",
+                "image processing"
+            ],
+            "time": "2014-11-11 11:36:02"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -551,7 +655,8 @@
     "stability-flags": {
         "cakephp/cakephp": 20,
         "cakephp/debug_kit": 20,
-        "davidyell/numbers_to_words": 20
+        "davidyell/numbers_to_words": 20,
+        "davidyell/proffer": 20
     },
     "prefer-stable": true,
     "platform": {
