@@ -23,6 +23,10 @@
 		echo $this->Form->input('first_name');
 		echo $this->Form->input('initials');
 		echo $this->Form->input('last_name');
+
+		if (!empty($player->photo)) {
+			echo $this->Html->image('../files/players/' . $player->photo_dir . '/portrait_' . $player->photo);
+		}
 		echo $this->Form->input('photo', ['type' => 'file']);
 		echo $this->Form->input('photo_dir', ['type' => 'hidden']);
 		echo $this->Form->input('number');

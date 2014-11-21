@@ -22,7 +22,6 @@
 			<th><?= $this->Paginator->sort('first_name') ?></th>
 			<th><?= $this->Paginator->sort('last_name') ?></th>
 			<th><?= $this->Paginator->sort('photo') ?></th>
-			<th><?= $this->Paginator->sort('photo_dir') ?></th>
 			<th><?= $this->Paginator->sort('number') ?></th>
 			<th class="actions"><?= __('Actions') ?></th>
 		</tr>
@@ -33,8 +32,11 @@
 			<td><?= h($player->id) ?></td>
 			<td><?= h($player->first_name) ?></td>
 			<td><?= h($player->last_name) ?></td>
-			<td><?= h($player->photo) ?></td>
-			<td><?= h($player->photo_dir) ?></td>
+			<td><?php
+			if (!empty($player->photo)) {
+				echo $this->Html->image('../files/players/' . $player->photo_dir . '/' . $player->photo, ['height' => 50]);
+			}
+			?></td>
 			<td><?= $this->Number->format($player->number) ?></td>
 			<td class="actions">
 				<?= $this->Html->link(__('View'), ['action' => 'view', $player->id]) ?>

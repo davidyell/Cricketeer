@@ -30,7 +30,11 @@
 			<h6 class="subheader"><?= __('Slug') ?></h6>
 			<p><?= h($player->slug) ?></p>
 			<h6 class="subheader"><?= __('Photo') ?></h6>
-			<p><?= h($player->photo) ?></p>
+			<p><?php
+			if (isset($player->photo)) {
+				echo $this->Html->image('../files/players/' . $player->photo_dir . '/portrait_' . $player->photo);
+			}
+			?></p>
 			<h6 class="subheader"><?= __('Photo Dir') ?></h6>
 			<p><?= h($player->photo_dir) ?></p>
 			<h6 class="subheader"><?= __('Nationality') ?></h6>

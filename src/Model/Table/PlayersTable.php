@@ -5,6 +5,7 @@ use Cake\Database\Query;
 use Cake\Datasource\ResultSetInterface;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Proffer\Model\Validation\ProfferRules;
 
 /**
  * Players Model
@@ -68,6 +69,8 @@ class PlayersTable extends Table {
  * @return Validator
  */
 	public function validationDefault(Validator $validator) {
+		$validator->provider('proffer', 'Proffer\Model\Validation\ProfferRules');
+
 		$validator
 			->add('id', 'valid', ['rule' => 'uuid'])
 			->allowEmpty('id', 'create')
@@ -76,7 +79,30 @@ class PlayersTable extends Table {
 
 			->notEmpty('last_name')
 
+			->add('photo', 'proffer', [
+				'rule' => ['filesize', 2000000],
+				'provider' => 'proffer'
+			])
+			->add('photo', 'proffer', [
+				'rule' => ['extension', ['jpg', 'jpeg', 'png']],
+				'message' => 'Invalid extension',
+				'provider' => 'proffer'
+			])
+			->add('photo', 'proffer', [
+				'rule' => ['mimetype', ['image/jpeg', 'image/png']],
+				'message' => 'Not the correct mime type',
+				'provider' => 'proffer'
+			])
+			->add('photo', 'proffer', [
+				'rule' => ['dimensions', [
+					'min' => ['w' => 100, 'h' => 100],
+					'max' => ['w' => 500, 'h' => 500]
+				]],
+				'message' => 'Image is not correct dimensions.',
+				'provider' => 'proffer'
+			])
 			->allowEmpty('photo')
+
 			->allowEmpty('photo_dir')
 
 			->add('number', 'valid', ['rule' => 'numeric'])
