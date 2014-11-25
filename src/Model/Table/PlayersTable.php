@@ -5,7 +5,6 @@ use Cake\Database\Query;
 use Cake\Datasource\ResultSetInterface;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use Proffer\Model\Validation\ProfferRules;
 
 /**
  * Players Model
