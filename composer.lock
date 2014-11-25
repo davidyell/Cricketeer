@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "010682e4fc066d872f11b58ac1a34f90",
+    "hash": "cca43f86436efc311b9aed529d302002",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "70676d1ebe189b40899a5ea86ddb2c3c8fc15e4d"
+                "reference": "367fc4ee50f89b74171e21311832faef04c2a466"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/70676d1ebe189b40899a5ea86ddb2c3c8fc15e4d",
-                "reference": "70676d1ebe189b40899a5ea86ddb2c3c8fc15e4d",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/367fc4ee50f89b74171e21311832faef04c2a466",
+                "reference": "367fc4ee50f89b74171e21311832faef04c2a466",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-11-24 02:03:28"
+            "time": "2014-11-25 14:28:05"
         },
         {
             "name": "cakephp/debug_kit",
@@ -340,12 +340,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidyell/CakePHP3-Proffer.git",
-                "reference": "aa0de9fdfbdda9e96f9382af3ea77b4b511dac32"
+                "reference": "adb6329a2d1b804b42c20d2b099b3220f25f05f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidyell/CakePHP3-Proffer/zipball/aa0de9fdfbdda9e96f9382af3ea77b4b511dac32",
-                "reference": "aa0de9fdfbdda9e96f9382af3ea77b4b511dac32",
+                "url": "https://api.github.com/repos/davidyell/CakePHP3-Proffer/zipball/adb6329a2d1b804b42c20d2b099b3220f25f05f0",
+                "reference": "adb6329a2d1b804b42c20d2b099b3220f25f05f0",
                 "shasum": ""
             },
             "require": {
@@ -360,7 +360,9 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Proffer\\": "src"
+                    "Proffer\\": "src",
+                    "Proffer\\Tests\\": "tests/TestCase",
+                    "Proffer\\Tests\\Fixture\\": "tests/Fixture"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -382,7 +384,7 @@
                 "image",
                 "upload"
             ],
-            "time": "2014-11-24 10:19:07"
+            "time": "2014-11-25 16:01:53"
         },
         {
             "name": "imagine/imagine",
@@ -1353,6 +1355,81 @@
             "time": "2014-03-07 15:35:33"
         },
         {
+            "name": "squizlabs/php_codesniffer",
+            "version": "1.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
+                "reference": "5d973e59cf58a0c847f298de84374c96b42b17b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/5d973e59cf58a0c847f298de84374c96b42b17b3",
+                "reference": "5d973e59cf58a0c847f298de84374c96b42b17b3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": ">=5.1.2"
+            },
+            "suggest": {
+                "phpunit/php-timer": "dev-master"
+            },
+            "bin": [
+                "scripts/phpcs"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-phpcs-fixer": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "CodeSniffer.php",
+                    "CodeSniffer/CLI.php",
+                    "CodeSniffer/Exception.php",
+                    "CodeSniffer/File.php",
+                    "CodeSniffer/Report.php",
+                    "CodeSniffer/Reporting.php",
+                    "CodeSniffer/Sniff.php",
+                    "CodeSniffer/Tokens.php",
+                    "CodeSniffer/Reports/",
+                    "CodeSniffer/CommentParser/",
+                    "CodeSniffer/Tokenizers/",
+                    "CodeSniffer/DocGenerators/",
+                    "CodeSniffer/Standards/AbstractPatternSniff.php",
+                    "CodeSniffer/Standards/AbstractScopeSniff.php",
+                    "CodeSniffer/Standards/AbstractVariableSniff.php",
+                    "CodeSniffer/Standards/IncorrectPatternException.php",
+                    "CodeSniffer/Standards/Generic/Sniffs/",
+                    "CodeSniffer/Standards/MySource/Sniffs/",
+                    "CodeSniffer/Standards/PEAR/Sniffs/",
+                    "CodeSniffer/Standards/PSR1/Sniffs/",
+                    "CodeSniffer/Standards/PSR2/Sniffs/",
+                    "CodeSniffer/Standards/Squiz/Sniffs/",
+                    "CodeSniffer/Standards/Zend/Sniffs/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Sherwood",
+                    "role": "lead"
+                }
+            ],
+            "description": "PHP_CodeSniffer tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "homepage": "http://www.squizlabs.com/php-codesniffer",
+            "keywords": [
+                "phpcs",
+                "standards"
+            ],
+            "time": "2014-09-25 03:33:46"
+        },
+        {
             "name": "symfony/yaml",
             "version": "v2.5.7",
             "target-dir": "Symfony/Component/Yaml",
@@ -1398,6 +1475,50 @@
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
             "time": "2014-11-20 13:22:25"
+        },
+        {
+            "name": "ukwm/cakephp-codesniffer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UKWebMedia/cakephp-codesniffer.git",
+                "reference": "99852390492ec8d7c7fee1712baf270fd9c7ccf2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UKWebMedia/cakephp-codesniffer/zipball/99852390492ec8d7c7fee1712baf270fd9c7ccf2",
+                "reference": "99852390492ec8d7c7fee1712baf270fd9c7ccf2",
+                "shasum": ""
+            },
+            "require": {
+                "squizlabs/php_codesniffer": ">=1.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CakePHP Community",
+                    "homepage": "https://github.com/cakephp/cakephp-codesniffer/graphs/contributors"
+                }
+            ],
+            "description": "UKWM CakePHP CodeSniffer Standards",
+            "homepage": "https://github.com/UKWebMedia/cakephp-codesniffer",
+            "keywords": [
+                "codesniffer",
+                "framework"
+            ],
+            "support": {
+                "issues": "https://github.com/cakephp/cakephp-codesniffer/issues",
+                "forum": "http://stackoverflow.com/tags/cakephp",
+                "irc": "irc://irc.freenode.org/cakephp",
+                "source": "https://github.com/cakephp/cakephp-codesniffer"
+            },
+            "time": "2014-11-25 16:08:49"
         }
     ],
     "aliases": [],
@@ -1406,7 +1527,8 @@
         "cakephp/cakephp": 20,
         "cakephp/debug_kit": 20,
         "davidyell/numbers_to_words": 20,
-        "davidyell/proffer": 20
+        "davidyell/proffer": 20,
+        "ukwm/cakephp-codesniffer": 20
     },
     "prefer-stable": true,
     "platform": {
