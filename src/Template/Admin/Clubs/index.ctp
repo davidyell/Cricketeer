@@ -29,7 +29,11 @@
 			<td><?= h($club->id) ?></td>
 			<td><?= h($club->name) ?></td>
 			<td><?= h($club->alt_name) ?></td>
-			<td><?= h($club->image) ?></td>
+			<td><?php
+				if (!empty($club->image)) {
+					echo $this->Html->image('../files/clubs/image/' . $club->image_dir . '/square_' . $club->image, ['height' => 50]);
+				}
+			?></td>
 			<td>
 				<?= $club->has('league') ? $this->Html->link($club->league->name, ['controller' => 'Leagues', 'action' => 'view', $club->league->id]) : '' ?>
 			</td>

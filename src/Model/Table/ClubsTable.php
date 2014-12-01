@@ -21,6 +21,16 @@ class ClubsTable extends Table {
 		$this->displayField('name');
 		$this->primaryKey('id');
 		$this->addBehavior('Timestamp');
+		$this->addBehavior('Proffer.Proffer', [
+			'image' => [
+				'dir' => 'image_dir',
+				'thumbnailSizes' => [
+					'squareSmall' => ['w' => 100, 'h' => 100],
+					'square' => ['w' => 200, 'h' => 200, 'crop' => true]
+				],
+				'thumbnailMethod' => 'imagick'
+			]
+		]);
 
 		$this->belongsTo('Leagues', [
 			'foreignKey' => 'league_id',
@@ -49,7 +59,7 @@ class ClubsTable extends Table {
 
 			->allowEmpty('alt_name')
 
-			->allowEmpty('image')
+//			->allowEmpty('image')
 //			->add('image', ['rule' => ['extension', ['gif', 'jpeg', 'png', 'jpg']]])
 
 			->allowEmpty('image_dir')
@@ -60,7 +70,5 @@ class ClubsTable extends Table {
 
 		return $validator;
 	}
-
-
 
 }

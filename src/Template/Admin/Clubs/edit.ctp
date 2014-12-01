@@ -12,7 +12,7 @@
 	</ul>
 </div>
 <div class="clubs form col-md-10">
-<?= $this->Form->create($club) ?>
+<?= $this->Form->create($club, ['type' => 'file']) ?>
 	<fieldset>
 		<legend><?= __('Edit Club'); ?></legend>
 	<?php
