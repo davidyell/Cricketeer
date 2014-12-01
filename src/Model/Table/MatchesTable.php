@@ -74,9 +74,23 @@ class MatchesTable extends Table {
  */
 	public function findLatestMatches(Query $query, array $options) {
 		return $query->contain([
-				'Venues',
-				'Formats',
-				'Teams'
+				'Venues' => function ($q) {
+					return $q->select(['id', 'name', 'location']);
+				},
+				'Formats' => function ($q) {
+					return $q->select(['id', 'name']);
+				},
+				'Teams' => [
+					'Clubs' => function ($q) {
+						return $q->select(['id', 'image', 'image_dir']);
+					}
+				],
+				'Innings' => [
+					'InningsTypes',
+					'Batsmen',
+					'Bowlers',
+					'Wickets'
+				]
 			])
 			->order(['when_played' => 'DESC']);
 	}
