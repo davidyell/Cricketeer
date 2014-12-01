@@ -2,7 +2,11 @@
 	<div class="player bowlers">
 		<table summary="Bowling figures">
 			<tr>
-				<th rowspan="4" class="portrait"><?php echo $this->Html->image('http://lorempixel.com/100/130/people', ['alt' => $bowler->player->FullName]);?></th>
+				<th rowspan="4" class="portrait"><?php
+					if (!empty($bowler->player->photo)) {
+						echo $this->Html->image('../files/players/photo/' . $bowler->player->photo_dir . '/portrait_' . $bowler->player->photo, ['alt' => $bowler->player->FullName]);
+					}
+				?></th>
 				<th colspan="5"><?php echo $this->Html->link($bowler->player->FullName, ['controller' => 'players', 'action' => 'view', $bowler->player->slug], ['title' => 'View ' . $bowler->player->FullName . ' profile']);?></th>
 			</tr>
 			<tr>
