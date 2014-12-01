@@ -4,25 +4,19 @@
     "homepage": "http://cakephp.org",
     "type": "project",
     "license": "MIT",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/UKWebMedia/cakephp-codesniffer"
-        }
-    ],
     "require": {
         "php": ">=5.4.16",
         "cakephp/cakephp": "3.0.*-dev",
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/debug_kit": "3.0.*-dev",
         "davidyell/numbers_to_words": "dev-master",
-        "davidyell/proffer": "dev-master"
+        "davidyell/proffer": "0.0.1"
     },
     "require-dev": {
         "d11wtq/boris": "1.0.*",
         "phpunit/phpunit": "*",
         "squizlabs/php_codesniffer": "1.5.5",
-        "ukwm/cakephp-codesniffer": "dev-master"
+        "cakephp/cakephp-codesniffer": "dev-master"
     },
     "suggest": {
         "phpunit/phpunit": "Allows automated tests to be run without system-wide install.",

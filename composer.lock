@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cca43f86436efc311b9aed529d302002",
+    "hash": "463a896979d3e0a23ffff466f87a0d7c",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "367fc4ee50f89b74171e21311832faef04c2a466"
+                "reference": "41501ebe9fd32ffa65eb802d4ccd494a0d750bd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/367fc4ee50f89b74171e21311832faef04c2a466",
-                "reference": "367fc4ee50f89b74171e21311832faef04c2a466",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/41501ebe9fd32ffa65eb802d4ccd494a0d750bd1",
+                "reference": "41501ebe9fd32ffa65eb802d4ccd494a0d750bd1",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-11-25 14:28:05"
+            "time": "2014-12-01 03:54:38"
         },
         {
             "name": "cakephp/debug_kit",
@@ -196,12 +196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "4eef339a6832d121fa89f3b06982c7ff9ddaa879"
+                "reference": "8a6f3da9d7fc8cb5df33a1752de5d0b337b63047"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/4eef339a6832d121fa89f3b06982c7ff9ddaa879",
-                "reference": "4eef339a6832d121fa89f3b06982c7ff9ddaa879",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/8a6f3da9d7fc8cb5df33a1752de5d0b337b63047",
+                "reference": "8a6f3da9d7fc8cb5df33a1752de5d0b337b63047",
                 "shasum": ""
             },
             "require": {
@@ -245,7 +245,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2014-11-22 18:02:58"
+            "time": "2014-11-29 19:04:50"
         },
         {
             "name": "cakephp/plugin-installer",
@@ -336,16 +336,16 @@
         },
         {
             "name": "davidyell/proffer",
-            "version": "dev-master",
+            "version": "v0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidyell/CakePHP3-Proffer.git",
-                "reference": "adb6329a2d1b804b42c20d2b099b3220f25f05f0"
+                "reference": "4e8b02488d8089d3d6646896f53f93caf539d724"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidyell/CakePHP3-Proffer/zipball/adb6329a2d1b804b42c20d2b099b3220f25f05f0",
-                "reference": "adb6329a2d1b804b42c20d2b099b3220f25f05f0",
+                "url": "https://api.github.com/repos/davidyell/CakePHP3-Proffer/zipball/4e8b02488d8089d3d6646896f53f93caf539d724",
+                "reference": "4e8b02488d8089d3d6646896f53f93caf539d724",
                 "shasum": ""
             },
             "require": {
@@ -362,7 +362,8 @@
                 "psr-4": {
                     "Proffer\\": "src",
                     "Proffer\\Tests\\": "tests/TestCase",
-                    "Proffer\\Tests\\Fixture\\": "tests/Fixture"
+                    "Proffer\\Tests\\Fixture\\": "tests/Fixture",
+                    "Proffer\\Tests\\Stubs\\": "tests/Stubs"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -384,7 +385,7 @@
                 "image",
                 "upload"
             ],
-            "time": "2014-11-25 16:01:53"
+            "time": "2014-12-01 10:55:13"
         },
         {
             "name": "imagine/imagine",
@@ -624,6 +625,45 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "cakephp/cakephp-codesniffer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cakephp/cakephp-codesniffer.git",
+                "reference": "4c96a24610e831c58478d14a143157a057f655d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cakephp/cakephp-codesniffer/zipball/4c96a24610e831c58478d14a143157a057f655d9",
+                "reference": "4c96a24610e831c58478d14a143157a057f655d9",
+                "shasum": ""
+            },
+            "require": {
+                "squizlabs/php_codesniffer": ">=1.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CakePHP Community",
+                    "homepage": "https://github.com/cakephp/cakephp-codesniffer/graphs/contributors"
+                }
+            ],
+            "description": "CakePHP CodeSniffer Standards",
+            "homepage": "http://cakephp.org",
+            "keywords": [
+                "codesniffer",
+                "framework"
+            ],
+            "time": "2014-10-15 11:55:12"
+        },
         {
             "name": "d11wtq/boris",
             "version": "v1.0.8",
@@ -1431,17 +1471,17 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.5.7",
+            "version": "v2.6.0",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "900d38bc8f74a50343ce65dd1c1e9819658ee56b"
+                "reference": "51c845cf3e4bfc182d1d5c05ed1c7338361d86f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/900d38bc8f74a50343ce65dd1c1e9819658ee56b",
-                "reference": "900d38bc8f74a50343ce65dd1c1e9819658ee56b",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/51c845cf3e4bfc182d1d5c05ed1c7338361d86f8",
+                "reference": "51c845cf3e4bfc182d1d5c05ed1c7338361d86f8",
                 "shasum": ""
             },
             "require": {
@@ -1450,7 +1490,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -1474,51 +1514,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2014-11-20 13:22:25"
-        },
-        {
-            "name": "ukwm/cakephp-codesniffer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/UKWebMedia/cakephp-codesniffer.git",
-                "reference": "99852390492ec8d7c7fee1712baf270fd9c7ccf2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/UKWebMedia/cakephp-codesniffer/zipball/99852390492ec8d7c7fee1712baf270fd9c7ccf2",
-                "reference": "99852390492ec8d7c7fee1712baf270fd9c7ccf2",
-                "shasum": ""
-            },
-            "require": {
-                "squizlabs/php_codesniffer": ">=1.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.1.*"
-            },
-            "type": "library",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "CakePHP Community",
-                    "homepage": "https://github.com/cakephp/cakephp-codesniffer/graphs/contributors"
-                }
-            ],
-            "description": "UKWM CakePHP CodeSniffer Standards",
-            "homepage": "https://github.com/UKWebMedia/cakephp-codesniffer",
-            "keywords": [
-                "codesniffer",
-                "framework"
-            ],
-            "support": {
-                "issues": "https://github.com/cakephp/cakephp-codesniffer/issues",
-                "forum": "http://stackoverflow.com/tags/cakephp",
-                "irc": "irc://irc.freenode.org/cakephp",
-                "source": "https://github.com/cakephp/cakephp-codesniffer"
-            },
-            "time": "2014-11-25 16:08:49"
+            "time": "2014-11-20 13:24:23"
         }
     ],
     "aliases": [],
@@ -1527,8 +1523,7 @@
         "cakephp/cakephp": 20,
         "cakephp/debug_kit": 20,
         "davidyell/numbers_to_words": 20,
-        "davidyell/proffer": 20,
-        "ukwm/cakephp-codesniffer": 20
+        "cakephp/cakephp-codesniffer": 20
     },
     "prefer-stable": true,
     "platform": {
