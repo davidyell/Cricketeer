@@ -32,7 +32,7 @@
 			<h6 class="subheader"><?= __('Photo') ?></h6>
 			<p><?php
 			if (isset($player->photo)) {
-				echo $this->Html->image('../files/players/' . $player->photo_dir . '/portrait_' . $player->photo);
+				echo $this->Html->image('../files/players/photo/' . $player->photo_dir . '/portrait_' . $player->photo);
 			}
 			?></p>
 			<h6 class="subheader"><?= __('Photo Dir') ?></h6>

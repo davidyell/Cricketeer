@@ -34,7 +34,7 @@
 			<td><?= h($player->last_name) ?></td>
 			<td><?php
 			if (!empty($player->photo)) {
-				echo $this->Html->image('../files/players/' . $player->photo_dir . '/' . $player->photo, ['height' => 50]);
+				echo $this->Html->image('../files/players/photo/' . $player->photo_dir . '/' . $player->photo, ['height' => 50]);
 			}
 			?></td>
 			<td><?= $this->Number->format($player->number) ?></td>

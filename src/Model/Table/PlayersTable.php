@@ -28,8 +28,9 @@ class PlayersTable extends Table {
 			'photo' => [
 				'dir' => 'photo_dir',
 				'thumbnailSizes' => [
-					'square' => ['w' => 200, 'h' => 200],
+					'square' => ['w' => 200, 'h' => 200, 'crop' => true],
 					'portrait' => ['w' => 100, 'h' => 300],
+					'large' => ['w' => 300, 'h' => 650]
 				],
 				'thumbnailMethod' => 'imagick'
 			]

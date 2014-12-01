@@ -25,7 +25,7 @@
 		echo $this->Form->input('last_name');
 
 		if (!empty($player->photo)) {
-			echo $this->Html->image('../files/players/' . $player->photo_dir . '/portrait_' . $player->photo);
+			echo $this->Html->image('../files/players/photo/' . $player->photo_dir . '/portrait_' . $player->photo);
 		}
 		echo $this->Form->input('photo', ['type' => 'file']);
 		echo $this->Form->input('photo_dir', ['type' => 'hidden']);
