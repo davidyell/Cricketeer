@@ -19,6 +19,7 @@
 	<thead>
 		<tr>
 			<th><?= $this->Paginator->sort('id') ?></th>
+			<th><?php echo $this->Paginator->sort('club_id');?></th>
 			<th><?= $this->Paginator->sort('first_name') ?></th>
 			<th><?= $this->Paginator->sort('last_name') ?></th>
 			<th><?= $this->Paginator->sort('photo') ?></th>
@@ -30,6 +31,7 @@
 	<?php foreach ($players as $player): ?>
 		<tr>
 			<td><?= h($player->id) ?></td>
+			<td><?php echo h($player->club->name);?></td>
 			<td><?= h($player->first_name) ?></td>
 			<td><?= h($player->last_name) ?></td>
 			<td><?php
