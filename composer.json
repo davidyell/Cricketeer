@@ -10,7 +10,7 @@
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/debug_kit": "3.0.*-dev",
         "davidyell/numbers_to_words": "dev-master",
-        "davidyell/proffer": "0.0.1"
+        "davidyell/proffer": "0.0.3"
     },
     "require-dev": {
         "d11wtq/boris": "1.0.*",
