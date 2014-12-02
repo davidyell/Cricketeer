@@ -74,30 +74,28 @@ class MatchesTable extends Table {
  */
 	public function findLatestMatches(Query $query, array $options) {
 		return $query->contain([
-				'Venues' => function ($q) {
-					return $q->select(['id', 'name', 'location']);
+				'Venues' => function ($query) {
+					return $query->select(['id', 'name', 'location']);
 				},
-				'Formats' => function ($q) {
-					return $q->select(['id', 'name']);
+				'Formats' => function ($query) {
+					return $query->select(['id', 'name']);
 				},
-				'Teams' => [
-					'Clubs' => function ($q) {
-						return $q->select(['id', 'image', 'image_dir']);
-					}
-				],
 				'Innings' => [
 					'InningsTypes',
 					'Batsmen' => [
-						'Players' => function ($q) {
-							return $q->select(['id', 'first_name', 'initials', 'last_name']);
-						}
+						'Players' => [
+							'fields' => ['id', 'first_name', 'initials', 'last_name']
+						]
 					],
-					'Bowlers' => [
-						'Players' => function ($q) {
-							return $q->select(['id', 'first_name', 'initials', 'last_name']);
-						}
+					'Bowlers' => function () {
+						return $this->Innings->Bowlers->find('BowlersWickets');
+					},
+					'Wickets',
+					'Teams' => [
+						'Clubs' => [
+							'fields' => ['id', 'image', 'image_dir']
+						]
 					],
-					'Wickets'
 				]
 			])
 			->order(['when_played' => 'DESC']);

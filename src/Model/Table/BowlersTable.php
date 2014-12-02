@@ -115,6 +115,28 @@ class BowlersTable extends Table {
 			->autoFields(true);
 	}
 
+	public function findBowlersWickets(Query $query, array $options) {
+		return $query->contain([
+			'Innings' => [
+				'Wickets' => [
+					'PlayerBowledWicket',
+				]
+			]
+		])
+		->select(['totalWickets' => $query->func()->count('*')])
+		->matching('Innings.Wickets.PlayerBowledWicket', function ($q) {
+			return $q->where([
+				'AND' => [
+					'Wickets.bowler_player_id = Bowlers.player_id',
+					'Wickets.innings_id = Innings.id'
+				]
+			]);
+		})
+		->group(['Bowlers.player_id'])
+		->order(['totalWickets' => 'DESC'])
+		->autoFields(true);
+	}
+
 /**
  * Work out a bowlers economy
  *

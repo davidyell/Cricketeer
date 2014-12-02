@@ -1,9 +1,14 @@
 <?php foreach ($matches as $match):
+
 //	var_dump($match);
+//	var_dump($bowlingWickets->toArray());
+
 	$batsmen0 = new \Cake\Collection\Collection($match->innings[0]->batsmen);
 	$bowlers0 = new \Cake\Collection\Collection($match->innings[0]->bowlers);
+
 	$batsmen1 = new \Cake\Collection\Collection($match->innings[1]->batsmen);
 	$bowlers1 = new \Cake\Collection\Collection($match->innings[1]->bowlers);
+
 	?>
 	<div class="match">
 		<table summary="Match">
@@ -15,8 +20,8 @@
 			</tr>
 			<tr class="teams">
 				<td>
-					<?php echo $this->Html->image('../files/clubs/image/' . $match->teams[0]->club->image_dir . '/squareSmall_' . $match->teams[0]->club->image, ['title' => $match->teams[0]->name]); ?>
-					<p class='teamName'><?php echo $match->teams[0]->name; ?></p>
+					<?php echo $this->Html->image('../files/clubs/image/' . $match->innings[0]->team->club->image_dir . '/squareSmall_' . $match->innings[0]->team->club->image, ['title' => $match->innings[0]->team->name]); ?>
+					<p class='teamName'><?php echo $match->innings[0]->team->name; ?></p>
 					<p class="score">
 						<?php
 						$total = $batsmen0->sumOf('runs');
@@ -41,8 +46,8 @@
 					</p>
 				</td>
 				<td>
-					<?php echo $this->Html->image('../files/clubs/image/' . $match->teams[1]->club->image_dir . '/squareSmall_' . $match->teams[1]->club->image, ['title' => $match->teams[1]->name]); ?>
-					<p class='teamName'><?php echo $match->teams[1]->name; ?></p>
+					<?php echo $this->Html->image('../files/clubs/image/' . $match->innings[1]->team->club->image_dir . '/squareSmall_' . $match->innings[1]->team->club->image, ['title' => $match->innings[1]->team->name]); ?>
+					<p class='teamName'><?php echo $match->innings[1]->team->name; ?></p>
 					<p class="score">
 						<?php
 						$total = $batsmen1->sumOf('runs');
@@ -70,16 +75,26 @@
 			<tr>
 				<td><?php
 					$bestBatting = $batsmen0->max('runs');
-					echo $bestBatting->player->get('FullName') . ' ' . $bestBatting->runs;
+					echo $this->Html->image('icons/batsman.png', ['width' => 16]) . ' <b>' . $bestBatting->player->get('FullName') . "</b> {$bestBatting->runs}";
 				?></td>
 				<td><?php
 					$bestBatting = $batsmen1->max('runs');
-					echo $bestBatting->player->get('FullName') . ' ' . $bestBatting->runs;
+					echo $this->Html->image('icons/batsman.png', ['width' => 16]) . ' <b>' . $bestBatting->player->get('FullName') . "</b> {$bestBatting->runs}";
 				?></td>
 			</tr>
 			<tr>
-				<td></td>
-				<td></td>
+				<td><?php
+					$bestBowling = $bowlers1->max('totalWickets');
+					if (!empty($bestBowling)) {
+						echo $this->Html->image('icons/cricket-ball.png', ['width' => 16]) . ' <b>' . $bestBowling->innings->wickets->player_bowled_wicket->get('FullName') . '</b> ' . $bestBowling->totalWickets . '-' . $bestBowling->runs;
+					}
+				?></td>
+				<td><?php
+					$bestBowling = $bowlers0->max('totalWickets');
+					if (!empty($bestBowling)) {
+						echo $this->Html->image('icons/cricket-ball.png', ['width' => 16]) . ' <b>' . $bestBowling->innings->wickets->player_bowled_wicket->get('FullName') . '</b> ' . $bestBowling->totalWickets . '-' . $bestBowling->runs;
+					}
+				?></td>
 			</tr>
 		</table>
 	</div>
