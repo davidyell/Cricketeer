@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Table;
 
+use ArrayObject;
 use Cake\Event\Event;
 use Cake\ORM\Entity;
 use Cake\ORM\Query;
@@ -70,12 +71,10 @@ class BowlersTable extends Table {
 /**
  * @param Event $event
  * @param Entity $entity
- * @param \ArrayObject $options
+ * @param ArrayObject $options
  * @return bool
  */
-
-
-	public function beforeSave(Event $event, Entity $entity, \ArrayObject $options) {
+	public function beforeSave(Event $event, Entity $entity, ArrayObject $options) {
 		$entity->set('economy', $this->economy($entity->runs, $entity->overs));
 		return true;
 	}
@@ -89,30 +88,40 @@ class BowlersTable extends Table {
  */
 	public function findTopBowlers(Query $query, array $options) {
 		return $query->contain([
-				'Players',
+				'Players' => [
+					'fields' => ['id', 'first_name', 'initials', 'last_name', 'slug', 'photo', 'photo_dir']
+				],
 				'Innings' => [
 					'Matches' => [
 						'Formats',
 						'Venues'
 					],
+					'Wickets' => [
+						'PlayerBowledWicket'
+					]
 				]
 			])
-			// Use a sub-query to calculate the number of wickets taken in this innings
-			->select(['wickets_taken' => $this->Innings->Wickets->find()->select($query->func()->count('*'))->where(['Wickets.innings_id = Innings.id'])])
-			->order([
-				'wickets_taken' => 'DESC',
-				'economy' => 'DESC'
-			])
+			->select(['totalWickets' => $query->func()->count('*')])
+			->matching('Innings.Wickets', function ($q) {
+				return $q->where([
+					'AND' => [
+						'Wickets.bowler_player_id = Bowlers.player_id',
+						'Wickets.innings_id = Innings.id'
+					]
+				]);
+			})
+			->group(['Bowlers.player_id'])
+			->order(['economy' => 'DESC'])
 			->autoFields(true);
 	}
 
-	/**
-	 * Work out a bowlers economy
-	 *
-	 * @param $runs Number of runs scored off the bowler
-	 * @param $overs Number of over bowled
-	 * @return float
-	 */
+/**
+ * Work out a bowlers economy
+ *
+ * @param $runs Number of runs scored off the bowler
+ * @param $overs Number of over bowled
+ * @return float
+ */
 	public function economy($runs, $overs) {
 		if ($overs > 0) {
 			return (float)number_format($runs / $overs, 2);

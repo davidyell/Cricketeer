@@ -1,4 +1,4 @@
-<?php foreach ($bowlers as $bowler):?>
+<?php foreach ($bowlers as $bowler): ?>
 	<div class="player bowlers">
 		<table summary="Bowling figures">
 			<tr>
@@ -19,7 +19,7 @@
 			<tr>
 				<td><?php echo $bowler->overs;?></td>
 				<td><?php echo $bowler->runs;?></td>
-				<td><?php echo $bowler->wickets_taken;?></td>
+				<td><?php echo $bowler->totalWickets;?></td>
 				<td><?php echo $bowler->economy;?></td>
 				<td><?php echo $bowler->maidens;?></td>
 			</tr>
