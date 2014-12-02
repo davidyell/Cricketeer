@@ -111,10 +111,20 @@ class BowlersTable extends Table {
 				]);
 			})
 			->group(['Bowlers.player_id'])
-			->order(['economy' => 'DESC'])
+			->order([
+				'totalWickets' => 'DESC',
+				'economy' => 'DESC'
+			])
 			->autoFields(true);
 	}
 
+/**
+ * Find the bowlers number of wickets for an innings
+ *
+ * @param Query $query
+ * @param array $options
+ * @return $this|bool
+ */
 	public function findBowlersWickets(Query $query, array $options) {
 		return $query->contain([
 			'Innings' => [
