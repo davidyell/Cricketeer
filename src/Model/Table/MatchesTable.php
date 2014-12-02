@@ -87,8 +87,16 @@ class MatchesTable extends Table {
 				],
 				'Innings' => [
 					'InningsTypes',
-					'Batsmen',
-					'Bowlers',
+					'Batsmen' => [
+						'Players' => function ($q) {
+							return $q->select(['id', 'first_name', 'initials', 'last_name']);
+						}
+					],
+					'Bowlers' => [
+						'Players' => function ($q) {
+							return $q->select(['id', 'first_name', 'initials', 'last_name']);
+						}
+					],
 					'Wickets'
 				]
 			])

@@ -35,3 +35,23 @@ footer {
   background-color: #ccc;
   text-align: center;
 }
+
+/** Mini score-card **/
+.match {
+  tr.teams {
+    img {
+      float: left;
+      margin-right: 10px;
+    }
+    .teamName {
+      font-weight: bold;
+    }
+    .score {
+      font-weight: bold;
+      font-size: 30px;
+    }
+  }
+  .extras {
+    font-size: 11px;
+  }
+}
