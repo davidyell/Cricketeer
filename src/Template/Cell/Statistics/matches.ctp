@@ -1,7 +1,5 @@
 <?php foreach ($matches as $match):
-
-//	var_dump($match);
-//	var_dump($bowlingWickets->toArray());
+	if (!empty($match->innings)):
 
 	$batsmen0 = new \Cake\Collection\Collection($match->innings[0]->batsmen);
 	$bowlers0 = new \Cake\Collection\Collection($match->innings[0]->bowlers);
@@ -98,4 +96,6 @@
 			</tr>
 		</table>
 	</div>
-<?php endforeach; ?>
+	<?php
+	endif;
+endforeach; ?>
