@@ -1,6 +1,8 @@
 <?php
 namespace App\Model\Table;
 
+use ArrayObject;
+use Cake\Event\Event;
 use Cake\ORM\Query;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -45,4 +47,16 @@ class SquadsTable extends Table {
 		return $validator;
 	}
 
+/**
+ * Set the default ordering for the Squads so that they always appear in batting order
+ *
+ * @param Event $event
+ * @param Query $query
+ * @param array $options
+ * @param boolean $primary
+ * @return $this
+ */
+	public function beforeFind(Event $event, Query $query, $options, $primary) {
+		return $query->order(['position' => 'ASC']);
+	}
 }

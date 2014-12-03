@@ -27,10 +27,12 @@
 			if (isset($team->squads[$i]['id'])) {
 				$idOptions['value'] = $team->squads[$i]['id'];
 			}
-			echo $this->Form->input("squads.$i.id", $idOptions);
-			echo $this->Form->input("squads.$i.player_id", ['type' => 'select', 'options' => $players, 'label' => "Player $playerNum",'empty' => 'Pick player']);
-			echo $this->Form->checkbox("squads.$i.captain") . ' Captain?';
-			echo "<hr>";
+			echo "<div class='well'>";
+				echo $this->Form->input("squads.$i.id", $idOptions);
+				echo $this->Form->input("squads.$i.position", ['type' => 'number']);
+				echo $this->Form->input("squads.$i.player_id", ['type' => 'select', 'options' => $players, 'label' => false,'empty' => 'Pick player']);
+				echo $this->Form->checkbox("squads.$i.captain") . ' Captain?';
+			echo "</div>";
 		}
 	?>
 	</fieldset>

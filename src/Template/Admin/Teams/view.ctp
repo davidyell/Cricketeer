@@ -88,13 +88,13 @@
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th><?= __('Player Id') ?></th>
-			<th><?= __('Team Id') ?></th>
+			<th><?php echo __('Name');?></th>
 			<th class="actions"><?= __('Actions') ?></th>
 		</tr>
 		<?php foreach ($team->squads as $squads): ?>
 		<tr>
 			<td><?= h($squads->player_id) ?></td>
-			<td><?= h($squads->team_id) ?></td>
+			<td><?php echo $this->Html->link("#{$squads->position} {$squads->player->get('FullName')} ({$squads->player->player_specialisation->name})", ['controller' => 'players', 'action' => 'view', $squads->player->id]);?></td>
 			<td class="actions">
 				<?= $this->Html->link(__('View'), ['controller' => 'Squads', 'action' => 'view', $squads->player_id]) ?>
 				<?= $this->Html->link(__('Edit'), ['controller' => 'Squads', 'action' => 'edit', $squads->player_id]) ?>
