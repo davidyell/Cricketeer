@@ -39,19 +39,33 @@
 		}
 	} elseif ($match->format->name === 'Test Match') {
 		for ($i = 0; $i < 4; $i++) {
-			if ($i % 2 == 0) {
-				$innings = 1;
-			} else {
-				$innings = 2;
+
+			switch ($i) {
+				case 0:
+					$innings = 1;
+					$team = 0;
+					break;
+				case 1:
+					$innings = 1;
+					$team = 1;
+					break;
+				case 2:
+					$innings = 2;
+					$team = 0;
+					break;
+				case 3:
+					$innings = 2;
+					$team = 1;
+					break;
 			}
 
-			$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[$i]['id']])->toArray();
+			$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[$team]['id']])->toArray();
 			if (is_array($teamsInnings) && !empty($teamsInnings)) {
 				$teamsInnings = $teamsInnings[key($teamsInnings)];
 			} else {
 				$teamsInnings = [];
 			}
-			echo $this->element('Admin/innings', ['innings' => $innings, 'teamsInnings' => $teamsInnings, 'inningNum' => $i + 1, 'team' => $match->teams[$i % 2]]);
+			echo $this->element('Admin/innings', ['innings' => $innings, 'teamsInnings' => $teamsInnings, 'inningNum' => $i + 1, 'team' => $match->teams[$team]]);
 		}
 	}
 
