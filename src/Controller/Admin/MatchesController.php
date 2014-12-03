@@ -2,6 +2,7 @@
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\Collection\Collection;
 
 /**
  * Matches Controller
@@ -134,7 +135,8 @@ class MatchesController extends AppController {
 					'fields' => ['id', 'name', 'match_id'],
 					'Squads' => [
 						'Players' => [
-							'fields' => ['id', 'first_name', 'initials', 'last_name']
+							'fields' => ['id', 'first_name', 'initials', 'last_name'],
+							'PlayerSpecialisations'
 						]
 					]
 				],
@@ -180,9 +182,8 @@ class MatchesController extends AppController {
 
 		$venues = $this->Matches->Venues->find('list');
 		$formats = $this->Matches->Formats->find('list');
-		$players = $this->Matches->Teams->Clubs->Players->find('PlayerListByTeam');
 		$dismissals = $this->Matches->Innings->Wickets->Dismissals->find('list');
 		$inningsTypes = $this->Matches->Innings->InningsTypes->find();
-		$this->set(compact('match', 'venues', 'formats', 'players', 'dismissals', 'inningsTypes'));
+		$this->set(compact('match', 'venues', 'formats', 'dismissals', 'inningsTypes'));
 	}
 }
