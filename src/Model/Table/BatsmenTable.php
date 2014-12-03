@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Table;
 
+use ArrayObject;
 use Cake\Event\Event;
 use Cake\ORM\Entity;
 use Cake\ORM\Query;
@@ -77,10 +78,10 @@ class BatsmenTable extends Table {
 /**
  * @param Event $event
  * @param Entity $entity
- * @param \ArrayObject $options
+ * @param ArrayObject $options
  * @return boolean
  */
-	public function beforeSave(Event $event, Entity $entity, \ArrayObject $options) {
+	public function beforeSave(Event $event, Entity $entity, ArrayObject $options) {
 		$entity->set('strike_rate', $this->strikeRate($entity->runs, $entity->balls));
 		return true;
 	}
