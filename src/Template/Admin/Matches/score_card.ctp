@@ -29,13 +29,39 @@
 
 	if ($match->format->name === 'One Day' || $match->format->name === 'T20') {
 		for ($i = 0; $i < 2; $i++) {
-			$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[$i]['id']])->toArray();
+
+			if ($i % 2 === 0) {
+				$innings = 1;
+				$team = 0;
+				$opponent = 1;
+			} else {
+				$innings = 1;
+				$team = 1;
+				$opponent = 0;
+			}
+
+			$teamsInnings = collection($match->innings)
+				->match(['team_id' => $match->teams[$team]['id']])
+				->toArray();
+
+			$opposition = [];
+			foreach ($match->teams[$opponent]['squads'] as $squad) {
+				$opposition[$squad->player_id] = $squad->player->get('FullName') . " ({$squad->player->player_specialisation->name})";
+			}
+
 			if (is_array($teamsInnings) && !empty($teamsInnings)) {
 				$teamsInnings = $teamsInnings[key($teamsInnings)];
 			} else {
 				$teamsInnings = [];
 			}
-			echo $this->element('Admin/innings', ['innings' => 1, 'teamsInnings' => $teamsInnings, 'inningNum' => $i + 1, 'team' => $match->teams[$i]]);
+
+			echo $this->element('Admin/innings', [
+				'innings' => $innings,
+				'teamsInnings' => $teamsInnings,
+				'inningNum' => $i + 1,
+				'team' => $match->teams[$team],
+				'opposition' => $opposition
+			]);
 		}
 	} elseif ($match->format->name === 'Test Match') {
 		for ($i = 0; $i < 4; $i++) {
@@ -44,28 +70,46 @@
 				case 0:
 					$innings = 1;
 					$team = 0;
+					$opponent = 1;
 					break;
 				case 1:
 					$innings = 1;
 					$team = 1;
+					$opponent = 0;
 					break;
 				case 2:
 					$innings = 2;
 					$team = 0;
+					$opponent = 1;
 					break;
 				case 3:
 					$innings = 2;
 					$team = 1;
+					$opponent = 0;
 					break;
 			}
 
-			$teamsInnings = collection($match->innings)->match(['team_id' => $match->teams[$team]['id']])->toArray();
+			$teamsInnings = collection($match->innings)
+				->match(['team_id' => $match->teams[$team]['id']])
+				->toArray();
+
+			$opposition = [];
+			foreach ($match->teams[$opponent]['squads'] as $squad) {
+				$opposition[$squad->player_id] = $squad->player->get('FullName') . " ({$squad->player->player_specialisation->name})";
+			}
+
 			if (is_array($teamsInnings) && !empty($teamsInnings)) {
 				$teamsInnings = $teamsInnings[key($teamsInnings)];
 			} else {
 				$teamsInnings = [];
 			}
-			echo $this->element('Admin/innings', ['innings' => $innings, 'teamsInnings' => $teamsInnings, 'inningNum' => $i + 1, 'team' => $match->teams[$team]]);
+			echo $this->element('Admin/innings', [
+				'innings' => $innings,
+				'teamsInnings' => $teamsInnings,
+				'inningNum' => $i + 1,
+				'team' => $match->teams[$team],
+				'opposition' => $opposition
+			]);
 		}
 	}
 

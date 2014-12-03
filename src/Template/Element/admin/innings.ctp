@@ -44,12 +44,15 @@
 				echo "<div class='clearfix'><!-- blank --></div>";
 				echo "<div class='wicket'>";
 					// Find the batsmans wicket
-					$wicket = collection($teamsInnings->wickets)->match(['lost_wicket_player_id' => $squad->player_id])->toArray();
+					$wicket = [];
+					if (!empty($teamsInnings->wickets)) {
+						$wicket = collection($teamsInnings->wickets)->match(['lost_wicket_player_id' => $squad->player_id])->toArray();
+					}
 
 					echo $this->Form->input("innings.$inningNum.wickets.$i.id", ['value' => (isset($wicket[key($wicket)]['id']) ? $wicket[key($wicket)]['id'] : null)]);
 					echo $this->Form->input("innings.$inningNum.wickets.$i.lost_wicket_player_id", ['type' => 'hidden', 'value' => $squad->player->id]);
-					echo $this->Form->input("innings.$inningNum.wickets.$i.took_wicket_player_id", ['options' => $players, 'label' => 'Took the wicket', 'default' => (isset($wicket[key($wicket)]['took_wicket_player_id'])) ? $wicket[key($wicket)]['took_wicket_player_id'] : null]);
-					echo $this->Form->input("innings.$inningNum.wickets.$i.bowler_player_id", ['options' => $players, 'label' => 'Bowler', 'default' => (isset($wicket[key($wicket)]['bowler_player_id'])) ? $wicket[key($wicket)]['bowler_player_id'] : null]);
+					echo $this->Form->input("innings.$inningNum.wickets.$i.took_wicket_player_id", ['options' => $opposition, 'label' => 'Took the wicket', 'default' => (isset($wicket[key($wicket)]['took_wicket_player_id'])) ? $wicket[key($wicket)]['took_wicket_player_id'] : null]);
+					echo $this->Form->input("innings.$inningNum.wickets.$i.bowler_player_id", ['options' => $opposition, 'label' => 'Bowler', 'default' => (isset($wicket[key($wicket)]['bowler_player_id'])) ? $wicket[key($wicket)]['bowler_player_id'] : null]);
 					echo $this->Form->input("innings.$inningNum.wickets.$i.dismissal_id", ['options' => $dismissals, 'default' => (isset($wicket[key($wicket)]['dismissal_id'])) ? $wicket[key($wicket)]['dismissal_id'] : null]);
 					echo $this->Form->input("innings.$inningNum.wickets.$i.fall_of_wicket", ['value' => (isset($wicket[key($wicket)]['fall_of_wicket'])) ? $wicket[key($wicket)]['fall_of_wicket'] : null]);
 				echo "</div>";
@@ -67,7 +70,7 @@
 				echo "<div class='bowler'>";
 					$num = $i + $k;
 					echo $this->Form->input("innings.$inningNum.bowlers.$num.id", ['value' => $bowler->id]);
-					echo $this->Form->input("innings.$inningNum.bowlers.$num.player_id", ['type' => 'select', 'options' => $players, 'label' => 'Bowler', 'default' => $bowler->player_id]);
+					echo $this->Form->input("innings.$inningNum.bowlers.$num.player_id", ['type' => 'select', 'options' => $opposition, 'label' => 'Bowler', 'default' => $bowler->player_id]);
 					echo $this->Form->input("innings.$inningNum.bowlers.$num.overs", ['type' => 'number', 'value' => $bowler->overs]);
 					echo $this->Form->input("innings.$inningNum.bowlers.$num.runs", ['type' => 'number', 'value' => $bowler->runs]);
 					echo $this->Form->input("innings.$inningNum.bowlers.$num.maidens", ['type' => 'number', 'value' => $bowler->maidens]);
@@ -76,7 +79,7 @@
 			}
 		} else {
 			echo "<div class='bowler'>";
-				echo $this->Form->input("innings.$inningNum.bowlers.$i.player_id", ['type' => 'select', 'options' => $players, 'label' => 'Bowler']);
+				echo $this->Form->input("innings.$inningNum.bowlers.$i.player_id", ['type' => 'select', 'options' => $opposition, 'label' => 'Bowler']);
 				echo $this->Form->input("innings.$inningNum.bowlers.$i.overs", ['type' => 'number']);
 				echo $this->Form->input("innings.$inningNum.bowlers.$i.runs", ['type' => 'number']);
 				echo $this->Form->input("innings.$inningNum.bowlers.$i.maidens", ['type' => 'number']);
