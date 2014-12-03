@@ -59,7 +59,7 @@ div.error-message {
 form fieldset {
   margin-bottom: 15px;
 }
-form div.batsman, form div.bowler, form div.wicket, form div.extra {
+form div.batsman, form div.bowler, form div.extra {
   clear: both;
   position: relative;
   overflow: hidden;
@@ -86,21 +86,20 @@ form div.batsman, form div.bowler, form div.wicket, form div.extra {
   }
   span.form-label {
 	width: 200px;
-	margin: 25px 0 0 10px;
+	margin: 10px 0 0 10px;
 	float: left;
 	font-weight: bold;
+	font-size: 16px;
   }
   span.number {
 	font-size: 130px;
 	font-weight: bold;
 	position: absolute;
-	top: -50px;
+	bottom: -50px;
 	left: -10px;
 	color: rgba(3,3,3,0.2);
   }
-}
-form div.wicket {
-  .form-group:nth-child(4) {
-	clear: left;
+  div.wicket {
+	margin-left: 210px;
   }
 }
