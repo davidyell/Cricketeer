@@ -2,6 +2,7 @@
 namespace App\Model\Table;
 
 use ArrayObject;
+use Cake\Collection\Collection;
 use Cake\Event\Event;
 use Cake\ORM\Entity;
 use Cake\ORM\Query;
@@ -141,4 +142,5 @@ class MatchesTable extends Table {
 
 		return true;
 	}
+
 }

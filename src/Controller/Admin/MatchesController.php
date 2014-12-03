@@ -132,7 +132,11 @@ class MatchesController extends AppController {
 				'Formats',
 				'Teams' => [
 					'fields' => ['id', 'name', 'match_id'],
-					'Squads'
+					'Squads' => [
+						'Players' => [
+							'fields' => ['id', 'first_name', 'initials', 'last_name']
+						]
+					]
 				],
 				'Innings' => [
 					'Bowlers',

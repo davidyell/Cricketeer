@@ -21,25 +21,27 @@
 	echo "</fieldset>";
 
 	echo "<fieldset class='batting'><legend>Batting</legend>";
-		foreach ($team->squads as $i => $player) {
+		foreach ($team->squads as $i => $squad) {
 
 			// Find the correct batsman data for this player
 			$batting = [];
 			if (!empty($teamsInnings->batsmen)) {
-				$batting = collection($teamsInnings->batsmen)->match(['player_id' => $player->player_id])->toArray();
+				$batting = collection($teamsInnings->batsmen)->match(['player_id' => $squad->player_id])->toArray();
 			}
 
 			$playerNum = $i + 1;
-			echo "<div class='batsman'>";
+			echo "<div class='batsman {$this->NumbersToWords->spell($playerNum)}'>";
 				if (isset($batting[key($batting)]->id)) {
 					echo $this->Form->input("innings.$inningNum.batsmen.$i.id", ['value' => $batting[key($batting)]->id]);
 				}
-				echo $this->Form->input("innings.$inningNum.batsmen.$i.player_id", ['type' => 'select', 'options' => $players, 'label' => 'Number ' . $playerNum, 'value' => $player->player_id]);
+				echo $this->Form->input("innings.$inningNum.batsmen.$i.player_id", ['type' => 'hidden', 'value' => $squad->player_id]);
+				echo "<span class='form-label'>" . $squad->player->get('FullName') . "</span>";
 				echo $this->Form->input("innings.$inningNum.batsmen.$i.runs", ['type' => 'number', 'value' => (isset($batting[key($batting)]->runs)) ? $batting[key($batting)]->runs : null]);
 				echo $this->Form->input("innings.$inningNum.batsmen.$i.balls", ['type' => 'number', 'value' => (isset($batting[key($batting)]->balls)) ? $batting[key($batting)]->balls : null]);
 				echo $this->Form->input("innings.$inningNum.batsmen.$i.fours", ['type' => 'number', 'value' => (isset($batting[key($batting)]->fours)) ? $batting[key($batting)]->fours : null]);
 				echo $this->Form->input("innings.$inningNum.batsmen.$i.sixes", ['type' => 'number', 'value' => (isset($batting[key($batting)]->sixes)) ? $batting[key($batting)]->sixes : null]);
 				echo "<div class='clearfix'><!-- blank --></div>";
+				echo "<span class='number'>{$playerNum}</span>";
 			echo "</div>";
 		}
 	echo "</fieldset>";

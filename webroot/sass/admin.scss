@@ -61,6 +61,8 @@ form fieldset {
 }
 form div.batsman, form div.bowler, form div.wicket, form div.extra {
   clear: both;
+  position: relative;
+  overflow: hidden;
   margin-bottom: 20px;
   padding: 5px 10px;
   &:nth-child(odd) {
@@ -81,6 +83,20 @@ form div.batsman, form div.bowler, form div.wicket, form div.extra {
   }
   span.glyphicon.glyphicon-trash {
 	margin-top: 29px;
+  }
+  span.form-label {
+	width: 200px;
+	margin: 25px 0 0 10px;
+	float: left;
+	font-weight: bold;
+  }
+  span.number {
+	font-size: 130px;
+	font-weight: bold;
+	position: absolute;
+	top: -50px;
+	left: -10px;
+	color: rgba(3,3,3,0.2);
   }
 }
 form div.wicket {
