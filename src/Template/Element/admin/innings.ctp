@@ -69,11 +69,12 @@
 			foreach ($teamsInnings->bowlers as $k => $bowler) {
 				echo "<div class='bowler'>";
 					$num = $i + $k;
-					echo $this->Form->input("innings.$inningNum.bowlers.$num.id", ['value' => $bowler->id]);
+					echo $this->Form->input("innings.$inningNum.bowlers.$num.id", ['type' => 'hidden', 'value' => $bowler->id]);
 					echo $this->Form->input("innings.$inningNum.bowlers.$num.player_id", ['type' => 'select', 'options' => $opposition, 'label' => 'Bowler', 'default' => $bowler->player_id]);
 					echo $this->Form->input("innings.$inningNum.bowlers.$num.overs", ['type' => 'number', 'value' => $bowler->overs]);
 					echo $this->Form->input("innings.$inningNum.bowlers.$num.runs", ['type' => 'number', 'value' => $bowler->runs]);
 					echo $this->Form->input("innings.$inningNum.bowlers.$num.maidens", ['type' => 'number', 'value' => $bowler->maidens]);
+					echo $this->Html->link('Delete', ['controller' => 'bowlers', 'action' => 'delete', $bowler->id], ['class' => 'btn btn-danger']);
 					echo "<div class='clearfix'><!-- blank --></div>";
 				echo "</div>";
 			}

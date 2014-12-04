@@ -94,12 +94,13 @@ class BowlersController extends AppController {
  */
 	public function delete($id = null) {
 		$bowler = $this->Bowlers->get($id);
-		$this->request->allowMethod(['post', 'delete']);
+		$this->request->allowMethod(['post', 'delete', 'get']);
 		if ($this->Bowlers->delete($bowler)) {
 			$this->Flash->success('The bowler has been deleted.');
 		} else {
 			$this->Flash->error('The bowler could not be deleted. Please, try again.');
 		}
-		return $this->redirect(['action' => 'index']);
+
+		return $this->redirect($this->referer());
 	}
 }
