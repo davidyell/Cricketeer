@@ -1,4 +1,4 @@
-<div class="innings <?php echo $this->NumbersToWords->spell($innings);?>">
+<div class="innings <?php echo $this->NumbersToWords->spell($innings);?>" data-inningNum="<?php echo $inningNum;?>">
 	<h3><?php echo $this->NumbersToWords->ordinal($innings);?> Innings | <?php echo $team->name;?></h3>
 
 	<?php
@@ -21,6 +21,9 @@
 	echo "</fieldset>";
 
 	echo "<fieldset class='batting'><legend>Batting</legend>";
+
+		echo $this->element('Admin/running-total', ['innings' => $inningNum]);
+
 		foreach ($team->squads as $i => $squad) {
 
 			// Find the correct batsman data for this player
@@ -36,7 +39,7 @@
 				}
 				echo $this->Form->input("innings.$inningNum.batsmen.$i.player_id", ['type' => 'hidden', 'value' => $squad->player_id]);
 				echo "<span class='form-label'>" . $squad->player->get('FullName') . "</span>";
-				echo $this->Form->input("innings.$inningNum.batsmen.$i.runs", ['type' => 'number', 'value' => (isset($batting[key($batting)]->runs)) ? $batting[key($batting)]->runs : null]);
+				echo "<div class='runs-input'>" . $this->Form->input("innings.$inningNum.batsmen.$i.runs", ['type' => 'number', 'value' => (isset($batting[key($batting)]->runs)) ? $batting[key($batting)]->runs : null]) . "</div>";
 				echo $this->Form->input("innings.$inningNum.batsmen.$i.balls", ['type' => 'number', 'value' => (isset($batting[key($batting)]->balls)) ? $batting[key($batting)]->balls : null]);
 				echo $this->Form->input("innings.$inningNum.batsmen.$i.fours", ['type' => 'number', 'value' => (isset($batting[key($batting)]->fours)) ? $batting[key($batting)]->fours : null]);
 				echo $this->Form->input("innings.$inningNum.batsmen.$i.sixes", ['type' => 'number', 'value' => (isset($batting[key($batting)]->sixes)) ? $batting[key($batting)]->sixes : null]);

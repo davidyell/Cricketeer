@@ -102,4 +102,22 @@ form div.batsman, form div.bowler, form div.extra {
   div.wicket {
 	margin-left: 210px;
   }
+  a.btn {
+	margin-top: 20px;
+  }
+}
+fieldset.batting {
+  position: relative;
+}
+div.running-total {
+  min-width: 150px;
+  position: absolute;
+  right: 10px;
+  top: -15px;
+  z-index: 500;
+  background-color: rgba(3,3,3,0.4);
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
 }
