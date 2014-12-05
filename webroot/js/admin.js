@@ -32,6 +32,23 @@ $(function () {
         $(this).before(div);
     });
 
+// Add a wicket
+    $('a[href=#add-wicket]').click(function (e) {
+        e.preventDefault();
+        var target = $(this).parent('div.wicket'),
+            num = $(this).parents('div.batsman').data('batsman'),
+            batting = $(this).parents('fieldset.batting'),
+            wicket = $(batting).find('div.batsman.one div.wicket').clone();
+
+        $(wicket).html($(wicket).html().replace(/([a-z]+\[[0-9]+\]\[[a-z]+\])\[([0-9]+)\]/gi, '$1[' + num + ']'));
+        $(wicket).html($(wicket).html().replace(/([a-z]+-[0-9]+-[a-z]+-)([0-9]+)/gi, '$1' + num));
+        $(wicket).find('a.btn.btn-danger').remove();
+        $(wicket).append("<a href='#notout' class='btn btn-primary' title='Hide this wicket as batsman not out'>Not out</a>");
+        $(wicket).find('option:selected').removeAttr('selected');
+
+        $(target).html($(wicket).html());
+    });
+
 // Remove added bowlers
     $('fieldset.bowling, fieldset.wickets').on('click', 'span.glyphicon.glyphicon-trash', function (e) {
         e.preventDefault();
@@ -40,6 +57,7 @@ $(function () {
 
 // Remove wickets for not out batsmen
     $('div.wicket').on('click', 'a[href=#notout]', function (e) {
+        e.preventDefault();
         $(this).parent('div.wicket').remove();
     });
 
