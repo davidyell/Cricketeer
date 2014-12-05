@@ -72,7 +72,10 @@ $(function () {
         }
 
         $('#running-total-' + i).scrollToFixed({
-            limit: offset
+            limit: offset,
+            unfixed: function () {
+                $(this).removeAttr('style');
+            }
         });
     }
 
