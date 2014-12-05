@@ -59,6 +59,9 @@ div.error-message {
 form fieldset {
   margin-bottom: 15px;
 }
+form div.batsman {
+  min-height: 217px;
+}
 form div.batsman, form div.bowler, form div.extra {
   clear: both;
   position: relative;
@@ -90,6 +93,12 @@ form div.batsman, form div.bowler, form div.extra {
 	float: left;
 	font-weight: bold;
 	font-size: 16px;
+	position: relative;
+	img {
+	  position: absolute;
+	  top: 30px;
+	  left: 0;
+	}
   }
   span.number {
 	font-size: 130px;
@@ -112,12 +121,15 @@ fieldset.batting {
 div.running-total {
   min-width: 150px;
   position: absolute;
-  right: 10px;
   top: -15px;
+  right: 10px;
   z-index: 500;
   background-color: rgba(3,3,3,0.4);
   color: #fff;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
+}
+.btn {
+  margin: 0 5px;
 }
