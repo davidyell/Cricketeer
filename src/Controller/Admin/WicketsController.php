@@ -104,12 +104,11 @@ class WicketsController extends AppController {
  */
 	public function delete($id = null) {
 		$wicket = $this->Wickets->get($id);
-		$this->request->allowMethod('post', 'delete');
 		if ($this->Wickets->delete($wicket)) {
 			$this->Flash->success('The wicket has been deleted.');
 		} else {
 			$this->Flash->error('The wicket could not be deleted. Please, try again.');
 		}
-		return $this->redirect(['action' => 'index']);
+		return $this->redirect($this->referer());
 	}
 }
