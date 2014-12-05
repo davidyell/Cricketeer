@@ -38,13 +38,17 @@
 					echo $this->Form->input("innings.$inningNum.batsmen.$i.id", ['value' => $batting[key($batting)]->id]);
 				}
 				echo $this->Form->input("innings.$inningNum.batsmen.$i.player_id", ['type' => 'hidden', 'value' => $squad->player_id]);
-				echo "<span class='form-label'>" . $squad->player->get('FullName') . "</span>";
+				echo "<span class='form-label'>";
+					echo $squad->player->get('FullName');
+					echo $this->Html->image('../files/players/photo/' . $squad->player->photo_dir . '/portrait_' . $squad->player->photo);
+				echo "</span>";
 				echo "<div class='runs-input'>" . $this->Form->input("innings.$inningNum.batsmen.$i.runs", ['type' => 'number', 'value' => (isset($batting[key($batting)]->runs)) ? $batting[key($batting)]->runs : null]) . "</div>";
 				echo $this->Form->input("innings.$inningNum.batsmen.$i.balls", ['type' => 'number', 'value' => (isset($batting[key($batting)]->balls)) ? $batting[key($batting)]->balls : null]);
 				echo $this->Form->input("innings.$inningNum.batsmen.$i.fours", ['type' => 'number', 'value' => (isset($batting[key($batting)]->fours)) ? $batting[key($batting)]->fours : null]);
 				echo $this->Form->input("innings.$inningNum.batsmen.$i.sixes", ['type' => 'number', 'value' => (isset($batting[key($batting)]->sixes)) ? $batting[key($batting)]->sixes : null]);
 
 				echo "<div class='clearfix'><!-- blank --></div>";
+
 				echo "<div class='wicket'>";
 					// Find the batsmans wicket
 					$wicket = [];
