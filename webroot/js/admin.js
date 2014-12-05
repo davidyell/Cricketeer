@@ -38,6 +38,12 @@ $(function () {
         $(this).parent('div').remove();
     });
 
+// Remove wickets for not out batsmen
+    $('div.wicket').on('click', 'a[href=#notout]', function (e) {
+        $(this).parent('div.wicket').remove();
+    });
+
+
 // Count up the runs
     $('div.innings').each(function (i, e) {
         var inningNum = $(this).data('inningnum'),
