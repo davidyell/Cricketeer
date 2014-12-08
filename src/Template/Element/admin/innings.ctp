@@ -56,7 +56,7 @@
 						$wicket = collection($teamsInnings->wickets)->match(['lost_wicket_player_id' => $squad->player_id])->toArray();
 					}
 
-					if (!empty($wicket) && !empty($batting[key($batting)]->runs)) {
+					if (empty($teamsInnings) || !empty($wicket) && !empty($batting[key($batting)]->runs)) {
 						if (isset($wicket[key($wicket)]['id'])) {
 							echo $this->Form->input("innings.$inningNum.wickets.$i.id", ['value' => $wicket[key($wicket)]['id']]);
 						}
