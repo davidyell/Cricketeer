@@ -89,9 +89,9 @@ $(function () {
 
 // Scroll to fixed for running total
     for (i = 1; i <= 4; i++) {
-        var offset = 0;
+        var offset = 2607;
 
-        if ($('div.innings.one[data-inningnum=' + i + ']').length > 0) {
+        if ($('div.innings[data-inningnum=' + i + ']').length > 0) {
             offset = $('div.innings.one[data-inningnum=' + i + '] fieldset.batting div.batsman.eleven').offset().top + 50;
         }
 
