@@ -84,27 +84,22 @@
 				$wicket = collection($innings->wickets)->match(['lost_wicket_player_id' => $squad->player_id])->toArray();
 			}
 
-			if (empty($innings) || !empty($wicket) && !empty($batting[key($batting)]->runs)) {
-				if (isset($wicket[key($wicket)]['id'])) {
-					echo $this->Form->input("Innings.wickets.$i.id", ['value' => $wicket[key($wicket)]['id']]);
-				}
-				echo $this->Form->input("Innings.wickets.$i.lost_wicket_player_id", ['type' => 'hidden', 'value' => $squad->player->id]);
-				echo $this->Form->input("Innings.wickets.$i.took_wicket_player_id", ['options' => $opposition, 'label' => 'Took the wicket', 'empty' => 'Select player', 'default' => (isset($wicket[key($wicket)]['took_wicket_player_id'])) ? $wicket[key($wicket)]['took_wicket_player_id'] : null]);
-				echo $this->Form->input("Innings.wickets.$i.bowler_player_id", ['options' => $opposition, 'label' => 'Bowler', 'empty' => 'Select player', 'default' => (isset($wicket[key($wicket)]['bowler_player_id'])) ? $wicket[key($wicket)]['bowler_player_id'] : null]);
+			if (isset($wicket[key($wicket)]['id'])) {
+				echo $this->Form->input("Innings.wickets.$i.id", ['value' => $wicket[key($wicket)]['id']]);
+			}
+			echo $this->Form->input("Innings.wickets.$i.lost_wicket_player_id", ['type' => 'hidden', 'value' => $squad->player->id]);
+			echo $this->Form->input("Innings.wickets.$i.took_wicket_player_id", ['options' => $opposition, 'label' => 'Took the wicket', 'empty' => 'Select player', 'default' => (isset($wicket[key($wicket)]['took_wicket_player_id'])) ? $wicket[key($wicket)]['took_wicket_player_id'] : null]);
+			echo $this->Form->input("Innings.wickets.$i.bowler_player_id", ['options' => $opposition, 'label' => 'Bowler', 'empty' => 'Select player', 'default' => (isset($wicket[key($wicket)]['bowler_player_id'])) ? $wicket[key($wicket)]['bowler_player_id'] : null]);
 
-				echo "<div class='clearfix'><!-- blank --></div>";
+			echo "<div class='clearfix'><!-- blank --></div>";
 
-				echo $this->Form->input("Innings.wickets.$i.dismissal_id", ['options' => $dismissals, 'default' => (isset($wicket[key($wicket)]['dismissal_id'])) ? $wicket[key($wicket)]['dismissal_id'] : null]);
-				echo $this->Form->input("Innings.wickets.$i.fall_of_wicket", ['value' => (isset($wicket[key($wicket)]['fall_of_wicket'])) ? $wicket[key($wicket)]['fall_of_wicket'] : null]);
+			echo $this->Form->input("Innings.wickets.$i.dismissal_id", ['options' => $dismissals, 'default' => (isset($wicket[key($wicket)]['dismissal_id'])) ? $wicket[key($wicket)]['dismissal_id'] : null]);
+			echo $this->Form->input("Innings.wickets.$i.fall_of_wicket", ['value' => (isset($wicket[key($wicket)]['fall_of_wicket'])) ? $wicket[key($wicket)]['fall_of_wicket'] : null]);
 
-				if (isset($wicket[key($wicket)]['id'])) {
-					echo $this->Html->link('Delete', ['controller' => 'wickets', 'action' => 'delete', $wicket[key($wicket)]['id']], ['class' => 'btn btn-danger', 'title' => 'Delete this wicket']);
-				} else {
-					echo $this->Html->link('Not out', '#notout', ['class' => 'btn btn-primary', 'title' => 'Hide this wicket as batsman not out']);
-				}
+			if (isset($wicket[key($wicket)]['id'])) {
+				echo $this->Html->link('Delete', ['controller' => 'wickets', 'action' => 'delete', $wicket[key($wicket)]['id']], ['class' => 'btn btn-danger', 'title' => 'Delete this wicket']);
 			} else {
-				echo "<p>Not out</p>";
-				echo $this->Html->link('Add wicket', '#add-wicket', ['class' => 'btn btn-primary']);
+				echo $this->Html->link('Not out', '#notout', ['class' => 'btn btn-primary', 'title' => 'Hide this wicket as batsman not out']);
 			}
 
 			echo "</div>";
