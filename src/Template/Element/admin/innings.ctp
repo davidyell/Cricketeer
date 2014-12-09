@@ -1,4 +1,4 @@
-<div class="innings <?php echo $this->NumbersToWords->spell($innings);?>" data-inningnum="<?php echo $inningNum;?>">
+<div class="innings <?php echo $this->NumbersToWords->spell($innings);?>" data-inningNum="<?php echo $inningNum;?>">
 	<h3><?php echo $this->NumbersToWords->ordinal($innings);?> Innings | <?php echo $team->name;?></h3>
 
 	<?php
