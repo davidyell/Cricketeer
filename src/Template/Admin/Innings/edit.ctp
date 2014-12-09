@@ -63,17 +63,17 @@
 			$playerNum = $i + 1;
 			echo "<div class='batsman {$this->NumbersToWords->spell($playerNum)}' data-batsman='$playerNum'>";
 			if (isset($batting[key($batting)]->id)) {
-				echo $this->Form->input("innings.batsmen.$i.id", ['value' => $batting[key($batting)]->id]);
+				echo $this->Form->input("Innings.batsmen.$i.id", ['value' => $batting[key($batting)]->id]);
 			}
-			echo $this->Form->input("innings.batsmen.$i.player_id", ['type' => 'hidden', 'value' => $squad->player_id]);
+			echo $this->Form->input("Innings.batsmen.$i.player_id", ['type' => 'hidden', 'value' => $squad->player_id]);
 			echo "<span class='form-label'>";
 			echo $squad->player->get('FullName');
 			echo $this->Html->image('../files/players/photo/' . $squad->player->photo_dir . '/portrait_' . $squad->player->photo);
 			echo "</span>";
-			echo "<div class='runs-input'>" . $this->Form->input("innings.batsmen.$i.runs", ['type' => 'number', 'value' => (isset($batting[key($batting)]->runs)) ? $batting[key($batting)]->runs : null]) . "</div>";
-			echo $this->Form->input("innings.batsmen.$i.balls", ['type' => 'number', 'value' => (isset($batting[key($batting)]->balls)) ? $batting[key($batting)]->balls : null]);
-			echo $this->Form->input("innings.batsmen.$i.fours", ['type' => 'number', 'value' => (isset($batting[key($batting)]->fours)) ? $batting[key($batting)]->fours : null]);
-			echo $this->Form->input("innings.batsmen.$i.sixes", ['type' => 'number', 'value' => (isset($batting[key($batting)]->sixes)) ? $batting[key($batting)]->sixes : null]);
+			echo "<div class='runs-input'>" . $this->Form->input("Innings.batsmen.$i.runs", ['type' => 'number', 'value' => (isset($batting[key($batting)]->runs)) ? $batting[key($batting)]->runs : null]) . "</div>";
+			echo $this->Form->input("Innings.batsmen.$i.balls", ['type' => 'number', 'value' => (isset($batting[key($batting)]->balls)) ? $batting[key($batting)]->balls : null]);
+			echo $this->Form->input("Innings.batsmen.$i.fours", ['type' => 'number', 'value' => (isset($batting[key($batting)]->fours)) ? $batting[key($batting)]->fours : null]);
+			echo $this->Form->input("Innings.batsmen.$i.sixes", ['type' => 'number', 'value' => (isset($batting[key($batting)]->sixes)) ? $batting[key($batting)]->sixes : null]);
 
 			echo "<div class='clearfix'><!-- blank --></div>";
 
@@ -86,16 +86,16 @@
 
 			if (empty($innings) || !empty($wicket) && !empty($batting[key($batting)]->runs)) {
 				if (isset($wicket[key($wicket)]['id'])) {
-					echo $this->Form->input("innings.wickets.$i.id", ['value' => $wicket[key($wicket)]['id']]);
+					echo $this->Form->input("Innings.wickets.$i.id", ['value' => $wicket[key($wicket)]['id']]);
 				}
-				echo $this->Form->input("innings.wickets.$i.lost_wicket_player_id", ['type' => 'hidden', 'value' => $squad->player->id]);
-				echo $this->Form->input("innings.wickets.$i.took_wicket_player_id", ['options' => $opposition, 'label' => 'Took the wicket', 'empty' => 'Select player', 'default' => (isset($wicket[key($wicket)]['took_wicket_player_id'])) ? $wicket[key($wicket)]['took_wicket_player_id'] : null]);
-				echo $this->Form->input("innings.wickets.$i.bowler_player_id", ['options' => $opposition, 'label' => 'Bowler', 'empty' => 'Select player', 'default' => (isset($wicket[key($wicket)]['bowler_player_id'])) ? $wicket[key($wicket)]['bowler_player_id'] : null]);
+				echo $this->Form->input("Innings.wickets.$i.lost_wicket_player_id", ['type' => 'hidden', 'value' => $squad->player->id]);
+				echo $this->Form->input("Innings.wickets.$i.took_wicket_player_id", ['options' => $opposition, 'label' => 'Took the wicket', 'empty' => 'Select player', 'default' => (isset($wicket[key($wicket)]['took_wicket_player_id'])) ? $wicket[key($wicket)]['took_wicket_player_id'] : null]);
+				echo $this->Form->input("Innings.wickets.$i.bowler_player_id", ['options' => $opposition, 'label' => 'Bowler', 'empty' => 'Select player', 'default' => (isset($wicket[key($wicket)]['bowler_player_id'])) ? $wicket[key($wicket)]['bowler_player_id'] : null]);
 
 				echo "<div class='clearfix'><!-- blank --></div>";
 
-				echo $this->Form->input("innings.wickets.$i.dismissal_id", ['options' => $dismissals, 'default' => (isset($wicket[key($wicket)]['dismissal_id'])) ? $wicket[key($wicket)]['dismissal_id'] : null]);
-				echo $this->Form->input("innings.wickets.$i.fall_of_wicket", ['value' => (isset($wicket[key($wicket)]['fall_of_wicket'])) ? $wicket[key($wicket)]['fall_of_wicket'] : null]);
+				echo $this->Form->input("Innings.wickets.$i.dismissal_id", ['options' => $dismissals, 'default' => (isset($wicket[key($wicket)]['dismissal_id'])) ? $wicket[key($wicket)]['dismissal_id'] : null]);
+				echo $this->Form->input("Innings.wickets.$i.fall_of_wicket", ['value' => (isset($wicket[key($wicket)]['fall_of_wicket'])) ? $wicket[key($wicket)]['fall_of_wicket'] : null]);
 
 				if (isset($wicket[key($wicket)]['id'])) {
 					echo $this->Html->link('Delete', ['controller' => 'wickets', 'action' => 'delete', $wicket[key($wicket)]['id']], ['class' => 'btn btn-danger', 'title' => 'Delete this wicket']);
@@ -123,21 +123,21 @@
 			foreach ($innings->bowlers as $k => $bowler) {
 				echo "<div class='bowler'>";
 				$num = $i + $k;
-				echo $this->Form->input("innings.bowlers.$num.id", ['type' => 'hidden', 'value' => $bowler->id]);
-				echo $this->Form->input("innings.bowlers.$num.player_id", ['type' => 'select', 'options' => $opposition, 'label' => 'Bowler', 'default' => $bowler->player_id]);
-				echo $this->Form->input("innings.bowlers.$num.overs", ['type' => 'number', 'value' => $bowler->overs]);
-				echo $this->Form->input("innings.bowlers.$num.runs", ['type' => 'number', 'value' => $bowler->runs]);
-				echo $this->Form->input("innings.bowlers.$num.maidens", ['type' => 'number', 'value' => $bowler->maidens]);
+				echo $this->Form->input("Innings.bowlers.$num.id", ['type' => 'hidden', 'value' => $bowler->id]);
+				echo $this->Form->input("Innings.bowlers.$num.player_id", ['type' => 'select', 'options' => $opposition, 'label' => 'Bowler', 'default' => $bowler->player_id]);
+				echo $this->Form->input("Innings.bowlers.$num.overs", ['type' => 'number', 'value' => $bowler->overs]);
+				echo $this->Form->input("Innings.bowlers.$num.runs", ['type' => 'number', 'value' => $bowler->runs]);
+				echo $this->Form->input("Innings.bowlers.$num.maidens", ['type' => 'number', 'value' => $bowler->maidens]);
 				echo $this->Html->link('Delete', ['controller' => 'bowlers', 'action' => 'delete', $bowler->id], ['class' => 'btn btn-danger']);
 				echo "<div class='clearfix'><!-- blank --></div>";
 				echo "</div>";
 			}
 		} else {
 			echo "<div class='bowler'>";
-			echo $this->Form->input("innings.bowlers.$i.player_id", ['type' => 'select', 'options' => $opposition, 'label' => 'Bowler']);
-			echo $this->Form->input("innings.bowlers.$i.overs", ['type' => 'number']);
-			echo $this->Form->input("innings.bowlers.$i.runs", ['type' => 'number']);
-			echo $this->Form->input("innings.bowlers.$i.maidens", ['type' => 'number']);
+			echo $this->Form->input("Innings.bowlers.$i.player_id", ['type' => 'select', 'options' => $opposition, 'label' => 'Bowler']);
+			echo $this->Form->input("Innings.bowlers.$i.overs", ['type' => 'number']);
+			echo $this->Form->input("Innings.bowlers.$i.runs", ['type' => 'number']);
+			echo $this->Form->input("Innings.bowlers.$i.maidens", ['type' => 'number']);
 			echo "<div class='clearfix'><!-- blank --></div>";
 			echo "</div>";
 		}
