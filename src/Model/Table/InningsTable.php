@@ -72,4 +72,23 @@ class InningsTable extends Table {
 //		return $validator;
 //	}
 
+/**
+ * Strip out any empty wickets before we save
+ *
+ * @param Event $event
+ * @param Entity $entity
+ * @param ArrayObject $options
+ * @return bool
+ */
+	public function beforeSave(Event $event, Entity &$entity, ArrayObject $options) {
+		if ($entity->has('wickets')) {
+			foreach ($entity->wickets as $k => $wicket) {
+				if (empty($wicket->get('took_wicket_player_id')) && empty($wicket->get('bowler_player_id'))) {
+					unset($entity->wickets[$k]);
+				}
+			}
+		}
+
+		return true;
+	}
 }
