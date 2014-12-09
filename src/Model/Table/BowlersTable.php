@@ -142,7 +142,7 @@ class BowlersTable extends Table {
 				]
 			]);
 		})
-		->group(['Bowlers.player_id'])
+		->group(['Innings.id', 'Bowlers.player_id'])
 		->order(['totalWickets' => 'DESC'])
 		->autoFields(true);
 	}
