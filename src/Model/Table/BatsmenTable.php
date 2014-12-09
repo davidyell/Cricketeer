@@ -39,41 +39,41 @@ class BatsmenTable extends Table {
  * @param \Cake\Validation\Validator $validator
  * @return \Cake\Validation\Validator
  */
-//	public function validationDefault(Validator $validator) {
-//		$validator
-//			->add('id', 'valid', ['rule' => 'uuid'])
-//			->allowEmpty('id', 'create')
-//
-//			->add('player_id', 'valid', ['rule' => 'uuid'])
-//			->requirePresence('player_id', 'create')
-//			->notEmpty('player_id')
-//
-//			->add('innings_id', 'valid', ['rule' => 'uuid'])
-//			->requirePresence('innings_id', 'create')
-//			->notEmpty('innings_id')
-//
-//			->add('runs', 'valid', ['rule' => 'numeric'])
-//			->requirePresence('runs', 'create')
-//			->notEmpty('runs')
-//
-//			->add('balls', 'valid', ['rule' => 'numeric'])
-//			->requirePresence('balls', 'create')
-//			->notEmpty('balls')
-//
-//			->add('strike_rate', 'valid', ['rule' => 'numeric'])
-//			->requirePresence('strike_rate', 'create')
-//			->notEmpty('strike_rate')
-//
-//			->add('fours', 'valid', ['rule' => 'numeric'])
-//			->requirePresence('fours', 'create')
-//			->notEmpty('fours')
-//
-//			->add('sixes', 'valid', ['rule' => 'numeric'])
-//			->requirePresence('sixes', 'create')
-//			->notEmpty('sixes');
-//
-//		return $validator;
-//	}
+	public function validationDefault(Validator $validator) {
+		$validator
+			->add('id', 'valid', ['rule' => 'uuid'])
+			->allowEmpty('id', 'create')
+
+			->add('player_id', 'valid', ['rule' => 'uuid'])
+			->requirePresence('player_id', 'create')
+			->notEmpty('player_id')
+
+			->add('innings_id', 'valid', ['rule' => 'uuid'])
+			->requirePresence('innings_id', 'create')
+			->notEmpty('innings_id')
+
+			->add('runs', 'valid', ['rule' => 'numeric'])
+			->add('runs', 'valid', ['rule' => 'naturalNumber'])
+			->requirePresence('runs', 'create')
+			->notEmpty('runs')
+
+			->add('balls', 'valid', ['rule' => 'numeric'])
+			->add('balls', 'valid', ['rule' => 'naturalNumber'])
+			->requirePresence('balls', 'create')
+			->notEmpty('balls')
+
+			->add('fours', 'valid', ['rule' => 'numeric'])
+			->add('fours', 'valid', ['rule' => ['naturalNumber', true]])
+			->requirePresence('fours', 'create')
+			->notEmpty('fours')
+
+			->add('sixes', 'valid', ['rule' => 'numeric'])
+			->add('sixes', 'valid', ['rule' => ['naturalNumber', true]])
+			->requirePresence('sixes', 'create')
+			->notEmpty('sixes');
+
+		return $validator;
+	}
 
 /**
  * @param Event $event
