@@ -22,4 +22,19 @@ class Player extends Entity {
 
 		return $name;
 	}
+
+/**
+ * Mutator method for getting a players name and their specialisation if it exists
+ *
+ * @return string
+ */
+	protected function _getFullDetail() {
+		$name = $this->_getFullName();
+
+		if ($this->has('player_specialisation')) {
+			$name .= "(" . $this->_properties['player_specialisation']['name'] . ")";
+		}
+
+		return $name;
+	}
 }

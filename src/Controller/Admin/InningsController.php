@@ -155,7 +155,7 @@ class InningsController extends AppController {
 			->first();
 
 		foreach ($oppositionData['teams'][0]['squads'] as $member) {
-			$opposition[$member['player_id']] = $member->player->get('FullName') . "({$member->player->player_specialisation->name})";
+			$opposition[$member['player_id']] = $member->player->get('FullDetail');
 		}
 
 		$matches = $this->Innings->Matches->find('list');
