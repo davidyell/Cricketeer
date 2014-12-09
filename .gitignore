@@ -5,3 +5,4 @@
 /plugins
 .idea/*
 webroot/files
+webroot/.sass-cache
