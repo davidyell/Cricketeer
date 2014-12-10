@@ -19,8 +19,15 @@ $(function () {
         $(div).find('div.form-group').each(function (i, e) {
             $(e).find('input').removeAttr('value').val(null);
 
-            var num = $(e).html().match(/innings-[0-9]+-[a-z]+-([0-9]+)/)[1],
-                cnt = parseInt(num) + 1,
+            var num;
+
+            if ($(e).html().match(/innings-[0-9]+-[a-z]+-([0-9]+)/) != null) {
+                num = $(e).html().match(/innings-[0-9]+-[a-z]+-([0-9]+)/)[1];
+            } else {
+                num = $(e).html().match(/innings-[a-z]+-([0-9]+)/)[1];
+            }
+
+            var cnt = parseInt(num) + 1,
                 regex = new RegExp(num, 'gi'),
                 newName = $(e).children('input, select').attr('name').replace(regex, cnt),
                 newId = $(e).children('input, select').attr('id').replace(regex, cnt);
@@ -58,7 +65,7 @@ $(function () {
 // Remove wickets for not out batsmen
     $('div.wicket').on('click', 'a[href=#notout]', function (e) {
         e.preventDefault();
-        $(this).parent('div.wicket').remove();
+        $(this).parent('div.wicket').html('<a href="#add-wicket" class="btn btn-primary">Add wicket</a>');
     });
 
 

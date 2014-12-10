@@ -21,9 +21,9 @@
 	<thead>
 		<tr>
 			<th><?= $this->Paginator->sort('id') ?></th>
-			<th><?= $this->Paginator->sort('innings_type_id') ?></th>
 			<th><?= $this->Paginator->sort('match_id') ?></th>
 			<th><?= $this->Paginator->sort('team_id') ?></th>
+			<th><?= $this->Paginator->sort('innings_type_id') ?></th>
 			<th><?= $this->Paginator->sort('wides') ?></th>
 			<th><?= $this->Paginator->sort('byes') ?></th>
 			<th><?= $this->Paginator->sort('leg_byes') ?></th>
@@ -36,15 +36,9 @@
 	<?php foreach ($innings as $innings): ?>
 		<tr>
 			<td><?= h($innings->id) ?></td>
-			<td>
-				<?= $innings->has('innings_type') ? $this->Html->link($innings->innings_type->name, ['controller' => 'InningsTypes', 'action' => 'view', $innings->innings_type->id]) : '' ?>
-			</td>
-			<td>
-				<?= $innings->has('match') ? $this->Html->link($innings->match->name, ['controller' => 'Matches', 'action' => 'view', $innings->match->id]) : '' ?>
-			</td>
-			<td>
-				<?= $innings->has('team') ? $this->Html->link($innings->team->name, ['controller' => 'Teams', 'action' => 'view', $innings->team->id]) : '' ?>
-			</td>
+			<td><?= $innings->has('match') ? $this->Html->link($innings->match->name, ['controller' => 'Matches', 'action' => 'view', $innings->match->id]) : '' ?></td>
+			<td><?= $innings->has('team') ? $this->Html->link($innings->team->name, ['controller' => 'Teams', 'action' => 'view', $innings->team->id]) : '' ?></td>
+			<td><?= $innings->has('innings_type') ? $this->Html->link($innings->innings_type->name, ['controller' => 'InningsTypes', 'action' => 'view', $innings->innings_type->id]) : '' ?></td>
 			<td><?= $this->Number->format($innings->wides) ?></td>
 			<td><?= $this->Number->format($innings->byes) ?></td>
 			<td><?= $this->Number->format($innings->leg_byes) ?></td>
