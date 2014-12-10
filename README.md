@@ -15,10 +15,6 @@ Currently in pre-alpha. Under development.
 * MySQL 5.6.21+
 * Composer
 
-Optionally
-* Vagrant
-* VirtualBox
-
 ##Installation
 Unzip the application into a folder on your machine. You will then need to install the dependencies using `composer install`.
 
