@@ -37,4 +37,15 @@ class Player extends Entity {
 
 		return $name;
 	}
+
+/**
+ * Mutator method for getting a players initial and surname
+ *
+ * @return string
+ */
+	protected function _getInitialLastName() {
+		$name = substr($this->_properties['first_name'], 0, 1) . ' ' . $this->_properties['last_name'];
+
+		return $name;
+	}
 }

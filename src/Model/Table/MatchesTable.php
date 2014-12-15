@@ -67,42 +67,6 @@ class MatchesTable extends Table {
 	}
 
 /**
- * Custom finder to find the latest matches played
- *
- * @param Query $query
- * @param array $options
- * @return $this
- */
-	public function findLatestMatches(Query $query, array $options) {
-		return $query->contain([
-				'Venues' => function ($query) {
-					return $query->select(['id', 'name', 'location']);
-				},
-				'Formats' => function ($query) {
-					return $query->select(['id', 'name']);
-				},
-				'Innings' => [
-					'InningsTypes',
-					'Batsmen' => [
-						'Players' => [
-							'fields' => ['id', 'first_name', 'initials', 'last_name']
-						]
-					],
-					'Bowlers' => function () {
-						return $this->Innings->Bowlers->find('BowlersWickets');
-					},
-					'Wickets',
-					'Teams' => [
-						'Clubs' => [
-							'fields' => ['id', 'image', 'image_dir']
-						]
-					],
-				]
-			])
-			->order(['when_played' => 'DESC']);
-	}
-
-/**
  * @param Event $event
  * @param Entity $entity
  * @param ArrayObject $options
@@ -141,6 +105,83 @@ class MatchesTable extends Table {
 		}
 
 		return true;
+	}
+
+/**
+ * Custom finder to find the latest matches played
+ *
+ * @param Query $query
+ * @param array $options
+ * @return $this
+ */
+	public function findLatestMatches(Query $query, array $options) {
+		return $query->contain([
+			'Venues' => function ($query) {
+				return $query->select(['id', 'name', 'location']);
+			},
+			'Formats' => function ($query) {
+				return $query->select(['id', 'name']);
+			},
+			'Innings' => [
+				'InningsTypes',
+				'Batsmen' => [
+					'Players' => [
+						'fields' => ['id', 'first_name', 'initials', 'last_name']
+					]
+				],
+				'Bowlers' => function () {
+					return $this->Innings->Bowlers->find('BowlersWickets');
+				},
+				'Wickets',
+				'Teams' => [
+					'Clubs' => [
+						'fields' => ['id', 'image', 'image_dir']
+					]
+				],
+			]
+		])
+			->order(['when_played' => 'DESC']);
+	}
+
+/**
+ * Get a whole matches data for rendering of editable and display score cards
+ *
+ * @param Query $query
+ * @param array $options
+ * @return Query
+ */
+	public function findMatchScorecard(Query $query, array $options) {
+		return $query->contain([
+			'Venues',
+			'Formats',
+			'Teams' => [
+				'fields' => ['id', 'name', 'match_id'],
+				'Squads' => function ($q) {
+					return $q->contain([
+						'Players' => [
+							'fields' => ['id', 'first_name', 'initials', 'last_name', 'photo_dir', 'photo', 'slug'],
+							'PlayerSpecialisations'
+						]
+					])
+					->order(['position' => 'ASC']);
+				}
+			],
+			'Innings' => [
+				'Bowlers',
+				'Batsmen',
+				'Wickets' => function ($q) {
+					// Order the Wickets by the fall of wicket, so they are in the correct order
+					return $q->order(["LENGTH(SUBSTRING_INDEX(fall_of_wicket, '-', -1))", "SUBSTRING_INDEX(fall_of_wicket, '-', -1)"])
+						->contain(['Dismissals']);
+				},
+				'InningsTypes',
+				'Teams' => [
+					'Squads' => function ($q) {
+						return $q->order(['position' => 'ASC']);
+					}
+				]
+			]
+		]);
 	}
 
 }

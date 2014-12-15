@@ -127,33 +127,9 @@ class MatchesController extends AppController {
  * @return void
  */
 	public function score_card($id) {
-		$match = $this->Matches->get($id, [
-			'contain' => [
-				'Venues',
-				'Formats',
-				'Teams' => [
-					'fields' => ['id', 'name', 'match_id'],
-					'Squads' => [
-						'Players' => [
-							'fields' => ['id', 'first_name', 'initials', 'last_name', 'photo_dir', 'photo'],
-							'PlayerSpecialisations'
-						]
-					]
-				],
-				'Innings' => [
-					'Bowlers',
-					'Batsmen',
-					'Wickets' => function ($q) {
-						// Order the Wickets by the fall of wicket, so they are in the correct order
-						return $q->order(["LENGTH(SUBSTRING_INDEX(fall_of_wicket, '-', -1))", "SUBSTRING_INDEX(fall_of_wicket, '-', -1)"]);
-					},
-					'InningsTypes',
-					'Teams' => [
-						'Squads'
-					]
-				]
-			]
-		]);
+		$match = $this->Matches->find('MatchScorecard')
+			->where(['Matches.id' => $id])
+			->firstOrFail();
 
 		if (empty($match->teams)) {
 			throw new \BadMethodCallException('No team sheet has been created for this match.');

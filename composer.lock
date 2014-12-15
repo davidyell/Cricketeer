@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "6f9131a829d6b955bccd46a34078698fcbc422c8"
+                "reference": "ef0ad443b7b3550863f3029b2852e1c4763e3be1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/6f9131a829d6b955bccd46a34078698fcbc422c8",
-                "reference": "6f9131a829d6b955bccd46a34078698fcbc422c8",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/ef0ad443b7b3550863f3029b2852e1c4763e3be1",
+                "reference": "ef0ad443b7b3550863f3029b2852e1c4763e3be1",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-12-09 13:09:56"
+            "time": "2014-12-15 07:16:18"
         },
         {
             "name": "cakephp/debug_kit",
@@ -196,12 +196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "8a6f3da9d7fc8cb5df33a1752de5d0b337b63047"
+                "reference": "0c34df3ca6fefd72e6fd08f48c4b9f55dd50ce61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/8a6f3da9d7fc8cb5df33a1752de5d0b337b63047",
-                "reference": "8a6f3da9d7fc8cb5df33a1752de5d0b337b63047",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/0c34df3ca6fefd72e6fd08f48c4b9f55dd50ce61",
+                "reference": "0c34df3ca6fefd72e6fd08f48c4b9f55dd50ce61",
                 "shasum": ""
             },
             "require": {
@@ -245,7 +245,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2014-11-29 19:04:50"
+            "time": "2014-12-12 07:50:32"
         },
         {
             "name": "cakephp/plugin-installer",
@@ -631,12 +631,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp-codesniffer.git",
-                "reference": "a9dd1e7fa9d2cc0df40ee52d7fcbc95a49419ae9"
+                "reference": "520b4125468fcd6bb2cb6aaae3858fe77b30bf3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp-codesniffer/zipball/a9dd1e7fa9d2cc0df40ee52d7fcbc95a49419ae9",
-                "reference": "a9dd1e7fa9d2cc0df40ee52d7fcbc95a49419ae9",
+                "url": "https://api.github.com/repos/cakephp/cakephp-codesniffer/zipball/520b4125468fcd6bb2cb6aaae3858fe77b30bf3b",
+                "reference": "520b4125468fcd6bb2cb6aaae3858fe77b30bf3b",
                 "shasum": ""
             },
             "require": {
@@ -662,7 +662,7 @@
                 "codesniffer",
                 "framework"
             ],
-            "time": "2014-12-09 01:32:39"
+            "time": "2014-12-11 03:25:35"
         },
         {
             "name": "d11wtq/boris",
