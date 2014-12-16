@@ -77,10 +77,10 @@ $opponents = new \Cake\Collection\Collection($opposition);
 						echo "b " . $bowledWicket->player->last_name;
 					}
 				?></td>
-				<td><?php echo $batting->runs;?></td>
-				<td><?php echo $batting->balls;?></td>
-				<td><?php echo $batting->fours;?></td>
-				<td><?php echo $batting->sixes;?></td>
+				<td><?php echo !empty($batting->runs)? $batting->runs : null;?></td>
+				<td><?php echo !empty($batting->balls)? $batting->balls : null;?></td>
+				<td><?php echo !empty($batting->fours)? $batting->fours : null;?></td>
+				<td><?php echo !empty($batting->sixes)? $batting->sixes : null;?></td>
 			</tr>
 		<?php endforeach; ?>
 		<tr>
