@@ -142,7 +142,7 @@ $opponents = new \Cake\Collection\Collection($opposition);
 					$player = $squad->match(['player_id' => $wicket->lost_wicket_player_id])->first();
 					?>
 					<tr>
-						<td><?php echo $wicket->fall_of_wicket;?></td>
+						<td><?php echo explode('-', $wicket->fall_of_wicket)[0];?></td>
 						<td><?php echo $player->player->get('InitialLastName');?></td>
 					</tr>
 				<?php endforeach;?>
