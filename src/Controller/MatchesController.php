@@ -15,14 +15,15 @@ class MatchesController extends AppController
 
     public function index()
     {
-        $matches = $this->Matches->find()
-            ->contain([
+        $matches = $this->Paginator->paginate($this->Matches, [
+            'contain' => [
                 'Venues',
                 'Formats',
                 'Innings',
                 'Teams'
-            ])
-            ->order(['Matches.modified' => 'DESC']);
+            ],
+            'order' =>['Matches.when_played' => 'DESC']
+        ]);
 
         $this->set('matches', $matches);
     }

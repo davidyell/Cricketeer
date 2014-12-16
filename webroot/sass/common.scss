@@ -65,3 +65,12 @@ div.players.view {
     list-style-position: inside;
   }
 }
+div.leagues {
+  img.div-logo {
+    width: 100px;
+    float: left;
+  }
+  table[summary=league-teams] td img {
+    width: 50px;
+  }
+}

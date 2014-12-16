@@ -10,8 +10,6 @@ namespace App\Controller;
 
 class PlayersController extends AppController
 {
-    public $components = ['Paginator'];
-
     public function index()
     {
         $players = $this->Paginator->paginate($this->Players, [
