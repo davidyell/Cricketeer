@@ -170,7 +170,9 @@ class MatchesTable extends Table
                 }
             ],
             'Innings' => [
-                'Bowlers',
+                'Bowlers' => function ($q) {
+                    return $q->order(['economy' => 'ASC']);
+                },
                 'Batsmen',
                 'Wickets' => function ($q) {
                     // Order the Wickets by the fall of wicket, so they are in the correct order
