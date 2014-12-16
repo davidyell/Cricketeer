@@ -26,39 +26,41 @@ use Cake\View\Exception\MissingViewException;
  *
  * @link http://book.cakephp.org/3.0/en/controllers/pages-controller.html
  */
-class PagesController extends AppController {
+class PagesController extends AppController
+{
 
-/**
- * Displays a view
- *
- * @return void
- * @throws Cake\Network\Exception\NotFoundException When the view file could not
- *   be found or Cake\View\Exception\MissingViewException in debug mode.
- */
-	public function display() {
-		$path = func_get_args();
+    /**
+     * Displays a view
+     *
+     * @return void
+     * @throws Cake\Network\Exception\NotFoundException When the view file could not
+     *   be found or Cake\View\Exception\MissingViewException in debug mode.
+     */
+    public function display()
+    {
+        $path = func_get_args();
 
-		$count = count($path);
-		if (!$count) {
-			return $this->redirect('/');
-		}
-		$page = $subpage = null;
+        $count = count($path);
+        if (!$count) {
+            return $this->redirect('/');
+        }
+        $page = $subpage = null;
 
-		if (!empty($path[0])) {
-			$page = $path[0];
-		}
-		if (!empty($path[1])) {
-			$subpage = $path[1];
-		}
-		$this->set(compact('page', 'subpage'));
+        if (!empty($path[0])) {
+            $page = $path[0];
+        }
+        if (!empty($path[1])) {
+            $subpage = $path[1];
+        }
+        $this->set(compact('page', 'subpage'));
 
-		try {
-			$this->render(implode('/', $path));
-		} catch (MissingViewException $e) {
-			if (Configure::read('debug')) {
-				throw $e;
-			}
-			throw new NotFoundException();
-		}
-	}
+        try {
+            $this->render(implode('/', $path));
+        } catch (MissingViewException $e) {
+            if (Configure::read('debug')) {
+                throw $e;
+            }
+            throw new NotFoundException();
+        }
+    }
 }

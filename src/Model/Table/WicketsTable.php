@@ -8,47 +8,49 @@ use Cake\Validation\Validator;
 /**
  * Wickets Model
  */
-class WicketsTable extends Table {
+class WicketsTable extends Table
+{
 
-/**
- * Initialize method
- *
- * @param array $config The configuration for the Table.
- * @return void
- */
-	public function initialize(array $config) {
-		$this->table('wickets');
-		$this->displayField('id');
-		$this->primaryKey('id');
-		$this->addBehavior('Timestamp');
+    /**
+     * Initialize method
+     *
+     * @param array $config The configuration for the Table.
+     * @return void
+     */
+    public function initialize(array $config)
+    {
+        $this->table('wickets');
+        $this->displayField('id');
+        $this->primaryKey('id');
+        $this->addBehavior('Timestamp');
 
-		$this->belongsTo('PlayerLostWicket', [
-			'foreignKey' => 'lost_wicket_player_id',
-			'className' => 'App\Model\Table\PlayersTable'
-		]);
-		$this->belongsTo('PlayerTookWicket', [
-			'foreignKey' => 'took_wicket_player_id',
-			'className' => 'App\Model\Table\PlayersTable'
-		]);
-		$this->belongsTo('PlayerBowledWicket', [
-			'foreignKey' => 'bowler_player_id',
-			'className' => 'App\Model\Table\PlayersTable'
-		]);
-		$this->belongsTo('Players');
-		$this->belongsTo('Dismissals', [
-			'foreignKey' => 'dismissal_id',
-		]);
-		$this->belongsTo('Innings', [
-			'foreignKey' => 'innings_id',
-		]);
-	}
+        $this->belongsTo('PlayerLostWicket', [
+            'foreignKey' => 'lost_wicket_player_id',
+            'className' => 'App\Model\Table\PlayersTable'
+        ]);
+        $this->belongsTo('PlayerTookWicket', [
+            'foreignKey' => 'took_wicket_player_id',
+            'className' => 'App\Model\Table\PlayersTable'
+        ]);
+        $this->belongsTo('PlayerBowledWicket', [
+            'foreignKey' => 'bowler_player_id',
+            'className' => 'App\Model\Table\PlayersTable'
+        ]);
+        $this->belongsTo('Players');
+        $this->belongsTo('Dismissals', [
+            'foreignKey' => 'dismissal_id',
+        ]);
+        $this->belongsTo('Innings', [
+            'foreignKey' => 'innings_id',
+        ]);
+    }
 
-/**
- * Default validation rules.
- *
- * @param \Cake\Validation\Validator $validator
- * @return \Cake\Validation\Validator
- */
+    /**
+     * Default validation rules.
+     *
+     * @param \Cake\Validation\Validator $validator
+     * @return \Cake\Validation\Validator
+     */
 //	public function validationDefault(Validator $validator) {
 //		$validator
 //			->add('id', 'valid', ['rule' => 'uuid'])

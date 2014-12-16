@@ -6,5 +6,6 @@ use Cake\ORM\Entity;
 /**
  * PlayerSpecialisation Entity.
  */
-class PlayerSpecialisation extends Entity {
+class PlayerSpecialisation extends Entity
+{
 }

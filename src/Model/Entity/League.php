@@ -6,6 +6,7 @@ use Cake\ORM\Entity;
 /**
  * League Entity.
  */
-class League extends Entity {
+class League extends Entity
+{
 
 }

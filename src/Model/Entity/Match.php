@@ -6,7 +6,8 @@ use Cake\ORM\Entity;
 /**
  * Match Entity.
  */
-class Match extends Entity {
+class Match extends Entity
+{
 
 
 }

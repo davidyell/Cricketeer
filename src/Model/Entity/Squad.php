@@ -6,7 +6,8 @@ use Cake\ORM\Entity;
 /**
  * Squad Entity.
  */
-class Squad extends Entity {
+class Squad extends Entity
+{
 
 
 }

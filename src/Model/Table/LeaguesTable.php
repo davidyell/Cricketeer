@@ -7,65 +7,73 @@ use Cake\Validation\Validator;
 /**
  * Leagues Model
  */
-class LeaguesTable extends Table {
+class LeaguesTable extends Table
+{
 
-/**
- * Initialize method
- *
- * @param array $config The configuration for the Table.
- * @return void
- */
-	public function initialize(array $config) {
-		$this->table('leagues');
-		$this->displayField('name');
-		$this->primaryKey('id');
-		$this->addBehavior('Timestamp');
+    /**
+     * Initialize method
+     *
+     * @param array $config The configuration for the Table.
+     * @return void
+     */
+    public function initialize(array $config)
+    {
+        $this->table('leagues');
+        $this->displayField('name');
+        $this->primaryKey('id');
+        $this->addBehavior('Timestamp');
 
-		$this->hasMany('Clubs', [
-			'foreignKey' => 'league_id',
-		]);
-	}
+        $this->hasMany('Clubs', [
+            'foreignKey' => 'league_id',
+        ]);
 
-/**
- * Default validation rules.
- *
- * @param \Cake\Validation\Validator $validator
- * @return \Cake\Validation\Validator
- */
-	public function validationDefault(Validator $validator) {
-		$validator
-			->add('id', 'valid', ['rule' => 'uuid'])
-			->allowEmpty('id', 'create')
+        $this->addBehavior('Proffer.Proffer', [
+            'image' => [
+                'dir' => 'image_dir',
+                'thumbnailSizes' => [
+                    'squareSmall' => ['w' => 100, 'h' => 100],
+                    'square' => ['w' => 200, 'h' => 200, 'crop' => true]
+                ],
+                'thumbnailMethod' => 'imagick'
+            ]
+        ]);
+    }
 
-			->requirePresence('name', 'create')
-			->notEmpty('name', 'Must name the league.')
+    /**
+     * Default validation rules.
+     *
+     * @param \Cake\Validation\Validator $validator
+     * @return \Cake\Validation\Validator
+     */
+    public function validationDefault(Validator $validator)
+    {
+        $validator
+            ->add('id', 'valid', ['rule' => 'uuid'])
+            ->allowEmpty('id', 'create')
+            ->requirePresence('name', 'create')
+            ->notEmpty('name', 'Must name the league.')
+            ->allowEmpty('description')
+            ->add('image', 'extension', ['rule' => ['extension', ['gif', 'jpeg', 'png', 'jpg']], 'message' => 'Please only upload images, gif, png, jpg'])
+            ->add('image', 'noErrors', ['rule' => 'uploadError', 'message' => 'Something went wrong with the upload.'])
+            ->add('image', 'isUploaded', ['rule' => ['uploadedFile', ['types' => ['image/gif', 'image/jpeg', 'image/png'], 'maxSize' => '2000000']], 'message' => 'File is not correct MIME type.'])
+            ->add('image', [
+                'extension' => [
+                    'rule' => ['extension', ['gif', 'jpeg', 'png', 'jpg']],
+                    'message' => 'Please only upload images, gif, png, jpg'
+                ],
+                'noErrors' => [
+                    'rule' => 'uploadError',
+                    'message' => 'Something went wrong with the upload.'
+                ],
+                'isUploaded' => [
+                    'rule' => ['uploadedFile', ['types' => ['image/gif', 'image/jpeg', 'image/png'], 'maxSize' => '2000000']],
+                    'message' => 'File is not correct MIME type.'
+                ]
+            ])
+            ->allowEmpty('image')
+            ->allowEmpty('image_dir');
 
-			->allowEmpty('description')
-
-			->add('image', 'extension', ['rule' => ['extension', ['gif', 'jpeg', 'png', 'jpg']], 'message' => 'Please only upload images, gif, png, jpg'])
-			->add('image', 'noErrors', ['rule' => 'uploadError', 'message' => 'Something went wrong with the upload.'])
-			->add('image', 'isUploaded', ['rule' => ['uploadedFile', ['types' => ['image/gif', 'image/jpeg', 'image/png'], 'maxSize' => '2000000']], 'message' => 'File is not correct MIME type.'])
-
-			->add('image', [
-				'extension' => [
-					'rule' => ['extension', ['gif', 'jpeg', 'png', 'jpg']],
-					'message' => 'Please only upload images, gif, png, jpg'
-				],
-				'noErrors' => [
-					'rule' => 'uploadError',
-					'message' => 'Something went wrong with the upload.'
-				],
-				'isUploaded' => [
-					'rule' => ['uploadedFile', ['types' => ['image/gif', 'image/jpeg', 'image/png'], 'maxSize' => '2000000']],
-					'message' => 'File is not correct MIME type.'
-				]
-			])
-
-			->allowEmpty('image')
-
-			->allowEmpty('image_dir');
-
-		return $validator;
-	}
+        return $validator;
+    }
 
 }

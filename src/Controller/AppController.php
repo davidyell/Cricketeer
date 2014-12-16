@@ -25,91 +25,95 @@ use Cake\Event\Event;
  *
  * @link http://book.cakephp.org/3.0/en/controllers.html#the-app-controller
  */
-class AppController extends Controller {
+class AppController extends Controller
+{
 
-/**
- * Components this controller uses.
- *
- * Component names should not include the `Component` suffix. Components
- * declared in subclasses will be merged with components declared here.
- *
- * @var array
- */
-	public $components = [
-		'Flash',
-		'Auth' => [
-			'authenticate' => [
-				'Form' => [
-					'fields' => ['username' => 'email']
-				]
-			],
-			'authorize' => [
-				'Controller'
-			],
-			'authError' => 'You do not have permission to view that.',
-			'loginRedirect' => ['controller' => 'leagues', 'action' => 'index', 'prefix' => 'admin'],
-			'loginAction' => ['controller' => 'users', 'action' => 'login', 'prefix' => false]
-		]
-	];
+    /**
+     * Components this controller uses.
+     *
+     * Component names should not include the `Component` suffix. Components
+     * declared in subclasses will be merged with components declared here.
+     *
+     * @var array
+     */
+    public $components = [
+        'Flash',
+        'Auth' => [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'email']
+                ]
+            ],
+            'authorize' => [
+                'Controller'
+            ],
+            'authError' => 'You do not have permission to view that.',
+            'loginRedirect' => ['controller' => 'leagues', 'action' => 'index', 'prefix' => 'admin'],
+            'loginAction' => ['controller' => 'users', 'action' => 'login', 'prefix' => false]
+        ]
+    ];
 
-/**
- * Load the helpers
- *
- * @var array
- */
-	public $helpers = [
-		'Form' => [
-			'templates' => 'twbs3.php'
-		]
-	];
+    /**
+     * Load the helpers
+     *
+     * @var array
+     */
+    public $helpers = [
+        'Form' => [
+            'templates' => 'twbs3.php'
+        ]
+    ];
 
-/**
- * beforeFilter method
- *
- * @param Event $event
- * @return void
- */
-	public function beforeFilter(Event $event) {
-		parent::beforeFilter($event);
-		
-		if (isset($this->request->params['prefix']) && $this->request->params['prefix'] === 'admin') {
-			$this->layout = 'admin';
-		}
+    /**
+     * beforeFilter method
+     *
+     * @param Event $event
+     * @return void
+     */
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
 
-		$this->setupAuth();
-	}
+        if (isset($this->request->params['prefix']) && $this->request->params['prefix'] === 'admin') {
+            $this->layout = 'admin';
+        }
 
-/**
- * Configure the AuthComponent
- *
- * @return void
- */
-	protected function setupAuth() {
-		if (@$this->request->params['prefix'] !== 'admin') {
-			$this->Auth->allow([
-				'index',
-				'view',
-				'home',
-				'logout'
-			]);
-		}
-	}
+        $this->setupAuth();
+    }
 
-/**
- * Check if a user is allowed to access resources
- *
- * @param null $user
- * @return bool
- */
-	public function isAuthorized($user = null) {
-		if (empty($this->request->params['prefix'])) {
-			return true;
-		}
+    /**
+     * Configure the AuthComponent
+     *
+     * @return void
+     */
+    protected function setupAuth()
+    {
+        if (@$this->request->params['prefix'] !== 'admin') {
+            $this->Auth->allow([
+                'index',
+                'view',
+                'home',
+                'logout'
+            ]);
+        }
+    }
 
-		if ($this->request->params['prefix'] === 'admin') {
-			return (bool)($user['role'] === 'admin');
-		}
+    /**
+     * Check if a user is allowed to access resources
+     *
+     * @param null $user
+     * @return bool
+     */
+    public function isAuthorized($user = null)
+    {
+        if (empty($this->request->params['prefix'])) {
+            return true;
+        }
 
-		return false;
-	}
+        if ($this->request->params['prefix'] === 'admin') {
+            return (bool)($user['role'] === 'admin');
+        }
+
+        return false;
+    }
 }

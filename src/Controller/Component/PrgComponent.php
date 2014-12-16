@@ -11,28 +11,30 @@ namespace App\Controller\Component;
 
 use Cake\Controller\Component;
 
-class PrgComponent extends Component {
+class PrgComponent extends Component
+{
 
-	public $presetVar = true;
+    public $presetVar = true;
 
-/**
- * Initialize properties.
- *
- * @param array $config The config data.
- * @return redirect
- */
-	public function initialize(array $config) {
-		$controller = $this->_registry->getController();
-		$request = $controller->request;
+    /**
+     * Initialize properties.
+     *
+     * @param array $config The config data.
+     * @return redirect
+     */
+    public function initialize(array $config)
+    {
+        $controller = $this->_registry->getController();
+        $request = $controller->request;
 
-		if ($request->is(['post', 'put'])) {
-			if ($request->session()->read('prg')) {
-				$request->session()->delete('prg');
-				return $controller->redirect(['action' => $request->action, $request->params['pass'][0]]);
-			} else {
-				$request->session()->write('prg', true);
-			}
-		}
-	}
+        if ($request->is(['post', 'put'])) {
+            if ($request->session()->read('prg')) {
+                $request->session()->delete('prg');
+                return $controller->redirect(['action' => $request->action, $request->params['pass'][0]]);
+            } else {
+                $request->session()->write('prg', true);
+            }
+        }
+    }
 
 }

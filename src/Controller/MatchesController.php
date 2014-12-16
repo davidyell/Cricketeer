@@ -9,29 +9,32 @@
 
 namespace App\Controller;
 
-class MatchesController extends AppController {
+class MatchesController extends AppController
+{
 
-	public $helpers = ['NumbersToWords.NumbersToWords'];
+    public $helpers = ['NumbersToWords.NumbersToWords'];
 
-	public function index() {
-		$matches = $this->Matches->find()
-			->contain([
-				'Venues',
-				'Formats',
-				'Innings',
-				'Teams'
-			])
-			->order(['Matches.modified' => 'DESC']);
+    public function index()
+    {
+        $matches = $this->Matches->find()
+            ->contain([
+                'Venues',
+                'Formats',
+                'Innings',
+                'Teams'
+            ])
+            ->order(['Matches.modified' => 'DESC']);
 
-		$this->set('matches', $matches);
-	}
+        $this->set('matches', $matches);
+    }
 
-	public function view($id) {
-		$match = $this->Matches->find('MatchScorecard')
-			->where(['Matches.id' => $id])
-			->firstOrFail();
+    public function view($id)
+    {
+        $match = $this->Matches->find('MatchScorecard')
+            ->where(['Matches.id' => $id])
+            ->firstOrFail();
 
-		$this->set('match', $match);
-	}
+        $this->set('match', $match);
+    }
 
 } 

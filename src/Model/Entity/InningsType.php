@@ -6,16 +6,17 @@ use Cake\ORM\Entity;
 /**
  * InningsType Entity.
  */
-class InningsType extends Entity {
+class InningsType extends Entity
+{
 
-/**
- * Fields that can be mass assigned using newEntity() or patchEntity().
- *
- * @var array
- */
-	protected $_accessible = [
-		'name' => true,
-		'innings' => true,
-	];
+    /**
+     * Fields that can be mass assigned using newEntity() or patchEntity().
+     *
+     * @var array
+     */
+    protected $_accessible = [
+        'name' => true,
+        'innings' => true,
+    ];
 
 }

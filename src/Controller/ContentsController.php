@@ -10,9 +10,11 @@
 namespace App\Controller;
 
 
-class ContentsController extends AppController {
+class ContentsController extends AppController
+{
 
-	public function home() {
-	}
+    public function home()
+    {
+    }
 
 } 

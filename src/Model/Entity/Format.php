@@ -6,6 +6,7 @@ use Cake\ORM\Entity;
 /**
  * Format Entity.
  */
-class Format extends Entity {
+class Format extends Entity
+{
 
 }

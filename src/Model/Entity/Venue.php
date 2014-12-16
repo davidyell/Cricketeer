@@ -6,6 +6,7 @@ use Cake\ORM\Entity;
 /**
  * Venue Entity.
  */
-class Venue extends Entity {
+class Venue extends Entity
+{
 
 }

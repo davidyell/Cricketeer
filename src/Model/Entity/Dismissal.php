@@ -6,6 +6,7 @@ use Cake\ORM\Entity;
 /**
  * Dismissal Entity.
  */
-class Dismissal extends Entity {
+class Dismissal extends Entity
+{
 
 }

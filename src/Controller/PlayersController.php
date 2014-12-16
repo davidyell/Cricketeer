@@ -10,30 +10,33 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
-class PlayersController extends AppController {
+class PlayersController extends AppController
+{
 
-	public $components = ['Paginator'];
+    public $components = ['Paginator'];
 
-	public function index() {
-		$players = $this->Paginator->paginate($this->Players, [
-			'contain' => [
-				'Clubs',
-				'PlayerSpecialisations'
-			]
-		]);
-		$this->set('players', $players);
-	}
+    public function index()
+    {
+        $players = $this->Paginator->paginate($this->Players, [
+            'contain' => [
+                'Clubs',
+                'PlayerSpecialisations'
+            ]
+        ]);
+        $this->set('players', $players);
+    }
 
-	public function view($slug) {
-		$player = $this->Players->find()
-			->contain([
-				'Clubs',
-				'PlayerSpecialisations'
-			])
-			->where(['slug' => $slug])
-			->first();
+    public function view($slug)
+    {
+        $player = $this->Players->find()
+            ->contain([
+                'Clubs',
+                'PlayerSpecialisations'
+            ])
+            ->where(['slug' => $slug])
+            ->first();
 
-		$this->set('player', $player);
-	}
+        $this->set('player', $player);
+    }
 
 }

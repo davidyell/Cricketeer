@@ -8,107 +8,113 @@ use App\Controller\AppController;
  *
  * @property App\Model\Table\WicketsTable $Wickets
  */
-class WicketsController extends AppController {
+class WicketsController extends AppController
+{
 
-/**
- * Index method
- *
- * @return void
- */
-	public function index() {
-		$this->paginate = [
-			'contain' => [
-				'PlayerLostWicket',
-				'PlayerTookWicket',
-				'PlayerBowledWicket',
-				'Dismissals',
-				'Innings'
-			]
-		];
-		$this->set('wickets', $this->paginate($this->Wickets));
-	}
+    /**
+     * Index method
+     *
+     * @return void
+     */
+    public function index()
+    {
+        $this->paginate = [
+            'contain' => [
+                'PlayerLostWicket',
+                'PlayerTookWicket',
+                'PlayerBowledWicket',
+                'Dismissals',
+                'Innings'
+            ]
+        ];
+        $this->set('wickets', $this->paginate($this->Wickets));
+    }
 
-/**
- * View method
- *
- * @param string $id
- * @return void
- * @throws \Cake\Network\Exception\NotFoundException
- */
-	public function view($id = null) {
-		$wicket = $this->Wickets->get($id, [
-			'contain' => [
-				'PlayerLostWicket',
-				'PlayerTookWicket',
-				'PlayerBowledWicket',
-				'Dismissals',
-				'Innings'
-			]
-		]);
-		$this->set('wicket', $wicket);
-	}
+    /**
+     * View method
+     *
+     * @param string $id
+     * @return void
+     * @throws \Cake\Network\Exception\NotFoundException
+     */
+    public function view($id = null)
+    {
+        $wicket = $this->Wickets->get($id, [
+            'contain' => [
+                'PlayerLostWicket',
+                'PlayerTookWicket',
+                'PlayerBowledWicket',
+                'Dismissals',
+                'Innings'
+            ]
+        ]);
+        $this->set('wicket', $wicket);
+    }
 
-/**
- * Add method
- *
- * @return void
- */
-	public function add() {
-		$wicket = $this->Wickets->newEntity($this->request->data);
-		if ($this->request->is('post')) {
-			if ($this->Wickets->save($wicket)) {
-				$this->Flash->success('The wicket has been saved.');
-				return $this->redirect(['action' => 'index']);
-			} else {
-				$this->Flash->error('The wicket could not be saved. Please, try again.');
-			}
-		}
-		$players = $this->Wickets->Players->find('PlayerListByTeam');
-		$dismissals = $this->Wickets->Dismissals->find('list');
-		$innings = $this->Wickets->Innings->find('list');
-		$this->set(compact('wicket', 'players', 'dismissals', 'innings'));
-	}
+    /**
+     * Add method
+     *
+     * @return void
+     */
+    public function add()
+    {
+        $wicket = $this->Wickets->newEntity($this->request->data);
+        if ($this->request->is('post')) {
+            if ($this->Wickets->save($wicket)) {
+                $this->Flash->success('The wicket has been saved.');
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error('The wicket could not be saved. Please, try again.');
+            }
+        }
+        $players = $this->Wickets->Players->find('PlayerListByTeam');
+        $dismissals = $this->Wickets->Dismissals->find('list');
+        $innings = $this->Wickets->Innings->find('list');
+        $this->set(compact('wicket', 'players', 'dismissals', 'innings'));
+    }
 
-/**
- * Edit method
- *
- * @param string $id
- * @return void
- * @throws \Cake\Network\Exception\NotFoundException
- */
-	public function edit($id = null) {
-		$wicket = $this->Wickets->get($id, [
-			'contain' => []
-		]);
-		if ($this->request->is(['patch', 'post', 'put'])) {
-			$wicket = $this->Wickets->patchEntity($wicket, $this->request->data);
-			if ($this->Wickets->save($wicket)) {
-				$this->Flash->success('The wicket has been saved.');
-				return $this->redirect(['action' => 'index']);
-			} else {
-				$this->Flash->error('The wicket could not be saved. Please, try again.');
-			}
-		}
-		$players = $this->Wickets->Players->find('PlayerListByTeam');
-		$dismissals = $this->Wickets->Dismissals->find('list');
-		$innings = $this->Wickets->Innings->find('list');
-		$this->set(compact('wicket', 'players', 'dismissals', 'innings'));
-	}
+    /**
+     * Edit method
+     *
+     * @param string $id
+     * @return void
+     * @throws \Cake\Network\Exception\NotFoundException
+     */
+    public function edit($id = null)
+    {
+        $wicket = $this->Wickets->get($id, [
+            'contain' => []
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $wicket = $this->Wickets->patchEntity($wicket, $this->request->data);
+            if ($this->Wickets->save($wicket)) {
+                $this->Flash->success('The wicket has been saved.');
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error('The wicket could not be saved. Please, try again.');
+            }
+        }
+        $players = $this->Wickets->Players->find('PlayerListByTeam');
+        $dismissals = $this->Wickets->Dismissals->find('list');
+        $innings = $this->Wickets->Innings->find('list');
+        $this->set(compact('wicket', 'players', 'dismissals', 'innings'));
+    }
 
-/**
- * Delete method
- *
- * @param string $id
- * @return void
- * @throws \Cake\Network\Exception\NotFoundException
- */
-	public function delete($id = null) {
-		$wicket = $this->Wickets->get($id);
-		if ($this->Wickets->delete($wicket)) {
-			$this->Flash->success('The wicket has been deleted.');
-		} else {
-			$this->Flash->error('The wicket could not be deleted. Please, try again.');
-		}
-		return $this->redirect($this->referer());
-	}
+    /**
+     * Delete method
+     *
+     * @param string $id
+     * @return void
+     * @throws \Cake\Network\Exception\NotFoundException
+     */
+    public function delete($id = null)
+    {
+        $wicket = $this->Wickets->get($id);
+        if ($this->Wickets->delete($wicket)) {
+            $this->Flash->success('The wicket has been deleted.');
+        } else {
+            $this->Flash->error('The wicket could not be deleted. Please, try again.');
+        }
+        return $this->redirect($this->referer());
+    }
 }

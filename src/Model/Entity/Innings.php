@@ -6,6 +6,7 @@ use Cake\ORM\Entity;
 /**
  * Innings Entity.
  */
-class Innings extends Entity {
+class Innings extends Entity
+{
 
 }
