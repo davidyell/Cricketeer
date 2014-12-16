@@ -10,7 +10,7 @@ $opponents = new \Cake\Collection\Collection($opposition);
 
 	<table summary="batting">
 		<tr>
-			<th colspan="7">
+			<th colspan="8">
 				<?php
 				$total = $batsmen->sumOf('runs');
 				$total += $teamsInnings->wides + $teamsInnings->byes + $teamsInnings->leg_byes + $teamsInnings->no_balls + $teamsInnings->penalty_runs;
@@ -25,6 +25,7 @@ $opponents = new \Cake\Collection\Collection($opposition);
 			<th colspan="3">&nbsp;</th>
 			<th>Runs</th>
 			<th>Balls</th>
+			<th>Strike rate</th>
 			<th>4s</th>
 			<th>6s</th>
 		</tr>
@@ -77,10 +78,11 @@ $opponents = new \Cake\Collection\Collection($opposition);
 						echo "b " . $bowledWicket->player->last_name;
 					}
 				?></td>
-				<td><?php echo !empty($batting->runs)? $batting->runs : null;?></td>
-				<td><?php echo !empty($batting->balls)? $batting->balls : null;?></td>
-				<td><?php echo !empty($batting->fours)? $batting->fours : null;?></td>
-				<td><?php echo !empty($batting->sixes)? $batting->sixes : null;?></td>
+				<td><?php echo !empty($batting->runs)? $batting->runs : 0;?></td>
+				<td><?php echo !empty($batting->balls)? $batting->balls : 0;?></td>
+				<td><?php echo !empty($batting->strike_rate)? $batting->strike_rate : 0;?></td>
+				<td><?php echo !empty($batting->fours)? $batting->fours : 0;?></td>
+				<td><?php echo !empty($batting->sixes)? $batting->sixes : 0;?></td>
 			</tr>
 		<?php endforeach; ?>
 		<tr>
@@ -103,7 +105,7 @@ $opponents = new \Cake\Collection\Collection($opposition);
 				}
 				?></td>
 			<td><?php echo $teamsInnings->wides + $teamsInnings->byes + $teamsInnings->leg_byes + $teamsInnings->no_balls + $teamsInnings->penalty_runs;?></td>
-			<td colspan="3">&nbsp;</td>
+			<td colspan="4">&nbsp;</td>
 		</tr>
 	</table>
 
@@ -116,6 +118,7 @@ $opponents = new \Cake\Collection\Collection($opposition);
 					<th>Maidens</th>
 					<th>Runs</th>
 					<th>Wickets</th>
+					<th>Economy</th>
 				</tr>
 				<?php foreach ($bowlers as $bowler):
 					$player = $opponents->match(['player_id' => $bowler->player_id])->first();
@@ -129,6 +132,7 @@ $opponents = new \Cake\Collection\Collection($opposition);
 							$bowlersWickets = $wickets->match(['bowler_player_id' => $bowler->player_id]);
 							echo count($bowlersWickets->toArray());
 						?></td>
+						<td><?php echo $bowler->economy;?></td>
 					</tr>
 				<?php endforeach;?>
 			</table>
