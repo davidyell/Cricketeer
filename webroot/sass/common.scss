@@ -74,3 +74,13 @@ div.leagues {
     width: 50px;
   }
 }
+div.clubs {
+  table td {
+    &.logo {
+      width: 70px;
+    }
+    img {
+      width: 50px;
+    }
+  }
+}
