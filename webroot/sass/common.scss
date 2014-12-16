@@ -55,3 +55,13 @@ footer {
     font-size: 11px;
   }
 }
+
+div.players.view {
+  img {
+    float: left;
+    margin: 0 10px 10px 0;
+  }
+  ul {
+    list-style-position: inside;
+  }
+}
