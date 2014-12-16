@@ -85,7 +85,7 @@
 				$wicket = collection($innings->wickets)->match(['lost_wicket_player_id' => $squad->player_id])->toArray();
 			}
 
-			if ($wicket) {
+//			if ($wicket) {
 				if (isset($wicket[key($wicket)]->id)) {
 					echo $this->Form->input("Innings.wickets.$i.id", ['value' => $wicket[key($wicket)]['id']]);
 				}
@@ -103,9 +103,9 @@
 				} else {
 					echo $this->Html->link('Not out', '#notout', ['class' => 'btn btn-primary', 'title' => 'Hide this wicket as batsman not out']);
 				}
-			} else {
-				echo $this->Html->link('Add wicket', '#add-wicket', ['class' => 'btn btn-primary']);
-			}
+//			} else {
+//				echo $this->Html->link('Add wicket', '#add-wicket', ['class' => 'btn btn-primary']);
+//			}
 
 			echo "</div>";
 
