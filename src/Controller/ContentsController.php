@@ -16,5 +16,4 @@ class ContentsController extends AppController
     public function home()
     {
     }
-
-} 
+}

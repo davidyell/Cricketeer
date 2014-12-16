@@ -18,5 +18,4 @@ class InningsType extends Entity
         'name' => true,
         'innings' => true,
     ];
-
 }

@@ -174,7 +174,10 @@ class MatchesTable extends Table
                 'Batsmen',
                 'Wickets' => function ($q) {
                     // Order the Wickets by the fall of wicket, so they are in the correct order
-                    return $q->order(["LENGTH(SUBSTRING_INDEX(fall_of_wicket, '-', -1))", "SUBSTRING_INDEX(fall_of_wicket, '-', -1)"])
+                    return $q->order([
+                            "LENGTH(SUBSTRING_INDEX(fall_of_wicket, '-', -1))",
+                            "SUBSTRING_INDEX(fall_of_wicket, '-', -1)"
+                        ])
                         ->contain(['Dismissals']);
                 },
                 'InningsTypes',
@@ -186,5 +189,4 @@ class MatchesTable extends Table
             ]
         ]);
     }
-
 }

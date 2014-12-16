@@ -120,5 +120,4 @@ class BatsmenTable extends Table
 
         return (float)0.0;
     }
-
 }

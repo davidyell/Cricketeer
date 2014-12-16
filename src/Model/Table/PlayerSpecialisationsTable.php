@@ -46,5 +46,4 @@ class PlayerSpecialisationsTable extends Table
 
         return $validator;
     }
-
 }

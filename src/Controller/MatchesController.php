@@ -11,7 +11,6 @@ namespace App\Controller;
 
 class MatchesController extends AppController
 {
-
     public $helpers = ['NumbersToWords.NumbersToWords'];
 
     public function index()
@@ -36,5 +35,4 @@ class MatchesController extends AppController
 
         $this->set('match', $match);
     }
-
-} 
+}

@@ -31,5 +31,4 @@ class StatisticsCell extends Cell
         $this->loadModel('Matches');
         $this->set('matches', $this->Matches->find('LatestMatches', ['limit' => $limit]));
     }
-
-} 
+}

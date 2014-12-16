@@ -89,8 +89,10 @@ class SluggableBehavior extends Behavior
      */
     protected function _removeSign($str)
     {
-        if (!$str)
+        if (!$str) {
             return;
+        }
+
         $signed = array("à", "á", "ạ", "ả", "ã", "â", "ầ", "ấ", "ậ", "ẩ", "ẫ", "ă", "ằ", "ắ"
         , "ặ", "ẳ", "ẵ", "è", "é", "ẹ", "ẻ", "ẽ", "ê", "ề", "ế", "ệ", "ể", "ễ", "ì", "í", "ị", "ỉ", "ĩ",
             "ò", "ó", "ọ", "ỏ", "õ", "ô", "ồ", "ố", "ộ", "ổ", "ỗ", "ơ"
@@ -107,6 +109,7 @@ class SluggableBehavior extends Behavior
             "Ù", "Ú", "Ụ", "Ủ", "Ũ", "Ư", "Ừ", "Ứ", "Ự", "Ử", "Ữ",
             "Ỳ", "Ý", "Ỵ", "Ỷ", "Ỹ",
             "Đ", "ê", "ù", "à");
+
         $unsigned = array("a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"
         , "a", "a", "a", "a", "a", "a",
             "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e",
@@ -127,5 +130,4 @@ class SluggableBehavior extends Behavior
             "D", "e", "u", "a");
         return mb_strtolower(str_replace($signed, $unsigned, $str));
     }
-
 }

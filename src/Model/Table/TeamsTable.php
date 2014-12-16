@@ -58,5 +58,4 @@ class TeamsTable extends Table
 
         return $validator;
     }
-
 }

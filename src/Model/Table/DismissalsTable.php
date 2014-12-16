@@ -45,5 +45,4 @@ class DismissalsTable extends Table
 
         return $validator;
     }
-
 }

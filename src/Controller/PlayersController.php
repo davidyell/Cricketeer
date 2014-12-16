@@ -8,11 +8,8 @@
 
 namespace App\Controller;
 
-use App\Controller\AppController;
-
 class PlayersController extends AppController
 {
-
     public $components = ['Paginator'];
 
     public function index()
@@ -38,5 +35,4 @@ class PlayersController extends AppController
 
         $this->set('player', $player);
     }
-
 }

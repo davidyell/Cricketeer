@@ -46,5 +46,4 @@ class FormatsTable extends Table
 
         return $validator;
     }
-
 }

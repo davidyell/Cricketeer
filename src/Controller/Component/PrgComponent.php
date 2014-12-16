@@ -13,7 +13,6 @@ use Cake\Controller\Component;
 
 class PrgComponent extends Component
 {
-
     public $presetVar = true;
 
     /**
@@ -36,5 +35,4 @@ class PrgComponent extends Component
             }
         }
     }
-
 }

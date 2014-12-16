@@ -45,5 +45,4 @@ class InningsTypesTable extends Table
 
         return $validator;
     }
-
 }

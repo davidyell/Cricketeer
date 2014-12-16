@@ -113,7 +113,10 @@ class InningsController extends AppController
                 'Batsmen',
                 'Wickets' => function ($q) {
                     // Order the Wickets by the fall of wicket, so they are in the correct order
-                    return $q->order(["LENGTH(SUBSTRING_INDEX(fall_of_wicket, '-', -1))", "SUBSTRING_INDEX(fall_of_wicket, '-', -1)"]);
+                    return $q->order([
+                        "LENGTH(SUBSTRING_INDEX(fall_of_wicket, '-', -1))",
+                        "SUBSTRING_INDEX(fall_of_wicket, '-', -1)"
+                    ]);
                 },
                 'InningsTypes',
                 'Teams' => [
@@ -125,7 +128,11 @@ class InningsController extends AppController
         ]);
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $innings = $this->Innings->patchEntity($innings, $this->request->data(), ['associated' => ['Bowlers', 'Batsmen', 'Wickets']]);
+            $innings = $this->Innings->patchEntity($innings, $this->request->data(), [
+                'associated' => [
+                    'Bowlers', 'Batsmen', 'Wickets'
+                ]
+            ]);
 
             if ($this->Innings->save($innings, ['associated' => ['Bowlers', 'Batsmen', 'Wickets']])) {
                 $this->Flash->success('The innings has been saved.');

@@ -8,5 +8,4 @@ use Cake\ORM\Entity;
  */
 class Innings extends Entity
 {
-
 }

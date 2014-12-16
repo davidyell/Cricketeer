@@ -51,5 +51,4 @@ class VenuesTable extends Table
 
         return $validator;
     }
-
 }

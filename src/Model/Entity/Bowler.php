@@ -18,5 +18,4 @@ class Bowler extends Entity
 
         throw new BadMethodCallException('Your data must include Innings => Wickets tables.');
     }
-
 }

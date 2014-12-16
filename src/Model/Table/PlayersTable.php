@@ -133,7 +133,8 @@ class PlayersTable extends Table
 
         // Function to concatenate the value field for the combine()
         $player = function ($entity) {
-            return $entity->first_name . ' ' . $entity->initials . ' ' . $entity->last_name . ' (' . $entity->player_specialisation->name . ')';
+            return $entity->first_name . ' ' . $entity->initials . ' ' . $entity->last_name
+                . ' (' . $entity->player_specialisation->name . ')';
         };
 
         // Use a result formatter to run combine on the results to build a list

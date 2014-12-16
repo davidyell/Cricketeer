@@ -10,7 +10,6 @@ use App\Controller\AppController;
  */
 class UsersController extends AppController
 {
-
     /**
      * Login a user
      *
@@ -38,5 +37,4 @@ class UsersController extends AppController
     {
         return $this->redirect($this->Auth->logout());
     }
-
 }

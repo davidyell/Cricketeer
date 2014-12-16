@@ -75,5 +75,4 @@ class WicketsTable extends Table
 //
 //		return $validator;
 //	}
-
 }
