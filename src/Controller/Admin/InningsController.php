@@ -110,19 +110,28 @@ class InningsController extends AppController
      */
     public function edit($id = null)
     {
-        $inning = $this->Innings->get($id);
-
-        $match = $this->Innings->Matches->find('MatchScorecard')
-            ->where(['Matches.id' => $inning->match_id])
-            ->matching('Innings', function ($q) use ($inning) {
-                return $q->where(['Innings.id' => $inning->id]);
-            })
-            ->first();
-
-        var_dump($match);
+        $innings = $this->Innings->get($id, [
+            'contain' => [
+                'Bowlers',
+                'Batsmen',
+                'Wickets' => function ($q) {
+                    // Order the Wickets by the fall of wicket, so they are in the correct order
+                    return $q->order([
+                        "LENGTH(SUBSTRING_INDEX(fall_of_wicket, '-', -1))",
+                        "SUBSTRING_INDEX(fall_of_wicket, '-', -1)"
+                    ]);
+                },
+                'InningsTypes',
+                'Teams' => [
+                    'Squads' => [
+                        'Players'
+                    ]
+                ]
+            ]
+        ]);
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $innings = $this->Innings->patchEntity($match->innings, $this->request->data(), [
+            $innings = $this->Innings->patchEntity($innings, $this->request->data(), [
                 'associated' => [
                     'Bowlers', 'Batsmen', 'Wickets'
                 ]
@@ -136,12 +145,33 @@ class InningsController extends AppController
             }
         }
 
+        $oppositionData = $this->Innings->Matches->find()
+            ->contain([
+                'Teams' => function ($q) use ($innings) {
+                    return $q->contain([
+                        'Squads' => [
+                            'Players' => function ($q) {
+                                return $q->contain(['PlayerSpecialisations'])
+                                    ->select(['id', 'first_name', 'initials', 'last_name', 'photo_dir', 'photo']);
+                            }
+                        ]
+                    ])
+                        ->where(['Teams.id !=' => $innings->team->id]);
+                }
+            ])
+            ->where(['Matches.id' => $innings->match_id])
+            ->first();
+
+        foreach ($oppositionData['teams'][0]['squads'] as $member) {
+            $opposition[$member['player_id']] = $member->player->get('FullDetail');
+        }
+
         $matches = $this->Innings->Matches->find('list');
         $teams = $this->Innings->Teams->find('list');
         $wickets = $this->Innings->Wickets->find('list');
         $dismissals = $this->Innings->Wickets->Dismissals->find('list');
         $inningsTypes = $this->Innings->InningsTypes->find('list');
-        $this->set(compact('innings', 'matches', 'teams', 'wickets', 'dismissals', 'inningsTypes', 'opposition', 'match'));
+        $this->set(compact('innings', 'matches', 'teams', 'wickets', 'dismissals', 'inningsTypes', 'opposition'));
     }
 
     /**

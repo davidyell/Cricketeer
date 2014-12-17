@@ -19,13 +19,15 @@
 </div>
 <div class="matches form col-md-10 score_card">
 	<?php
-	$inningNum = 1;
-	$this->element('Admin/innings-edit', [
-		'innings' => $innings,
-		'teamsInnings' => $teamsInnings,
-		'inningNum' => $i + 1,
-		'team' => $match->teams[$team],
+	echo $this->Form->create($innings);
+	echo $this->element('Admin/innings-edit', [
+		'innings' => 1,
+		'teamsInnings' => $innings,
+		'inningNum' => 1,
+		'team' => $innings->team,
 		'opposition' => $opposition
 	]);
+	echo $this->Form->button(__('Submit'), ['class' => 'btn btn-success']);
+	echo $this->Form->end();
 	?>
 </div>
