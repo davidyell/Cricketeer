@@ -9,9 +9,7 @@
 namespace App\View\Helper;
 
 use App\Model\Entity\Match;
-use Cake\Core\Exception\Exception;
 use Cake\View\Helper;
-use Cake\View\View;
 
 class ScorecardHelper extends Helper
 {
@@ -19,38 +17,14 @@ class ScorecardHelper extends Helper
     public $helpers = ['Form'];
 
     /**
-     * Ensure that the relevant data is present before trying to render it
-     *
-     * @param Match $match
-     */
-    private function checkData(Match $match)
-    {
-        if (!$match->has('format')) {
-            throw new Exception('Cannot display match scorecard without match format.');
-        }
-
-        if (!$match->has('teams')) {
-            throw new Exception('Scorecard must have teams.');
-        }
-
-        if (!$match->has('venue')) {
-            throw new Exception('Scorecard must have venue.');
-        }
-
-        if (!$match->has('innings')) {
-            throw new Exception('Scorecard must have innings.');
-        }
-    }
-
-    /**
      * Display a whole match score card as either a form or a view
      *
-     * @param Match $match
+     * @param mixed $match
      * @param string $type
      */
-    public function display(Match $match, $type = 'view')
+    public function display($match, $type = 'view')
     {
-        $this->checkData($match);
+        var_dump($match);
 
         if ($type === 'edit') {
             echo $this->Form->create($match);
