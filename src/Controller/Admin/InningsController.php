@@ -170,7 +170,7 @@ class InningsController extends AppController
         $teams = $this->Innings->Teams->find('list');
         $wickets = $this->Innings->Wickets->find('list');
         $dismissals = $this->Innings->Wickets->Dismissals->find('list');
-        $inningsTypes = $this->Innings->InningsTypes->find('list');
+        $inningsTypes = $this->Innings->InningsTypes->find();
         $this->set(compact('innings', 'matches', 'teams', 'wickets', 'dismissals', 'inningsTypes', 'opposition'));
     }
 

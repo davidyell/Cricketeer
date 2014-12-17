@@ -96,12 +96,11 @@ class BatsmenController extends AppController
     public function delete($id = null)
     {
         $batsman = $this->Batsmen->get($id);
-        $this->request->allowMethod(['post', 'delete']);
         if ($this->Batsmen->delete($batsman)) {
             $this->Flash->success('The batsman has been deleted.');
         } else {
             $this->Flash->error('The batsman could not be deleted. Please, try again.');
         }
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect($this->referer());
     }
 }

@@ -24,8 +24,6 @@ class ScorecardHelper extends Helper
      */
     public function display($match, $type = 'view')
     {
-        var_dump($match);
-
         if ($type === 'edit') {
             echo $this->Form->create($match);
         }

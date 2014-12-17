@@ -21,7 +21,7 @@
 	<?php
 	echo $this->Form->create($innings);
 	echo $this->element('Admin/innings-edit', [
-		'innings' => 1,
+		'innings' => substr($innings->innings_type->name, 0, 1),
 		'teamsInnings' => $innings,
 		'inningNum' => 1,
 		'team' => $innings->team,

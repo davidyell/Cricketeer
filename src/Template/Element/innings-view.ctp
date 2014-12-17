@@ -34,55 +34,62 @@ $opponents = new \Cake\Collection\Collection($opposition);
 			?>
 			<tr>
 				<td><?php echo $this->Html->link($squadPlayer->player->get('FullName'), ['controller' => 'players', 'action' => 'view', $squadPlayer->player->slug]);?></td>
-				<td><?php
-					$wicket = $wickets->match(['lost_wicket_player_id' => $squadPlayer->player->id])->first();
-					if ($wicket) {
-						$tookWicket = $opponents->match(['player_id' => $wicket->took_wicket_player_id])->first();
-						$bowledWicket = $opponents->match(['player_id' => $wicket->bowler_player_id])->first();
+				<?php
+				if (empty($batting)) {
+					echo "<td>Did not bat</td><td>&nbsp;</td>";
+				} else {
+					?><td><?php
+						$wicket = $wickets->match(['lost_wicket_player_id' => $squadPlayer->player->id])->first();
+						if ($wicket) {
+							$tookWicket = $opponents->match(['player_id' => $wicket->took_wicket_player_id])->first();
+							$bowledWicket = $opponents->match(['player_id' => $wicket->bowler_player_id])->first();
 
-						$cnb = false;
-						if ($tookWicket->player->id === $bowledWicket->player->id && $wicket->dismissal->name === 'Bowled') {
-							echo "c and b " . $bowledWicket->player->last_name;
-							$cnb = true;
-						} else {
-							switch ($wicket->dismissal->name) {
-								case "Hit wicket":
-									break;
-								case "Run out":
-								case "Stumped":
-									echo $wicket->dismissal->name . ' (' . $tookWicket->player->last_name . ')';
-									break;
-								case "Bowled":
-									break;
-								case "Caught":
-									echo 'c ' . $tookWicket->player->last_name;
-									break;
-								case "Hit the ball twice":
-								case "Retired":
-								case "Handled the ball":
-								case "Obstructing the field":
-								case "Timed out":
-									echo strtolower($wicket->dismissal->name);
-									break;
-								case "Leg before":
-									echo "lbw";
-									break;
+							$cnb = false;
+							if ($tookWicket->player->id === $bowledWicket->player->id && $wicket->dismissal->name === 'Bowled') {
+								echo "c and b " . $bowledWicket->player->last_name;
+								$cnb = true;
+							} else {
+								switch ($wicket->dismissal->name) {
+									case "Hit wicket":
+										break;
+									case "Run out":
+									case "Stumped":
+										echo $wicket->dismissal->name . ' (' . $tookWicket->player->last_name . ')';
+										break;
+									case "Bowled":
+										break;
+									case "Caught":
+										echo 'c ' . $tookWicket->player->last_name;
+										break;
+									case "Hit the ball twice":
+									case "Retired":
+									case "Handled the ball":
+									case "Obstructing the field":
+									case "Timed out":
+										echo strtolower($wicket->dismissal->name);
+										break;
+									case "Leg before":
+										echo "lbw";
+										break;
+								}
 							}
+						} else {
+							echo 'Not out';
 						}
-					} else {
-						echo 'Not out';
-					}
-				?></td>
-				<td><?php
-					if ($wicket && !$cnb) {
-						echo "b " . $bowledWicket->player->last_name;
-					}
-				?></td>
-				<td><?php echo !empty($batting->runs)? $batting->runs : 0;?></td>
-				<td><?php echo !empty($batting->balls)? $batting->balls : 0;?></td>
-				<td><?php echo !empty($batting->strike_rate)? $batting->strike_rate : 0;?></td>
-				<td><?php echo !empty($batting->fours)? $batting->fours : 0;?></td>
-				<td><?php echo !empty($batting->sixes)? $batting->sixes : 0;?></td>
+					?></td>
+					<td><?php
+						if (!empty($wicket) && !$cnb) {
+							echo "b " . $bowledWicket->player->last_name;
+						}
+					?></td>
+				<?php
+				}
+				?>
+				<td><?php echo !empty($batting->runs) ? $batting->runs : 0; ?></td>
+				<td><?php echo !empty($batting->balls) ? $batting->balls : 0; ?></td>
+				<td><?php echo !empty($batting->strike_rate) ? $batting->strike_rate : 0; ?></td>
+				<td><?php echo !empty($batting->fours) ? $batting->fours : 0; ?></td>
+				<td><?php echo !empty($batting->sixes) ? $batting->sixes : 0; ?></td>
 			</tr>
 		<?php endforeach; ?>
 		<tr>
