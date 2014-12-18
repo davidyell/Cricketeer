@@ -31,8 +31,8 @@
 		echo $this->Form->input('photo_dir', ['type' => 'hidden']);
 		echo $this->Form->input('number');
 		echo $this->Form->input('nationality');
-		echo $this->Form->input('bats');
-		echo $this->Form->input('bowls');
+		echo $this->Form->input('batting_style_id');
+		echo $this->Form->input('bowling_style_id');
 		echo $this->Form->input('player_specialisation_id', ['options' => $playerSpecialisations]);
 		echo $this->Form->input('club_id', ['options' => $clubs]);
 	?>
