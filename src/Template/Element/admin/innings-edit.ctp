@@ -80,7 +80,7 @@
 					echo $this->Html->link('Add wicket', '#add-wicket', ['class' => 'btn btn-primary']);
 				}
 
-				echo $this->Html->link('Did not bat', ['controller' => 'batsmen', 'action' => 'delete', $batting[key($batting)]->id], ['class' => 'btn btn-danger']);
+				echo $this->Html->link('Did not bat', ['controller' => 'batsmen', 'action' => 'delete', $batting[key($batting)]->id], ['class' => 'btn btn-danger dnb']);
 				echo "</div>";
 
 				echo "<div class='clearfix'><!-- blank --></div>";

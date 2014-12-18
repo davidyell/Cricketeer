@@ -110,4 +110,14 @@ $(function () {
         });
     }
 
+// Remove batsmen
+    $('a.dnb').click(function (e) {
+        e.preventDefault();
+        var link = $(this);
+
+        if (confirm('Are you sure? This will delete this batting record.')) {
+            window.location= $(link).attr('href');
+        }
+    });
+
 });
