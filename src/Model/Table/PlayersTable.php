@@ -62,6 +62,12 @@ class PlayersTable extends Table
         $this->hasMany('Wickets', [
             'foreignKey' => 'bowler_player_id'
         ]);
+        $this->belongsTo('BattingStyles', [
+            'foreignKey' => 'batting_style_id'
+        ]);
+        $this->belongsTo('BowlingStyles', [
+            'foreignKey' => 'bowling_style_id'
+        ]);
     }
 
     /**

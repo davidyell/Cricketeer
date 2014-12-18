@@ -34,7 +34,15 @@ class PlayersController extends AppController
     public function view($id = null)
     {
         $player = $this->Players->get($id, [
-            'contain' => ['PlayerSpecialisations', 'Clubs', 'Batsmen', 'Bowlers', 'Squads']
+            'contain' => [
+                'PlayerSpecialisations',
+                'Clubs',
+                'Batsmen',
+                'Bowlers',
+                'Squads',
+                'BattingStyles',
+                'BowlingStyles'
+            ]
         ]);
         $this->set('player', $player);
     }
@@ -57,7 +65,9 @@ class PlayersController extends AppController
         }
         $playerSpecialisations = $this->Players->PlayerSpecialisations->find('list');
         $clubs = $this->Players->Clubs->find('list');
-        $this->set(compact('player', 'playerSpecialisations', 'clubs'));
+        $battingStyles = $this->Players->BattingStyles->find('list');
+        $bowlingStyles = $this->Players->BowlingStyles->find('list');
+        $this->set(compact('player', 'playerSpecialisations', 'clubs', 'battingStyles', 'bowlingStyles'));
     }
 
     /**
@@ -83,7 +93,9 @@ class PlayersController extends AppController
         }
         $playerSpecialisations = $this->Players->PlayerSpecialisations->find('list');
         $clubs = $this->Players->Clubs->find('list');
-        $this->set(compact('player', 'playerSpecialisations', 'clubs'));
+        $battingStyles = $this->Players->BattingStyles->find('list');
+        $bowlingStyles = $this->Players->BowlingStyles->find('list');
+        $this->set(compact('player', 'playerSpecialisations', 'clubs', 'battingStyles', 'bowlingStyles'));
     }
 
     /**
