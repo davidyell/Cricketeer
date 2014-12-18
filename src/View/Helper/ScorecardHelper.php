@@ -45,16 +45,7 @@ class ScorecardHelper extends Helper
                     ->match(['team_id' => $match->teams[$team]['id']])
                     ->toArray();
 
-                if ($type === 'edit') {
-                    $opposition = [];
-                    foreach ($match->teams[$opponent]['squads'] as $squad) {
-                        $opposition[$squad->player_id] = $squad->player->get('FullName')
-                            . " ({$squad->player->player_specialisation->name})";
-                    }
-                } else {
-                    $opposition = $match->teams[$opponent]['squads'];
-                }
-
+                $opposition = $match->teams[$opponent]['squads'];
 
                 if (is_array($teamsInnings) && !empty($teamsInnings)) {
                     $teamsInnings = $teamsInnings[key($teamsInnings)];
@@ -107,15 +98,7 @@ class ScorecardHelper extends Helper
                     ->match(['team_id' => $match->teams[$team]['id']])
                     ->toArray();
 
-                if ($type === 'edit') {
-                    $opposition = [];
-                    foreach ($match->teams[$opponent]['squads'] as $squad) {
-                        $opposition[$squad->player_id] = $squad->player->get('FullName')
-                            . " ({$squad->player->player_specialisation->name})";
-                    }
-                } else {
-                    $opposition = $match->teams[$opponent]['squads'];
-                }
+                $opposition = $match->teams[$opponent]['squads'];
 
                 if (is_array($teamsInnings) && !empty($teamsInnings)) {
                     $teamsInnings = $teamsInnings[key($teamsInnings)];

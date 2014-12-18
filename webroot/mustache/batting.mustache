@@ -1,0 +1,18 @@
+<div class="batting-figures">
+    <div class="runs-input">
+        <div class="form-group number required">
+            Runs <input class="form-control" type="number" name="innings[{{inningNum}}][batsmen][{{i}}][runs]" required="required" id="innings-{{inningNum}}-batsmen-{{i}}-runs" value="{{runs}}">
+        </div>
+    </div>
+    <div class="form-group number required">
+        Balls <input class="form-control" type="number" name="innings[{{inningNum}}][batsmen][{{i}}][balls]" required="required" id="innings-{{inningNum}}-batsmen-{{i}}-balls" value="{{balls}}">
+    </div>
+    <div class="form-group number required">
+        Fours <input class="form-control" type="number" name="innings[{{inningNum}}][batsmen][{{i}}][fours]" required="required" id="innings-{{inningNum}}-batsmen-{{i}}-fours" value="{{fours}}">
+    </div>
+    <div class="form-group number required">
+        Sixes <input class="form-control" type="number" name="innings[{{inningNum}}][batsmen][{{i}}][sixes]" required="required" id="innings-{{inningNum}}-batsmen-{{i}}-sixes" value="{{sixes}}">
+    </div>
+
+    <a href="/admin/batsmen/delete/{{batsmanId}}" class="btn btn-danger dnb">Did not bat</a>
+</div>

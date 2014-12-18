@@ -165,7 +165,7 @@ class MatchesController extends AppController
 
         $venues = $this->Matches->Venues->find('list');
         $formats = $this->Matches->Formats->find('list');
-        $dismissals = $this->Matches->Innings->Wickets->Dismissals->find('list');
+        $dismissals = $this->Matches->Innings->Wickets->Dismissals->find();
         $inningsTypes = $this->Matches->Innings->InningsTypes->find();
         $this->set(compact('match', 'venues', 'formats', 'dismissals', 'inningsTypes'));
     }

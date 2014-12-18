@@ -1,0 +1,41 @@
+{{#wicketId}}
+    <input class="form-control" type="hidden" name="innings[{{inningNum}}][wickets][{{i}}][id]" id="innings-{{inningNum}}-wickets-9-id" value="{{wicketId}}">
+{{/wicketId}}
+<input class="form-control" type="hidden" name="innings[{{inningNum}}][wickets][{{i}}][lost_wicket_player_id]" id="innings-{{inningNum}}-wickets-{{i}}-lost-wicket-player-id" value="{{lostWicketPlayerId}}">
+
+<div class="form-group select">
+    Took the wicket
+    <select class="form-control" name="innings[{{inningNum}}][wickets][{{i}}][took_wicket_player_id]" id="innings-{{inningNum}}-wickets-{{i}}-took-wicket-player-id">
+        <option value="">Select player</option>
+        {{#opposition}}
+            <option value="{{player.id}}">{{player.first_name}} {{player.last_name}} ({{player.player_specialisation.name}})</option>
+        {{/opposition}}
+    </select>
+</div>
+
+<div class="form-group select">
+    Bowler
+    <select class="form-control" name="innings[{{inningNum}}][wickets][{{i}}][bowler_player_id]" id="innings-{{inningNum}}-wickets-{{i}}-bowler-player-id">
+        <option value="">Select player</option>
+        {{#opposition}}
+            <option value="{{player.id}}">{{player.first_name}} {{player.last_name}}</option>
+        {{/opposition}}
+    </select>
+</div>
+
+<div class="clearfix"><!-- blank --></div>
+
+<div class="form-group select">
+    Dismissal
+    <select class="form-control" name="innings[{{inningNum}}][wickets][{{i}}][dismissal_id]" id="innings-{{inningNum}}-wickets-{{i}}-dismissal-id">
+        {{#dismissals}}
+            <option value="{{id}}" {{#dismissalValue}}selected{{/dismissalValue}}>{{name}}</option>
+        {{/dismissals}}
+    </select>
+</div>
+
+<div class="form-group text">
+    Fall Of Wicket<input class="form-control" type="text" name="innings[{{inningNum}}][wickets][{{i}}][fall_of_wicket]" maxlength="255" id="innings-{{inningNum}}-wickets-{{i}}-fall-of-wicket" value="{{fallOfWicket}}">
+</div>
+
+<a href="/admin/wickets/delete/{{wicketId}}" class="btn btn-danger" title="Delete this wicket">Not out</a>
