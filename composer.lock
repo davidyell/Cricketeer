@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "24faab9aaaebbd7ff9db83efe344031d",
+    "hash": "55dc934f547eddad2843fed8712cc5ca",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "5cdc7c0eef29b101f2f0ace1d6d3debcfe16a4f0"
+                "reference": "1c4aa96f9887217a8d551116d234ddc1a597eb7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/5cdc7c0eef29b101f2f0ace1d6d3debcfe16a4f0",
-                "reference": "5cdc7c0eef29b101f2f0ace1d6d3debcfe16a4f0",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/1c4aa96f9887217a8d551116d234ddc1a597eb7d",
+                "reference": "1c4aa96f9887217a8d551116d234ddc1a597eb7d",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-12-15 17:56:54"
+            "time": "2014-12-18 14:45:27"
         },
         {
             "name": "cakephp/debug_kit",
@@ -538,6 +538,51 @@
                 "php mobile detect"
             ],
             "time": "2014-11-23 13:08:17"
+        },
+        {
+            "name": "mustache/mustache",
+            "version": "v2.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobthecow/mustache.php.git",
+                "reference": "fdf41dd673dc99b41d60992470dbae94ae0b6ba1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/fdf41dd673dc99b41d60992470dbae94ae0b6ba1",
+                "reference": "fdf41dd673dc99b41d60992470dbae94ae0b6ba1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mustache": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Hileman",
+                    "email": "justin@justinhileman.info",
+                    "homepage": "http://justinhileman.com"
+                }
+            ],
+            "description": "A Mustache implementation in PHP.",
+            "homepage": "https://github.com/bobthecow/mustache.php",
+            "keywords": [
+                "mustache",
+                "templating"
+            ],
+            "time": "2014-08-26 19:50:10"
         },
         {
             "name": "nesbot/carbon",
