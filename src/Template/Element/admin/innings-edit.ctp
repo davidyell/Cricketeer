@@ -78,13 +78,42 @@
                     $wicket = collection($teamsInnings->wickets)->match(['lost_wicket_player_id' => $squad->player_id])->toArray();
                 }
 
+                $opposition = collection($opposition);
+                $tookWicketPlayers = $opposition->map(function ($e) { return clone $e; })->toArray();
+                $bowlers = $opposition->map(function ($e) { return clone $e; })->toArray();
+
+                if (isset($wicket[key($wicket)]['took_wicket_player_id'])) {
+                    foreach ($tookWicketPlayers as $k => $squad) {
+                        if ($squad->player_id == $wicket[key($wicket)]['took_wicket_player_id']) {
+                            $squad->tookWicket = true;
+                        }
+                    }
+                }
+
+                if (isset($wicket[key($wicket)]['bowler_player_id'])) {
+                    foreach ($bowlers as $k => $squad) {
+                        if ($squad->player_id == $wicket[key($wicket)]['bowler_player_id']) {
+                            $squad->bowled = true;
+                        }
+                    }
+                }
+
+                if (isset($wicket[key($wicket)]['dismissal_id'])) {
+                    $dismissals->each(function ($dismissal) use ($wicket) {
+                        if ($dismissal->id == $wicket[key($wicket)]['dismissal_id']) {
+                            $dismissal->active = true;
+                        }
+                    });
+                }
+
                 echo $m->render('wicket.mustache', [
                     'wicketId' => $wicket[key($wicket)]['id'],
                     'inningNum' => $inningNum,
                     'i' => $i,
                     'lostWicketPlayerId' => $squad->player->id,
                     'fallOfWicket' => (isset($wicket[key($wicket)]['fall_of_wicket'])) ? $wicket[key($wicket)]['fall_of_wicket'] : null,
-                    'opposition' => $opposition,
+                    'bowler' => $bowlers,
+                    'wicketTaker' => $tookWicketPlayers,
                     'dismissals' => $dismissals,
                     'dismissalValue' => (isset($wicket[key($wicket)]['dismissal_id'])) ? $wicket[key($wicket)]['dismissal_id'] : null
                 ]);

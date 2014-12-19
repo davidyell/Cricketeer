@@ -7,9 +7,9 @@
     Took the wicket
     <select class="form-control" name="innings[{{inningNum}}][wickets][{{i}}][took_wicket_player_id]" id="innings-{{inningNum}}-wickets-{{i}}-took-wicket-player-id">
         <option value="">Select player</option>
-        {{#opposition}}
-            <option value="{{player.id}}">{{player.first_name}} {{player.last_name}} ({{player.player_specialisation.name}})</option>
-        {{/opposition}}
+        {{#wicketTaker}}
+            <option value="{{player.id}}" {{#tookWicket}}selected="selected"{{/tookWicket}}>{{player.first_name}} {{player.last_name}} ({{player.player_specialisation.name}})</option>
+        {{/wicketTaker}}
     </select>
 </div>
 
@@ -17,9 +17,9 @@
     Bowler
     <select class="form-control" name="innings[{{inningNum}}][wickets][{{i}}][bowler_player_id]" id="innings-{{inningNum}}-wickets-{{i}}-bowler-player-id">
         <option value="">Select player</option>
-        {{#opposition}}
-            <option value="{{player.id}}">{{player.first_name}} {{player.last_name}}</option>
-        {{/opposition}}
+        {{#bowler}}
+            <option value="{{player.id}}" {{#bowled}}selected="selected"{{/bowled}}>{{player.first_name}} {{player.last_name}} ({{player.player_specialisation.name}})</option>
+        {{/bowler}}
     </select>
 </div>
 
@@ -29,7 +29,7 @@
     Dismissal
     <select class="form-control" name="innings[{{inningNum}}][wickets][{{i}}][dismissal_id]" id="innings-{{inningNum}}-wickets-{{i}}-dismissal-id">
         {{#dismissals}}
-            <option value="{{id}}" {{#dismissalValue}}selected{{/dismissalValue}}>{{name}}</option>
+            <option value="{{id}}" {{#active}}selected="selected"{{/active}}>{{name}}</option>
         {{/dismissals}}
     </select>
 </div>
