@@ -35,7 +35,7 @@ class Player extends Entity
         $name = $this->_getFullName();
 
         if ($this->has('player_specialisation')) {
-            $name .= "(" . $this->_properties['player_specialisation']['name'] . ")";
+            $name .= " (" . $this->_properties['player_specialisation']['name'] . ")";
         }
 
         return $name;
