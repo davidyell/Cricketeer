@@ -65,6 +65,8 @@
                         'sixes' => isset($batting[key($batting)]->sixes) ? $batting[key($batting)]->sixes : 0,
                         'batsmanId' => $batting[key($batting)]->id
                     ]);
+                } else {
+                    echo $this->Html->link('Add batting figures', '#batting-figures', ['class' => 'btn btn-primary add-batting-figures']);
                 }
                 ?>
             </div>

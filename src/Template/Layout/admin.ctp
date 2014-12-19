@@ -46,6 +46,7 @@ echo $this->Html->script([
 	'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', 
 	'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js',
 	'jquery-scrolltofixed-min',
+	'mustache.js-0.8.2/mustache.js',
 	'common',
 	'admin'
 ]);

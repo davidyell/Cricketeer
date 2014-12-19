@@ -14,5 +14,7 @@
         Sixes <input class="form-control" type="number" name="innings[{{inningNum}}][batsmen][{{i}}][sixes]" required="required" id="innings-{{inningNum}}-batsmen-{{i}}-sixes" value="{{sixes}}">
     </div>
 
-    <a href="/admin/batsmen/delete/{{batsmanId}}" class="btn btn-danger dnb">Did not bat</a>
+    {{#batsmanId}}
+        <a href="/admin/batsmen/delete/{{batsmanId}}" class="btn btn-danger dnb">Did not bat</a>
+    {{/batsmanId}}
 </div>
