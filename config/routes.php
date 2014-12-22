@@ -22,6 +22,8 @@ use Cake\Core\Plugin;
 use Cake\Routing\Router;
 
 Router::prefix('admin', function($routes) {
+	$routes->extensions(['json']);
+
 	$routes->connect('/:controller', ['action' => 'index']);
 	$routes->connect('/:controller/:action/*');
 });

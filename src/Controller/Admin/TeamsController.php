@@ -12,6 +12,12 @@ use Cake\Collection\Collection;
 class TeamsController extends AppController
 {
 
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+    }
+
     /**
      * Index method
      *
@@ -122,11 +128,15 @@ class TeamsController extends AppController
 
     /**
      * Find an opposition team in a match given the 'home' side.
-     *
-     * @param $homeTeamId
      */
-    public function opposition($homeTeamId)
+    public function opposition()
     {
+        if (!$this->request->is('ajax') || empty($this->request->query['team'])) {
+            return $this->render(false);
+        }
+
+        $homeTeamId = $this->request->query['team'];
+
         $homeTeam = $this->Teams->get($homeTeamId);
         $match = $this->Teams->Matches->get($homeTeam->match_id);
 
@@ -151,9 +161,7 @@ class TeamsController extends AppController
             return $entity->player->get('FullDetail');
         });
 
-        var_dump($result->toArray());
-
-//        var_dump($opposition->toArray());
-        exit;
+        $this->set('opposition', $result);
+        $this->set('_serialize', ['opposition']);
     }
 }
