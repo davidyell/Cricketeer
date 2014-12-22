@@ -2,8 +2,7 @@
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
-use Cake\Datasource\ResultSetInterface;
-use Cake\ORM\Query;
+use Cake\Collection\Collection;
 
 /**
  * Teams Controller
@@ -106,7 +105,7 @@ class TeamsController extends AppController
      * Delete method
      *
      * @param string $id
-     * @return void
+     * @return \Cake\Controller\Controller::redirect
      * @throws \Cake\Network\Exception\NotFoundException
      */
     public function delete($id = null)
@@ -128,13 +127,8 @@ class TeamsController extends AppController
      */
     public function opposition($homeTeamId)
     {
-        $homeTeam = $this->Teams->find()
-            ->where(['id' => $homeTeamId])
-            ->first();
-
-        $match = $this->Teams->Matches->find()
-            ->where(['id' => $homeTeam->match_id])
-            ->first();
+        $homeTeam = $this->Teams->get($homeTeamId);
+        $match = $this->Teams->Matches->get($homeTeam->match_id);
 
         /* @var \Cake\ORM\Query $opposition */
         $opposition = $this->Teams->find()
@@ -148,15 +142,18 @@ class TeamsController extends AppController
             ->where([
                 'match_id' => $match->id,
                 'id !=' => $homeTeam->id
-            ]);
-//            ->first();
+            ])
+            ->first();
 
-        $opposition->formatResults(function ($results) {
-//            var_dump(get_class($results));exit;
-            return collection($results->squads[0])->combine('player.id', 'player.full_detail');
+
+        $opposition = new Collection($opposition->squads);
+        $result = $opposition->combine('player_id', function ($entity) {
+            return $entity->player->get('FullDetail');
         });
 
-        var_dump($opposition->toArray());
+        var_dump($result->toArray());
+
+//        var_dump($opposition->toArray());
         exit;
     }
 }
