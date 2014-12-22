@@ -2,6 +2,8 @@
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\Datasource\ResultSetInterface;
+use Cake\ORM\Query;
 
 /**
  * Teams Controller
@@ -117,5 +119,44 @@ class TeamsController extends AppController
             $this->Flash->error('The team could not be deleted. Please, try again.');
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Find an opposition team in a match given the 'home' side.
+     *
+     * @param $homeTeamId
+     */
+    public function opposition($homeTeamId)
+    {
+        $homeTeam = $this->Teams->find()
+            ->where(['id' => $homeTeamId])
+            ->first();
+
+        $match = $this->Teams->Matches->find()
+            ->where(['id' => $homeTeam->match_id])
+            ->first();
+
+        /* @var \Cake\ORM\Query $opposition */
+        $opposition = $this->Teams->find()
+            ->contain([
+                'Squads' => [
+                    'Players' => [
+                        'PlayerSpecialisations'
+                    ]
+                ]
+            ])
+            ->where([
+                'match_id' => $match->id,
+                'id !=' => $homeTeam->id
+            ]);
+//            ->first();
+
+        $opposition->formatResults(function ($results) {
+//            var_dump(get_class($results));exit;
+            return collection($results->squads[0])->combine('player.id', 'player.full_detail');
+        });
+
+        var_dump($opposition->toArray());
+        exit;
     }
 }
