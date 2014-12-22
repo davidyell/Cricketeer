@@ -39,5 +39,8 @@
 </div>
 
 {{#wicketId}}
-    <a href="/admin/wickets/delete/{{wicketId}}" class="btn btn-danger" title="Delete this wicket">Not out</a>
+    <a href="/admin/wickets/delete/{{wicketId}}" class="btn btn-danger not-out" title="Delete this wicket">Not out</a>
 {{/wicketId}}
+{{#dynamicWicket}}
+    <a href="#not-out" class="btn btn-danger not-out">Not out</a>
+{{/dynamicWicket}}

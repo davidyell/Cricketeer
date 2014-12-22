@@ -3,6 +3,14 @@
  */
 $(function () {
 
+// Global ajax loading
+    $(document).ajaxStart(function () {
+        $('#loading').show();
+    });
+    $(document).ajaxStop(function () {
+        $('#loading').hide();
+    });
+
 // Add another buttons on the score card
     $('a.add[data-action=add-bowler]').click(function (f) {
         f.preventDefault();
@@ -127,7 +135,8 @@ $(function () {
                             'bowler': opposition.opposition.squads,
                             'wicketTaker': opposition.opposition.squads,
                             'dismissals': dismissals.dismissals,
-                            'dismissalValue': null
+                            'dismissalValue': null,
+                            'dynamicWicket': true
                         });
                         $(div).siblings('div.wicket').html(wicket);
                     });
@@ -137,4 +146,16 @@ $(function () {
         );
     });
 
+// Not out batsman
+
+// Deleting batsman and wickets
+    $('form .batsman').on('click', 'a.dnb', function (e) {
+        e.preventDefault();
+        alert('Should ajax off to delete batsman record and related wicket if there is one.');
+    });
+
+    $('form .batsman').on('click', 'a.not-out', function (e) {
+        e.preventDefault();
+        alert('Should ajax off to delete wicket if there is one. Unless there is no href, then its dynamic and can be hidden.');
+    });
 });

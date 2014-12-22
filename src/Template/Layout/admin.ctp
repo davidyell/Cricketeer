@@ -40,7 +40,11 @@
 			</div>
 		</footer>
 	</div>
-	
+
+	<div id="loading" style="display:none">
+		<?php echo $this->Html->image('loading.gif', ['alt' => 'Loading..']);?><br>
+		Loading...
+	</div>
 <?php
 echo $this->Html->script([
 	'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', 

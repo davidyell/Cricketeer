@@ -30,6 +30,18 @@ footer {
 	text-align: center;
 }
 
+#loading {
+  width: 150px;
+  padding: 15px;
+  position: fixed;
+  top: 50%;
+  left: 46%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
 /** Specific views **/
 div.view {
 	h6.subheader {
