@@ -11,6 +11,11 @@ use App\Controller\AppController;
 class DismissalsController extends AppController
 {
 
+    public function initialize()
+    {
+        $this->loadComponent('RequestHandler');
+    }
+
     /**
      * Index method
      *
@@ -96,5 +101,20 @@ class DismissalsController extends AppController
             $this->Flash->error('The dismissal could not be deleted. Please, try again.');
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Ajax method to return a json list of dismissals
+     *
+     * @return \Cake\Network\Response
+     */
+    public function get_list() {
+        if (!$this->request->is('ajax')) {
+            return $this->render(false);
+        }
+
+        $dismissals = $this->Dismissals->find();
+        $this->set('dismissals', $dismissals);
+        $this->set('_serialize', ['dismissals']);
     }
 }

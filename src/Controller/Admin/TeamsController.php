@@ -155,13 +155,7 @@ class TeamsController extends AppController
             ])
             ->first();
 
-
-        $opposition = new Collection($opposition->squads);
-        $result = $opposition->combine('player_id', function ($entity) {
-            return $entity->player->get('FullDetail');
-        });
-
-        $this->set('opposition', $result);
+        $this->set('opposition', $opposition);
         $this->set('_serialize', ['opposition']);
     }
 }

@@ -38,4 +38,6 @@
     Fall Of Wicket<input class="form-control" type="text" name="innings[{{inningNum}}][wickets][{{i}}][fall_of_wicket]" maxlength="255" id="innings-{{inningNum}}-wickets-{{i}}-fall-of-wicket" value="{{fallOfWicket}}">
 </div>
 
-<a href="/admin/wickets/delete/{{wicketId}}" class="btn btn-danger" title="Delete this wicket">Not out</a>
+{{#wicketId}}
+    <a href="/admin/wickets/delete/{{wicketId}}" class="btn btn-danger" title="Delete this wicket">Not out</a>
+{{/wicketId}}

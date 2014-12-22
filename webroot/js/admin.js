@@ -39,35 +39,11 @@ $(function () {
         $(this).before(div);
     });
 
-// Add a wicket
-    $('a[href=#add-wicket]').click(function (e) {
-        e.preventDefault();
-        var target = $(this).parent('div.wicket'),
-            num = $(this).parents('div.batsman').data('batsman'),
-            batting = $(this).parents('fieldset.batting'),
-            wicket = $(batting).find('div.batsman.one div.wicket').clone();
-
-        $(wicket).html($(wicket).html().replace(/([a-z]+\[[0-9]+\]\[[a-z]+\])\[([0-9]+)\]/gi, '$1[' + num + ']'));
-        $(wicket).html($(wicket).html().replace(/([a-z]+-[0-9]+-[a-z]+-)([0-9]+)/gi, '$1' + num));
-        $(wicket).find('a.btn.btn-danger').remove();
-        $(wicket).append("<a href='#notout' class='btn btn-primary' title='Hide this wicket as batsman not out'>Not out</a>");
-        $(wicket).find('option:selected').removeAttr('selected');
-
-        $(target).html($(wicket).html());
-    });
-
 // Remove added bowlers
     $('fieldset.bowling, fieldset.wickets').on('click', 'span.glyphicon.glyphicon-trash', function (e) {
         e.preventDefault();
         $(this).parent('div').remove();
     });
-
-// Remove wickets for not out batsmen
-    $('div.wicket').on('click', 'a[href=#notout]', function (e) {
-        e.preventDefault();
-        $(this).parent('div.wicket').html('<a href="#add-wicket" class="btn btn-primary">Add wicket</a>');
-    });
-
 
 // Count up the runs
     $('div.innings').each(function (i, e) {
@@ -110,14 +86,55 @@ $(function () {
         });
     }
 
-// Remove batsmen
-    $('a.dnb').click(function (e) {
+// Add batting
+    $('.batting-figures').on('click', 'a.add-batting-figures', function (e) {
         e.preventDefault();
-        var link = $(this);
 
-        if (confirm('Are you sure? This will delete this batting record.')) {
-            window.location= $(link).attr('href');
-        }
+        var div = $(this).parent('div.batting-figures'),
+            batting,
+            wicket,
+            inningNum = $(div).parents('div.innings').data('inningnum'),
+            i = $(div).parents('div.batsman').data('batsman'),
+            opposition;
+
+        $.get('/mustache/batting.mustache', function (template) {
+            batting = Mustache.render(template, {
+                'inningNum': inningNum,
+                'i': i,
+                'runs': 0,
+                'balls': 0,
+                'fours': 0,
+                'sixes': 0,
+                'batsmanId': null
+            });
+            $(div).html(batting);
+        });
+
+        $.getJSON('/admin/teams/opposition.json', {
+                team: $('#innings-' + inningNum + '-team-id').val()
+            },
+            function (opposition, status) {
+
+                $.getJSON('/admin/dismissals/get_list.json', function (dismissals, status) {
+
+                    $.get('/mustache/wicket.mustache', function (template) {
+                        wicket = Mustache.render(template, {
+                            'wicketId': null,
+                            'inningNum': inningNum,
+                            'i': i,
+                            'lostWicketPlayerId': $(div).siblings('#innings-' + inningNum + '-batsmen-' + i + '-player-id'),
+                            'fallOfWicket': null,
+                            'bowler': opposition.opposition.squads,
+                            'wicketTaker': opposition.opposition.squads,
+                            'dismissals': dismissals.dismissals,
+                            'dismissalValue': null
+                        });
+                        $(div).siblings('div.wicket').html(wicket);
+                    });
+
+                });
+            }
+        );
     });
 
 });
