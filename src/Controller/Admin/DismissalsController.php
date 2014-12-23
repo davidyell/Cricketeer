@@ -11,11 +11,6 @@ use App\Controller\AppController;
 class DismissalsController extends AppController
 {
 
-    public function initialize()
-    {
-        $this->loadComponent('RequestHandler');
-    }
-
     /**
      * Index method
      *

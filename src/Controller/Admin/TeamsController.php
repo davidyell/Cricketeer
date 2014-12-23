@@ -12,12 +12,6 @@ use Cake\Collection\Collection;
 class TeamsController extends AppController
 {
 
-    public function initialize()
-    {
-        parent::initialize();
-        $this->loadComponent('RequestHandler');
-    }
-
     /**
      * Index method
      *

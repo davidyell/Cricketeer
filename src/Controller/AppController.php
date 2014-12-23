@@ -51,7 +51,8 @@ class AppController extends Controller
             'loginRedirect' => ['controller' => 'leagues', 'action' => 'index', 'prefix' => 'admin'],
             'loginAction' => ['controller' => 'users', 'action' => 'login', 'prefix' => false]
         ],
-        'Paginator'
+        'Paginator',
+        'RequestHandler'
     ];
 
     /**
