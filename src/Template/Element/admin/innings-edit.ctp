@@ -75,6 +75,8 @@
 
             <div class='wicket'>
                 <?php
+                $opposition = collection($opposition);
+
                 // Find the batsmans wicket
                 $wicket = [];
                 if (!empty($teamsInnings->wickets)) {
@@ -82,8 +84,6 @@
                 }
 
                 if (!empty($batting) && !empty($wicket)) {
-
-                    $opposition = collection($opposition);
 
                     // Clone the collection so that we can maintain two copies of the entity to mark as selected
                     $tookWicketPlayers = $opposition->map(function ($e) {
@@ -129,6 +129,8 @@
                         'dismissals' => $dismissals,
                         'dismissalValue' => (isset($wicket[key($wicket)]['dismissal_id'])) ? $wicket[key($wicket)]['dismissal_id'] : null
                     ]);
+                } else {
+                    echo $this->Html->link('Add wicket', '#add-wicket', ['class' => 'btn btn-primary']);
                 }
                 ?>
             </div>
