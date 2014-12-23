@@ -95,6 +95,7 @@ class BatsmenController extends AppController
      */
     public function delete($id = null)
     {
+        // TODO: Update to allow for ajax and also casade to delete wickets
         $batsman = $this->Batsmen->get($id);
         if ($this->Batsmen->delete($batsman)) {
             $this->Flash->success('The batsman has been deleted.');

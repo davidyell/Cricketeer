@@ -162,12 +162,22 @@ $(function () {
 // Deleting batsman and wickets
     $('form .batsman').on('click', 'a.dnb', function (e) {
         e.preventDefault();
+        var div = $(this);
 
         if ($(this).attr('href') == '#dnb') {
             $(this).parent('div.batting-figures').html('<a href="#batting-figures" class="btn btn-primary add-batting-figures">Add batting figures</a>').siblings('div.wicket').empty();
         } else {
-            // TODO
-            alert('Should ajax off to delete batsman record and related wicket if there is one.');
+            $.post($(this).attr('href') + '.json', function (data, status) {
+                if (status == 'success') {
+                    if ('message' in data) {
+                        alert(data.message);
+                    } else if (data.result == true) {
+                        $(div).parent('div.batting-figures').html('<a href="#batting-figures" class="btn btn-primary add-batting-figures">Add batting figures</a>');
+                    } else {
+                        alert('Could not delete wicket');
+                    }
+                }
+            });
         }
     });
 
@@ -180,13 +190,13 @@ $(function () {
         } else {
             $.post($(this).attr('href') + '.json', function (data, status) {
                 if (status == 'success') {
-                    if (data.result == true) {
+                    if ('message' in data) {
+                        alert(data.message);
+                    } else if (data.result == true) {
                         $(div).parent('div.wicket').html('<a href="#add-wicket" class="btn btn-primary">Add wicket</a>');
                     } else {
                         alert('Could not delete wicket');
                     }
-                } else if ('message' in data) {
-                    alert(data.message);
                 }
             });
         }
