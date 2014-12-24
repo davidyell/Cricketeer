@@ -16,8 +16,7 @@
     "require-dev": {
         "d11wtq/boris": "1.0.*",
         "phpunit/phpunit": "*",
-        "squizlabs/php_codesniffer": "1.5.5",
-        "cakephp/cakephp-codesniffer": "dev-master"
+        "squizlabs/php_codesniffer": "1.5.5"
     },
     "suggest": {
         "phpunit/phpunit": "Allows automated tests to be run without system-wide install.",
