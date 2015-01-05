@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b2845a71271a1bf8b383c01178919066",
+    "hash": "884d1af314d38d38432d70c850ab9dc3",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -127,16 +127,16 @@
         },
         {
             "name": "cakephp/cakephp",
-            "version": "3.0.x-dev",
+            "version": "3.0.0-RC1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "ae197572187bb4639e075652e5aedd527c727fd8"
+                "reference": "7f5d029095aa897f5c8bd71fbd1f36c25e3723c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/ae197572187bb4639e075652e5aedd527c727fd8",
-                "reference": "ae197572187bb4639e075652e5aedd527c727fd8",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/7f5d029095aa897f5c8bd71fbd1f36c25e3723c4",
+                "reference": "7f5d029095aa897f5c8bd71fbd1f36c25e3723c4",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-01-04 23:08:52"
+            "time": "2015-01-02 19:00:12"
         },
         {
             "name": "cakephp/debug_kit",
@@ -289,20 +289,20 @@
         },
         {
             "name": "davidyell/numbers_to_words",
-            "version": "dev-master",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidyell/CakePHP3-NumbersToWords.git",
-                "reference": "a65c37d6db14839cdbb23d5fea70f7f75b10fb09"
+                "reference": "5e091fbe41a4c5b1e904ce8090c5c8b56bea9235"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidyell/CakePHP3-NumbersToWords/zipball/a65c37d6db14839cdbb23d5fea70f7f75b10fb09",
-                "reference": "a65c37d6db14839cdbb23d5fea70f7f75b10fb09",
+                "url": "https://api.github.com/repos/davidyell/CakePHP3-NumbersToWords/zipball/5e091fbe41a4c5b1e904ce8090c5c8b56bea9235",
+                "reference": "5e091fbe41a4c5b1e904ce8090c5c8b56bea9235",
                 "shasum": ""
             },
             "require": {
-                "cakephp/cakephp": "3.0.*-dev",
+                "cakephp/cakephp": "3.0.*",
                 "cakephp/plugin-installer": "*"
             },
             "type": "cakephp-plugin",
@@ -333,7 +333,7 @@
                 "numbers",
                 "words"
             ],
-            "time": "2014-10-30 12:36:33"
+            "time": "2015-01-05 08:54:09"
         },
         {
             "name": "davidyell/proffer",
@@ -1572,12 +1572,17 @@
             "time": "2014-12-02 20:19:20"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "3.0.*-dev",
+            "alias_normalized": "3.0.9999999.9999999-dev",
+            "version": "3.0.0.0-RC1",
+            "package": "cakephp/cakephp"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "cakephp/cakephp": 20,
-        "cakephp/debug_kit": 20,
-        "davidyell/numbers_to_words": 20
+        "cakephp/debug_kit": 20
     },
     "prefer-stable": true,
     "platform": {

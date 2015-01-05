@@ -6,10 +6,10 @@
     "license": "MIT",
     "require": {
         "php": ">=5.4.16",
-        "cakephp/cakephp": "3.0.*-dev",
+        "cakephp/cakephp": "3.0.0-RC1 as 3.0.*-dev",
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/debug_kit": "3.0.*-dev",
-        "davidyell/numbers_to_words": "dev-master",
+        "davidyell/numbers_to_words": "0.0.2",
         "davidyell/proffer": "0.0.3",
         "mustache/mustache": "2.7.0"
     },
