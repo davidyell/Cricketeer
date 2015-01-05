@@ -36,8 +36,8 @@ Router::scope('/', function($routes) {
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, src/Template/Pages/home.ctp)...
  */
-	$routes->connect('/', ['controller' => 'contents', 'action' => 'home']);
-	$routes->redirect('/login', ['controller' => 'users', 'action' => 'login']);
+	$routes->connect('/', ['controller' => 'Contents', 'action' => 'home']);
+	$routes->redirect('/login', ['controller' => 'Users', 'action' => 'login']);
 
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
