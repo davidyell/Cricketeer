@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "55dc934f547eddad2843fed8712cc5ca",
+    "hash": "b2845a71271a1bf8b383c01178919066",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -131,19 +131,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "1c4aa96f9887217a8d551116d234ddc1a597eb7d"
+                "reference": "ae197572187bb4639e075652e5aedd527c727fd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/1c4aa96f9887217a8d551116d234ddc1a597eb7d",
-                "reference": "1c4aa96f9887217a8d551116d234ddc1a597eb7d",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/ae197572187bb4639e075652e5aedd527c727fd8",
+                "reference": "ae197572187bb4639e075652e5aedd527c727fd8",
                 "shasum": ""
             },
             "require": {
                 "aura/intl": "1.1.*",
                 "ext-intl": "*",
                 "ext-mbstring": "*",
-                "ext-mcrypt": "*",
                 "ircmaxell/password-compat": "1.0.*",
                 "nesbot/carbon": "1.13.*",
                 "php": ">=5.4.16",
@@ -153,6 +152,7 @@
                 "cakephp/cache": "self.version",
                 "cakephp/collection": "self.version",
                 "cakephp/core": "self.version",
+                "cakephp/database": "self.version",
                 "cakephp/datasource": "self.version",
                 "cakephp/event": "self.version",
                 "cakephp/log": "self.version",
@@ -160,7 +160,7 @@
                 "cakephp/validation": "self.version"
             },
             "require-dev": {
-                "cakephp/cakephp-codesniffer": "*",
+                "cakephp/cakephp-codesniffer": "dev-master",
                 "phpunit/phpunit": "*"
             },
             "type": "library",
@@ -188,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-12-18 14:45:27"
+            "time": "2015-01-04 23:08:52"
         },
         {
             "name": "cakephp/debug_kit",
@@ -196,12 +196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "0c34df3ca6fefd72e6fd08f48c4b9f55dd50ce61"
+                "reference": "c8e2e4fc52c3fd581b370c386bac68b4ea09034c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/0c34df3ca6fefd72e6fd08f48c4b9f55dd50ce61",
-                "reference": "0c34df3ca6fefd72e6fd08f48c4b9f55dd50ce61",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/c8e2e4fc52c3fd581b370c386bac68b4ea09034c",
+                "reference": "c8e2e4fc52c3fd581b370c386bac68b4ea09034c",
                 "shasum": ""
             },
             "require": {
@@ -209,6 +209,7 @@
                 "cakephp/plugin-installer": "*"
             },
             "require-dev": {
+                "cakephp/cakephp-codesniffer": "dev-master",
                 "phpunit/phpunit": "4.1.*"
             },
             "type": "cakephp-plugin",
@@ -245,7 +246,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2014-12-12 07:50:32"
+            "time": "2015-01-05 01:31:33"
         },
         {
             "name": "cakephp/plugin-installer",
@@ -671,45 +672,6 @@
     ],
     "packages-dev": [
         {
-            "name": "cakephp/cakephp-codesniffer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cakephp/cakephp-codesniffer.git",
-                "reference": "520b4125468fcd6bb2cb6aaae3858fe77b30bf3b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp-codesniffer/zipball/520b4125468fcd6bb2cb6aaae3858fe77b30bf3b",
-                "reference": "520b4125468fcd6bb2cb6aaae3858fe77b30bf3b",
-                "shasum": ""
-            },
-            "require": {
-                "squizlabs/php_codesniffer": "~1.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.1.*"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "CakePHP Community",
-                    "homepage": "https://github.com/cakephp/cakephp-codesniffer/graphs/contributors"
-                }
-            ],
-            "description": "CakePHP CodeSniffer Standards",
-            "homepage": "http://cakephp.org",
-            "keywords": [
-                "codesniffer",
-                "framework"
-            ],
-            "time": "2014-12-11 03:25:35"
-        },
-        {
             "name": "d11wtq/boris",
             "version": "v1.0.8",
             "source": {
@@ -799,16 +761,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "2.0.13",
+            "version": "2.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "0e7d2eec5554f869fa7a4ec2d21e4b37af943ea5"
+                "reference": "ca158276c1200cc27f5409a5e338486bc0b4fc94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/0e7d2eec5554f869fa7a4ec2d21e4b37af943ea5",
-                "reference": "0e7d2eec5554f869fa7a4ec2d21e4b37af943ea5",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ca158276c1200cc27f5409a5e338486bc0b4fc94",
+                "reference": "ca158276c1200cc27f5409a5e338486bc0b4fc94",
                 "shasum": ""
             },
             "require": {
@@ -860,7 +822,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-12-03 06:41:44"
+            "time": "2014-12-26 13:28:33"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1046,16 +1008,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.4.0",
+            "version": "4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0"
+                "reference": "6a5e49a86ce5e33b8d0657abe145057fc513543a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0",
-                "reference": "bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6a5e49a86ce5e33b8d0657abe145057fc513543a",
+                "reference": "6a5e49a86ce5e33b8d0657abe145057fc513543a",
                 "shasum": ""
             },
             "require": {
@@ -1113,7 +1075,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-12-05 06:49:03"
+            "time": "2014-12-28 07:57:05"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1454,16 +1416,16 @@
         },
         {
             "name": "sebastian/version",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/version.git",
-                "reference": "b6e1f0cf6b9e1ec409a0d3e2f2a5fb0998e36b43"
+                "reference": "a77d9123f8e809db3fbdea15038c27a95da4058b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/b6e1f0cf6b9e1ec409a0d3e2f2a5fb0998e36b43",
-                "reference": "b6e1f0cf6b9e1ec409a0d3e2f2a5fb0998e36b43",
+                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/a77d9123f8e809db3fbdea15038c27a95da4058b",
+                "reference": "a77d9123f8e809db3fbdea15038c27a95da4058b",
                 "shasum": ""
             },
             "type": "library",
@@ -1485,7 +1447,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2014-03-07 15:35:33"
+            "time": "2014-12-15 14:25:24"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -1615,8 +1577,7 @@
     "stability-flags": {
         "cakephp/cakephp": 20,
         "cakephp/debug_kit": 20,
-        "davidyell/numbers_to_words": 20,
-        "cakephp/cakephp-codesniffer": 20
+        "davidyell/numbers_to_words": 20
     },
     "prefer-stable": true,
     "platform": {
