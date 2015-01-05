@@ -114,6 +114,7 @@ class BowlersTable extends Table
                 ]
             ]);
         })
+        ->matching('Innings.Matches')
         ->group(['Bowlers.player_id'])
         ->order([
             'totalWickets' => 'DESC',
