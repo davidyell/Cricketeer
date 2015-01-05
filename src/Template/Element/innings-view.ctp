@@ -33,7 +33,7 @@ $opponents = new \Cake\Collection\Collection($opposition);
 			$batting = $batsmen->match(['player_id' => $squadPlayer->player->id])->first();
 			?>
 			<tr>
-				<td><?php echo $this->Html->link($squadPlayer->player->get('FullName'), ['controller' => 'players', 'action' => 'view', $squadPlayer->player->slug]);?></td>
+				<td><?php echo $this->Html->link($squadPlayer->player->get('FullName'), ['controller' => 'Players', 'action' => 'view', $squadPlayer->player->slug]);?></td>
 				<?php
 				if (empty($batting)) {
 					echo "<td>Did not bat</td><td>&nbsp;</td>";

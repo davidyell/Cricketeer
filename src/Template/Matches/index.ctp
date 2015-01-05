@@ -11,7 +11,7 @@
 		<tbody>
 			<?php foreach ($matches as $match):?>
 				<tr>
-					<td><?php echo $this->Html->link($match->get('name'), ['controller' => 'matches', 'action' => 'view', $match->get('id')]);?></td>
+					<td><?php echo $this->Html->link($match->get('name'), ['controller' => 'Matches', 'action' => 'view', $match->get('id')]);?></td>
 					<td><?php echo $match->format->get('name');?></td>
 					<td><?php echo $match->get('when_played');?></td>
 					<td><?php echo $match->venue->get('name');?></td>

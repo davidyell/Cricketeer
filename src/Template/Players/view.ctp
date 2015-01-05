@@ -14,5 +14,5 @@
 	<div class="clearfix">&nbsp;</div>
 
 	<?php echo $this->Html->image('../files/clubs/image/' . $player->club->image_dir . '/squareSmall_' . $player->club->image);?>
-	<h2><?php echo $this->Html->link($player->club->name, ['controller' => 'clubs', 'action' => 'view', $player->club->id]);?></h2>
+	<h2><?php echo $this->Html->link($player->club->name, ['controller' => 'Clubs', 'action' => 'view', $player->club->id]);?></h2>
 </div>

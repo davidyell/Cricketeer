@@ -161,7 +161,7 @@
                 echo $this->Form->input("innings.$inningNum.bowlers.$num.overs", ['type' => 'number', 'value' => $bowler->overs]);
                 echo $this->Form->input("innings.$inningNum.bowlers.$num.runs", ['type' => 'number', 'value' => $bowler->runs]);
                 echo $this->Form->input("innings.$inningNum.bowlers.$num.maidens", ['type' => 'number', 'value' => $bowler->maidens]);
-                echo $this->Html->link('Delete bowler', ['controller' => 'bowlers', 'action' => 'delete', $bowler->id], ['class' => 'btn btn-danger']);
+                echo $this->Html->link('Delete bowler', ['controller' => 'Bowlers', 'action' => 'delete', $bowler->id], ['class' => 'btn btn-danger']);
                 ?><div class='clearfix'><!-- blank --></div>
             </div><?php
         }

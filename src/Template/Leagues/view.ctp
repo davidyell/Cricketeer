@@ -1,6 +1,6 @@
 <div class="leagues view">
     <?php echo $this->Html->image('../files/leagues/image/' . $league->image_dir . '/square_' . $league->image, ['class' => 'div-logo']);?>
-    <h2><?php echo $this->Html->link($league->name, ['controller' => 'leagues', 'action' => 'view', $league->id]);?></h2>
+    <h2><?php echo $this->Html->link($league->name, ['controller' => 'Leagues', 'action' => 'view', $league->id]);?></h2>
     <?php if (!empty($league->description)) {
         echo "<p>{$league->description}</p>";
     }?>
@@ -16,7 +16,7 @@
                 <tr>
                     <td>
                         <?php echo $this->Html->image('../files/clubs/image/' . $club->image_dir . '/squareSmall_' . $club->image);?>
-                        <?php echo $this->Html->link($club->name, ['controller' => 'clubs', 'action' => 'view', $club->id]);?>
+                        <?php echo $this->Html->link($club->name, ['controller' => 'Clubs', 'action' => 'view', $club->id]);?>
                     </td>
                 </tr>
             <?php endforeach;?>
