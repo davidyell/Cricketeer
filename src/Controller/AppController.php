@@ -56,17 +56,6 @@ class AppController extends Controller
     ];
 
     /**
-     * Load the helpers
-     *
-     * @var array
-     */
-    public $helpers = [
-        'Form' => [
-            'templates' => 'twbs3.php'
-        ]
-    ];
-
-    /**
      * beforeFilter method
      *
      * @param Event $event

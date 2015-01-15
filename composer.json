@@ -6,17 +6,18 @@
     "license": "MIT",
     "require": {
         "php": ">=5.4.16",
-        "cakephp/cakephp": "3.0.0-RC1 as 3.0.*-dev",
+        "cakephp/cakephp": "3.0.*-dev",
+        "cakephp/migrations": "dev-master",
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/debug_kit": "3.0.*-dev",
         "davidyell/numbers_to_words": "0.0.2",
-        "davidyell/proffer": "0.0.3",
+        "davidyell/proffer": "0.0.4",
         "mustache/mustache": "2.7.0"
     },
     "require-dev": {
         "d11wtq/boris": "1.0.*",
         "phpunit/phpunit": "*",
-        "squizlabs/php_codesniffer": "1.5.5"
+        "squizlabs/php_codesniffer": "2.1.0"
     },
     "suggest": {
         "phpunit/phpunit": "Allows automated tests to be run without system-wide install.",

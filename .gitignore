@@ -2,7 +2,7 @@
 /config/app.php
 /tmp/*
 /logs/*
-/plugins
+
 .idea/*
 webroot/files
 webroot/.sass-cache

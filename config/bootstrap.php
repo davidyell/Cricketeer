@@ -33,6 +33,11 @@ require ROOT . DS . 'vendor' . DS . 'autoload.php';
  */
 require CORE_PATH . 'config' . DS . 'bootstrap.php';
 
+// You can remove this if you are confident you have intl installed.
+if (!extension_loaded('intl')) {
+	trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
+}
+
 use Cake\Cache\Cache;
 use Cake\Console\ConsoleErrorHandler;
 use Cake\Core\App;
@@ -58,15 +63,15 @@ use Cake\Utility\Security;
  */
 try {
 	Configure::config('default', new PhpConfig());
-	Configure::load('app.php', 'default', false);
+	Configure::load('app', 'default', false);
 } catch (\Exception $e) {
-	die('Unable to load config/app.php. Create it by copying config/app.default.php to config/app.php.');
+	die($e->getMessage() . "\n");
 }
 
 // Load an environment local configuration file.
-// You can use this file to provide local overrides to your
+// You can use a file like app_local.php to provide local overrides to your
 // shared configuration.
-//Configure::load('app_local.php', 'default');
+//Configure::load('app_local', 'default');
 
 // When debug = false the metadata cache should last
 // for a very very long time, as we don't want
@@ -91,7 +96,7 @@ mb_internal_encoding(Configure::read('App.encoding'));
  * Set the default locale. This controls how dates, number and currency is
  * formatted and sets the default language to use for translations.
  */
-ini_set('intl.default_locale', 'en_GB');
+ini_set('intl.default_locale', 'en_US');
 
 /**
  * Register application error and exception handlers.
@@ -135,24 +140,33 @@ Log::config(Configure::consume('Log'));
 Security::salt(Configure::consume('Security.salt'));
 
 /**
+ * The default crypto extension in 3.0 is OpenSSL.
+ * If you are migrating from 2.x uncomment this code to
+ * use a more compatible Mcrypt based implementation
+ */
+// Security::engine(new \Cake\Utility\Crypto\Mcrypt());
+
+/**
  * Setup detectors for mobile and tablet.
  */
-Request::addDetector('mobile', function($request) {
+Request::addDetector('mobile', function ($request) {
 	$detector = new \Detection\MobileDetect();
 	return $detector->isMobile();
 });
-Request::addDetector('tablet', function($request) {
+Request::addDetector('tablet', function ($request) {
 	$detector = new \Detection\MobileDetect();
 	return $detector->isTablet();
 });
 
 /**
- * Custom Inflector rules, can be set to correctly pluralize or singularize table, model, controller names or whatever other
- * string is passed to the inflection functions
+ * Custom Inflector rules, can be set to correctly pluralize or singularize
+ * table, model, controller names or whatever other string is passed to the
+ * inflection functions.
  *
- * Inflector::rules('singular', ['rules' => [], 'irregular' => [], 'uninflected' => []]);
- * Inflector::rules('plural', ['rules' => [], 'irregular' => [], 'uninflected' => []]);
- *
+ * Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
+ * Inflector::rules('irregular' => ['red' => 'redlings']);
+ * Inflector::rules('uninflected', ['dontinflectme']);
+ * Inflector::rules('transliteration', ['/å/' => 'aa']);
  */
 
 /**
@@ -161,18 +175,24 @@ Request::addDetector('tablet', function($request) {
  * advanced ways of loading plugins
  *
  * Plugin::loadAll(); // Loads all plugins at once
- * Plugin::load('DebugKit'); //Loads a single plugin named DebugKit
+ * Plugin::load('Migrations'); //Loads a single plugin named Migrations
  *
  */
 
-Plugin::load('DebugKit', ['bootstrap' => true]);
-Plugin::load('NumbersToWords');
+Plugin::load('Migrations');
+
+// Only try to load DebugKit in development mode
+// Debug Kit should not be installed on a production system
+if (Configure::read('debug')) {
+	Plugin::load('DebugKit', ['bootstrap' => true]);
+}
+
 Plugin::load('Proffer');
+Plugin::load('NumbersToWords');
 
 /**
  * Connect middleware/dispatcher filters.
  */
-
 DispatcherFactory::add('Asset');
 DispatcherFactory::add('Routing');
 DispatcherFactory::add('ControllerFactory');
