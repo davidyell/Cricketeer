@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "11e34a3d703c6a1fdea240321d068e04",
+    "hash": "1a5e206abbd00323626d91ff1e721b5a",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -394,16 +394,16 @@
         },
         {
             "name": "davidyell/proffer",
-            "version": "v0.0.4",
+            "version": "v0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidyell/CakePHP3-Proffer.git",
-                "reference": "0c25c94380338c397e0c3f94d054bdf5827ad2cb"
+                "reference": "a311efad2c082923468242e3e3ce5f883ecdfb05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidyell/CakePHP3-Proffer/zipball/0c25c94380338c397e0c3f94d054bdf5827ad2cb",
-                "reference": "0c25c94380338c397e0c3f94d054bdf5827ad2cb",
+                "url": "https://api.github.com/repos/davidyell/CakePHP3-Proffer/zipball/a311efad2c082923468242e3e3ce5f883ecdfb05",
+                "reference": "a311efad2c082923468242e3e3ce5f883ecdfb05",
                 "shasum": ""
             },
             "require": {
@@ -443,7 +443,7 @@
                 "image",
                 "upload"
             ],
-            "time": "2014-12-16 12:44:25"
+            "time": "2015-01-15 12:13:52"
         },
         {
             "name": "imagine/imagine",
