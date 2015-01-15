@@ -83,8 +83,11 @@ class PlayersTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'uuid'])
             ->allowEmpty('id', 'create')
+
             ->notEmpty('first_name')
+
             ->notEmpty('last_name')
+
             ->add('photo', 'proffer', [
                 'rule' => ['filesize', 2000000],
                 'provider' => 'proffer'
@@ -108,14 +111,22 @@ class PlayersTable extends Table
                 'provider' => 'proffer'
             ])
             ->allowEmpty('photo')
+
             ->allowEmpty('photo_dir')
+
             ->add('number', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('number')
+
             ->allowEmpty('nationality')
-            ->allowEmpty('bats')
+
+            ->add('bats', 'valid', ['rule' => 'uuid'])
+
             ->allowEmpty('bowls')
+            ->add('bowls', 'valid', ['rule' => 'uuid'])
+
             ->add('player_specialisation_id', 'valid', ['rule' => 'uuid'])
             ->notEmpty('player_specialisation_id')
+
             ->add('club_id', 'valid', ['rule' => 'uuid'])
             ->notEmpty('club_id');
 

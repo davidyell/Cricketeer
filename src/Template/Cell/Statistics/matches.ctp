@@ -1,8 +1,5 @@
 <?php foreach ($matches as $match):
 	if (!empty($match->innings)):
-
-
-
 	?>
 	<div class="match">
 		<table summary="Match">

@@ -142,7 +142,7 @@ class MatchesTable extends Table
                 ],
             ]
         ])
-            ->order(['when_played' => 'DESC']);
+        ->order(['when_played' => 'DESC']);
     }
 
     /**
