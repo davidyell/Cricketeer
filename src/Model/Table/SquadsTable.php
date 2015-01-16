@@ -55,11 +55,11 @@ class SquadsTable extends Table
      *
      * @param Event $event
      * @param Query $query
-     * @param array $options
+     * @param ArrayObject $options
      * @param boolean $primary
      * @return $this
      */
-    public function beforeFind(Event $event, Query $query, $options, $primary)
+    public function beforeFind(Event $event, Query $query, ArrayObject $options, $primary)
     {
         return $query->order(['position' => 'ASC']);
     }
