@@ -1,6 +1,5 @@
 <?php foreach ($matches as $match):
-	if (!empty($match->innings)):
-	?>
+	if (!empty($match->innings)): ?>
 	<div class="match">
 		<table summary="Match">
 			<tr>
@@ -37,6 +36,5 @@
 			?>
 		</table>
 	</div>
-	<?php
-	endif;
+	<?php endif;
 endforeach; ?>
