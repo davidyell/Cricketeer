@@ -88,18 +88,18 @@ $bowlers1 = new \Cake\Collection\Collection($inningsTeam2->bowlers);
 <?php if (!empty($inningsTeam1->bowlers) && !empty($inningsTeam2->bowlers)): ?>
 	<tr>
 		<td><?php
-			$bestBowling = $bowlers1->max('totalWickets');
+			$bestBowling = $bowlers0->max('totalWickets');
 			if (!empty($bestBowling)) {
-				if (isset($bestBowling->innings->wickets->player_bowled_wicket)) {
-					echo $this->Html->image('icons/cricket-ball.png', ['width' => 16]) . ' <b>' . $bestBowling->innings->wickets->player_bowled_wicket->get('FullName') . '</b> ' . $bestBowling->totalWickets . '-' . $bestBowling->runs;
+				if (isset($bestBowling->_matchingData['PlayerBowledWicket'])) {
+					echo $this->Html->image('icons/cricket-ball.png', ['width' => 16]) . ' <b>' . $bestBowling->_matchingData['PlayerBowledWicket']->get('FullName') . '</b> ' . $bestBowling->totalWickets . '-' . $bestBowling->runs;
 				}
 			}
 		?></td>
 		<td><?php
-			$bestBowling = $bowlers0->max('totalWickets');
+			$bestBowling = $bowlers1->max('totalWickets');
 			if (!empty($bestBowling)) {
-				if (isset($bestBowling->innings->wickets->player_bowled_wicket)) {
-					echo $this->Html->image('icons/cricket-ball.png', ['width' => 16]) . ' <b>' . $bestBowling->innings->wickets->player_bowled_wicket->get('FullName') . '</b> ' . $bestBowling->totalWickets . '-' . $bestBowling->runs;
+				if (isset($bestBowling->_matchingData['PlayerBowledWicket'])) {
+					echo $this->Html->image('icons/cricket-ball.png', ['width' => 16]) . ' <b>' . $bestBowling->_matchingData['PlayerBowledWicket']->get('FullName') . '</b> ' . $bestBowling->totalWickets . '-' . $bestBowling->runs;
 				}
 			}
 		?></td>
