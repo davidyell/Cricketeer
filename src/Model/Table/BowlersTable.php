@@ -106,19 +106,16 @@ class BowlersTable extends Table
             ]
         ])
         ->select(['totalWickets' => $query->func()->count('*')])
-//        ->matching('Innings.Wickets', function ($q) {
-//            return $q->where([
-//                'AND' => [
-//                    'Wickets.bowler_player_id = Bowlers.player_id',
-//                    'Wickets.innings_id = Innings.id'
-//                ]
-//            ]);
-//        })
-        ->group(['Bowlers.player_id'])
-        ->order([
-            'totalWickets' => 'DESC',
-            'economy' => 'DESC'
-        ])
+        ->matching('Innings.Wickets', function ($q) {
+            return $q->where([
+                'AND' => [
+                    'Wickets.bowler_player_id = Bowlers.player_id',
+                    'Wickets.innings_id = Innings.id'
+                ]
+            ]);
+        })
+        ->group(['Wickets.bowler_player_id', 'Innings.id'])
+        ->order(['totalWickets' => 'DESC', 'economy' => 'DESC'])
         ->autoFields(true);
     }
 
@@ -138,18 +135,18 @@ class BowlersTable extends Table
                 ]
             ]
         ])
-            ->select(['totalWickets' => $query->func()->count('*')])
-            ->matching('Innings.Wickets.PlayerBowledWicket', function ($q) {
-                return $q->where([
-                    'AND' => [
-                        'Wickets.bowler_player_id = Bowlers.player_id',
-                        'Wickets.innings_id = Innings.id'
-                    ]
-                ]);
-            })
-            ->group(['Innings.id', 'Bowlers.player_id'])
-            ->order(['totalWickets' => 'DESC'])
-            ->autoFields(true);
+        ->select(['totalWickets' => $query->func()->count('*')])
+        ->matching('Innings.Wickets.PlayerBowledWicket', function ($q) {
+            return $q->where([
+                'AND' => [
+                    'Wickets.bowler_player_id = Bowlers.player_id',
+                    'Wickets.innings_id = Innings.id'
+                ]
+            ]);
+        })
+        ->group(['Wickets.bowler_player_id', 'Innings.id'])
+        ->order(['totalWickets' => 'DESC', 'economy' => 'ASC'])
+        ->autoFields(true);
     }
 
     /**
