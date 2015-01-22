@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "1752bc3d1cd67e6bb3799e010e781f9a934ca171"
+                "reference": "093935ae942e06b9bf91f5ccbee86d0e9a86a918"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/1752bc3d1cd67e6bb3799e010e781f9a934ca171",
-                "reference": "1752bc3d1cd67e6bb3799e010e781f9a934ca171",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/093935ae942e06b9bf91f5ccbee86d0e9a86a918",
+                "reference": "093935ae942e06b9bf91f5ccbee86d0e9a86a918",
                 "shasum": ""
             },
             "require": {
@@ -190,7 +190,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-01-15 08:07:58"
+            "time": "2015-01-19 08:24:22"
         },
         {
             "name": "cakephp/debug_kit",
@@ -198,12 +198,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "c8e2e4fc52c3fd581b370c386bac68b4ea09034c"
+                "reference": "153285444901853853f8a63deb658716350738b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/c8e2e4fc52c3fd581b370c386bac68b4ea09034c",
-                "reference": "c8e2e4fc52c3fd581b370c386bac68b4ea09034c",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/153285444901853853f8a63deb658716350738b5",
+                "reference": "153285444901853853f8a63deb658716350738b5",
                 "shasum": ""
             },
             "require": {
@@ -248,7 +248,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2015-01-05 01:31:33"
+            "time": "2015-01-18 16:09:28"
         },
         {
             "name": "cakephp/migrations",
@@ -306,16 +306,16 @@
         },
         {
             "name": "cakephp/plugin-installer",
-            "version": "0.0.3",
+            "version": "0.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/plugin-installer.git",
-                "reference": "3551bd62ee0cc17e6f0c83b7f3a7c9962977d20a"
+                "reference": "376c15c687f256225f6ec3d7248746966bf33f15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/plugin-installer/zipball/3551bd62ee0cc17e6f0c83b7f3a7c9962977d20a",
-                "reference": "3551bd62ee0cc17e6f0c83b7f3a7c9962977d20a",
+                "url": "https://api.github.com/repos/cakephp/plugin-installer/zipball/376c15c687f256225f6ec3d7248746966bf33f15",
+                "reference": "376c15c687f256225f6ec3d7248746966bf33f15",
                 "shasum": ""
             },
             "require-dev": {
@@ -342,7 +342,7 @@
                 }
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
-            "time": "2015-01-15 04:59:27"
+            "time": "2015-01-17 04:31:50"
         },
         {
             "name": "davidyell/numbers_to_words",
@@ -1322,16 +1322,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "f8d5d08c56de5cfd592b3340424a81733259a876"
+                "reference": "db32c18eba00b121c145575fcbcd4d4d24e6db74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/f8d5d08c56de5cfd592b3340424a81733259a876",
-                "reference": "f8d5d08c56de5cfd592b3340424a81733259a876",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/db32c18eba00b121c145575fcbcd4d4d24e6db74",
+                "reference": "db32c18eba00b121c145575fcbcd4d4d24e6db74",
                 "shasum": ""
             },
             "require": {
@@ -1344,7 +1344,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -1367,20 +1367,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2014-08-31 06:12:13"
+            "time": "2015-01-17 09:51:32"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.4.1",
+            "version": "4.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6a5e49a86ce5e33b8d0657abe145057fc513543a"
+                "reference": "e90575c2bb86290d57a262862dab1da125431576"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6a5e49a86ce5e33b8d0657abe145057fc513543a",
-                "reference": "6a5e49a86ce5e33b8d0657abe145057fc513543a",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e90575c2bb86290d57a262862dab1da125431576",
+                "reference": "e90575c2bb86290d57a262862dab1da125431576",
                 "shasum": ""
             },
             "require": {
@@ -1438,7 +1438,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-12-28 07:57:05"
+            "time": "2015-01-17 11:24:41"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
