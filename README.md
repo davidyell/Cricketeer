@@ -17,6 +17,7 @@ Currently in pre-alpha. Under development.
 
 ##Installation
 Unzip the application into a folder on your machine. You will then need to install the dependencies using `composer install`.
+There is a database sql file with some test data and schema setup in the `config/Schema` folder.
 
 ##Administration
 You can login to the administration on `http://cricketeer.dev/login` and use the login `neon1024@gmail.com` `neon1024`
