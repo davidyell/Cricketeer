@@ -17,7 +17,8 @@
     "require-dev": {
         "d11wtq/boris": "1.0.*",
         "phpunit/phpunit": "*",
-        "squizlabs/php_codesniffer": "2.1.0"
+        "squizlabs/php_codesniffer": "2.1.0",
+        "cakephp/bake": "dev-master"
     },
     "suggest": {
         "phpunit/phpunit": "Allows automated tests to be run without system-wide install.",
@@ -35,7 +36,8 @@
         }
     },
     "scripts": {
-        "post-install-cmd": "App\\Console\\Installer::postInstall"
+        "post-install-cmd": "App\\Console\\Installer::postInstall",
+        "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
     },
     "config": {
         "bin-dir": "bin"

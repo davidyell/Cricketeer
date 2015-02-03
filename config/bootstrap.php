@@ -96,7 +96,7 @@ mb_internal_encoding(Configure::read('App.encoding'));
  * Set the default locale. This controls how dates, number and currency is
  * formatted and sets the default language to use for translations.
  */
-ini_set('intl.default_locale', 'en_US');
+ini_set('intl.default_locale', 'en_GB');
 
 /**
  * Register application error and exception handlers.
@@ -185,6 +185,7 @@ Plugin::load('Migrations');
 // Debug Kit should not be installed on a production system
 if (Configure::read('debug')) {
 	Plugin::load('DebugKit', ['bootstrap' => true]);
+	Plugin::load('Bake');
 }
 
 Plugin::load('Proffer');

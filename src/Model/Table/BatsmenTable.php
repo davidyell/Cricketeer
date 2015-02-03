@@ -104,7 +104,7 @@ class BatsmenTable extends Table
                 ]
             ]
         ])
-            ->order(['runs' => 'DESC', 'strike_rate' => 'DESC']);
+        ->order(['runs' => 'DESC', 'strike_rate' => 'DESC']);
     }
 
     /**
