@@ -4,6 +4,8 @@ Application for tracking Cricket matches and leagues.
 
 More information in the [Outline](docs/Outline.md)
 
+[![Dependency Status](https://www.versioneye.com/user/projects/54eee31731e55e8cd8000004/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54eee31731e55e8cd8000004)
+
 ## Branching
 All development happens in the develop branch and tagged releases are pushed into master.
 
