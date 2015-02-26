@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f00dc27f94ab9eb0a9279414c14be48e",
+    "hash": "387bb3bc86b99ed61cf551f4da389e19",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "7eccb6f17ad9995e6bd9570190642d728538a7d1"
+                "reference": "6741d2abb38a1cc90200c3f524a0a8e6f120b025"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/7eccb6f17ad9995e6bd9570190642d728538a7d1",
-                "reference": "7eccb6f17ad9995e6bd9570190642d728538a7d1",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/6741d2abb38a1cc90200c3f524a0a8e6f120b025",
+                "reference": "6741d2abb38a1cc90200c3f524a0a8e6f120b025",
                 "shasum": ""
             },
             "require": {
@@ -157,6 +157,7 @@
                 "cakephp/event": "self.version",
                 "cakephp/i18n": "self.version",
                 "cakephp/log": "self.version",
+                "cakephp/orm": "self.version",
                 "cakephp/utility": "self.version",
                 "cakephp/validation": "self.version"
             },
@@ -190,7 +191,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-02-03 11:31:37"
+            "time": "2015-02-16 12:56:24"
         },
         {
             "name": "cakephp/debug_kit",
@@ -198,12 +199,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "85ad8958985b8cbbaa33628a016675a22ed57888"
+                "reference": "64a1033ccd1fc0f914a08ff083e690c72d30d3d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/85ad8958985b8cbbaa33628a016675a22ed57888",
-                "reference": "85ad8958985b8cbbaa33628a016675a22ed57888",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/64a1033ccd1fc0f914a08ff083e690c72d30d3d6",
+                "reference": "64a1033ccd1fc0f914a08ff083e690c72d30d3d6",
                 "shasum": ""
             },
             "require": {
@@ -247,7 +248,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2015-01-31 14:43:39"
+            "time": "2015-02-06 03:43:37"
         },
         {
             "name": "cakephp/migrations",
@@ -255,19 +256,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/migrations.git",
-                "reference": "1342694bac70b515b1a23c6fb7380f765ce0630f"
+                "reference": "70cb70b71c7499bb6c90b5af11fb43a357e14376"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/migrations/zipball/1342694bac70b515b1a23c6fb7380f765ce0630f",
-                "reference": "1342694bac70b515b1a23c6fb7380f765ce0630f",
+                "url": "https://api.github.com/repos/cakephp/migrations/zipball/70cb70b71c7499bb6c90b5af11fb43a357e14376",
+                "reference": "70cb70b71c7499bb6c90b5af11fb43a357e14376",
                 "shasum": ""
             },
             "require": {
                 "cakephp/cakephp": "3.0.x-dev",
-                "cakephp/plugin-installer": "*",
                 "php": ">=5.4",
-                "robmorgan/phinx": "*"
+                "robmorgan/phinx": "~0.4"
             },
             "require-dev": {
                 "cakephp/bake": "dev-master",
@@ -301,20 +301,20 @@
                 "cakephp",
                 "migrations"
             ],
-            "time": "2015-01-22 04:28:30"
+            "time": "2015-02-10 02:53:17"
         },
         {
             "name": "cakephp/plugin-installer",
-            "version": "0.0.8",
+            "version": "0.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/plugin-installer.git",
-                "reference": "439f14f774c6906a739b8f7e6dcbdf1fafd17934"
+                "reference": "87cb0b70fc642f4a4ce5b6d8006392f01e8d0260"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/plugin-installer/zipball/439f14f774c6906a739b8f7e6dcbdf1fafd17934",
-                "reference": "439f14f774c6906a739b8f7e6dcbdf1fafd17934",
+                "url": "https://api.github.com/repos/cakephp/plugin-installer/zipball/87cb0b70fc642f4a4ce5b6d8006392f01e8d0260",
+                "reference": "87cb0b70fc642f4a4ce5b6d8006392f01e8d0260",
                 "shasum": ""
             },
             "require-dev": {
@@ -327,7 +327,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Cake\\Composer\\": "src/"
+                    "Cake\\Composer\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -341,7 +341,7 @@
                 }
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
-            "time": "2015-01-23 14:25:46"
+            "time": "2015-02-06 02:06:07"
         },
         {
             "name": "davidyell/numbers_to_words",
@@ -393,16 +393,16 @@
         },
         {
             "name": "davidyell/proffer",
-            "version": "v0.0.5",
+            "version": "v0.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidyell/CakePHP3-Proffer.git",
-                "reference": "a311efad2c082923468242e3e3ce5f883ecdfb05"
+                "reference": "d80da6cfc9508f6a83252b0ca5577b4b1663a991"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidyell/CakePHP3-Proffer/zipball/a311efad2c082923468242e3e3ce5f883ecdfb05",
-                "reference": "a311efad2c082923468242e3e3ce5f883ecdfb05",
+                "url": "https://api.github.com/repos/davidyell/CakePHP3-Proffer/zipball/d80da6cfc9508f6a83252b0ca5577b4b1663a991",
+                "reference": "d80da6cfc9508f6a83252b0ca5577b4b1663a991",
                 "shasum": ""
             },
             "require": {
@@ -442,7 +442,7 @@
                 "image",
                 "upload"
             ],
-            "time": "2015-01-15 12:13:52"
+            "time": "2015-02-16 16:38:12"
         },
         {
             "name": "imagine/imagine",
@@ -727,21 +727,20 @@
         },
         {
             "name": "robmorgan/phinx",
-            "version": "v0.4.1",
+            "version": "v0.4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/robmorgan/phinx.git",
-                "reference": "357210707c000f50edea802d84b74724ad122478"
+                "reference": "1bc1396392d4073b8b29ee5289e445889cbc12b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robmorgan/phinx/zipball/357210707c000f50edea802d84b74724ad122478",
-                "reference": "357210707c000f50edea802d84b74724ad122478",
+                "url": "https://api.github.com/repos/robmorgan/phinx/zipball/1bc1396392d4073b8b29ee5289e445889cbc12b5",
+                "reference": "1bc1396392d4073b8b29ee5289e445889cbc12b5",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "symfony/class-loader": "~2.6.0",
                 "symfony/config": "~2.6.0",
                 "symfony/console": "~2.6.0",
                 "symfony/yaml": "~2.6.0"
@@ -755,8 +754,8 @@
             ],
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Phinx": "src/"
+                "psr-4": {
+                    "Phinx\\": "src/Phinx"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -769,6 +768,12 @@
                     "email": "robbym@gmail.com",
                     "homepage": "http://robmorgan.id.au",
                     "role": "Lead Developer"
+                },
+                {
+                    "name": "Woody Gilk",
+                    "email": "woody.gilk@gmail.com",
+                    "homepage": "http://shadowhand.me",
+                    "role": "Developer"
                 }
             ],
             "description": "Phinx makes it ridiculously easy to manage the database migrations for your PHP app.",
@@ -780,57 +785,7 @@
                 "migrations",
                 "phinx"
             ],
-            "time": "2014-12-23 06:06:14"
-        },
-        {
-            "name": "symfony/class-loader",
-            "version": "v2.6.4",
-            "target-dir": "Symfony/Component/ClassLoader",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/ClassLoader.git",
-                "reference": "deac802f76910708ab50d039806cfd1866895b52"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ClassLoader/zipball/deac802f76910708ab50d039806cfd1866895b52",
-                "reference": "deac802f76910708ab50d039806cfd1866895b52",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "symfony/finder": "~2.0,>=2.0.5"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.6-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\ClassLoader\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Symfony ClassLoader Component",
-            "homepage": "http://symfony.com",
-            "time": "2015-01-05 14:28:40"
+            "time": "2015-02-08 03:41:44"
         },
         {
             "name": "symfony/config",
@@ -1039,12 +994,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/bake.git",
-                "reference": "c31e15747f090906bd6110f743c708d65786655c"
+                "reference": "82e5c4315091a89ab4494122a60896d47be50043"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/bake/zipball/c31e15747f090906bd6110f743c708d65786655c",
-                "reference": "c31e15747f090906bd6110f743c708d65786655c",
+                "url": "https://api.github.com/repos/cakephp/bake/zipball/82e5c4315091a89ab4494122a60896d47be50043",
+                "reference": "82e5c4315091a89ab4494122a60896d47be50043",
                 "shasum": ""
             },
             "require": {
@@ -1052,7 +1007,7 @@
                 "php": ">=5.4"
             },
             "require-dev": {
-                "cakephp/cakephp-codesniffer": "2.0.*-dev",
+                "cakephp/cakephp-codesniffer": "dev-master",
                 "phpunit/phpunit": "*"
             },
             "type": "cakephp-plugin",
@@ -1077,7 +1032,7 @@
                 "bake",
                 "cakephp"
             ],
-            "time": "2015-01-29 02:00:10"
+            "time": "2015-02-14 21:00:18"
         },
         {
             "name": "d11wtq/boris",
@@ -1166,6 +1121,114 @@
                 "instantiate"
             ],
             "time": "2014-10-13 12:58:55"
+        },
+        {
+            "name": "phpdocumentor/reflection-docblock",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
+                "reference": "d68dbdc53dc358a816f00b300704702b2eaff7b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/d68dbdc53dc358a816f00b300704702b2eaff7b8",
+                "reference": "d68dbdc53dc358a816f00b300704702b2eaff7b8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "dflydev/markdown": "~1.0",
+                "erusev/parsedown": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "phpDocumentor": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike van Riel",
+                    "email": "mike.vanriel@naenius.com"
+                }
+            ],
+            "time": "2015-02-03 12:10:50"
+        },
+        {
+            "name": "phpspec/prophecy",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpspec/prophecy.git",
+                "reference": "9ca52329bcdd1500de24427542577ebf3fc2f1c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/9ca52329bcdd1500de24427542577ebf3fc2f1c9",
+                "reference": "9ca52329bcdd1500de24427542577ebf3fc2f1c9",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/instantiator": "~1.0,>=1.0.2",
+                "phpdocumentor/reflection-docblock": "~2.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Prophecy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                },
+                {
+                    "name": "Marcello Duarte",
+                    "email": "marcello.duarte@gmail.com"
+                }
+            ],
+            "description": "Highly opinionated mocking framework for PHP 5.3+",
+            "homepage": "http://phpspec.org",
+            "keywords": [
+                "Double",
+                "Dummy",
+                "fake",
+                "mock",
+                "spy",
+                "stub"
+            ],
+            "time": "2014-11-17 16:23:49"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1413,16 +1476,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.4.5",
+            "version": "4.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2e8580deebb7d1ac92ac878595e6bffe01069c2a"
+                "reference": "5b578d3865a9128b9c209b011fda6539ec06e7a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2e8580deebb7d1ac92ac878595e6bffe01069c2a",
-                "reference": "2e8580deebb7d1ac92ac878595e6bffe01069c2a",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/5b578d3865a9128b9c209b011fda6539ec06e7a5",
+                "reference": "5b578d3865a9128b9c209b011fda6539ec06e7a5",
                 "shasum": ""
             },
             "require": {
@@ -1432,17 +1495,17 @@
                 "ext-reflection": "*",
                 "ext-spl": "*",
                 "php": ">=5.3.3",
+                "phpspec/prophecy": "~1.3.1",
                 "phpunit/php-code-coverage": "~2.0",
                 "phpunit/php-file-iterator": "~1.3.2",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": "~1.0.2",
                 "phpunit/phpunit-mock-objects": "~2.3",
-                "sebastian/comparator": "~1.0",
+                "sebastian/comparator": "~1.1",
                 "sebastian/diff": "~1.1",
-                "sebastian/environment": "~1.1",
-                "sebastian/exporter": "~1.1",
+                "sebastian/environment": "~1.2",
+                "sebastian/exporter": "~1.2",
                 "sebastian/global-state": "~1.0",
-                "sebastian/recursion-context": "~1.0",
                 "sebastian/version": "~1.0",
                 "symfony/yaml": "~2.0"
             },
@@ -1455,7 +1518,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4.x-dev"
+                    "dev-master": "4.5.x-dev"
                 }
             },
             "autoload": {
@@ -1481,7 +1544,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-01-27 16:06:15"
+            "time": "2015-02-05 15:51:19"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

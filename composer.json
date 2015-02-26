@@ -11,7 +11,7 @@
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/debug_kit": "3.0.*-dev",
         "davidyell/numbers_to_words": "0.0.2",
-        "davidyell/proffer": "0.0.5",
+        "davidyell/proffer": "0.0.6",
         "mustache/mustache": "2.7.0"
     },
     "require-dev": {
