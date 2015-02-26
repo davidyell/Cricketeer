@@ -1,7 +1,7 @@
 {
-    "name": "cakephp/app",
-    "description": "CakePHP skeleton app",
-    "homepage": "http://cakephp.org",
+    "name": "davidyell/cricketeer",
+    "description": "A CakePHP 3 application for managing Cricket matches",
+    "homepage": "",
     "type": "project",
     "license": "MIT",
     "require": {
