@@ -28,7 +28,6 @@
 			echo $this->Html->image('../files/players/photo/' . $player->photo_dir . '/portrait_' . $player->photo);
 		}
 		echo $this->Form->input('photo', ['type' => 'file']);
-		echo $this->Form->input('photo_dir', ['type' => 'hidden']);
 		echo $this->Form->input('number');
 		echo $this->Form->input('nationality');
 		echo $this->Form->input('batting_style_id');

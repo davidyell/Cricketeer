@@ -15,7 +15,6 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
 		echo $this->Form->input('image', ['type' => 'file', 'required' => false]);
-		echo $this->Form->input('image_dir', ['type' => 'hidden']);
 	?>
 	</fieldset>
 <?= $this->Form->button(__('Submit')) ?>
