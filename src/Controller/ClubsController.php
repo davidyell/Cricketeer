@@ -25,7 +25,11 @@ class ClubsController extends AppController {
         $club = $this->Clubs->find()
             ->contain([
                 'Players' => function ($q) {
-                    return $q->contain(['PlayerSpecialisations']);
+                    return $q->contain([
+                        'PlayerSpecialisations',
+                        'BattingStyles' => ['fields' => ['id', 'name']],
+                        'BowlingStyles' => ['fields' => ['id', 'name', 'shorthand']]
+                    ]);
                 }
             ])
             ->where(['id' => $id])

@@ -16,9 +16,17 @@
         <tbody>
             <?php foreach ($club->players as $player): ?>
                 <tr>
-                    <td><?php echo $player->get('FullName');?></td>
-                    <td><?php echo $player->bats;?></td>
-                    <td><?php echo $player->bowls;?></td>
+                    <td><?php echo $this->Html->link($player->get('FullName'), ['controller' => 'Players', 'action' => 'view', $player->slug]);?></td>
+                    <td><?php
+                        if ($player->has('batting_style')) {
+                            echo $player->batting_style->name;
+                        }
+                    ?></td>
+                    <td><?php
+                        if ($player->has('bowling_style')) {
+                            echo $player->bowling_style->name;
+                        }
+                    ?></td>
                     <td><?php echo $player->number;?></td>
                     <td><?php echo $player->player_specialisation->name;?></td>
                 </tr>
