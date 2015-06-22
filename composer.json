@@ -11,13 +11,13 @@
         "cakephp/debug_kit": "~3.1",
         "davidyell/numbers_to_words": "0.0.2",
         "davidyell/proffer": "~0.4",
-        "mustache/mustache": "2.7.0",
+        "mustache/mustache": "2.*",
         "friendsofcake/bootstrap-ui": "~0.3"
     },
     "require-dev": {
         "d11wtq/boris": "1.0.*",
         "phpunit/phpunit": "*",
-        "squizlabs/php_codesniffer": "2.1.0",
+        "squizlabs/php_codesniffer": "~2.3",
         "cakephp/bake": "dev-master"
     },
     "suggest": {
