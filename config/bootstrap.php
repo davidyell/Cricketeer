@@ -190,6 +190,7 @@ if (Configure::read('debug')) {
 
 Plugin::load('Proffer', ['bootstrap' => true]);
 Plugin::load('NumbersToWords');
+Plugin::load('BootstrapUI');
 
 /**
  * Connect middleware/dispatcher filters.
