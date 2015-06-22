@@ -116,6 +116,8 @@ $(function () {
             });
             $(div).html(batting);
         });
+
+        $(this).parents('div.batsman').children('div.wicket').html('<a href="#add-wicket" class="btn btn-primary">Add wicket</a>');
     });
 
 // Add a wicket
