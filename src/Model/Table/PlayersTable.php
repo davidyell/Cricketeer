@@ -12,6 +12,12 @@ use Cake\Validation\Validator;
 class PlayersTable extends Table
 {
 
+    protected function _initializeSchema(\Cake\Database\Schema\Table $table)
+    {
+        $table->columnType('photo', 'proffer.file');
+        return $table;
+    }
+
     /**
      * Initialize method
      *

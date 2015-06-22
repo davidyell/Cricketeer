@@ -188,7 +188,7 @@ if (Configure::read('debug')) {
 	Plugin::load('Bake');
 }
 
-Plugin::load('Proffer');
+Plugin::load('Proffer', ['bootstrap' => true]);
 Plugin::load('NumbersToWords');
 
 /**
