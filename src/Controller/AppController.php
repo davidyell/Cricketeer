@@ -28,17 +28,12 @@ use Cake\Event\Event;
 class AppController extends Controller
 {
 
-    /**
-     * Components this controller uses.
-     *
-     * Component names should not include the `Component` suffix. Components
-     * declared in subclasses will be merged with components declared here.
-     *
-     * @var array
-     */
-    public $components = [
-        'Flash',
-        'Auth' => [
+    public function initialize()
+    {
+        parent::initialize();
+
+        $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
             'authenticate' => [
                 'Form' => [
                     'fields' => ['username' => 'email']
@@ -50,10 +45,11 @@ class AppController extends Controller
             'authError' => 'You do not have permission to view that.',
             'loginRedirect' => ['controller' => 'Leagues', 'action' => 'index', 'prefix' => 'admin'],
             'loginAction' => ['controller' => 'Users', 'action' => 'login', 'prefix' => false]
-        ],
-        'Paginator',
-        'RequestHandler'
-    ];
+        ]);
+        $this->loadComponent('Paginator');
+        $this->loadComponent('RequestHandler');
+    }
+
 
     /**
      * beforeFilter method
