@@ -21,10 +21,6 @@
 	</table>
 
 	<ul class="pagination">
-		<?php
-		echo $this->Paginator->prev('&laquo;', ['escape' => false]);
-		echo $this->Paginator->numbers();
-		echo $this->Paginator->next('&raquo;', ['escape' => false]);
-		?>
+		<?php echo $this->Paginator->numbers();?>
 	</ul>
 </div>
