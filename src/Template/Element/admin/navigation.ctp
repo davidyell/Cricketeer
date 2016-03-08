@@ -14,40 +14,40 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         
-		<li <?php echo ($this->request->controller === 'leagues')? 'class="active"' : '';?>><?php echo $this->Html->link('Leagues', ['controller' => 'leagues', 'action' => 'index']);?></li>
-		<li <?php echo ($this->request->controller === 'clubs')? 'class="active"' : '';?>><?php echo $this->Html->link('Clubs', ['controller' => 'clubs', 'action' => 'index']);?></li>
+		<li <?php echo ($this->request->controller === 'Leagues')? 'class="active"' : '';?>><?php echo $this->Html->link('Leagues', ['controller' => 'leagues', 'action' => 'index']);?></li>
+		<li <?php echo ($this->request->controller === 'Clubs')? 'class="active"' : '';?>><?php echo $this->Html->link('Clubs', ['controller' => 'clubs', 'action' => 'index']);?></li>
 		
-		<li class="dropdown">
+		<li class="dropdown <?php echo ($this->request->controller === 'Players' || $this->request->controller === 'Teams')? 'active' : '';?>">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Players <span class="caret"></span></a>
 			<ul class="dropdown-menu" role="menu">
-				<li <?php echo ($this->request->controller === 'players')? 'class="active"' : '';?>><?php echo $this->Html->link('Players', ['controller' => 'players', 'action' => 'index']);?></li>
-				<li <?php echo ($this->request->controller === 'teams')? 'class="active"' : '';?>><?php echo $this->Html->link('Teams', ['controller' => 'teams', 'action' => 'index']);?></li>
+				<li <?php echo ($this->request->controller === 'Players')? 'class="active"' : '';?>><?php echo $this->Html->link('Players', ['controller' => 'players', 'action' => 'index']);?></li>
+				<li <?php echo ($this->request->controller === 'Teams')? 'class="active"' : '';?>><?php echo $this->Html->link('Teams', ['controller' => 'teams', 'action' => 'index']);?></li>
 			</ul>
 		</li>
 		
-		<li class="dropdown">
+		<li class="dropdown <?php echo ($this->request->controller === 'Matches' || $this->request->controller === 'Venues' || $this->request->controller === 'Formats')? 'active' : '';?>">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Matches <span class="caret"></span></a>
 			<ul class="dropdown-menu" role="menu">
-				<li <?php echo ($this->request->controller === 'matches')? 'class="active"' : '';?>><?php echo $this->Html->link('Matches', ['controller' => 'matches', 'action' => 'index']);?></li>
-				<li <?php echo ($this->request->controller === 'venues')? 'class="active"' : '';?>><?php echo $this->Html->link('Venues', ['controller' => 'venues', 'action' => 'index']);?></li>
-				<li <?php echo ($this->request->controller === 'formats')? 'class="active"' : '';?>><?php echo $this->Html->link('Formats', ['controller' => 'formats', 'action' => 'index']);?></li>
+				<li <?php echo ($this->request->controller === 'Matches')? 'class="active"' : '';?>><?php echo $this->Html->link('Matches', ['controller' => 'matches', 'action' => 'index']);?></li>
+				<li <?php echo ($this->request->controller === 'Venues')? 'class="active"' : '';?>><?php echo $this->Html->link('Venues', ['controller' => 'venues', 'action' => 'index']);?></li>
+				<li <?php echo ($this->request->controller === 'Formats')? 'class="active"' : '';?>><?php echo $this->Html->link('Formats', ['controller' => 'formats', 'action' => 'index']);?></li>
 			</ul>
 		</li>
 		
-		<li class="dropdown">
+		<li class="dropdown <?php echo ($this->request->controller === 'Innings' || $this->request->controller === 'Batsmen' || $this->request->controller === 'Bowlers' || $this->request->controller === 'Wickets')? 'active' : '';?>">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Scores <span class="caret"></span></a>
 			<ul class="dropdown-menu" role="menu">
-				<li <?php echo ($this->request->controller === 'innings')? 'class="active"' : '';?>><?php echo $this->Html->link('Innings', ['controller' => 'innings', 'action' => 'index']);?></li>
-				<li <?php echo ($this->request->controller === 'batsmen')? 'class="active"' : '';?>><?php echo $this->Html->link('Batting', ['controller' => 'batsmen', 'action' => 'index']);?></li>
-				<li <?php echo ($this->request->controller === 'bowlers')? 'class="active"' : '';?>><?php echo $this->Html->link('Bowling', ['controller' => 'bowlers', 'action' => 'index']);?></li>
-				<li <?php echo ($this->request->controller === 'wickets')? 'class="active"' : '';?>><?php echo $this->Html->link('Wickets', ['controller' => 'wickets', 'action' => 'index']);?></li>
+				<li <?php echo ($this->request->controller === 'Innings')? 'class="active"' : '';?>><?php echo $this->Html->link('Innings', ['controller' => 'innings', 'action' => 'index']);?></li>
+				<li <?php echo ($this->request->controller === 'Batsmen')? 'class="active"' : '';?>><?php echo $this->Html->link('Batting', ['controller' => 'batsmen', 'action' => 'index']);?></li>
+				<li <?php echo ($this->request->controller === 'Bowlers')? 'class="active"' : '';?>><?php echo $this->Html->link('Bowling', ['controller' => 'bowlers', 'action' => 'index']);?></li>
+				<li <?php echo ($this->request->controller === 'Wickets')? 'class="active"' : '';?>><?php echo $this->Html->link('Wickets', ['controller' => 'wickets', 'action' => 'index']);?></li>
 			</ul>
 		</li>
 		
-		<li class="dropdown">
+		<li class="dropdown <?php echo ($this->request->controller === 'Dismissals')? 'active' : '';?>">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">System <span class="caret"></span></a>
 			<ul class="dropdown-menu" role="menu">
-				<li <?php echo ($this->request->controller === 'dismissals')? 'class="active"' : '';?>><?php echo $this->Html->link('Dismissals', ['controller' => 'dismissals', 'action' => 'index']);?></li>
+				<li <?php echo ($this->request->controller === 'Dismissals')? 'class="active"' : '';?>><?php echo $this->Html->link('Dismissals', ['controller' => 'dismissals', 'action' => 'index']);?></li>
 			</ul>
 		</li>
 		
