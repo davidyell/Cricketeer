@@ -12,7 +12,7 @@
 		<tbody>
 			<?php foreach ($players as $player):?>
 				<tr>
-					<td><?php echo $this->Html->link($player->get('FullName'), ['controller' => 'Players', 'action' => 'view', $player->slug]);?></td>
+					<td><?php echo $this->Html->link($player->get('full_name'), ['controller' => 'Players', 'action' => 'view', $player->slug]);?></td>
 					<td><?php echo $player->club->name;?></td>
 					<td><?php echo $player->player_specialisation->name;?></td>
 				</tr>

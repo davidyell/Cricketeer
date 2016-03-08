@@ -1,5 +1,5 @@
 <div class="players view">
-	<h2><?php echo $player->get('FullName');?></h2>
+	<h2><?php echo $player->get('full_name');?></h2>
 	<?php echo $this->Html->image('../files/players/photo/' . $player->photo_dir . '/portrait_' . $player->photo);?>
 
 	<ul>

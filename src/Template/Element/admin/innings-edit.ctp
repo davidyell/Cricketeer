@@ -46,7 +46,7 @@
             echo $this->Form->input("innings.$inningNum.batsmen.$i.player_id", ['type' => 'hidden', 'value' => $squad->player_id]);
 
             ?><span class='form-label'><?php
-                echo $squad->player->get('FullName');
+                echo $squad->player->get('full_name');
                 echo $this->Html->image('../files/players/photo/' . $squad->player->photo_dir . '/portrait_' . $squad->player->photo);
             ?></span>
 

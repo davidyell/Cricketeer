@@ -76,11 +76,11 @@ $bowlers1 = new \Cake\Collection\Collection($inningsTeam2->bowlers);
 	<tr>
 		<td><?php
 			$bestBatting = $batsmen0->max('runs');
-			echo $this->Html->image('icons/batsman.png', ['width' => 16]) . ' <b>' . $bestBatting->player->get('FullName') . "</b> {$bestBatting->runs}";
+			echo $this->Html->image('icons/batsman.png', ['width' => 16]) . ' <b>' . $bestBatting->player->get('full_name') . "</b> {$bestBatting->runs}";
 			?></td>
 		<td><?php
 			$bestBatting = $batsmen1->max('runs');
-			echo $this->Html->image('icons/batsman.png', ['width' => 16]) . ' <b>' . $bestBatting->player->get('FullName') . "</b> {$bestBatting->runs}";
+			echo $this->Html->image('icons/batsman.png', ['width' => 16]) . ' <b>' . $bestBatting->player->get('full_name') . "</b> {$bestBatting->runs}";
 			?></td>
 	</tr>
 <?php endif;?>
@@ -91,7 +91,7 @@ $bowlers1 = new \Cake\Collection\Collection($inningsTeam2->bowlers);
 			$bestBowling = $bowlers0->max('totalWickets');
 			if (!empty($bestBowling)) {
 				if (isset($bestBowling->_matchingData['PlayerBowledWicket'])) {
-					echo $this->Html->image('icons/cricket-ball.png', ['width' => 16]) . ' <b>' . $bestBowling->_matchingData['PlayerBowledWicket']->get('FullName') . '</b> ' . $bestBowling->totalWickets . '-' . $bestBowling->runs;
+					echo $this->Html->image('icons/cricket-ball.png', ['width' => 16]) . ' <b>' . $bestBowling->_matchingData['PlayerBowledWicket']->get('full_name') . '</b> ' . $bestBowling->totalWickets . '-' . $bestBowling->runs;
 				}
 			}
 		?></td>
@@ -99,7 +99,7 @@ $bowlers1 = new \Cake\Collection\Collection($inningsTeam2->bowlers);
 			$bestBowling = $bowlers1->max('totalWickets');
 			if (!empty($bestBowling)) {
 				if (isset($bestBowling->_matchingData['PlayerBowledWicket'])) {
-					echo $this->Html->image('icons/cricket-ball.png', ['width' => 16]) . ' <b>' . $bestBowling->_matchingData['PlayerBowledWicket']->get('FullName') . '</b> ' . $bestBowling->totalWickets . '-' . $bestBowling->runs;
+					echo $this->Html->image('icons/cricket-ball.png', ['width' => 16]) . ' <b>' . $bestBowling->_matchingData['PlayerBowledWicket']->get('full_name') . '</b> ' . $bestBowling->totalWickets . '-' . $bestBowling->runs;
 				}
 			}
 		?></td>
