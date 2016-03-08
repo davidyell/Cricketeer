@@ -13,7 +13,7 @@ All development happens in the develop branch and tagged releases are pushed int
 Currently in beta, it's not a polished end product by any means, but it does all work.
 
 ##Requirements
-* PHP 5.5+
+* PHP 5.5.9+
 * MySQL 5.6.21+
 * Composer
 
