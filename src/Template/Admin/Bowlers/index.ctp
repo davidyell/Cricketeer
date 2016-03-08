@@ -27,7 +27,7 @@
 		<tr>
 			<td><?= h($bowler->id) ?></td>
 			<td>
-				<?= $bowler->has('player') ? $this->Html->link($bowler->player->FullName, ['controller' => 'Players', 'action' => 'view', $bowler->player->id]) : '' ?>
+				<?= $bowler->has('player') ? $this->Html->link($bowler->player->get('full_name'), ['controller' => 'Players', 'action' => 'view', $bowler->player->id]) : '' ?>
 			</td>
 			<td>
 				<?= $bowler->has('innings') ? $this->Html->link($bowler->innings->id, ['controller' => 'Innings', 'action' => 'view', $bowler->innings->id]) : '' ?>

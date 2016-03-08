@@ -27,7 +27,7 @@
 		<tr>
 			<td><?= h($batsman->id) ?></td>
 			<td>
-				<?= $batsman->has('player') ? $this->Html->link($batsman->player->FullName, ['controller' => 'Players', 'action' => 'view', $batsman->player->id]) : '' ?>
+				<?= $batsman->has('player') ? $this->Html->link($batsman->player->get('full_name'), ['controller' => 'Players', 'action' => 'view', $batsman->player->id]) : '' ?>
 			</td>
 			<td>
 				<?= $batsman->has('innings') ? $this->Html->link($batsman->innings->id, ['controller' => 'Innings', 'action' => 'view', $batsman->innings->id]) : '' ?>
