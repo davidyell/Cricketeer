@@ -154,7 +154,7 @@ $opponents = new \Cake\Collection\Collection($opposition);
 					?>
 					<tr>
 						<td><?php echo explode('-', $wicket->fall_of_wicket)[0];?></td>
-						<td><?php echo $player->player->get('InitialLastName');?></td>
+						<td><?php echo $player->player->get('initial_last_name');?></td>
 					</tr>
 				<?php endforeach;?>
 			</table>
