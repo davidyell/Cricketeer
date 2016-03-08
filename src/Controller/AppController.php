@@ -62,7 +62,7 @@ class AppController extends Controller
         parent::beforeFilter($event);
 
         if (isset($this->request->params['prefix']) && $this->request->params['prefix'] === 'admin') {
-            $this->layout = 'admin';
+            $this->viewBuilder()->layout('admin');
         }
 
         $this->setupAuth();
