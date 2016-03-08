@@ -21,7 +21,7 @@
 use Cake\Core\Plugin;
 use Cake\Routing\Router;
 
-Router::defaultRouteClass('InflectedRoute');
+Router::defaultRouteClass('DashedRoute');
 
 Router::prefix('admin', function($routes) {
 	$routes->extensions(['json']);
